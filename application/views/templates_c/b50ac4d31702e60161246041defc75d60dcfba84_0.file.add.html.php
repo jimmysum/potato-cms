@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-10 19:53:46
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-12 18:55:25
          compiled from "/data/src/test/codeIgniter/application/views/admin/cate/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5618fc4a8f31d9_91286973',
+  'unifunc' => 'content_561b919d4a5354_06736166',
   'file_dependency' => 
   array (
     'b50ac4d31702e60161246041defc75d60dcfba84' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/cate/add.html',
-      1 => 1444478023,
+      1 => 1444647318,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5618fc4a8f31d9_91286973')) {
-function content_5618fc4a8f31d9_91286973 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_561b919d4a5354_06736166')) {
+function content_561b919d4a5354_06736166 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -184,11 +184,11 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
     </div>
   </div>
 
+  </form>
   <div class="am-margin">
     <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
     <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
   </div>
-  </form>
 </div>
 <!-- content end -->
 
@@ -199,7 +199,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 <?php echo '<script'; ?>
 >
 	$('#save-sure').on('click', function() {
-	  if ($('#danger-msg').html() == 'undefined')
+	  if ($('#danger-msg').lenth <= 0 || $('#danger-msg').css('display') == 'none')
 	  {
 		$.post("/admin/cate/add",
 			$('#doc-vld-msg').serializeArray(),
