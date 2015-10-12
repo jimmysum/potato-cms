@@ -1,0 +1,165 @@
+<{include file="admin/public/header.html"}>
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <{include file='admin/public/left.html'}>
+  <!-- sidebar end -->
+
+<!-- content start -->
+<div class="admin-content">
+
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表单</strong> / <small>form</small></div>
+  </div>
+
+  <form class="am-form" id="doc-vld-msg">
+  <div class="am-tabs am-margin" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+      <li class="am-active"><a href="#tab1">分类内容</a></li>
+      <li><a href="#tab3">SEO 选项</a></li>
+    </ul>
+    <div class="am-tabs-bd">
+      <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+        <div class="am-g am-margin-top">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">上级分类</div>
+          <div class="am-u-sm-8 am-u-md-10">
+            <select data-am-selected="{btnSize: 'sm'}" name="pid">
+              <option value="0">请选择分类</option>
+              <{foreach from=$list item="val"}>
+              <option value="<{$val.id}>"><{$val.cate}></option>
+              	  <{foreach from=$val.child item="va"}>
+	              <option value="<{$va.id}>">&nbsp;&nbsp;└-<{$va.cate}></option>
+	              <{/foreach}>
+              <{/foreach}>
+            </select>
+          </div>
+        </div>
+
+        <div class="am-g am-margin-top">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">显示状态</div>
+          <div class="am-u-sm-8 am-u-md-10">
+            <div class="am-btn-group" data-am-button>
+              <label class="am-btn am-btn-default am-btn-xs">
+                <input type="radio" name="options" id="option1"> 正常
+              </label>
+              <label class="am-btn am-btn-default am-btn-xs">
+                <input type="radio" name="options" id="option2"> 待审核
+              </label>
+              <label class="am-btn am-btn-default am-btn-xs">
+                <input type="radio" name="options" id="option3"> 不显示
+              </label>
+            </div>
+          </div>
+        </div>
+        
+		<div class="am-g am-margin-top am-form-group">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              分类名称
+            </div>
+            <div class="am-u-sm-8 am-u-md-3 am-u-end">
+              <input name="cate" type="text" class="am-input-sm" placeholder="输入分类名称" required>
+            </div>
+        </div>
+        
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              排序
+            </div>
+            <div class="am-u-sm-8 am-u-md-2 am-u-end">
+              <input name="sort" type="text" class="am-input-sm"  placeholder="默认50">
+            </div>
+        </div>
+
+        <div class="am-g am-margin-top">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">
+            发布时间
+          </div>
+          <div class="am-u-sm-8 am-u-md-3 am-u-end">
+              <div class="am-form-group am-form-icon">
+                <i class="am-icon-calendar"></i>
+                <input name="time" type="text" class="am-form-field am-input-sm" placeholder="时间">
+              </div>
+          </div>
+        </div>
+
+      </div>
+		
+      <div class="am-tab-panel am-fade" id="tab3">
+          <div class="am-g am-margin-top-sm">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              SEO 标题
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end">
+              <input name="seo_title" type="text" class="am-input-sm">
+            </div>
+          </div>
+
+          <div class="am-g am-margin-top-sm">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              SEO 关键字
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end">
+              <input name="seo_keyword" type="text" class="am-input-sm">
+            </div>
+          </div>
+
+          <div class="am-g am-margin-top-sm">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              SEO 描述
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end">
+              <textarea name="seo_desc" rows="4"></textarea>
+            </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  </form>
+  <div class="am-margin">
+    <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+    <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
+  </div>
+</div>
+<!-- content end -->
+
+</div>
+<{include file='admin/public/footer.html'}>
+<script>
+	$('#save-sure').on('click', function() {
+		$.post("/admin/cate/add",
+			$('#doc-vld-msg').serializeArray(),
+		  function(data,status){
+		    alert("Data: " + data + "\nStatus: " + status);
+		  });
+	});
+
+	$('#save-forgive').on('click', function() {
+		window.location.href='/admin/cate/index';
+	});
+	$(function() {
+		  $('#doc-vld-msg').validator({
+		    onValid: function(validity) {
+		      $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+		    },
+
+		    onInValid: function(validity) {
+		      var $field = $(validity.field);
+		      var $group = $field.closest('.am-form-group');
+		      var $alert = $group.find('.am-alert');
+		      // 使用自定义的提示信息 或 插件内置的提示信息
+		      var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+		      if (!$alert.length) {
+		        $alert = $('<div class="am-alert am-alert-danger am-u-md-2 am-u-end" id="danger-msg"></div>').hide().
+		          appendTo($group);
+		      }
+
+		      $alert.html(msg).show();
+		    }
+		  });
+			  
+		});
+</script>
+</body>
+</html>
