@@ -60,6 +60,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $active_group = 'default';
+
+if (ENVIRONMENT == 'testing') {
+	$active_group = 'home';
+}
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -68,6 +72,28 @@ $db['default'] = array(
 	'username' => 'root',
 	'password' => '123456',
 	'database' => 'lmb_test_forjimmy',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => 'ci_',
+	'pconnect' => FALSE,
+	'db_debug' => TRUE,
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+$db['home'] = array(
+	'dsn'	=> '',
+	'hostname' => '192.68.30.110',
+	'username' => 'root',
+	'password' => 'chenyandong',
+	'database' => 'ci_data',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => 'ci_',
 	'pconnect' => FALSE,

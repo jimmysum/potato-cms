@@ -72,18 +72,21 @@ class MY_Controller extends CI_Controller
 			$merge_tpl_vars, $no_output_filter);
 	}
 	
-	public function outJson($code = 0, $data = array(), $msg = null)
+	public function outJson($code = 0, $data = array(), $msg = '')
 	{
 		if (is_null($code))
 		{
 			$code = -1;
 		}
 		
-		if (is_null($msg))
+		if (!$msg)
 		{
 			$this->config->load('code', true);
 			$codes = $this->config->item('code', 'code');
-			$msg = $codes[$code];
+
+			if (isset($codes[$code])) {
+				$msg = $codes[$code];
+			}
 		}
 		
 		$data = array(

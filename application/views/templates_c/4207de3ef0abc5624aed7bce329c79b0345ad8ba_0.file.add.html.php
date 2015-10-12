@@ -1,7 +1,36 @@
-<{include file="admin/public/header.html"}>
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-13 01:09:59
+         compiled from "/var/www/html/codeIgniter/application/views/admin/cate/add.html" */ ?>
+<?php
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'has_nocache_code' => false,
+  'version' => '3.1.28-dev/63',
+  'unifunc' => 'content_561be96739a4f0_35775667',
+  'file_dependency' => 
+  array (
+    '4207de3ef0abc5624aed7bce329c79b0345ad8ba' => 
+    array (
+      0 => '/var/www/html/codeIgniter/application/views/admin/cate/add.html',
+      1 => 1444669779,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:admin/public/header.html' => 1,
+    'file:admin/public/left.html' => 1,
+    'file:admin/public/footer.html' => 1,
+  ),
+),false);
+if ($_valid && !is_callable('content_561be96739a4f0_35775667')) {
+function content_561be96739a4f0_35775667 ($_smarty_tpl) {
+$_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
 <div class="am-cf admin-main">
   <!-- sidebar start -->
-  <{include file='admin/public/left.html'}>
+  <?php $_smarty_tpl->setupSubTemplate('file:admin/public/left.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
   <!-- sidebar end -->
 
 <!-- content start -->
@@ -25,12 +54,52 @@
           <div class="am-u-sm-8 am-u-md-10">
             <select data-am-selected="{btnSize: 'sm'}" name="pid">
               <option value="0">请选择分类</option>
-              <{foreach from=$list item="val"}>
-              <option value="<{$val.id}>"><{$val.cate}></option>
-              	  <{foreach from=$val.child item="va"}>
-	              <option value="<{$va.id}>">&nbsp;&nbsp;└-<{$va.cate}></option>
-	              <{/foreach}>
-              <{/foreach}>
+              <?php
+$_from = $_smarty_tpl->tpl_vars['list']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_val_0_saved_item = isset($_smarty_tpl->tpl_vars['val']) ? $_smarty_tpl->tpl_vars['val'] : false;
+$_smarty_tpl->tpl_vars['val'] = new Smarty_Variable();
+$__foreach_val_0_total = $_smarty_tpl->_count($_from);
+if ($__foreach_val_0_total) {
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
+$__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
+?>
+              <option value="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
+</option>
+              	  <?php
+$_from = $_smarty_tpl->tpl_vars['val']->value['child'];
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_va_1_saved_item = isset($_smarty_tpl->tpl_vars['va']) ? $_smarty_tpl->tpl_vars['va'] : false;
+$_smarty_tpl->tpl_vars['va'] = new Smarty_Variable();
+$__foreach_va_1_total = $_smarty_tpl->_count($_from);
+if ($__foreach_va_1_total) {
+foreach ($_from as $_smarty_tpl->tpl_vars['va']->value) {
+$__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
+?>
+	              <option value="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+">&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
+</option>
+	              <?php
+$_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_local_item;
+}
+}
+if ($__foreach_va_1_saved_item) {
+$_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_item;
+}
+?>
+              <?php
+$_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_local_item;
+}
+}
+if ($__foreach_val_0_saved_item) {
+$_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
+}
+?>
             </select>
           </div>
         </div>
@@ -125,8 +194,11 @@
 <!-- content end -->
 
 </div>
-<{include file='admin/public/footer.html'}>
-<script>
+<?php $_smarty_tpl->setupSubTemplate('file:admin/public/footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
+<?php echo '<script'; ?>
+>
 	$('#save-sure').on('click', function() {
 		$.post("/admin/cate/add",
 			$('#doc-vld-msg').serializeArray(),
@@ -183,6 +255,9 @@
 		  });
 			  
 		});
-</script>
+<?php echo '</script'; ?>
+>
 </body>
 </html>
+<?php }
+}

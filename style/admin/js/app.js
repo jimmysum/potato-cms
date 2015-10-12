@@ -11,4 +11,5 @@
       $fullText.text($.AMUI.fullscreen.isFullscreen ? '退出全屏' : '开启全屏');
     });
   });
+
 })(jQuery);

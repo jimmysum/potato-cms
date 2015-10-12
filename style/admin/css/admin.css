@@ -356,3 +356,10 @@ gallery.html css
 .fixed-layout .admin-sidebar.am-active {
   z-index: 1600;
 }
+
+.success-msg {
+  position: absolute;
+  display: none;
+  top: 40px;
+  left: 280px;
+}

@@ -30,7 +30,7 @@ class Cate extends Admin_Controller
 					'label' => '分类名称',
 					'rules' => 'required',
 					'errors' => array(
-							'required' => '请填写  %s.',
+							'required' => '请填写"%s."',
 					),
 			),
 			
@@ -57,14 +57,12 @@ class Cate extends Admin_Controller
 		$input = $this->input->post();
 		if ($input)
 		{
-			print_r($input);die;
 			$this->load->library('form_validation');
 			$this->form_validation->set_data($input);
 			$this->form_validation->set_rules($this->rules);
-				
 			if ($this->form_validation->run() == TRUE)
 			{
-				
+				$this->outJson(0);
 			}
 			else
 			{

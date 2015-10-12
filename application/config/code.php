@@ -19,6 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['code'] = array(
 		'-1'	=> '参数错误',
+		'0'		=> '请求成功',
 		'101'	=> '',
 		'102'	=> '请填写用户名',
 		'103'	=> '用户名或密码错误',
