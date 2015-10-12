@@ -115,11 +115,11 @@
     </div>
   </div>
 
+  </form>
   <div class="am-margin">
     <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
     <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
   </div>
-  </form>
 </div>
 <!-- content end -->
 
@@ -127,14 +127,11 @@
 <{include file='admin/public/footer.html'}>
 <script>
 	$('#save-sure').on('click', function() {
-	  if ($('#danger-msg').html() == 'undefined')
-	  {
 		$.post("/admin/cate/add",
 			$('#doc-vld-msg').serializeArray(),
 		  function(data,status){
 		    alert("Data: " + data + "\nStatus: " + status);
 		  });
-	  }
 	});
 
 	$('#save-forgive').on('click', function() {
