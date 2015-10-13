@@ -51,7 +51,12 @@
           <table class="am-table am-table-striped am-table-hover table-main">
             <thead>
               <tr>
-                <th class="table-check"><input type="checkbox" /></th><th class="table-id">ID</th><th class="table-title">分类名称</th><th class="table-type">类别</th><th class="table-author am-hide-sm-only">作者</th><th class="table-date am-hide-sm-only">修改日期</th><th class="table-set">操作</th>
+                <th class="table-check"><input type="checkbox" /></th>
+                <th class="table-id">ID</th><th class="table-title">分类名称</th>
+                <th class="table-type">排序</th>
+                <th class="table-author am-hide-sm-only">状态</th>
+                <th class="table-date am-hide-sm-only">修改日期</th>
+                <th class="table-set">操作</th>
               </tr>
           </thead>
           <tbody>
@@ -60,15 +65,15 @@
               <td><input type="checkbox" /></td>
               <td><{$val.id}></td>
               <td><a href="#"><{$val.cate}></a></td>
-              <td>default</td>
-              <td class="am-hide-sm-only">测试1号</td>
-              <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+              <td><{$val['sort']}></td>
+              <td class="am-hide-sm-only"><{$val['status']}></td>
+              <td class="am-hide-sm-only"><{$val.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
               <td>
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
-                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
-                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<{$val.id}>)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                    <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<{$val.id}>)"><span class="am-icon-copy"></span> 复制</button> -->
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$val.id}>)"><span class="am-icon-trash-o"></span> 删除</button>
                   </div>
                 </div>
               </td>
@@ -78,15 +83,15 @@
 	              <td><input type="checkbox" /></td>
 	              <td><{$va.id}></td>
 	              <td>&nbsp;└─<a href="#"><{$va.cate}></a></td>
-	              <td>default</td>
-	              <td class="am-hide-sm-only">测试1号</td>
-	              <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+	              <td><{$va['sort']}></td>
+	              <td class="am-hide-sm-only"><{$val['status']}></td>
+	              <td class="am-hide-sm-only"><{$va.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
 	              <td>
 	                <div class="am-btn-toolbar">
 	                  <div class="am-btn-group am-btn-group-xs">
-	                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-	                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
-	                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+	                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<{$va.id}>)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                      <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<{$val.id}>)"><span class="am-icon-copy"></span> 复制</button> -->
+                      <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$va.id}>)"><span class="am-icon-trash-o"></span> 删除</button>
 	                  </div>
 	                </div>
 	              </td>
@@ -96,15 +101,15 @@
 		              <td><input type="checkbox" /></td>
 		              <td><{$v.id}></td>
 		              <td>&nbsp;└─<a href="#"><{$v.cate}></a></td>
-		              <td>default</td>
-		              <td class="am-hide-sm-only">测试1号</td>
-		              <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+		              <td><{$va['sort']}></td>
+		              <td class="am-hide-sm-only"><{$v['status']}></td>
+		              <td class="am-hide-sm-only"><{$v.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
 		              <td>
 		                <div class="am-btn-toolbar">
 		                  <div class="am-btn-group am-btn-group-xs">
-		                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-		                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
-		                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+		                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<{$v.id}>)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                        <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<{$val.id}>)"><span class="am-icon-copy"></span> 复制</button> -->
+                        <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$v.id}>)"><span class="am-icon-trash-o"></span> 删除</button>
 		                  </div>
 		                </div>
 		              </td>
@@ -131,6 +136,21 @@
 	$('#add-cate').on('click', function() {
 		window.location.href='/admin/cate/add';
   	});
+
+  function edit(id)
+  {
+    window.location.href='/admin/cate/add?id=' + id;
+  }
+
+  function copy(id)
+  {
+
+  }
+
+  function del(id)
+  {
+
+  }
 </script>
 </body>
 </html>

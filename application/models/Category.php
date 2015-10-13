@@ -31,6 +31,27 @@ class Category extends CI_Model
 		$list = $this->db->from(self::TABLE)->select()->get()->result_array();
 		return $list;
 	}
+
+	public function getOne($id)
+	{
+		return $this->db->from(self::TABLE)->where(array('id' => $id))->select()->get()->row_array();
+	}
+
+	public function add($cate)
+	{
+		return $this->db->insert(self::TABLE, $cate);
+	}
+
+	public function update($cate, $key)
+	{
+		$val = $cate[$key];
+		if (!$val)
+		{
+			return 0;
+		}
+		unset($cate[$key]);
+		return $this->db->update(self::TABLE, $cate, array($key => $val));
+	}
 }
 
 ?>

@@ -62,7 +62,22 @@ class Cate extends Admin_Controller
 			$this->form_validation->set_rules($this->rules);
 			if ($this->form_validation->run() == TRUE)
 			{
-				$this->outJson(0);
+				$input['time'] = time();
+				if ($input['id']) {
+					$res = $this->category->update($input, 'id');
+				}
+				else
+				{
+					$res = $this->category->add($input);
+				}
+				if ($res)
+				{
+					$this->outJson(0);
+				}
+				else
+				{
+					$this->outJson(1);
+				}
 			}
 			else
 			{
@@ -71,6 +86,14 @@ class Cate extends Admin_Controller
 		}
 		else 
 		{
+			$id = $this->input->get('id');
+			if ($id) {
+				$cate = $this->category->getOne($id);
+				if (!$cate) {
+					$this->error('分类不存在');
+				}
+				$this->assign('cate', $cate);
+			}
 			$list = $this->category->getAll();
 			$list = node_merge($list);
 			$this->assign('list', $list);

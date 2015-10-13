@@ -98,6 +98,11 @@ class MY_Controller extends CI_Controller
 		
 		echo json_encode($data);die;
 	}
+
+	public function error($msg)
+	{
+		echo $msg;die;
+	}
 	
 }
 
