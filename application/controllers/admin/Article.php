@@ -17,7 +17,7 @@
 *        Jimmy        2015-10-9下午4:12:48          1.0                     第一次建立该文件
 *
 */
-class Cate extends Admin_Controller 
+class Article extends Admin_Controller 
 {
 	/**
 	 * 规则验证
@@ -35,16 +35,23 @@ class Cate extends Admin_Controller
 			),
 			
 	);
+
+	public $ps = 25;
 	
 	public function __construct() 
 	{
 		parent::__construct ();
-		$this->load->model('M_Cate', 'category');
+		$this->load->model('M_Article', 'article');
 	}
 	
 	public function index()
 	{
-		$list = $this->category->getAll();
+		$param = $this->input->get();
+		if (isset($param['p'])) {
+			$conditon['p'] = $param['p'];
+		}
+		$conditon['ps'] = $this->ps;
+		$list = $this->article->getList($conditon);
 		$list = node_merge($list);
 // 		echo '<pre>';
 // 		print_r($list);
@@ -64,11 +71,11 @@ class Cate extends Admin_Controller
 			{
 				$input['time'] = time();
 				if (isset($input['id'])) {
-					$res = $this->category->update($input, 'id');
+					$res = $this->article->update($input, 'id');
 				}
 				else
 				{
-					$res = $this->category->add($input);
+					$res = $this->article->add($input);
 				}
 				if ($res)
 				{
@@ -89,13 +96,13 @@ class Cate extends Admin_Controller
 			$id = $this->input->get('id');
 			$cate = array();
 			if ($id) {
-				$cate = $this->category->getOne($id);
+				$cate = $this->article->getOne($id);
 				if (!$cate) {
 					$this->error('分类不存在');
 				}
 			}
 			$this->assign('cate', $cate);
-			$list = $this->category->getAll();
+			$list = $this->article->getAll();
 			$list = node_merge($list);
 			$this->assign('list', $list);
 			$this->display();
@@ -109,12 +116,12 @@ class Cate extends Admin_Controller
 			$this->outJson(-1);
 		}
 
-		$cate = $this->category->getOne($id);
+		$cate = $this->article->getOne($id);
 		if (!$cate) {
 			$this->outJson(101,'','分类不存在');
 		}
 		
-		$res = $this->category->del($id);
+		$res = $this->article->del($id);
 		if ($res) {
 			$this->outJson(0);
 		}

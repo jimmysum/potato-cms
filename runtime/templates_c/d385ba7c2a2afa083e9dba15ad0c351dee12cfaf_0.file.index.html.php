@@ -1,15 +1,15 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-14 18:44:47
-         compiled from "/data/src/test/codeIgniter/application/views/admin/cate/index.html" */ ?>
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-14 18:54:39
+         compiled from "/data/src/test/codeIgniter/application/views/admin/article/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_561e321fa28aa7_00509875',
+  'unifunc' => 'content_561e346fe01623_86273961',
   'file_dependency' => 
   array (
-    'b9725bf84f48fa55d39e16cf39185940784cac62' => 
+    'd385ba7c2a2afa083e9dba15ad0c351dee12cfaf' => 
     array (
-      0 => '/data/src/test/codeIgniter/application/views/admin/cate/index.html',
+      0 => '/data/src/test/codeIgniter/application/views/admin/article/index.html',
       1 => 1444819486,
       2 => 'file',
     ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_561e321fa28aa7_00509875')) {
-function content_561e321fa28aa7_00509875 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_561e346fe01623_86273961')) {
+function content_561e346fe01623_86273961 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
