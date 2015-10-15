@@ -26,8 +26,8 @@ class Article extends Admin_Controller
 	 */
 	public $rules = array(
 			array(
-					'field' => 'cate',
-					'label' => '分类名称',
+					'field' => 'pid',
+					'label' => '分类',
 					'rules' => 'required',
 					'errors' => array(
 							'required' => '请填写"%s."',
