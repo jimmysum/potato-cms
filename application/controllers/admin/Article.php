@@ -42,20 +42,51 @@ class Article extends Admin_Controller
 	{
 		parent::__construct ();
 		$this->load->model('M_Article', 'article');
+		$this->load->model('M_Cate', 'category');
 	}
 	
 	public function index()
 	{
 		$param = $this->input->get();
-		if (isset($param['p'])) {
-			$conditon['p'] = $param['p'];
-		}
+		$conditon['del'] = 0;
+		$count = $this->article->getCount($conditon);
+
+		$conditon['p'] = isset($param['p']) && $param['p'] > 0 ? $param['p'] : 0;
 		$conditon['ps'] = $this->ps;
 		$list = $this->article->getList($conditon);
-		$list = node_merge($list);
-// 		echo '<pre>';
-// 		print_r($list);
+		$uid = array();
+		foreach ($list as $k => $v) {
+			$uid[] = $v['userid'];
+		}
+
+
+		$cateList = $this->category->getAll();
+		
+		$this->load->model('M_Admin', 'admin');
+		$uid = array_unique($uid);
+		$userList = $this->admin->getList(array('id_in' => $uid));
+
+		foreach ($list as $k => $v) {
+			$list[$k]['cate'] = $cateList[$v['cate_id']]['cate'];
+			$list[$k]['username'] = $userList[$v['userid']]['username'];
+		}
+		$list = $this->article->amerge($list);
+
+		$cateList = node_merge($cateList);
+
+		// 分页
+		$this->load->library('pagination');
+		$config['base_url'] = '/admin/article/index';
+		$config['total_rows'] = $count;
+		$config['per_page'] = $this->ps;
+		$config['page_query_string'] = true;
+		$this->pagination->initialize($config);
+
+		$this->assign('page', $this->pagination->create_links());
+		// echo '<pre>';
+		// print_r($userList);
 		$this->assign('list', $list);
+		$this->assign('cateList', $cateList);
 		$this->display();
 	}
 	
@@ -64,6 +95,7 @@ class Article extends Admin_Controller
 		$input = $this->input->post();
 		if ($input)
 		{
+			print_r($input);die;
 			$this->load->library('form_validation');
 			$this->form_validation->set_data($input);
 			$this->form_validation->set_rules($this->rules);
@@ -102,7 +134,7 @@ class Article extends Admin_Controller
 				}
 			}
 			$this->assign('cate', $cate);
-			$list = $this->article->getAll();
+			$list = $this->category->getAll();
 			$list = node_merge($list);
 			$this->assign('list', $list);
 			$this->display();

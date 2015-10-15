@@ -1,6 +1,6 @@
 <?php
 
-class User extends CI_Model 
+class M_Admin extends CI_Model 
 {
 	
 	const TABLE = 'admin';
@@ -18,6 +18,55 @@ class User extends CI_Model
 		parent::__construct();
 // 		$this->load->database();
 	}
+
+	public function conditon($conditon)
+	{
+		if (isset($conditon['id_in']) && $conditon['id_in']) 
+		{
+			$this->db->where_in('id', $conditon['id_in']);
+		}
+
+		if (isset($conditon['id']) && $conditon['id'] > 0) 
+		{
+			$this->db->where(array('id' => $conditon['id']));
+		}
+
+		if (isset($conditon['username']) && $conditon['username']) 
+		{
+			$this->db->where(array('username' => $conditon['username']));
+		}
+
+	}
+
+	public function getAll()
+	{
+		$res = $this->db->from(self::TABLE)->get()->result_array();
+		if ($res) {
+			$temp = array();
+			foreach ($res as $k => $v) {
+				$temp[$v['id']] = $v;
+			}
+			return $temp;
+		}
+		return array();
+	}
+
+
+	public function getList($conditon)
+	{
+		$this->conditon($conditon);
+
+		$res = $this->db->from(self::TABLE)->get()->result_array();
+		if ($res) {
+			$temp = array();
+			foreach ($res as $k => $v) {
+				$temp[$v['id']] = $v;
+			}
+			return $temp;
+		}
+		return array();
+	}
+	
 	
 	public function getUserInfo($username)
 	{

@@ -27,7 +27,7 @@
         <div class="am-form-group">
           <select data-am-selected="{btnSize: 'sm'}">
             <option value="0">所有类别</option>
-            <{foreach from=$list item="val"}>
+            <{foreach from=$cateList item="val"}>
             <option value="<{$val.id}>"  selected><{$val.cate}></option>
                 <{foreach from=$val.child item="va"}>
               <option value="<{$va.id}>"  selected>&nbsp;&nbsp;└-<{$va.cate}></option>
@@ -53,9 +53,13 @@
             <thead>
               <tr>
                 <th class="table-check"><input type="checkbox" /></th>
-                <th class="table-id">ID</th><th class="table-title">分类名称</th>
+                <th class="table-id">ID</th><th class="table-title">标题</th>
+                <th class="table-type">分类</th>
+                <th class="table-type">发布人</th>
+                <th class="table-type">推荐</th>
+                <th class="table-type">置顶</th>
+                <th class="table-type">审核</th>
                 <th class="table-type">排序</th>
-                <th class="table-author am-hide-sm-only">状态</th>
                 <th class="table-date am-hide-sm-only">修改日期</th>
                 <th class="table-set">操作</th>
               </tr>
@@ -64,10 +68,14 @@
             <{foreach from=$list item="val"}>
             <tr>
               <td><input type="checkbox" /></td>
-              <td><span class="am-btn am-btn-xs am-btn-danger"><{$val.id}></span></td>
-              <td><a href="/admin/cate/add?id=<{$val.id}>"><{$val.cate}></a></td>
+              <td><{$val.id}></td>
+              <td><a href="/admin/cate/add?id=<{$val.id}>"><{$val.title}></a></td>
+              <td><{$val['cate']}></td>
+              <td><{$val['username']}></td>
+              <td><span class="am-btn <{if $val['recommend']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['recommend_str']}></span></td>
+              <td><span class="am-btn <{if $val['top']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['top_str']}></span></td>
+              <td><span class="am-btn <{if $val['audit']==1}>am-btn-success<{elseif $val['audit']==0}>am-btn-secondary<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['audit_str']}></span></td>
               <td><{$val['sort']}></td>
-              <td class="am-hide-sm-only"><{$val['status']}></td>
               <td class="am-hide-sm-only"><{$val.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
               <td>
                 <div class="am-btn-toolbar">
@@ -79,49 +87,17 @@
                 </div>
               </td>
             </tr>
-	            <{foreach from=$val.child item="va"}>
-	            <tr>
-	              <td><input type="checkbox" /></td>
-	              <td><span class="am-btn am-btn-xs am-btn-success am-radius"><{$va.id}></span></td>
-	              <td>└──<a href="/admin/cate/add?id=<{$va.id}>"><{$va.cate}></a></td>
-	              <td><{$va['sort']}></td>
-	              <td class="am-hide-sm-only"><{$val['status']}></td>
-	              <td class="am-hide-sm-only"><{$va.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
-	              <td>
-	                <div class="am-btn-toolbar">
-	                  <div class="am-btn-group am-btn-group-xs">
-	                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<{$va.id}>)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                      <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<{$val.id}>)"><span class="am-icon-copy"></span> 复制</button> -->
-                      <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$va.id}>)"><span class="am-icon-trash-o"></span> 删除</button>
-	                  </div>
-	                </div>
-	              </td>
-	            </tr>
-		            <{foreach from=$va.child item="v"}>
-		            <tr>
-		              <td><input type="checkbox" /></td>
-		              <td><span class="am-btn am-btn-primary am-btn-xs am-round"><{$v.id}></span></td>
-		              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──<a href="/admin/cate/add?id=<{$v.id}>"><{$v.cate}></a></td>
-		              <td><{$va['sort']}></td>
-		              <td class="am-hide-sm-only"><{$v['status']}></td>
-		              <td class="am-hide-sm-only"><{$v.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
-		              <td>
-		                <div class="am-btn-toolbar">
-		                  <div class="am-btn-group am-btn-group-xs">
-		                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<{$v.id}>)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                        <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<{$val.id}>)"><span class="am-icon-copy"></span> 复制</button> -->
-                        <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$v.id}>)"><span class="am-icon-trash-o"></span> 删除</button>
-		                  </div>
-		                </div>
-		              </td>
-		            </tr>
-		            <{/foreach}>
-	            <{/foreach}>
             <{/foreach}>
             
           </tbody>
         </table>
-
+        <div class="am-cf">
+          <div class="am-fr">
+              <ul class="am-pagination">
+              <{$page}>
+              </ul>
+          </div>
+        </div>
           <hr />
           <p>注：.....</p>
         </form>
@@ -147,7 +123,7 @@
 <{include file='admin/public/footer.html'}>
 <script>
 	$('#add-cate').on('click', function() {
-		window.location.href='/admin/cate/add';
+		window.location.href='/admin/article/add';
   	});
 
   function edit(id)

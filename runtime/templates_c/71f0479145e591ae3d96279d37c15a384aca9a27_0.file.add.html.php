@@ -1,7 +1,36 @@
-<{include file="admin/public/header.html"}>
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-15 20:16:31
+         compiled from "/data/src/test/codeIgniter/application/views/admin/article/add.html" */ ?>
+<?php
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'has_nocache_code' => false,
+  'version' => '3.1.28-dev/63',
+  'unifunc' => 'content_561f991fcf74f6_00632207',
+  'file_dependency' => 
+  array (
+    '71f0479145e591ae3d96279d37c15a384aca9a27' => 
+    array (
+      0 => '/data/src/test/codeIgniter/application/views/admin/article/add.html',
+      1 => 1444911389,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:admin/public/header.html' => 1,
+    'file:admin/public/left.html' => 1,
+    'file:admin/public/footer.html' => 1,
+  ),
+),false);
+if ($_valid && !is_callable('content_561f991fcf74f6_00632207')) {
+function content_561f991fcf74f6_00632207 ($_smarty_tpl) {
+$_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
 <div class="am-cf admin-main">
   <!-- sidebar start -->
-  <{include file='admin/public/left.html'}>
+  <?php $_smarty_tpl->setupSubTemplate('file:admin/public/left.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
   <!-- sidebar end -->
 
 <!-- content start -->
@@ -26,12 +55,52 @@
           <div class="am-u-sm-8 am-u-md-10">
             <select data-am-selected="{btnSize: 'sm'}" name="pid" required>
               <option value="0">请选择分类</option>
-              <{foreach from=$list item="val"}>
-              <option value="<{$val.id}>" <{if $cate && $cate.pid eq $val.id}> selected<{/if}>><{$val.cate}></option>
-              	  <{foreach from=$val.child item="va"}>
-	              <option value="<{$va.id}>" <{if $cate && $cate.pid eq $va.id}> selected<{/if}>>&nbsp;&nbsp;└-<{$va.cate}></option>
-	              <{/foreach}>
-              <{/foreach}>
+              <?php
+$_from = $_smarty_tpl->tpl_vars['list']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_val_0_saved_item = isset($_smarty_tpl->tpl_vars['val']) ? $_smarty_tpl->tpl_vars['val'] : false;
+$_smarty_tpl->tpl_vars['val'] = new Smarty_Variable();
+$__foreach_val_0_total = $_smarty_tpl->_count($_from);
+if ($__foreach_val_0_total) {
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
+$__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
+?>
+              <option value="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+" <?php if ($_smarty_tpl->tpl_vars['cate']->value && $_smarty_tpl->tpl_vars['cate']->value['pid'] == $_smarty_tpl->tpl_vars['val']->value['id']) {?> selected<?php }?>><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
+</option>
+              	  <?php
+$_from = $_smarty_tpl->tpl_vars['val']->value['child'];
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_va_1_saved_item = isset($_smarty_tpl->tpl_vars['va']) ? $_smarty_tpl->tpl_vars['va'] : false;
+$_smarty_tpl->tpl_vars['va'] = new Smarty_Variable();
+$__foreach_va_1_total = $_smarty_tpl->_count($_from);
+if ($__foreach_va_1_total) {
+foreach ($_from as $_smarty_tpl->tpl_vars['va']->value) {
+$__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
+?>
+	              <option value="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+" <?php if ($_smarty_tpl->tpl_vars['cate']->value && $_smarty_tpl->tpl_vars['cate']->value['pid'] == $_smarty_tpl->tpl_vars['va']->value['id']) {?> selected<?php }?>>&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
+</option>
+	              <?php
+$_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_local_item;
+}
+}
+if ($__foreach_va_1_saved_item) {
+$_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_item;
+}
+?>
+              <?php
+$_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_local_item;
+}
+}
+if ($__foreach_val_0_saved_item) {
+$_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
+}
+?>
             </select>
           </div>
         </div>
@@ -58,13 +127,13 @@
                 <input type="checkbox" name="comment" value="1"> 允许评论
               </label>
               <label class="am-btn am-btn-default am-btn-xs">
-                <input type="checkbox" name="top" value="1"> 置顶
+                <input type="checkbox" name="top" value="2"> 置顶
               </label>
               <label class="am-btn am-btn-default am-btn-xs">
-                <input type="checkbox" name="recommend" value="2"> 推荐
+                <input type="checkbox" name="recommend" value="3"> 推荐
               </label>
               <label class="am-btn am-btn-default am-btn-xs">
-                <input type="checkbox" name="hot" value="3"> 热门
+                <input type="checkbox" name="hot" value="4"> 热门
               </label>
             </div>
           </div>
@@ -76,7 +145,9 @@
               排序
             </div>
             <div class="am-u-sm-8 am-u-md-2 am-u-end">
-              <input name="sort" type="text" class="am-input-sm" value="<{if $cate}><{$cate.sort}><{/if}>"  placeholder="默认50">
+              <input name="sort" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['sort'];
+}?>"  placeholder="默认50">
             </div>
         </div>
 
@@ -111,7 +182,8 @@
               文章作者
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
-              <input type="text" class="am-input-sm" value="<{$smarty.session.user.username}>" readonly>
+              <input type="text" class="am-input-sm" value="<?php echo $_SESSION['user']['username'];?>
+" readonly>
             </div>
           </div>
 
@@ -142,7 +214,9 @@
               SEO 标题
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end">
-              <input name="seo_title" type="text" class="am-input-sm" value="<{if $cate}><{$cate.seo_title}><{/if}>">
+              <input name="seo_title" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['seo_title'];
+}?>">
             </div>
           </div>
 
@@ -151,7 +225,9 @@
               SEO 关键字
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end">
-              <input name="seo_keyword" type="text" class="am-input-sm" value="<{if $cate}><{$cate.seo_keyword}><{/if}>">
+              <input name="seo_keyword" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['seo_keyword'];
+}?>">
             </div>
           </div>
 
@@ -160,16 +236,19 @@
               SEO 描述
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end">
-              <textarea name="seo_desc" rows="4"> <{if $cate}><{$cate.seo_desc}><{/if}></textarea>
+              <textarea name="seo_desc" rows="4"> <?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['seo_desc'];
+}?></textarea>
             </div>
           </div>
       </div>
 
     </div>
   </div>
-  <{if $cate}>
-  <input name="id" type="hidden" class="am-input-sm" value="<{$cate.id}>">
-  <{/if}>
+  <?php if ($_smarty_tpl->tpl_vars['cate']->value) {?>
+  <input name="id" type="hidden" class="am-input-sm" value="<?php echo $_smarty_tpl->tpl_vars['cate']->value['id'];?>
+">
+  <?php }?>
   </form>
   <div class="am-margin">
     <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
@@ -179,8 +258,11 @@
 <!-- content end -->
 
 </div>
-<{include file='admin/public/footer.html'}>
-<script>
+<?php $_smarty_tpl->setupSubTemplate('file:admin/public/footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
+<?php echo '<script'; ?>
+>
 	$('#save-sure').on('click', function() {
 		$.post("/admin/article/add",
 			$('#doc-vld-msg').serializeArray(),
@@ -237,6 +319,9 @@
 		  });
 			  
 		});
-</script>
+<?php echo '</script'; ?>
+>
 </body>
 </html>
+<?php }
+}

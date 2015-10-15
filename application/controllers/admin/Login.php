@@ -69,8 +69,8 @@ class Login extends Admin_Controller
 // 				{
 // 					$this->outJson(104);
 // 				}
-				$this->load->model('user');
-				$info = $this->user->validPassword($this->input->post('username'), $this->input->post('password'));
+				$this->load->model('M_Admin', 'admin');
+				$info = $this->admin->validPassword($this->input->post('username'), $this->input->post('password'));
 				if ($info)
 				{
 					unset($info['password']);

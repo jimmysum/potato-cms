@@ -29,7 +29,14 @@ class M_Cate extends CI_Model
 	public function getAll()
 	{
 		$list = $this->db->from(self::TABLE)->select()->get()->result_array();
-		return $list;
+		if ($list) {
+			$temp = array();
+			foreach ($list as $k => $v) {
+				$temp[$v['id']] = $v;
+			}
+			return $temp;
+		}
+		return array();
 	}
 
 	public function getOne($id)
