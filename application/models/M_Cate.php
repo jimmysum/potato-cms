@@ -26,9 +26,48 @@ class M_Cate extends CI_Model
 		parent::__construct ();
 	}
 	
+
+	public function conditon($conditon)
+	{
+		if (isset($conditon['id_in']) && $conditon['id_in']) 
+		{
+			$this->db->where_in('id', $conditon['id_in']);
+		}
+
+		if (isset($conditon['id']) && $conditon['id'] > 0) 
+		{
+			$this->db->where(array('id' => $conditon['id']));
+		}
+
+		if (isset($conditon['status'])) 
+		{
+			$this->db->where(array('status' => $conditon['status']));
+		}
+
+		if (isset($conditon['p'])) {
+			$ps = $conditon['ps'] ? $conditon['ps'] : 25;
+			$this->db->limit($ps, $conditon['p']);
+		}
+
+	}
+
 	public function getAll()
 	{
 		$list = $this->db->from(self::TABLE)->select()->get()->result_array();
+		if ($list) {
+			$temp = array();
+			foreach ($list as $k => $v) {
+				$temp[$v['id']] = $v;
+			}
+			return $temp;
+		}
+		return array();
+	}
+
+	public function getList($conditon)
+	{
+		$this->conditon($conditon);
+		$list = $this->db->from(self::TABLE)->get()->result_array();
 		if ($list) {
 			$temp = array();
 			foreach ($list as $k => $v) {

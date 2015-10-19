@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-13 18:39:42
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-19 18:52:59
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/footer.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_561cdf6ee16601_17390904',
+  'unifunc' => 'content_5624cb8b408066_05007880',
   'file_dependency' => 
   array (
     'c80f31628ed07a54fe32cd6cb183997510fcb174' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/footer.html',
-      1 => 1444619219,
+      1 => 1445251977,
       2 => 'file',
     ),
   ),
@@ -18,8 +18,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_561cdf6ee16601_17390904')) {
-function content_561cdf6ee16601_17390904 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5624cb8b408066_05007880')) {
+function content_5624cb8b408066_05007880 ($_smarty_tpl) {
 ?>
 
 <a href="#" class="am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}">
@@ -57,5 +57,9 @@ js/amazeui.min.js"><?php echo '</script'; ?>
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['admin_style_url']->value;?>
 js/app.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['picker_style_url']->value;?>
+datetimepicker/js/amazeui.datetimepicker.min.js"><?php echo '</script'; ?>
 ><?php }
 }

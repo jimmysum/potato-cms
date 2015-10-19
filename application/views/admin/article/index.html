@@ -58,6 +58,7 @@
                 <th class="table-type">发布人</th>
                 <th class="table-type">推荐</th>
                 <th class="table-type">置顶</th>
+                <th class="table-type">热门</th>
                 <th class="table-type">审核</th>
                 <th class="table-type">排序</th>
                 <th class="table-date am-hide-sm-only">修改日期</th>
@@ -74,6 +75,7 @@
               <td><{$val['username']}></td>
               <td><span class="am-btn <{if $val['recommend']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['recommend_str']}></span></td>
               <td><span class="am-btn <{if $val['top']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['top_str']}></span></td>
+              <td><span class="am-btn <{if $val['hot']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['hot_str']}></span></td>
               <td><span class="am-btn <{if $val['audit']==1}>am-btn-success<{elseif $val['audit']==0}>am-btn-secondary<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['audit_str']}></span></td>
               <td><{$val['sort']}></td>
               <td class="am-hide-sm-only"><{$val.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
@@ -128,7 +130,7 @@
 
   function edit(id)
   {
-    window.location.href='/admin/cate/add?id=' + id;
+    window.location.href='/admin/article/add?id=' + id;
   }
 
   function copy(id)
@@ -141,7 +143,7 @@
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/cate/del?id=" + id,
+          $.post("/admin/article/del?id=" + id,
             '',
             function(data,status){
               var res =  jQuery.parseJSON(data);
@@ -153,7 +155,7 @@
                   $('#success-msg').addClass('am-alert-success');
                   $('#success-msg').html(res.msg);
                   $('#success-msg').fadeIn(2000, function() {
-                    window.location.href = '/admin/cate/index';
+                    window.location.href = '/admin/article/index';
                   });
                 }
                 else 

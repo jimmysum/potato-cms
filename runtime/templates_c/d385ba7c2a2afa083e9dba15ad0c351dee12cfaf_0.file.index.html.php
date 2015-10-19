@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-15 18:36:24
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-16 17:45:43
          compiled from "/data/src/test/codeIgniter/application/views/admin/article/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_561f81a8b6d162_86304918',
+  'unifunc' => 'content_5620c7471e1ed5_26363288',
   'file_dependency' => 
   array (
     'd385ba7c2a2afa083e9dba15ad0c351dee12cfaf' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/article/index.html',
-      1 => 1444905381,
+      1 => 1444988721,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_561f81a8b6d162_86304918')) {
-function content_561f81a8b6d162_86304918 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5620c7471e1ed5_26363288')) {
+function content_5620c7471e1ed5_26363288 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -128,6 +128,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
                 <th class="table-type">发布人</th>
                 <th class="table-type">推荐</th>
                 <th class="table-type">置顶</th>
+                <th class="table-type">热门</th>
                 <th class="table-type">审核</th>
                 <th class="table-type">排序</th>
                 <th class="table-date am-hide-sm-only">修改日期</th>
@@ -161,6 +162,8 @@ $__foreach_val_2_saved_local_item = $_smarty_tpl->tpl_vars['val'];
               <td><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['val']->value['recommend'] == 1) {?>am-btn-success<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php echo $_smarty_tpl->tpl_vars['val']->value['recommend_str'];?>
 </span></td>
               <td><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['val']->value['top'] == 1) {?>am-btn-success<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php echo $_smarty_tpl->tpl_vars['val']->value['top_str'];?>
+</span></td>
+              <td><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['val']->value['hot'] == 1) {?>am-btn-success<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php echo $_smarty_tpl->tpl_vars['val']->value['hot_str'];?>
 </span></td>
               <td><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['val']->value['audit'] == 1) {?>am-btn-success<?php } elseif ($_smarty_tpl->tpl_vars['val']->value['audit'] == 0) {?>am-btn-secondary<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php echo $_smarty_tpl->tpl_vars['val']->value['audit_str'];?>
 </span></td>
@@ -233,7 +236,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_2_saved_item;
 
   function edit(id)
   {
-    window.location.href='/admin/cate/add?id=' + id;
+    window.location.href='/admin/article/add?id=' + id;
   }
 
   function copy(id)
@@ -246,7 +249,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_2_saved_item;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/cate/del?id=" + id,
+          $.post("/admin/article/del?id=" + id,
             '',
             function(data,status){
               var res =  jQuery.parseJSON(data);
@@ -258,7 +261,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_2_saved_item;
                   $('#success-msg').addClass('am-alert-success');
                   $('#success-msg').html(res.msg);
                   $('#success-msg').fadeIn(2000, function() {
-                    window.location.href = '/admin/cate/index';
+                    window.location.href = '/admin/article/index';
                   });
                 }
                 else 

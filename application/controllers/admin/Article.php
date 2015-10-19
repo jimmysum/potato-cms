@@ -26,11 +26,29 @@ class Article extends Admin_Controller
 	 */
 	public $rules = array(
 			array(
-					'field' => 'pid',
+					'field' => 'cate_id',
 					'label' => '分类',
+					'rules' => 'required|greater_than_equal_to[1]',
+					'errors' => array(
+							'required' => '请选择"%s."',
+							'greater_than_equal_to' => '请选择"%s."',
+					),
+			),
+			array(
+					'field' => 'title',
+					'label' => '文章标题',
 					'rules' => 'required',
 					'errors' => array(
 							'required' => '请填写"%s."',
+					),
+			),
+			array(
+					'field' => 'content',
+					'label' => '正文内容',
+					'rules' => 'required|min_length[30]',
+					'errors' => array(
+							'required' => '请填写"%s."',
+							'min_length' => '"%s"不能少于30字',
 					),
 			),
 			
@@ -95,13 +113,15 @@ class Article extends Admin_Controller
 		$input = $this->input->post();
 		if ($input)
 		{
-			print_r($input);die;
+			// print_r($input);die;
 			$this->load->library('form_validation');
 			$this->form_validation->set_data($input);
 			$this->form_validation->set_rules($this->rules);
 			if ($this->form_validation->run() == TRUE)
 			{
 				$input['time'] = time();
+				$user = $this->session->userdata('user');
+				$input['userid'] = $user['id'];
 				if (isset($input['id'])) {
 					$res = $this->article->update($input, 'id');
 				}
@@ -126,14 +146,17 @@ class Article extends Admin_Controller
 		else 
 		{
 			$id = $this->input->get('id');
-			$cate = array();
+			$article = array();
 			if ($id) {
-				$cate = $this->article->getOne($id);
-				if (!$cate) {
-					$this->error('分类不存在');
+				$article = $this->article->getOne($id);
+				if (!$article) {
+					$this->error('文章不存在');
 				}
+				$this->load->model('M_Admin', 'user');
+				$user = $this->user->getUserById($article['userid']);
+				$article['username'] = $user['username'];
 			}
-			$this->assign('cate', $cate);
+			$this->assign('article', $article);
 			$list = $this->category->getAll();
 			$list = node_merge($list);
 			$this->assign('list', $list);

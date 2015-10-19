@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-15 20:16:31
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-19 18:55:22
          compiled from "/data/src/test/codeIgniter/application/views/admin/article/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_561f991fcf74f6_00632207',
+  'unifunc' => 'content_5624cc1ab95ee4_27290304',
   'file_dependency' => 
   array (
     '71f0479145e591ae3d96279d37c15a384aca9a27' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/article/add.html',
-      1 => 1444911389,
+      1 => 1445252119,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_561f991fcf74f6_00632207')) {
-function content_561f991fcf74f6_00632207 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5624cc1ab95ee4_27290304')) {
+function content_5624cc1ab95ee4_27290304 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -51,10 +51,10 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
     <div class="am-tabs-bd">
       <div class="am-tab-panel am-fade am-in am-active" id="tab1">
         <div class="am-g am-margin-top">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">上级分类</div>
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">分类</div>
           <div class="am-u-sm-8 am-u-md-10">
-            <select data-am-selected="{btnSize: 'sm'}" name="pid" required>
-              <option value="0">请选择分类</option>
+            <select data-am-selected="{btnSize: 'sm'}" name="cate_id" required>
+              <option value="">请选择分类</option>
               <?php
 $_from = $_smarty_tpl->tpl_vars['list']->value;
 if (!is_array($_from) && !is_object($_from)) {
@@ -67,9 +67,17 @@ if ($__foreach_val_0_total) {
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
 $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
 ?>
+              <?php if ($_smarty_tpl->tpl_vars['val']->value['status'] == 1) {?> 
               <option value="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-" <?php if ($_smarty_tpl->tpl_vars['cate']->value && $_smarty_tpl->tpl_vars['cate']->value['pid'] == $_smarty_tpl->tpl_vars['val']->value['id']) {?> selected<?php }?>><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
+" <?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['cate_id'] == $_smarty_tpl->tpl_vars['val']->value['id']) {?> selected<?php }?>><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
 </option>
+              <?php } else { ?>
+              <?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['cate_id'] == $_smarty_tpl->tpl_vars['val']->value['id']) {?>
+              <option value="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+" selected><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
+</option>
+              <?php }?>
+              <?php }?>
               	  <?php
 $_from = $_smarty_tpl->tpl_vars['val']->value['child'];
 if (!is_array($_from) && !is_object($_from)) {
@@ -82,9 +90,48 @@ if ($__foreach_va_1_total) {
 foreach ($_from as $_smarty_tpl->tpl_vars['va']->value) {
 $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
 ?>
-	              <option value="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
-" <?php if ($_smarty_tpl->tpl_vars['cate']->value && $_smarty_tpl->tpl_vars['cate']->value['pid'] == $_smarty_tpl->tpl_vars['va']->value['id']) {?> selected<?php }?>>&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
+                  <?php if ($_smarty_tpl->tpl_vars['va']->value['status'] == 1) {?> 
+                  <option value="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+" <?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['cate_id'] == $_smarty_tpl->tpl_vars['va']->value['id']) {?> selected<?php }?>>&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
 </option>
+                  <?php } else { ?>
+                  <?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['cate_id'] == $_smarty_tpl->tpl_vars['va']->value['id']) {?>
+                  <option value="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+" selected>&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
+</option>
+                  <?php }?>
+                  <?php }?>
+                    <?php
+$_from = $_smarty_tpl->tpl_vars['va']->value['child'];
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_v_2_saved_item = isset($_smarty_tpl->tpl_vars['v']) ? $_smarty_tpl->tpl_vars['v'] : false;
+$_smarty_tpl->tpl_vars['v'] = new Smarty_Variable();
+$__foreach_v_2_total = $_smarty_tpl->_count($_from);
+if ($__foreach_v_2_total) {
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
+$__foreach_v_2_saved_local_item = $_smarty_tpl->tpl_vars['v'];
+?>
+                    <?php if ($_smarty_tpl->tpl_vars['v']->value['status'] == 1) {?> 
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+" <?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['cate_id'] == $_smarty_tpl->tpl_vars['v']->value['id']) {?> selected<?php }?>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['v']->value['cate'];?>
+</option>
+                    <?php } else { ?>
+                    <?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['cate_id'] == $_smarty_tpl->tpl_vars['v']->value['id']) {?>
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+" selected>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['v']->value['cate'];?>
+</option>
+                    <?php }?>
+                    <?php }?>
+                    <?php
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_2_saved_local_item;
+}
+}
+if ($__foreach_v_2_saved_item) {
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_2_saved_item;
+}
+?>
 	              <?php
 $_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_local_item;
 }
@@ -106,14 +153,17 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
         </div>
 
         <div class="am-g am-margin-top">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">显示状态</div>
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">审核状态</div>
           <div class="am-u-sm-8 am-u-md-10">
             <div class="am-btn-group" data-am-button>
-              <label class="am-btn am-btn-default am-btn-xs">
-                <input type="radio" name="status" id="option1" value="1" checked> 正常
+              <label class="am-btn am-btn-default am-btn-xs <?php if (!$_smarty_tpl->tpl_vars['article']->value) {?> am-active<?php } elseif ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['audit'] == 1) {?> am-active<?php }?>">
+                <input type="radio" name="audit" id="option1" value="1"> 通过
               </label>
-              <label class="am-btn am-btn-default am-btn-xs">
-                <input type="radio" name="status" id="option3" value="0"> 不显示
+              <label class="am-btn am-btn-default am-btn-xs <?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['audit'] == 2) {?> am-active<?php }?>">
+                <input type="radio" name="audit" id="option3" value="2"> 不通过
+              </label>
+              <label class="am-btn am-btn-default am-btn-xs <?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['audit'] == 0) {?> am-active<?php }?>">
+                <input type="radio" name="audit" id="option3" value="0"> 待审核
               </label>
             </div>
           </div>
@@ -123,17 +173,17 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
           <div class="am-u-sm-4 am-u-md-2 am-text-right">推荐类型</div>
           <div class="am-u-sm-8 am-u-md-10">
             <div class="am-btn-group" data-am-button>
-              <label class="am-btn am-btn-default am-btn-xs">
+              <label class="am-btn am-btn-default am-btn-xs am-active<?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['comment'] == 1) {?> am-active<?php }?>">
                 <input type="checkbox" name="comment" value="1"> 允许评论
               </label>
-              <label class="am-btn am-btn-default am-btn-xs">
-                <input type="checkbox" name="top" value="2"> 置顶
+              <label class="am-btn am-btn-default am-btn-xs<?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['top'] == 1) {?> am-active<?php }?>">
+                <input type="checkbox" name="top" value="1"> 置顶
               </label>
-              <label class="am-btn am-btn-default am-btn-xs">
-                <input type="checkbox" name="recommend" value="3"> 推荐
+              <label class="am-btn am-btn-default am-btn-xs<?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['recommend'] == 1) {?> am-active<?php }?>">
+                <input type="checkbox" name="recommend" value="1"> 推荐
               </label>
-              <label class="am-btn am-btn-default am-btn-xs">
-                <input type="checkbox" name="hot" value="4"> 热门
+              <label class="am-btn am-btn-default am-btn-xs<?php if ($_smarty_tpl->tpl_vars['article']->value && $_smarty_tpl->tpl_vars['article']->value['hot'] == 1) {?> am-active<?php }?>">
+                <input type="checkbox" name="hot" value="1"> 热门
               </label>
             </div>
           </div>
@@ -145,8 +195,8 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
               排序
             </div>
             <div class="am-u-sm-8 am-u-md-2 am-u-end">
-              <input name="sort" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
-echo $_smarty_tpl->tpl_vars['cate']->value['sort'];
+              <input name="sort" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['article']->value) {
+echo $_smarty_tpl->tpl_vars['article']->value['sort'];
 }?>"  placeholder="默认50">
             </div>
         </div>
@@ -158,7 +208,7 @@ echo $_smarty_tpl->tpl_vars['cate']->value['sort'];
           <div class="am-u-sm-8 am-u-md-3 am-u-end">
               <div class="am-form-group am-form-icon">
                 <i class="am-icon-calendar"></i>
-                <input name="time" type="text" class="am-form-field am-input-sm" placeholder="时间">
+                <input name="time" type="text" id="datetimepicker" class="am-form-field am-input-sm form-datetime" placeholder="时间">
               </div>
           </div>
         </div>
@@ -172,7 +222,9 @@ echo $_smarty_tpl->tpl_vars['cate']->value['sort'];
               文章标题
             </div>
             <div class="am-u-sm-8 am-u-md-4">
-              <input type="text" class="am-input-sm"  name="title">
+              <input type="text" class="am-input-sm"  name="title" value="<?php if ($_smarty_tpl->tpl_vars['article']->value) {
+echo $_smarty_tpl->tpl_vars['article']->value['title'];
+}?>">
             </div>
             <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
           </div>
@@ -182,8 +234,11 @@ echo $_smarty_tpl->tpl_vars['cate']->value['sort'];
               文章作者
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
-              <input type="text" class="am-input-sm" value="<?php echo $_SESSION['user']['username'];?>
-" readonly>
+              <input type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['article']->value) {
+echo $_smarty_tpl->tpl_vars['article']->value['username'];
+} else {
+echo $_SESSION['user']['username'];
+}?>" readonly>
             </div>
           </div>
 
@@ -192,17 +247,21 @@ echo $_smarty_tpl->tpl_vars['cate']->value['sort'];
               内容摘要
             </div>
             <div class="am-u-sm-8 am-u-md-4">
-              <input type="text" class="am-input-sm" name="desc">
+              <input type="text" class="am-input-sm" name="desc" value="<?php if ($_smarty_tpl->tpl_vars['article']->value) {
+echo $_smarty_tpl->tpl_vars['article']->value['desc'];
+}?>">
             </div>
             <div class="am-u-sm-12 am-u-md-6">不填写则自动截取内容前255字符</div>
           </div>
 
           <div class="am-g am-margin-top-sm">
             <div class="am-u-sm-12 am-u-md-2 am-text-right admin-form-text">
-              内容描述
+              正文内容
             </div>
             <div class="am-u-sm-12 am-u-md-10">
-              <textarea rows="10" placeholder="请使用富文本编辑插件" name="content"></textarea>
+              <textarea rows="10" placeholder="请使用富文本编辑插件" name="content"><?php if ($_smarty_tpl->tpl_vars['article']->value) {
+echo $_smarty_tpl->tpl_vars['article']->value['content'];
+}?></textarea>
             </div>
           </div>
 
@@ -214,8 +273,8 @@ echo $_smarty_tpl->tpl_vars['cate']->value['sort'];
               SEO 标题
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end">
-              <input name="seo_title" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
-echo $_smarty_tpl->tpl_vars['cate']->value['seo_title'];
+              <input name="seo_title" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['article']->value) {
+echo $_smarty_tpl->tpl_vars['article']->value['seo_title'];
 }?>">
             </div>
           </div>
@@ -225,8 +284,8 @@ echo $_smarty_tpl->tpl_vars['cate']->value['seo_title'];
               SEO 关键字
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end">
-              <input name="seo_keyword" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
-echo $_smarty_tpl->tpl_vars['cate']->value['seo_keyword'];
+              <input name="seo_keyword" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['article']->value) {
+echo $_smarty_tpl->tpl_vars['article']->value['seo_keyword'];
 }?>">
             </div>
           </div>
@@ -236,8 +295,8 @@ echo $_smarty_tpl->tpl_vars['cate']->value['seo_keyword'];
               SEO 描述
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end">
-              <textarea name="seo_desc" rows="4"> <?php if ($_smarty_tpl->tpl_vars['cate']->value) {
-echo $_smarty_tpl->tpl_vars['cate']->value['seo_desc'];
+              <textarea name="seo_desc" rows="4"><?php if ($_smarty_tpl->tpl_vars['article']->value) {
+echo $_smarty_tpl->tpl_vars['article']->value['seo_desc'];
 }?></textarea>
             </div>
           </div>
@@ -245,8 +304,8 @@ echo $_smarty_tpl->tpl_vars['cate']->value['seo_desc'];
 
     </div>
   </div>
-  <?php if ($_smarty_tpl->tpl_vars['cate']->value) {?>
-  <input name="id" type="hidden" class="am-input-sm" value="<?php echo $_smarty_tpl->tpl_vars['cate']->value['id'];?>
+  <?php if ($_smarty_tpl->tpl_vars['article']->value) {?>
+  <input name="id" type="hidden" class="am-input-sm" value="<?php echo $_smarty_tpl->tpl_vars['article']->value['id'];?>
 ">
   <?php }?>
   </form>
@@ -263,6 +322,27 @@ echo $_smarty_tpl->tpl_vars['cate']->value['seo_desc'];
 
 <?php echo '<script'; ?>
 >
+  $(function() {
+    $.fn.datetimepicker.dates['zh-CN'] = {
+      days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+      daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+      daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
+      months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+      monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+      today: "今日",
+      suffix: [],
+      meridiem: ["上午", "下午"]
+    };
+    $('.form-datetime').datetimepicker({
+      language:  'zh-CN', 
+      format: 'yyyy-mm-dd hh:ii:ss',
+      autoclose: true,
+      todayBtn: true,
+      pickerPosition: 'bottom-left',
+      startDate: '2015-02-14 14:45',
+      minuteStep: 10
+    });
+  });
 	$('#save-sure').on('click', function() {
 		$.post("/admin/article/add",
 			$('#doc-vld-msg').serializeArray(),

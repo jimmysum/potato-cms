@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-14 17:09:39
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-16 17:19:31
          compiled from "/data/src/test/codeIgniter/application/views/admin/cate/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_561e1bd39868b7_75762029',
+  'unifunc' => 'content_5620c123cc9eb2_03425630',
   'file_dependency' => 
   array (
     'b50ac4d31702e60161246041defc75d60dcfba84' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/cate/add.html',
-      1 => 1444813778,
+      1 => 1444987167,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_561e1bd39868b7_75762029')) {
-function content_561e1bd39868b7_75762029 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5620c123cc9eb2_03425630')) {
+function content_5620c123cc9eb2_03425630 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -108,10 +108,10 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
           <div class="am-u-sm-4 am-u-md-2 am-text-right">显示状态</div>
           <div class="am-u-sm-8 am-u-md-10">
             <div class="am-btn-group" data-am-button>
-              <label class="am-btn am-btn-default am-btn-xs">
-                <input type="radio" name="status" id="option1" value="1" checked> 正常
+              <label class="am-btn am-btn-default am-btn-xs <?php if (!$_smarty_tpl->tpl_vars['cate']->value) {?> am-active<?php } elseif ($_smarty_tpl->tpl_vars['cate']->value && $_smarty_tpl->tpl_vars['cate']->value['status'] == 1) {?> am-active<?php }?>">
+                <input type="radio" name="status" id="option1" value="1"> 正常
               </label>
-              <label class="am-btn am-btn-default am-btn-xs">
+              <label class="am-btn am-btn-default am-btn-xs<?php if ($_smarty_tpl->tpl_vars['cate']->value && $_smarty_tpl->tpl_vars['cate']->value['status'] == 0) {?> am-active<?php }?>">
                 <input type="radio" name="status" id="option3" value="0"> 不显示
               </label>
             </div>

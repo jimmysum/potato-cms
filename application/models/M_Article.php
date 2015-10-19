@@ -64,6 +64,7 @@ class M_Article extends CI_Model
 		foreach ($list as $k => $v) {
 			$list[$k]['recommend_str'] = $v['recommend'] == 1 ? '推荐' : '未推荐';
 			$list[$k]['top_str'] = $v['top'] == 1 ? '置顶' : '未置顶';
+			$list[$k]['hot_str'] = $v['hot'] == 1 ? '热门' : '非热门';
 			$list[$k]['audit_str'] = $v['audit'] == 0 ? '待审核' : ($v['audit'] == 1 ? '通过' : '不通过');
 		}
 		return $list;
@@ -95,9 +96,9 @@ class M_Article extends CI_Model
 		return $this->db->from(self::TABLE)->where(array('id' => $id))->select()->get()->row_array();
 	}
 
-	public function add($cate)
+	public function add($data)
 	{
-		return $this->db->insert(self::TABLE, $cate);
+		return $this->db->insert(self::TABLE, $data);
 	}
 
 	public function update($cate, $key)
