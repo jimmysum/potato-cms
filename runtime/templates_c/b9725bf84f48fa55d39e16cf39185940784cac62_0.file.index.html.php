@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-14 18:44:47
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-20 18:55:26
          compiled from "/data/src/test/codeIgniter/application/views/admin/cate/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_561e321fa28aa7_00509875',
+  'unifunc' => 'content_56261d9eba98e9_27616929',
   'file_dependency' => 
   array (
     'b9725bf84f48fa55d39e16cf39185940784cac62' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/cate/index.html',
-      1 => 1444819486,
+      1 => 1445338524,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_561e321fa28aa7_00509875')) {
-function content_561e321fa28aa7_00509875 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56261d9eba98e9_27616929')) {
+function content_56261d9eba98e9_27616929 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -47,9 +47,6 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
             <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-            <button id="save-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
-            <button id="examine-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
-            <button id="del-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
           </div>
         </div>
       </div>
