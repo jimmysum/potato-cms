@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-19 18:46:38
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-20 14:43:34
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/header.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5624ca0e915186_34720476',
+  'unifunc' => 'content_5625e296b46405_65773232',
   'file_dependency' => 
   array (
     '680e9ab0d86fa35caf24de669fd8861b3ae70099' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/header.html',
-      1 => 1445251596,
+      1 => 1445323173,
       2 => 'file',
     ),
   ),
@@ -18,8 +18,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_5624ca0e915186_34720476')) {
-function content_5624ca0e915186_34720476 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5625e296b46405_65773232')) {
+function content_5625e296b46405_65773232 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js">
@@ -43,6 +43,8 @@ css/amazeui.min.css"/>
 css/admin.css">
   <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['picker_style_url']->value;?>
 datetimepicker/css/amazeui.datetimepicker.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['picker_style_url']->value;?>
+kindeditor/themes/default/default.css">
 </head>
 <body>
 <!--[if lte IE 9]>

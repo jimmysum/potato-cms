@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-19 18:55:22
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-20 15:50:02
          compiled from "/data/src/test/codeIgniter/application/views/admin/article/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5624cc1ab95ee4_27290304',
+  'unifunc' => 'content_5625f22a2e0c11_29960864',
   'file_dependency' => 
   array (
     '71f0479145e591ae3d96279d37c15a384aca9a27' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/article/add.html',
-      1 => 1445252119,
+      1 => 1445327400,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5624cc1ab95ee4_27290304')) {
-function content_5624cc1ab95ee4_27290304 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5625f22a2e0c11_29960864')) {
+function content_5625f22a2e0c11_29960864 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -53,7 +53,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
         <div class="am-g am-margin-top">
           <div class="am-u-sm-4 am-u-md-2 am-text-right">分类</div>
           <div class="am-u-sm-8 am-u-md-10">
-            <select data-am-selected="{btnSize: 'sm'}" name="cate_id" required>
+            <select data-am-selected="{btnSize: 'sm',maxHeight: 180}" name="cate_id" required>
               <option value="">请选择分类</option>
               <?php
 $_from = $_smarty_tpl->tpl_vars['list']->value;
@@ -205,7 +205,7 @@ echo $_smarty_tpl->tpl_vars['article']->value['sort'];
           <div class="am-u-sm-4 am-u-md-2 am-text-right">
             发布时间
           </div>
-          <div class="am-u-sm-8 am-u-md-3 am-u-end">
+          <div class="am-u-sm-8 am-u-md-2 am-u-end">
               <div class="am-form-group am-form-icon">
                 <i class="am-icon-calendar"></i>
                 <input name="time" type="text" id="datetimepicker" class="am-form-field am-input-sm form-datetime" placeholder="时间">
@@ -217,16 +217,15 @@ echo $_smarty_tpl->tpl_vars['article']->value['sort'];
 		
       <div class="am-tab-panel am-fade" id="tab2">
         <form class="am-form">
-          <div class="am-g am-margin-top">
+          <div class="am-g am-margin-top am-form-group">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">
               文章标题
             </div>
-            <div class="am-u-sm-8 am-u-md-4">
-              <input type="text" class="am-input-sm"  name="title" value="<?php if ($_smarty_tpl->tpl_vars['article']->value) {
+            <div class="am-u-sm-8 am-u-md-4 am-u-end">
+              <input type="text" class="am-input-sm"  name="title" data-validation-message="文章标题必填" placeholder="输入文章标题" value="<?php if ($_smarty_tpl->tpl_vars['article']->value) {
 echo $_smarty_tpl->tpl_vars['article']->value['title'];
-}?>">
+}?>" required>
             </div>
-            <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
           </div>
 
           <div class="am-g am-margin-top">
@@ -258,8 +257,8 @@ echo $_smarty_tpl->tpl_vars['article']->value['desc'];
             <div class="am-u-sm-12 am-u-md-2 am-text-right admin-form-text">
               正文内容
             </div>
-            <div class="am-u-sm-12 am-u-md-10">
-              <textarea rows="10" placeholder="请使用富文本编辑插件" name="content"><?php if ($_smarty_tpl->tpl_vars['article']->value) {
+            <div class="am-u-sm-16 am-u-md-6 am-u-end">
+              <textarea rows="16" name="content"><?php if ($_smarty_tpl->tpl_vars['article']->value) {
 echo $_smarty_tpl->tpl_vars['article']->value['content'];
 }?></textarea>
             </div>
@@ -320,8 +319,23 @@ echo $_smarty_tpl->tpl_vars['article']->value['seo_desc'];
 <?php $_smarty_tpl->setupSubTemplate('file:admin/public/footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
+
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['picker_style_url']->value;?>
+kindeditor/kindeditor-min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['picker_style_url']->value;?>
+kindeditor/lang/zh_CN.js"><?php echo '</script'; ?>
+>
 <?php echo '<script'; ?>
 >
+  var editor;
+  KindEditor.ready(function(K) {
+    editor = K.create('textarea[name="content"]', {
+      allowFileManager : true
+    });
+  });
   $(function() {
     $.fn.datetimepicker.dates['zh-CN'] = {
       days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
@@ -338,14 +352,18 @@ echo $_smarty_tpl->tpl_vars['article']->value['seo_desc'];
       format: 'yyyy-mm-dd hh:ii:ss',
       autoclose: true,
       todayBtn: true,
-      pickerPosition: 'bottom-left',
-      startDate: '2015-02-14 14:45',
-      minuteStep: 10
+      pickerPosition: 'bottom-left'
     });
   });
 	$('#save-sure').on('click', function() {
+    var postData = $('#doc-vld-msg').serializeArray();
+    console.log(postData);
+    postData.push({
+      "name": "content",
+      "value": editor.html()
+    });
 		$.post("/admin/article/add",
-			$('#doc-vld-msg').serializeArray(),
+			postData,
 		  function(data,status){
         var res =  jQuery.parseJSON(data);
         if (status == 'success')
@@ -374,7 +392,7 @@ echo $_smarty_tpl->tpl_vars['article']->value['seo_desc'];
 	});
 
 	$('#save-forgive').on('click', function() {
-		window.location.href='/admin/cate/index';
+		window.location.href='/admin/article/index';
 	});
 	$(function() {
 		  $('#doc-vld-msg').validator({

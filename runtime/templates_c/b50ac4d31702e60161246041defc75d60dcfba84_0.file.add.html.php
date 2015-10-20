@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-16 17:19:31
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-20 15:50:35
          compiled from "/data/src/test/codeIgniter/application/views/admin/cate/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5620c123cc9eb2_03425630',
+  'unifunc' => 'content_5625f24b7d03f6_75938950',
   'file_dependency' => 
   array (
     'b50ac4d31702e60161246041defc75d60dcfba84' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/cate/add.html',
-      1 => 1444987167,
+      1 => 1445327432,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5620c123cc9eb2_03425630')) {
-function content_5620c123cc9eb2_03425630 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5625f24b7d03f6_75938950')) {
+function content_5625f24b7d03f6_75938950 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -52,7 +52,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
         <div class="am-g am-margin-top">
           <div class="am-u-sm-4 am-u-md-2 am-text-right">上级分类</div>
           <div class="am-u-sm-8 am-u-md-10">
-            <select data-am-selected="{btnSize: 'sm'}" name="pid">
+            <select data-am-selected="{btnSize: 'sm',maxHeight: 200}" name="pid">
               <option value="0">请选择分类</option>
               <?php
 $_from = $_smarty_tpl->tpl_vars['list']->value;
@@ -123,7 +123,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
               分类名称
             </div>
             <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <input name="cate" type="text" class="am-input-sm" placeholder="输入分类名称" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+              <input name="cate" type="text" class="am-input-sm" data-validation-message="分类名称必填" placeholder="输入分类名称" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
 echo $_smarty_tpl->tpl_vars['cate']->value['cate'];
 }?>" required>
             </div>

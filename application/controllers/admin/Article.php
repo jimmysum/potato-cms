@@ -186,6 +186,75 @@ class Article extends Admin_Controller
 		}
 
 	}
+
+	public function notDelete()
+	{
+		$id = $this->input->get('id');
+		if (!$id) {
+			$this->outJson(-1);
+		}
+
+		$idArr = explode(',', $id);
+		$conditon = array('id_in' => $idArr);
+		$list = $this->article->getList($conditon);
+		if (!$list) {
+			$this->outJson(101,'','分类不存在');
+		}
+		
+		foreach ($list as $key => $v) {
+			$input = array();
+			$input['id'] = $v['id'];
+			$input['del'] = 1;
+			$res = $this->article->update($input, 'id');
+		}
+		
+		$this->outJson(0);
+	}
+
+	public function check()
+	{
+		$id = $this->input->get('id');
+		$type = $this->input->get('type');
+		if (!$id || !$type) {
+			$this->outJson(-1);
+		}
+
+		$idArr = explode(',', $id);
+		$conditon = array('id_in' => $idArr);
+		$list = $this->article->getList($conditon);
+		if (!$list) {
+			$this->outJson(101,'','分类不存在');
+		}
+
+		$str = '';
+		switch ($type) {
+			case '1':
+				$str = 'audit';
+				break;
+			case '2':
+				$str = 'recommend';
+				break;
+			case '3':
+				$str = 'top';
+				break;
+			case '4':
+				$str = 'hot';
+				break;
+			
+			default:
+				$this->outJson(-1);
+				break;
+		}
+		
+		foreach ($list as $key => $v) {
+			$input = array();
+			$input['id'] = $v['id'];
+			$input[$str] = 1;
+			$res = $this->article->update($input, 'id');
+		}
+		
+		$this->outJson(0);
+	}
 }
 
 ?>

@@ -23,7 +23,7 @@
         <div class="am-g am-margin-top">
           <div class="am-u-sm-4 am-u-md-2 am-text-right">上级分类</div>
           <div class="am-u-sm-8 am-u-md-10">
-            <select data-am-selected="{btnSize: 'sm'}" name="pid">
+            <select data-am-selected="{btnSize: 'sm',maxHeight: 200}" name="pid">
               <option value="0">请选择分类</option>
               <{foreach from=$list item="val"}>
               <option value="<{$val.id}>" <{if $cate && $cate.pid eq $val.id}> selected<{/if}>><{$val.cate}></option>
@@ -54,7 +54,7 @@
               分类名称
             </div>
             <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <input name="cate" type="text" class="am-input-sm" placeholder="输入分类名称" value="<{if $cate}><{$cate.cate}><{/if}>" required>
+              <input name="cate" type="text" class="am-input-sm" data-validation-message="分类名称必填" placeholder="输入分类名称" value="<{if $cate}><{$cate.cate}><{/if}>" required>
             </div>
         </div>
         
