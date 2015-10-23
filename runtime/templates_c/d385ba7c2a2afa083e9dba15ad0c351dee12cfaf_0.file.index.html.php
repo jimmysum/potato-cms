@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-20 18:56:00
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-21 18:24:32
          compiled from "/data/src/test/codeIgniter/application/views/admin/article/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56261dc0be4634_14278312',
+  'unifunc' => 'content_562767e0845763_62912398',
   'file_dependency' => 
   array (
     'd385ba7c2a2afa083e9dba15ad0c351dee12cfaf' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/article/index.html',
-      1 => 1445338559,
+      1 => 1445423065,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56261dc0be4634_14278312')) {
-function content_56261dc0be4634_14278312 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562767e0845763_62912398')) {
+function content_562767e0845763_62912398 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -47,10 +47,14 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
             <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+            <?php if ($_smarty_tpl->tpl_vars['del']->value) {?>
+            <button id="recover-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-heart"></span> 恢复</button>
+            <?php } else { ?>
             <button id="recommend-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-star"></span> 推荐</button>
             <button id="top-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-thumbs-up"></span> 置顶</button>
             <button id="hot-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-bomb"></span> 热门</button>
             <button id="examine-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
+            <?php }?>
             <button id="del-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
           </div>
         </div>
@@ -72,7 +76,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
 $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
 ?>
             <option value="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-"  selected><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
+" ><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
 </option>
                 <?php
 $_from = $_smarty_tpl->tpl_vars['val']->value['child'];
@@ -87,7 +91,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['va']->value) {
 $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
 ?>
               <option value="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
-"  selected>&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
+">&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
 </option>
               <?php
 $_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_local_item;
@@ -110,7 +114,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
       </div>
       <div class="am-u-sm-12 am-u-md-3">
         <div class="am-input-group am-input-group-sm">
-          <input type="text" class="am-form-field">
+          <input type="text" name="title" class="am-form-field" placeholder="输入文章标题" >
           <span class="am-input-group-btn">
             <button class="am-btn am-btn-default" type="button">搜索</button>
           </span>
@@ -280,10 +284,20 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_2_saved_item;
     del(data);
   })
 
+  $('#recover-cate').on('click', function(){
+    var data = getId();
+    var url = "/admin/article/notDelete?recover=1&id=" + data;
+    $.post(url,
+      '',
+      function(data,status){
+        result(data, status)
+      });
+  })
+
   function getId()
   {
     var check = $('input[name="check"]');
-    var data;
+    var data = '';
     for (var i = 0; i < check.length; i++) {  
         if(check[i].checked){
           if (data) {
@@ -335,10 +349,11 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_2_saved_item;
 
   function del(id)
   {
+    <?php if ($_smarty_tpl->tpl_vars['del']->value) {?>var url = "/admin/article/del?id=" + id;<?php } else { ?>var url = "/admin/article/notDelete?id=" + id;<?php }?>
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/article/notDelete?id=" + id,
+          $.post(url,
             '',
             function(data,status){
               result(data, status)

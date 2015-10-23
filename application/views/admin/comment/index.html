@@ -16,42 +16,10 @@
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-            <{if $del}>
-            <button id="recover-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-heart"></span> 恢复</button>
-            <{else}>
-            <button id="recommend-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-star"></span> 推荐</button>
-            <button id="top-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-thumbs-up"></span> 置顶</button>
-            <button id="hot-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-bomb"></span> 热门</button>
-            <button id="examine-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
-            <{/if}>
             <button id="del-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
           </div>
         </div>
       </div>
-      <div class="am-u-sm-12 am-u-md-3">
-        <div class="am-form-group">
-          <select data-am-selected="{btnSize: 'sm'}">
-            <option value="0">所有类别</option>
-            <{foreach from=$cateList item="val"}>
-            <option value="<{$val.id}>" ><{$val.cate}></option>
-                <{foreach from=$val.child item="va"}>
-              <option value="<{$va.id}>">&nbsp;&nbsp;└-<{$va.cate}></option>
-              <{/foreach}>
-            <{/foreach}>
-          </select>
-        </div>
-      </div>
-      <div class="am-u-sm-12 am-u-md-3">
-        <div class="am-input-group am-input-group-sm">
-          <input type="text" name="title" class="am-form-field" placeholder="输入文章标题" >
-          <span class="am-input-group-btn">
-            <button class="am-btn am-btn-default" type="button">搜索</button>
-          </span>
-        </div>
-      </div>
-    </div>
-
     <div class="am-g">
       <div class="am-u-sm-12">
         <form class="am-form">
@@ -59,15 +27,12 @@
             <thead>
               <tr>
                 <th class="table-check"><input type="checkbox" id="allCheck" name="check" /></th>
-                <th class="table-id">ID</th><th class="table-title">标题</th>
-                <th class="table-type">分类</th>
-                <th class="table-type">发布人</th>
-                <th class="table-type">推荐</th>
-                <th class="table-type">置顶</th>
-                <th class="table-type">热门</th>
-                <th class="table-type">审核</th>
-                <th class="table-type">排序</th>
-                <th class="table-date am-hide-sm-only">修改日期</th>
+                <th class="table-id">ID</th>
+                <th class="table-title">用户昵称</th>
+                <th class="table-type">邮箱</th>
+                <th class="table-type">文章标题</th>
+                <th class="table-type">内容</th>
+                <th class="table-date am-hide-sm-only">创建时间</th>
                 <th class="table-set">操作</th>
               </tr>
           </thead>
@@ -76,20 +41,14 @@
             <tr>
               <td><input type="checkbox" name="check" rid="<{$val.id}>" /></td>
               <td><{$val.id}></td>
-              <td><a href="/admin/article/add?id=<{$val.id}>"><{$val.title}></a></td>
-              <td><{$val['cate']}></td>
-              <td><{$val['username']}></td>
-              <td><span class="am-btn <{if $val['recommend']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['recommend_str']}></span></td>
-              <td><span class="am-btn <{if $val['top']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['top_str']}></span></td>
-              <td><span class="am-btn <{if $val['hot']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['hot_str']}></span></td>
-              <td><span class="am-btn <{if $val['audit']==1}>am-btn-success<{elseif $val['audit']==0}>am-btn-secondary<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['audit_str']}></span></td>
-              <td><{$val['sort']}></td>
-              <td class="am-hide-sm-only"><{$val.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
+              <td><{$val['full_name']}></td>
+              <td><{$val['email']}></td>
+              <td><{$val['aid']}></td>
+              <td><{$val['content']}></td>
+              <td class="am-hide-sm-only"><{$val.createtime|date_format:'%Y-%m-%d %H:%M:%S'}></td>
               <td>
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<{$val.id}>)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                    <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<{$val.id}>)"><span class="am-icon-copy"></span> 复制</button> -->
                     <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$val.id}>)"><span class="am-icon-trash-o"></span> 删除</button>
                   </div>
                 </div>
@@ -130,15 +89,6 @@
 
 <{include file='admin/public/footer.html'}>
 <script>
-	$('#add-cate').on('click', function() {
-		window.location.href='/admin/article/add';
-  	});
-
-  function edit(id)
-  {
-    window.location.href='/admin/article/add?id=' + id;
-  }
-
   $('#allCheck').on('click', function(){
     var check = $('input[name="check"]');
     for (var i = 0; i < check.length; i++) {  
@@ -152,39 +102,9 @@
     } 
   })
 
-  $('#examine-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 1);
-  })
-
-  $('#recommend-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 2);
-  })
-
-  $('#top-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 3);
-  })
-
-  $('#hot-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 4);
-  })
-
   $('#del-cate').on('click', function(){
     var data = getId();
     del(data);
-  })
-
-  $('#recover-cate').on('click', function(){
-    var data = getId();
-    var url = "/admin/article/notDelete?recover=1&id=" + data;
-    $.post(url,
-      '',
-      function(data,status){
-        result(data, status)
-      });
   })
 
   function getId()
@@ -203,15 +123,6 @@
         }
     } 
     return data;
-  }
-
-  function checkPost(data, type)
-  {
-    $.post("/admin/article/check?type=" + type + "&id=" + data,
-      '',
-      function(data,status){
-        result(data,status);
-      });
   }
 
   function result(data, status)

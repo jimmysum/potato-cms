@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-14 19:09:44
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-21 18:00:57
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/left.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_561e37f8cb5249_05449362',
+  'unifunc' => 'content_56276259215874_90076509',
   'file_dependency' => 
   array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1444820965,
+      1 => 1445421652,
       2 => 'file',
     ),
   ),
@@ -18,8 +18,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_561e37f8cb5249_05449362')) {
-function content_561e37f8cb5249_05449362 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56276259215874_90076509')) {
+function content_56276259215874_90076509 ($_smarty_tpl) {
 ?>
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
@@ -30,6 +30,8 @@ function content_561e37f8cb5249_05449362 ($_smarty_tpl) {
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
             <li><a href="/admin/cate/index"><span class="am-icon-table"></span> 分类管理</a></li>
             <li><a href="/admin/article/index"><span class="am-icon-table"></span> 文章管理</a></li>
+            <li><a href="/admin/comment/index"><span class="am-icon-table"></span> 评论管理</a></li>
+            <li><a href="/admin/article/index?recycle=1"><span class="am-icon-table"></span> 回收站</a></li>
             <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
             <li><a href="admin-help.html"><span class="am-icon-puzzle-piece"></span> 帮助页</a></li>
             <li><a href="admin-gallery.html"><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>

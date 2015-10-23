@@ -66,7 +66,17 @@ class Article extends Admin_Controller
 	public function index()
 	{
 		$param = $this->input->get();
-		$conditon['del'] = 0;
+		if (isset($param['recycle']))
+		{
+			$conditon['del'] = 1;
+			$this->assign('del', 1);
+		}
+		else
+		{
+			$conditon['del'] = 0;
+			$this->assign('del', 0);
+		}
+		
 		$count = $this->article->getCount($conditon);
 
 		$conditon['p'] = isset($param['p']) && $param['p'] > 0 ? $param['p'] : 0;
@@ -107,6 +117,7 @@ class Article extends Admin_Controller
 		$this->assign('cateList', $cateList);
 		$this->display();
 	}
+
 	
 	public function add()
 	{
@@ -171,30 +182,36 @@ class Article extends Admin_Controller
 			$this->outJson(-1);
 		}
 
-		$cate = $this->article->getOne($id);
-		if (!$cate) {
+		$idArr = explode(',', $id);
+		$conditon = array('id_in' => $idArr);
+		$list = $this->article->getList($conditon);
+		if (!$list) {
 			$this->outJson(101,'','分类不存在');
 		}
 		
-		$res = $this->article->del($id);
-		if ($res) {
-			$this->outJson(0);
+		foreach ($list as $key => $v) {
+			$res = $this->article->del($v['id']);
 		}
-		else
-		{
-			$this->outJson(1);
-		}
-
+		
+		
+		$this->outJson(0);
 	}
 
 	public function notDelete()
 	{
 		$id = $this->input->get('id');
-		if (!$id) {
-			$this->outJson(-1);
-		}
-
+		$recover = $this->input->get('recover');
+		
 		$idArr = explode(',', $id);
+		foreach($idArr as $k => $v)
+		{
+			if (!$v) {
+			 	unset($idArr[$k]);
+			 }
+		}
+		if (empty($idArr)) {
+			$this->outJson(-1, '', '请选择文章');
+		}
 		$conditon = array('id_in' => $idArr);
 		$list = $this->article->getList($conditon);
 		if (!$list) {
@@ -204,7 +221,7 @@ class Article extends Admin_Controller
 		foreach ($list as $key => $v) {
 			$input = array();
 			$input['id'] = $v['id'];
-			$input['del'] = 1;
+			$input['del'] = $recover == 1 ? 0 : 1;
 			$res = $this->article->update($input, 'id');
 		}
 		

@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-20 18:55:26
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-21 12:32:50
          compiled from "/data/src/test/codeIgniter/application/views/admin/cate/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56261d9eba98e9_27616929',
+  'unifunc' => 'content_562715726ce4f4_48969024',
   'file_dependency' => 
   array (
     'b9725bf84f48fa55d39e16cf39185940784cac62' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/cate/index.html',
-      1 => 1445338524,
+      1 => 1445401968,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56261d9eba98e9_27616929')) {
-function content_56261d9eba98e9_27616929 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562715726ce4f4_48969024')) {
+function content_562715726ce4f4_48969024 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -67,7 +67,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
 $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
 ?>
             <option value="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-"  selected><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
+" ><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
 </option>
                 <?php
 $_from = $_smarty_tpl->tpl_vars['val']->value['child'];
@@ -82,7 +82,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['va']->value) {
 $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
 ?>
               <option value="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
-"  selected>&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
+" >&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
 </option>
               <?php
 $_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_local_item;
