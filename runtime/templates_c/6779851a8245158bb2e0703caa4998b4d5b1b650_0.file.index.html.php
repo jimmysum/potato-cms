@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 12:13:34
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 14:04:44
          compiled from "/data/src/test/codeIgniter/application/views/admin/link/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562b056e56b582_59051520',
+  'unifunc' => 'content_562b1f7c529ff6_97671480',
   'file_dependency' => 
   array (
     '6779851a8245158bb2e0703caa4998b4d5b1b650' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/link/index.html',
-      1 => 1445660009,
+      1 => 1445666681,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_562b056e56b582_59051520')) {
-function content_562b056e56b582_59051520 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562b1f7c529ff6_97671480')) {
+function content_562b1f7c529ff6_97671480 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -89,8 +89,8 @@ $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
               <td><a href="/admin/nav/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['val']->value['name'];?>
 </a></td>
-              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['image'];?>
-</td>
+              <td><img src="<?php echo $_smarty_tpl->tpl_vars['val']->value['image'];?>
+" width="200" height="70"></td>
               <td><?php echo $_smarty_tpl->tpl_vars['val']->value['url'];?>
 </td>
               <td><?php echo $_smarty_tpl->tpl_vars['val']->value['sort'];?>
@@ -122,7 +122,14 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
             
           </tbody>
         </table>
+        <div class="am-cf">
+          <div class="am-fr">
+              <ul class="am-pagination">
+              <?php echo $_smarty_tpl->tpl_vars['page']->value;?>
 
+              </ul>
+          </div>
+        </div>
           <hr />
           <p>注：.....</p>
         </form>

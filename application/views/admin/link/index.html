@@ -45,7 +45,7 @@
               <td><input type="checkbox" /></td>
               <td><span class="am-btn am-btn-xs am-btn-danger"><{$val.id}></span></td>
               <td><a href="/admin/nav/add?id=<{$val.id}>"><{$val.name}></a></td>
-              <td><{$val.image}></td>
+              <td><img src="<{$val.image}>" width="200" height="70"></td>
               <td><{$val['url']}></td>
               <td><{$val['sort']}></td>
               <td class="am-hide-sm-only"><span class="am-btn <{if $val['status']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{if $val['status']==1}>可用<{else}>不可用<{/if}></span></td>
@@ -64,7 +64,13 @@
             
           </tbody>
         </table>
-
+        <div class="am-cf">
+          <div class="am-fr">
+              <ul class="am-pagination">
+              <{$page}>
+              </ul>
+          </div>
+        </div>
           <hr />
           <p>注：.....</p>
         </form>

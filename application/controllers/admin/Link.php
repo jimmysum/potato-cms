@@ -42,6 +42,8 @@ class Link extends Admin_Controller
                     ),
             ),
     );
+
+    public $ps = 20;
     
     public function __construct() 
     {
@@ -51,9 +53,23 @@ class Link extends Admin_Controller
     
     public function index()
     {
-        $list = $this->link->getAll();
+        $param = $this->input->get();
+        $conditon['p'] = isset($param['p']) && $param['p'] > 0 ? $param['p'] : 0;
+        $conditon['ps'] = $this->ps;
+        $list = $this->link->getList($conditon);
 //      echo '<pre>';
 //      print_r($list);
+     
+        $count = $this->link->getCount(array());
+        // 分页
+        $this->load->library('pagination');
+        $config['base_url'] = '/admin/link/index';
+        $config['total_rows'] = $count;
+        $config['per_page'] = $this->ps;
+        $config['page_query_string'] = true;
+        $this->pagination->initialize($config);
+
+        $this->assign('page', $this->pagination->create_links());
         $this->assign('list', $list);
         $this->display();
     }
