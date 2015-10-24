@@ -15,8 +15,9 @@ class CI_Smarty extends Smarty {
 
 	public function __construct()
 	{
-		parent::__construct();
+		parent::__construct(); 
 
+		$this->caching = true;
 // 		$this->compile_dir = APPPATH . "views/templates_c";
 // 		$this->template_dir = APPPATH . "views";
 // 		$this->config_dir = APPPATH . "config";

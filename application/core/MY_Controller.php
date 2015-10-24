@@ -73,6 +73,14 @@ class MY_Controller extends CI_Controller
 			$merge_tpl_vars, $no_output_filter);
 	}
 	
+	/**
+	* @desc json输出
+	* @access 
+	* @author  Jimmy
+	* @date	 2015-9-28下午8:40:52 
+	* @param
+	* @return
+	*/
 	public function outJson($code = 0, $data = array(), $msg = '')
 	{
 		if (is_null($code))
@@ -100,6 +108,14 @@ class MY_Controller extends CI_Controller
 		echo json_encode($data);die;
 	}
 
+	/**
+	* @desc 错误输出
+	* @access 
+	* @author  Jimmy
+	* @date	 2015-9-28下午8:40:52 
+	* @param
+	* @return
+	*/
 	public function error($msg)
 	{
 		echo $msg;die;

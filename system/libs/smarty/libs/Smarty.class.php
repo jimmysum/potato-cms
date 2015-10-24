@@ -339,7 +339,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      *
      * @var string
      */
-    private $cache_dir = './cache/';
+    private $cache_dir = 'runtime/cache';
 
     /**
      * config directory

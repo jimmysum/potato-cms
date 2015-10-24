@@ -51,6 +51,13 @@ class M_Admin extends CI_Model
 		return array();
 	}
 
+	public function getCount($conditon)
+	{
+		$this->conditon($conditon);
+		$this->db->from(self::TABLE);
+		return $this->db->count_all_results();
+	}
+
 
 	public function getList($conditon)
 	{

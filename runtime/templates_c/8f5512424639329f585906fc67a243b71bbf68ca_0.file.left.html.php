@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 12:11:56
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 19:01:20
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/left.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562b050c42aee9_67699793',
+  'unifunc' => 'content_562b65008fd689_22137609',
   'file_dependency' => 
   array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1445658936,
+      1 => 1445684478,
       2 => 'file',
     ),
   ),
@@ -18,8 +18,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_562b050c42aee9_67699793')) {
-function content_562b050c42aee9_67699793 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562b65008fd689_22137609')) {
+function content_562b65008fd689_22137609 ($_smarty_tpl) {
 ?>
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
@@ -51,7 +51,7 @@ function content_562b050c42aee9_67699793 ($_smarty_tpl) {
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-comments"></span> 基本设置 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
             <li><a href="/admin/link/index"><span class="am-icon-table"></span> 友情链接 </a></li>
-            <li><a href="/admin/system/setting"><span class="am-icon-table"></span> 网站设置 </a></li>
+            <li><a href="/admin/system/index"><span class="am-icon-table"></span> 网站设置 </a></li>
             <li><a href="/admin/system/clean"><span class="am-icon-table"></span> 缓存清理 </a></li>
           </ul>
         </li>

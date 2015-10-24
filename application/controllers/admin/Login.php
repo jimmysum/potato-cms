@@ -103,7 +103,7 @@ class Login extends Admin_Controller
 	 * @param
 	 * @return
 	 */
-	public function loginOut()
+	public function logOut()
 	{
 		$this->session->unset_userdata('user');
 		redirect('/admin/login/login');

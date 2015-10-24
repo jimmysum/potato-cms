@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-20 15:50:02
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 19:41:04
          compiled from "/data/src/test/codeIgniter/application/views/admin/article/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5625f22a2e0c11_29960864',
+  'unifunc' => 'content_562b6e50d1dfb7_04088071',
   'file_dependency' => 
   array (
     '71f0479145e591ae3d96279d37c15a384aca9a27' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/article/add.html',
-      1 => 1445327400,
+      1 => 1445686861,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5625f22a2e0c11_29960864')) {
-function content_5625f22a2e0c11_29960864 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562b6e50d1dfb7_04088071')) {
+function content_562b6e50d1dfb7_04088071 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -44,8 +44,8 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
   <form class="am-form" id="doc-vld-msg">
   <div class="am-tabs am-margin" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs">
-      <li class="am-active"><a href="#tab1">分类内容</a></li>
-      <li><a href="#tab2">详细描述</a></li>
+      <li class="am-active"><a href="#tab1">基本选项</a></li>
+      <li><a href="#tab2">文章内容</a></li>
       <li><a href="#tab3">SEO 选项</a></li>
     </ul>
     <div class="am-tabs-bd">
@@ -357,7 +357,6 @@ kindeditor/lang/zh_CN.js"><?php echo '</script'; ?>
   });
 	$('#save-sure').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
-    console.log(postData);
     postData.push({
       "name": "content",
       "value": editor.html()

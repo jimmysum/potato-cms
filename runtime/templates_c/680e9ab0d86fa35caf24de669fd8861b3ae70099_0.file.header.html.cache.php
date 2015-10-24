@@ -1,3 +1,27 @@
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 20:10:27
+         compiled from "/data/src/test/codeIgniter/application/views/admin/public/header.html" */ ?>
+<?php
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'has_nocache_code' => false,
+  'version' => '3.1.28-dev/63',
+  'unifunc' => 'content_562b7533768ed0_58099546',
+  'file_dependency' => 
+  array (
+    '680e9ab0d86fa35caf24de669fd8861b3ae70099' => 
+    array (
+      0 => '/data/src/test/codeIgniter/application/views/admin/public/header.html',
+      1 => 1445688625,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false);
+if ($_valid && !is_callable('content_562b7533768ed0_58099546')) {
+function content_562b7533768ed0_58099546 ($_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '798056928562b753373ab31_90245286';
+?>
 <!doctype html>
 <html class="no-js">
 <head>
@@ -9,13 +33,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="<{$admin_style_url}>i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="<{$admin_style_url}>i/app-icon72x72@2x.png">
+  <link rel="icon" type="image/png" href="<?php echo $_smarty_tpl->tpl_vars['admin_style_url']->value;?>
+i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="<?php echo $_smarty_tpl->tpl_vars['admin_style_url']->value;?>
+i/app-icon72x72@2x.png">
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="<{$admin_style_url}>css/amazeui.min.css"/>
-  <link rel="stylesheet" href="<{$admin_style_url}>css/admin.css">
-  <link rel="stylesheet" href="<{$picker_style_url}>datetimepicker/css/amazeui.datetimepicker.css">
-  <link rel="stylesheet" href="<{$picker_style_url}>kindeditor/themes/default/default.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['admin_style_url']->value;?>
+css/amazeui.min.css"/>
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['admin_style_url']->value;?>
+css/admin.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['picker_style_url']->value;?>
+datetimepicker/css/amazeui.datetimepicker.css">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['picker_style_url']->value;?>
+kindeditor/themes/default/default.css">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -48,3 +78,5 @@
     </ul>
   </div>
 </header>
+<?php }
+}

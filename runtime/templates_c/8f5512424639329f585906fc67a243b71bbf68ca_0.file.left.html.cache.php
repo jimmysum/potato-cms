@@ -1,3 +1,27 @@
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 20:18:32
+         compiled from "/data/src/test/codeIgniter/application/views/admin/public/left.html" */ ?>
+<?php
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'has_nocache_code' => false,
+  'version' => '3.1.28-dev/63',
+  'unifunc' => 'content_562b7718e2a7c1_44248211',
+  'file_dependency' => 
+  array (
+    '8f5512424639329f585906fc67a243b71bbf68ca' => 
+    array (
+      0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
+      1 => 1445689110,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false);
+if ($_valid && !is_callable('content_562b7718e2a7c1_44248211')) {
+function content_562b7718e2a7c1_44248211 ($_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '1261771341562b7718e08b75_90531801';
+?>
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
       <ul class="am-list admin-sidebar-list">
@@ -69,4 +93,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div><?php }
+}
