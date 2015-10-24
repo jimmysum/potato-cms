@@ -41,7 +41,7 @@ CREATE TABLE `ci_ad` (
   `time` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`ad_id`),
   KEY `ad_name` (`ad_name`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `ci_admin` */
 
@@ -70,7 +70,7 @@ CREATE TABLE `ci_adpos` (
   `sort` int(11) DEFAULT '50' COMMENT '排序',
   `time` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `ci_article` */
 
@@ -95,7 +95,7 @@ CREATE TABLE `ci_article` (
   `seo_keyword` varchar(200) DEFAULT NULL,
   `seo_desc` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `ci_cate` */
 
@@ -112,7 +112,7 @@ CREATE TABLE `ci_cate` (
   `seo_keyword` varchar(200) DEFAULT NULL,
   `seo_desc` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `ci_comments` */
 
@@ -124,14 +124,14 @@ CREATE TABLE `ci_comments` (
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT '发表评论的用户id',
   `full_name` varchar(50) DEFAULT NULL COMMENT '评论者昵称',
   `email` varchar(255) DEFAULT NULL COMMENT '评论者邮箱',
-  `createtime` datetime NOT NULL DEFAULT '2000-01-01 00:00:00',
+  `createtime` int(11) NOT NULL COMMENT '添加时间',
   `content` text NOT NULL COMMENT '评论内容',
   `parentid` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '被回复的评论id',
   `aid` int(11) DEFAULT NULL COMMENT '评论内容id',
   PRIMARY KEY (`id`),
   KEY `comment_parent` (`parentid`) USING BTREE,
   KEY `createtime` (`createtime`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `ci_links` */
 
@@ -148,7 +148,7 @@ CREATE TABLE `ci_links` (
   `time` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`),
   KEY `link_visible` (`status`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `ci_nav` */
 
@@ -161,8 +161,11 @@ CREATE TABLE `ci_nav` (
   `sort` int(6) DEFAULT '50',
   `time` int(11) DEFAULT NULL COMMENT '创建时间',
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
+  `seo_title` varchar(100) DEFAULT NULL COMMENT 'seo标题',
+  `seo_keyword` varchar(200) DEFAULT NULL COMMENT 'seo关键词',
+  `seo_desc` text COMMENT 'seo描述',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `ci_node` */
 
