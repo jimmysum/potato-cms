@@ -113,6 +113,14 @@ class Cate extends Admin_Controller
 		if (!$cate) {
 			$this->outJson(101,'','分类不存在');
 		}
+
+		$this->load->model('M_Article', 'article');
+		$conditon = array('cate_id' => $id);
+		$articles = $this->article->getList($conditon);
+		if($articles)
+		{
+			$this->outJson(101,'','此分类下存在文章，不可删除');
+		}
 		
 		$res = $this->category->del($id);
 		if ($res) {

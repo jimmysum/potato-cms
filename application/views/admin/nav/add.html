@@ -26,9 +26,9 @@
             <select data-am-selected="{btnSize: 'sm',maxHeight: 200}" name="pid">
               <option value="0">请选择分类</option>
               <{foreach from=$list item="val"}>
-              <option value="<{$val.id}>" <{if $cate && $cate.pid eq $val.id}> selected<{/if}>><{$val.cate}></option>
+              <option value="<{$val.id}>" <{if $cate && $cate.pid eq $val.id}> selected<{/if}>><{$val.name}></option>
               	  <{foreach from=$val.child item="va"}>
-	              <option value="<{$va.id}>" <{if $cate && $cate.pid eq $va.id}> selected<{/if}>>&nbsp;&nbsp;└-<{$va.cate}></option>
+	              <option value="<{$va.id}>" <{if $cate && $cate.pid eq $va.id}> selected<{/if}>>&nbsp;&nbsp;└-<{$va.name}></option>
 	              <{/foreach}>
               <{/foreach}>
             </select>
@@ -54,7 +54,7 @@
               分类名称
             </div>
             <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <input name="cate" type="text" class="am-input-sm" data-validation-message="分类名称必填" placeholder="输入分类名称" value="<{if $cate}><{$cate.cate}><{/if}>" required>
+              <input name="name" type="text" class="am-input-sm" data-validation-message="分类名称必填" placeholder="输入分类名称" value="<{if $cate}><{$cate.name}><{/if}>" required>
             </div>
         </div>
         
@@ -66,19 +66,6 @@
               <input name="sort" type="text" class="am-input-sm" value="<{if $cate}><{$cate.sort}><{/if}>"  placeholder="默认50">
             </div>
         </div>
-
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">
-            发布时间
-          </div>
-          <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <div class="am-form-group am-form-icon">
-                <i class="am-icon-calendar"></i>
-                <input name="time" type="text" class="am-form-field am-input-sm" placeholder="时间">
-              </div>
-          </div>
-        </div>
-
       </div>
 		
       <div class="am-tab-panel am-fade" id="tab3">
@@ -127,7 +114,7 @@
 <{include file='admin/public/footer.html'}>
 <script>
 	$('#save-sure').on('click', function() {
-		$.post("/admin/cate/add",
+		$.post("/admin/nav/add",
 			$('#doc-vld-msg').serializeArray(),
 		  function(data,status){
         var res =  jQuery.parseJSON(data);
@@ -139,7 +126,7 @@
             $('#success-msg').addClass('am-alert-success');
             $('#success-msg').html(res.msg);
             $('#success-msg').fadeIn(2000, function() {
-              window.location.href = '/admin/cate/index';
+              window.location.href = '/admin/nav/index';
             });
           }
           else 
@@ -157,7 +144,7 @@
 	});
 
 	$('#save-forgive').on('click', function() {
-		window.location.href='/admin/cate/index';
+		window.location.href='/admin/nav/index';
 	});
 	$(function() {
 		  $('#doc-vld-msg').validator({

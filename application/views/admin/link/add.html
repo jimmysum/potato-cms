@@ -15,26 +15,35 @@
   <form class="am-form" id="doc-vld-msg">
   <div class="am-tabs am-margin" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs">
-      <li class="am-active"><a href="#tab1">分类内容</a></li>
-      <li><a href="#tab3">SEO 选项</a></li>
+      <li class="am-active"><a href="#tab1">添加内容</a></li>
     </ul>
     <div class="am-tabs-bd">
       <div class="am-tab-panel am-fade am-in am-active" id="tab1">
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">上级分类</div>
-          <div class="am-u-sm-8 am-u-md-10">
-            <select data-am-selected="{btnSize: 'sm',maxHeight: 200}" name="pid">
-              <option value="0">请选择分类</option>
-              <{foreach from=$list item="val"}>
-              <option value="<{$val.id}>" <{if $cate && $cate.pid eq $val.id}> selected<{/if}>><{$val.cate}></option>
-              	  <{foreach from=$val.child item="va"}>
-	              <option value="<{$va.id}>" <{if $cate && $cate.pid eq $va.id}> selected<{/if}>>&nbsp;&nbsp;└-<{$va.cate}></option>
-	              <{/foreach}>
-              <{/foreach}>
-            </select>
+
+		    <div class="am-g am-margin-top am-form-group">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              公司名称
+            </div>
+            <div class="am-u-sm-8 am-u-md-3 am-u-end">
+              <input name="name" type="text" class="am-input-sm" data-validation-message="公司名称必填" placeholder="输入分类名称" value="<{if $cate}><{$cate.name}><{/if}>" required>
+            </div>
+        </div>
+        <div class="am-g am-margin-top-sm">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">
+            公司描述
+          </div>
+          <div class="am-u-sm-8 am-u-md-3 am-u-end">
+            <textarea name="desc" rows="4"><{if $cate}><{$cate.desc}><{/if}></textarea>
           </div>
         </div>
-
+        <div class="am-g am-margin-top am-form-group">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              公司链接
+            </div>
+            <div class="am-u-sm-8 am-u-md-3 am-u-end">
+              <input name="url" type="text" class="am-input-sm" data-validation-message="公司链接必填" placeholder="输入分类名称" value="<{if $cate}><{$cate.url}><{/if}>" required>
+            </div>
+        </div>
         <div class="am-g am-margin-top">
           <div class="am-u-sm-4 am-u-md-2 am-text-right">显示状态</div>
           <div class="am-u-sm-8 am-u-md-10">
@@ -49,15 +58,6 @@
           </div>
         </div>
         
-		<div class="am-g am-margin-top am-form-group">
-            <div class="am-u-sm-4 am-u-md-2 am-text-right">
-              分类名称
-            </div>
-            <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <input name="cate" type="text" class="am-input-sm" data-validation-message="分类名称必填" placeholder="输入分类名称" value="<{if $cate}><{$cate.cate}><{/if}>" required>
-            </div>
-        </div>
-        
         <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">
               排序
@@ -66,50 +66,19 @@
               <input name="sort" type="text" class="am-input-sm" value="<{if $cate}><{$cate.sort}><{/if}>"  placeholder="默认50">
             </div>
         </div>
-
         <div class="am-g am-margin-top">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">
-            发布时间
-          </div>
-          <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <div class="am-form-group am-form-icon">
-                <i class="am-icon-calendar"></i>
-                <input name="time" type="text" class="am-form-field am-input-sm" placeholder="时间">
-              </div>
-          </div>
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              logo
+            </div>
+            <div class="am-u-sm-8 am-u-md-3 am-u-end">
+              <input name="image" id="image" type="text" class="am-input-sm" value="<{if $cate}><{$cate.image}><{/if}>"  placeholder="默认50">
+            </div>
+            <div class="am-u-sm-12 am-u-md-6">
+              <input name="upload" id="upload" type="button" class="am-input-sm" value="上传图片">
+            </div>
         </div>
-
       </div>
 		
-      <div class="am-tab-panel am-fade" id="tab3">
-          <div class="am-g am-margin-top-sm">
-            <div class="am-u-sm-4 am-u-md-2 am-text-right">
-              SEO 标题
-            </div>
-            <div class="am-u-sm-8 am-u-md-4 am-u-end">
-              <input name="seo_title" type="text" class="am-input-sm" value="<{if $cate}><{$cate.seo_title}><{/if}>">
-            </div>
-          </div>
-
-          <div class="am-g am-margin-top-sm">
-            <div class="am-u-sm-4 am-u-md-2 am-text-right">
-              SEO 关键字
-            </div>
-            <div class="am-u-sm-8 am-u-md-4 am-u-end">
-              <input name="seo_keyword" type="text" class="am-input-sm" value="<{if $cate}><{$cate.seo_keyword}><{/if}>">
-            </div>
-          </div>
-
-          <div class="am-g am-margin-top-sm">
-            <div class="am-u-sm-4 am-u-md-2 am-text-right">
-              SEO 描述
-            </div>
-            <div class="am-u-sm-8 am-u-md-4 am-u-end">
-              <textarea name="seo_desc" rows="4"><{if $cate}><{$cate.seo_desc}><{/if}></textarea>
-            </div>
-          </div>
-      </div>
-
     </div>
   </div>
   <{if $cate}>
@@ -125,9 +94,32 @@
 
 </div>
 <{include file='admin/public/footer.html'}>
+<script src="<{$picker_style_url}>kindeditor/kindeditor-min.js"></script>
+<script src="<{$picker_style_url}>kindeditor/lang/zh_CN.js"></script>
 <script>
+  var editor;
+  KindEditor.ready(function(K) {
+    var editor = K.editor({
+                    allowFileManager : true //允许图片管理 开启后再挑选图片的时候可以直接从图片空间内挑选
+                  });
+    K('#upload').click(function() {
+      editor.loadPlugin('image', function() {
+        //图片弹窗的基本参数配置
+        editor.plugin.imageDialog({
+          imageUrl : K('#image').val(), //如果图片路径框内有内容直接赋值于弹出框的图片地址文本框
+          showRemote : false,
+          //点击弹窗内”确定“按钮所执行的逻辑
+          clickFn : function(url, title, width, height, border, align) {
+            K('#image').val(url);//获取图片地址
+            editor.hideDialog(); //隐藏弹窗
+          }
+        });
+      });
+    });
+
+  });
 	$('#save-sure').on('click', function() {
-		$.post("/admin/cate/add",
+		$.post("/admin/link/add",
 			$('#doc-vld-msg').serializeArray(),
 		  function(data,status){
         var res =  jQuery.parseJSON(data);
@@ -139,7 +131,7 @@
             $('#success-msg').addClass('am-alert-success');
             $('#success-msg').html(res.msg);
             $('#success-msg').fadeIn(2000, function() {
-              window.location.href = '/admin/cate/index';
+              window.location.href = '/admin/link/index';
             });
           }
           else 
@@ -157,7 +149,7 @@
 	});
 
 	$('#save-forgive').on('click', function() {
-		window.location.href='/admin/cate/index';
+		window.location.href='/admin/link/index';
 	});
 	$(function() {
 		  $('#doc-vld-msg').validator({

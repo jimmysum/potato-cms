@@ -44,9 +44,9 @@ class M_Article extends CI_Model
 			$this->db->where(array('del' => $conditon['del']));
 		}
 
-		if (isset($conditon['username']) && $conditon['username']) 
+		if (isset($conditon['cate_id']) && $conditon['cate_id'] > 0) 
 		{
-			$this->db->where(array('username' => $conditon['username']));
+			$this->db->where(array('cate_id' => $conditon['cate_id']));
 		}
 
 		if (isset($conditon['p'])) {
