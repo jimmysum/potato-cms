@@ -26,14 +26,39 @@ class Admin extends Admin_Controller
      */
     public $rules = array(
             array(
-                    'field' => 'cate',
-                    'label' => '分类名称',
+                    'field' => 'role_id',
+                    'label' => '权限组',
+                    'rules' => 'required',
+                    'errors' => array(
+                            'required' => '请选择"%s."',
+                    ),
+            ),
+            array(
+                    'field' => 'username',
+                    'label' => '用户名',
                     'rules' => 'required',
                     'errors' => array(
                             'required' => '请填写"%s."',
                     ),
             ),
-            
+            array(
+                    'field' => 'password',
+                    'label' => '密码',
+                    'rules' => 'trim|required|min_length[8]',
+                    'errors' => array(
+                            'required' => '请填写"%s."',
+                            'min_length' => '"%s."必须8位以上',
+                    ),
+            ),
+            array(
+                    'field' => 'repassword',
+                    'label' => '重复密码',
+                    'rules' => 'trim|required|matches[password]',
+                    'errors' => array(
+                            'required' => '请填写"%s."',
+                            'matches'   => '两次密码不相同',
+                    ),
+            ),
     );
 
     public $ps = 20;
@@ -50,8 +75,7 @@ class Admin extends Admin_Controller
         $conditon['p'] = isset($param['p']) && $param['p'] > 0 ? $param['p'] : 0;
         $conditon['ps'] = $this->ps;
         $list = $this->admin->getList($conditon);
-//      echo '<pre>';
-//      print_r($list);
+        $list = $this->admin->amerge($list);
      
         $count = $this->admin->getCount(array());
         // 分页
@@ -63,6 +87,8 @@ class Admin extends Admin_Controller
         $this->pagination->initialize($config);
 
         $this->assign('page', $this->pagination->create_links());
+//      echo '<pre>';
+//      print_r($list);
         $this->assign('list', $list);
         $this->display();
     }
@@ -77,6 +103,8 @@ class Admin extends Admin_Controller
             $this->form_validation->set_rules($this->rules);
             if ($this->form_validation->run() == TRUE)
             {
+                unset($input['repassword']);
+                $input['password'] = md5($input['password']);
                 $input['time'] = time();
                 if (isset($input['id'])) {
                     $res = $this->admin->update($input, 'id');
@@ -102,17 +130,18 @@ class Admin extends Admin_Controller
         else 
         {
             $id = $this->input->get('id');
-            $cate = array();
+            $data = array();
             if ($id) {
-                $cate = $this->admin->getOne($id);
-                if (!$cate) {
-                    $this->error('分类不存在');
+                $data = $this->admin->getUserById($id);
+                if (!$data) {
+                    $this->error('用户不存在');
                 }
             }
-            $this->assign('cate', $cate);
-            $list = $this->admin->getAll();
-            $list = node_merge($list);
+
+            $this->load->model('M_Role', 'role');
+            $list = $this->role->getAll();
             $this->assign('list', $list);
+            $this->assign('data', $data);
             $this->display();
         }
     }

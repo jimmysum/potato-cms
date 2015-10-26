@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 20:31:13
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-26 18:26:56
          compiled from "/data/src/test/codeIgniter/application/views/admin/admin/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562b7a11608343_64814760',
+  'unifunc' => 'content_562dfff0f411c2_28202792',
   'file_dependency' => 
   array (
     'b00651b287dc94c8b985fc9cfc602e5431c867b6' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/admin/index.html',
-      1 => 1445689870,
+      1 => 1445855216,
       2 => 'file',
     ),
   ),
@@ -21,10 +21,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_562b7a11608343_64814760')) {
-function content_562b7a11608343_64814760 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562dfff0f411c2_28202792')) {
+function content_562dfff0f411c2_28202792 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
-$_smarty_tpl->compiled->nocache_hash = '530675400562b7a115985e3_57546361';
+$_smarty_tpl->compiled->nocache_hash = '1306313710562dfff0ed8029_53816732';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -105,6 +105,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
                 <th class="table-check"><input type="checkbox" id="allCheck" name="check" /></th>
                 <th class="table-id">ID</th>
                 <th class="table-title">名称</th>
+                <th class="table-title">用户名</th>
                 <th class="table-type">登陆ip</th>
                 <th class="table-type">登陆时间</th>
                 <th class="table-type">状态</th>
@@ -132,15 +133,17 @@ $__foreach_val_1_saved_local_item = $_smarty_tpl->tpl_vars['val'];
 " /></td>
               <td><?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 </td>
+              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['nickname'];?>
+</td>
               <td><?php echo $_smarty_tpl->tpl_vars['val']->value['username'];?>
 </td>
               <td><?php echo $_smarty_tpl->tpl_vars['val']->value['loginip'];?>
 </td>
               <td><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['val']->value['logintime'],'%Y-%m-%d %H:%M:%S');?>
 </td>
-              <td><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['val']->value['lock'] == 1) {?>am-btn-success<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php echo $_smarty_tpl->tpl_vars['val']->value['lock'];?>
+              <td><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['val']->value['lock'] == 1) {?>am-btn-success<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php echo $_smarty_tpl->tpl_vars['val']->value['lock_str'];?>
 </span></td>
-              <td><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['val']->value['role_id'] == 1) {?>am-btn-success<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php echo $_smarty_tpl->tpl_vars['val']->value['role_id'];?>
+              <td><span class="am-btn am-btn-success am-round am-btn-xs"><?php echo $_smarty_tpl->tpl_vars['val']->value['role_name'];?>
 </span></td>
               <td><?php echo $_smarty_tpl->tpl_vars['val']->value['sort'];?>
 </td>
@@ -206,12 +209,12 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_1_saved_item;
 <?php echo '<script'; ?>
 >
 	$('#add-cate').on('click', function() {
-		window.location.href='/admin/article/add';
+		window.location.href='/admin/admin/add';
   	});
 
   function edit(id)
   {
-    window.location.href='/admin/article/add?id=' + id;
+    window.location.href='/admin/admin/add?id=' + id;
   }
 
   $('#allCheck').on('click', function(){
@@ -254,7 +257,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_1_saved_item;
 
   $('#recover-cate').on('click', function(){
     var data = getId();
-    var url = "/admin/article/notDelete?recover=1&id=" + data;
+    var url = "/admin/admin/notDelete?recover=1&id=" + data;
     $.post(url,
       '',
       function(data,status){
@@ -282,7 +285,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_1_saved_item;
 
   function checkPost(data, type)
   {
-    $.post("/admin/article/check?type=" + type + "&id=" + data,
+    $.post("/admin/admin/check?type=" + type + "&id=" + data,
       '',
       function(data,status){
         result(data,status);
@@ -317,7 +320,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_1_saved_item;
 
   function del(id)
   {
-    <?php if ($_smarty_tpl->tpl_vars['del']->value) {?>var url = "/admin/article/del?id=" + id;<?php } else { ?>var url = "/admin/article/notDelete?id=" + id;<?php }?>
+    var url = "/admin/admin/del?id=" + id;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {

@@ -38,6 +38,20 @@ class M_Admin extends CI_Model
 
 	}
 
+	public function amerge($list)
+	{
+		if (!$list) {
+			return array();
+		}
+		$this->load->model('M_Role', 'role');
+		$roles = $this->role->getAll();
+		foreach ($list as $k => $v) {
+			$list[$k]['lock_str'] = $v['lock'] == 1 ? '可用' : '不可用';
+			$list[$k]['role_name'] = isset($roles[$v['role_id']]) ? $roles[$v['role_id']]['name'] : '未分组';
+		}
+		return $list;
+	}
+	
 	public function getAll()
 	{
 		$res = $this->db->from(self::TABLE)->get()->result_array();
@@ -117,6 +131,28 @@ class M_Admin extends CI_Model
 		$version = $version->result_array();
 		return current(current($version));
 	}
+
+
+    public function add($data)
+    {
+        return $this->db->insert(self::TABLE, $data);
+    }
+
+    public function update($data, $key)
+    {
+        $val = $data[$key];
+        if (!$val)
+        {
+            return 0;
+        }
+        unset($data[$key]);
+        return $this->db->update(self::TABLE, $data, array($key => $val));
+    }
+
+    public function del($id)
+    {
+        return $this->db->delete(self::TABLE, array('id' => $id));
+    }
 }
 
 ?>

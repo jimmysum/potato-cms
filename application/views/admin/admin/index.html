@@ -54,6 +54,7 @@
                 <th class="table-check"><input type="checkbox" id="allCheck" name="check" /></th>
                 <th class="table-id">ID</th>
                 <th class="table-title">名称</th>
+                <th class="table-title">用户名</th>
                 <th class="table-type">登陆ip</th>
                 <th class="table-type">登陆时间</th>
                 <th class="table-type">状态</th>
@@ -68,11 +69,12 @@
             <tr>
               <td><input type="checkbox" name="check" rid="<{$val.id}>" /></td>
               <td><{$val.id}></td>
+              <td><{$val.nickname}></td>
               <td><{$val.username}></td>
               <td><{$val.loginip}></td>
               <td><{$val.logintime|date_format:'%Y-%m-%d %H:%M:%S'}></td>
-              <td><span class="am-btn <{if $val['lock']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['lock']}></span></td>
-              <td><span class="am-btn <{if $val['role_id']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['role_id']}></span></td>
+              <td><span class="am-btn <{if $val['lock']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['lock_str']}></span></td>
+              <td><span class="am-btn am-btn-success am-round am-btn-xs"><{$val['role_name']}></span></td>
               <td><{$val['sort']}></td>
               <td class="am-hide-sm-only"><{$val.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
               <td>
@@ -121,12 +123,12 @@
 <{include file='admin/public/footer.html'}>
 <script>
 	$('#add-cate').on('click', function() {
-		window.location.href='/admin/article/add';
+		window.location.href='/admin/admin/add';
   	});
 
   function edit(id)
   {
-    window.location.href='/admin/article/add?id=' + id;
+    window.location.href='/admin/admin/add?id=' + id;
   }
 
   $('#allCheck').on('click', function(){
@@ -169,7 +171,7 @@
 
   $('#recover-cate').on('click', function(){
     var data = getId();
-    var url = "/admin/article/notDelete?recover=1&id=" + data;
+    var url = "/admin/admin/notDelete?recover=1&id=" + data;
     $.post(url,
       '',
       function(data,status){
@@ -197,7 +199,7 @@
 
   function checkPost(data, type)
   {
-    $.post("/admin/article/check?type=" + type + "&id=" + data,
+    $.post("/admin/admin/check?type=" + type + "&id=" + data,
       '',
       function(data,status){
         result(data,status);
@@ -232,7 +234,7 @@
 
   function del(id)
   {
-    <{if $del}>var url = "/admin/article/del?id=" + id;<{else}>var url = "/admin/article/notDelete?id=" + id;<{/if}>
+    var url = "/admin/admin/del?id=" + id;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {

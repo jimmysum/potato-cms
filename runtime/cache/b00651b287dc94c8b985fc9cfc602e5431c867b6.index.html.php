@@ -2,13 +2,13 @@
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562b7a11651df0_08346753',
+  'unifunc' => 'content_562e005fee0cd9_14755105',
   'file_dependency' => 
   array (
     'b00651b287dc94c8b985fc9cfc602e5431c867b6' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/admin/index.html',
-      1 => 1445689870,
+      1 => 1445855216,
       2 => 'file',
     ),
     '680e9ab0d86fa35caf24de669fd8861b3ae70099' => 
@@ -32,8 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'cache_lifetime' => 3600,
 ),true);
-if ($_valid && !is_callable('content_562b7a11651df0_08346753')) {
-function content_562b7a11651df0_08346753 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562e005fee0cd9_14755105')) {
+function content_562e005fee0cd9_14755105 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js">
@@ -235,7 +235,7 @@ function content_562b7a11651df0_08346753 ($_smarty_tpl) {
 		
 			<p style="margin-left:10px">
 			File: /data/src/test/codeIgniter/application/controllers/admin/Admin.php<br />
-			Line: 67<br />
+			Line: 93<br />
 			Function: display			</p>
 
 		
@@ -301,7 +301,7 @@ function content_562b7a11651df0_08346753 ($_smarty_tpl) {
 		
 			<p style="margin-left:10px">
 			File: /data/src/test/codeIgniter/application/controllers/admin/Admin.php<br />
-			Line: 67<br />
+			Line: 93<br />
 			Function: display			</p>
 
 		
@@ -341,6 +341,7 @@ function content_562b7a11651df0_08346753 ($_smarty_tpl) {
                 <th class="table-check"><input type="checkbox" id="allCheck" name="check" /></th>
                 <th class="table-id">ID</th>
                 <th class="table-title">名称</th>
+                <th class="table-title">用户名</th>
                 <th class="table-type">登陆ip</th>
                 <th class="table-type">登陆时间</th>
                 <th class="table-type">状态</th>
@@ -354,11 +355,12 @@ function content_562b7a11651df0_08346753 ($_smarty_tpl) {
                         <tr>
               <td><input type="checkbox" name="check" rid="1" /></td>
               <td>1</td>
+              <td></td>
               <td>admin</td>
               <td>10.0.2.2</td>
               <td>2015-10-09 15:46:01</td>
-              <td><span class="am-btn am-btn-warning am-round am-btn-xs">开启</span></td>
-              <td><span class="am-btn am-btn-success am-round am-btn-xs">1</span></td>
+              <td><span class="am-btn am-btn-success am-round am-btn-xs">可用</span></td>
+              <td><span class="am-btn am-btn-success am-round am-btn-xs">Super</span></td>
               <td>0</td>
               <td class="am-hide-sm-only">2015-07-23 20:22:32</td>
               <td>
@@ -367,6 +369,27 @@ function content_562b7a11651df0_08346753 ($_smarty_tpl) {
                     <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(1)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
                     <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(1)"><span class="am-icon-copy"></span> 复制</button> -->
                     <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(1)"><span class="am-icon-trash-o"></span> 删除</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+                        <tr>
+              <td><input type="checkbox" name="check" rid="2" /></td>
+              <td>2</td>
+              <td>test</td>
+              <td>test</td>
+              <td></td>
+              <td></td>
+              <td><span class="am-btn am-btn-success am-round am-btn-xs">可用</span></td>
+              <td><span class="am-btn am-btn-success am-round am-btn-xs">Manger</span></td>
+              <td>0</td>
+              <td class="am-hide-sm-only">2015-10-26 18:28:15</td>
+              <td>
+                <div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(2)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                    <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(2)"><span class="am-icon-copy"></span> 复制</button> -->
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(2)"><span class="am-icon-trash-o"></span> 删除</button>
                   </div>
                 </div>
               </td>
@@ -427,12 +450,12 @@ function content_562b7a11651df0_08346753 ($_smarty_tpl) {
 <script src="http://ci.ci.lamall.com/style/picker/datetimepicker/js/amazeui.datetimepicker.min.js"></script>
 <script>
 	$('#add-cate').on('click', function() {
-		window.location.href='/admin/article/add';
+		window.location.href='/admin/admin/add';
   	});
 
   function edit(id)
   {
-    window.location.href='/admin/article/add?id=' + id;
+    window.location.href='/admin/admin/add?id=' + id;
   }
 
   $('#allCheck').on('click', function(){
@@ -475,7 +498,7 @@ function content_562b7a11651df0_08346753 ($_smarty_tpl) {
 
   $('#recover-cate').on('click', function(){
     var data = getId();
-    var url = "/admin/article/notDelete?recover=1&id=" + data;
+    var url = "/admin/admin/notDelete?recover=1&id=" + data;
     $.post(url,
       '',
       function(data,status){
@@ -503,7 +526,7 @@ function content_562b7a11651df0_08346753 ($_smarty_tpl) {
 
   function checkPost(data, type)
   {
-    $.post("/admin/article/check?type=" + type + "&id=" + data,
+    $.post("/admin/admin/check?type=" + type + "&id=" + data,
       '',
       function(data,status){
         result(data,status);
@@ -538,139 +561,8 @@ function content_562b7a11651df0_08346753 ($_smarty_tpl) {
 
   function del(id)
   {
-    
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Notice</p>
-<p>Message:  Undefined index: del</p>
-<p>Filename: templates_c/b00651b287dc94c8b985fc9cfc602e5431c867b6_0.file.index.html.cache.php</p>
-<p>Line Number: 320</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: /data/src/test/codeIgniter/runtime/templates_c/b00651b287dc94c8b985fc9cfc602e5431c867b6_0.file.index.html.cache.php<br />
-			Line: 320<br />
-			Function: _error_handler			</p>
-
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: /data/src/test/codeIgniter/application/core/MY_Controller.php<br />
-			Line: 32<br />
-			Function: display			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: /data/src/test/codeIgniter/application/controllers/admin/Admin.php<br />
-			Line: 67<br />
-			Function: display			</p>
-
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: /data/src/test/codeIgniter/index.php<br />
-			Line: 304<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Notice</p>
-<p>Message:  Trying to get property of non-object</p>
-<p>Filename: templates_c/b00651b287dc94c8b985fc9cfc602e5431c867b6_0.file.index.html.cache.php</p>
-<p>Line Number: 320</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: /data/src/test/codeIgniter/runtime/templates_c/b00651b287dc94c8b985fc9cfc602e5431c867b6_0.file.index.html.cache.php<br />
-			Line: 320<br />
-			Function: _error_handler			</p>
-
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: /data/src/test/codeIgniter/application/core/MY_Controller.php<br />
-			Line: 32<br />
-			Function: display			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: /data/src/test/codeIgniter/application/controllers/admin/Admin.php<br />
-			Line: 67<br />
-			Function: display			</p>
-
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: /data/src/test/codeIgniter/index.php<br />
-			Line: 304<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>var url = "/admin/article/notDelete?id=" + id;    $('#my-confirm').modal({
+    var url = "/admin/admin/del?id=" + id;
+    $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
           $.post(url,
