@@ -2,13 +2,13 @@
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562e005fee0cd9_14755105',
+  'unifunc' => 'content_562f70a08598f2_28094411',
   'file_dependency' => 
   array (
     'b00651b287dc94c8b985fc9cfc602e5431c867b6' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/admin/index.html',
-      1 => 1445855216,
+      1 => 1445949314,
       2 => 'file',
     ),
     '680e9ab0d86fa35caf24de669fd8861b3ae70099' => 
@@ -20,7 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1445689110,
+      1 => 1445949598,
       2 => 'file',
     ),
     'c80f31628ed07a54fe32cd6cb183997510fcb174' => 
@@ -32,8 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'cache_lifetime' => 3600,
 ),true);
-if ($_valid && !is_callable('content_562e005fee0cd9_14755105')) {
-function content_562e005fee0cd9_14755105 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562f70a08598f2_28094411')) {
+function content_562f70a08598f2_28094411 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js">
@@ -111,7 +111,7 @@ function content_562e005fee0cd9_14755105 ($_smarty_tpl) {
           <a class="am-cf" data-am-collapse="{target: '#nav-admin'}"><span class="am-icon-list"></span> 权限管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub" id="nav-admin">
             <li><a href="/admin/admin/index"><span class="am-icon-table"></span> 管理员管理 </a></li>
-            <li><a href="/admin/admin/position"><span class="am-icon-table"></span> 角色管理 </a></li>
+            <li><a href="/admin/role/index"><span class="am-icon-table"></span> 角色管理 </a></li>
             <li><a href="/admin/admin/position"><span class="am-icon-table"></span> 节点管理 </a></li>
           </ul>
         </li>
@@ -175,9 +175,6 @@ function content_562e005fee0cd9_14755105 ($_smarty_tpl) {
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
             <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-            <button id="recommend-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-star"></span> 推荐</button>
-            <button id="top-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-thumbs-up"></span> 置顶</button>
-            <button id="hot-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-bomb"></span> 热门</button>
             <button id="examine-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
             <button id="del-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
           </div>
@@ -195,7 +192,7 @@ function content_562e005fee0cd9_14755105 ($_smarty_tpl) {
 <p>Severity: Notice</p>
 <p>Message:  Undefined index: cateList</p>
 <p>Filename: templates_c/b00651b287dc94c8b985fc9cfc602e5431c867b6_0.file.index.html.cache.php</p>
-<p>Line Number: 64</p>
+<p>Line Number: 61</p>
 
 
 	<p>Backtrace:</p>
@@ -207,7 +204,7 @@ function content_562e005fee0cd9_14755105 ($_smarty_tpl) {
 		
 			<p style="margin-left:10px">
 			File: /data/src/test/codeIgniter/runtime/templates_c/b00651b287dc94c8b985fc9cfc602e5431c867b6_0.file.index.html.cache.php<br />
-			Line: 64<br />
+			Line: 61<br />
 			Function: _error_handler			</p>
 
 		
@@ -261,7 +258,7 @@ function content_562e005fee0cd9_14755105 ($_smarty_tpl) {
 <p>Severity: Notice</p>
 <p>Message:  Trying to get property of non-object</p>
 <p>Filename: templates_c/b00651b287dc94c8b985fc9cfc602e5431c867b6_0.file.index.html.cache.php</p>
-<p>Line Number: 64</p>
+<p>Line Number: 61</p>
 
 
 	<p>Backtrace:</p>
@@ -273,7 +270,7 @@ function content_562e005fee0cd9_14755105 ($_smarty_tpl) {
 		
 			<p style="margin-left:10px">
 			File: /data/src/test/codeIgniter/runtime/templates_c/b00651b287dc94c8b985fc9cfc602e5431c867b6_0.file.index.html.cache.php<br />
-			Line: 64<br />
+			Line: 61<br />
 			Function: _error_handler			</p>
 
 		
@@ -373,27 +370,6 @@ function content_562e005fee0cd9_14755105 ($_smarty_tpl) {
                 </div>
               </td>
             </tr>
-                        <tr>
-              <td><input type="checkbox" name="check" rid="2" /></td>
-              <td>2</td>
-              <td>test</td>
-              <td>test</td>
-              <td></td>
-              <td></td>
-              <td><span class="am-btn am-btn-success am-round am-btn-xs">可用</span></td>
-              <td><span class="am-btn am-btn-success am-round am-btn-xs">Manger</span></td>
-              <td>0</td>
-              <td class="am-hide-sm-only">2015-10-26 18:28:15</td>
-              <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(2)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                    <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(2)"><span class="am-icon-copy"></span> 复制</button> -->
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(2)"><span class="am-icon-trash-o"></span> 删除</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
                         
           </tbody>
         </table>
@@ -474,36 +450,6 @@ function content_562e005fee0cd9_14755105 ($_smarty_tpl) {
   $('#examine-cate').on('click', function(){
     var data = getId();
     checkPost(data, 1);
-  })
-
-  $('#recommend-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 2);
-  })
-
-  $('#top-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 3);
-  })
-
-  $('#hot-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 4);
-  })
-
-  $('#del-cate').on('click', function(){
-    var data = getId();
-    del(data);
-  })
-
-  $('#recover-cate').on('click', function(){
-    var data = getId();
-    var url = "/admin/admin/notDelete?recover=1&id=" + data;
-    $.post(url,
-      '',
-      function(data,status){
-        result(data, status)
-      });
   })
 
   function getId()

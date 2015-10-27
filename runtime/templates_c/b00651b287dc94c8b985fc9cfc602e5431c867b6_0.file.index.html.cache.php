@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-26 18:26:56
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-27 20:37:18
          compiled from "/data/src/test/codeIgniter/application/views/admin/admin/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562dfff0f411c2_28202792',
+  'unifunc' => 'content_562f6ffe7b9fe9_78034898',
   'file_dependency' => 
   array (
     'b00651b287dc94c8b985fc9cfc602e5431c867b6' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/admin/index.html',
-      1 => 1445855216,
+      1 => 1445949314,
       2 => 'file',
     ),
   ),
@@ -21,10 +21,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_562dfff0f411c2_28202792')) {
-function content_562dfff0f411c2_28202792 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562f6ffe7b9fe9_78034898')) {
+function content_562f6ffe7b9fe9_78034898 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
-$_smarty_tpl->compiled->nocache_hash = '1306313710562dfff0ed8029_53816732';
+$_smarty_tpl->compiled->nocache_hash = '199018805562f6ffe740451_57768962';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -48,9 +48,6 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
             <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-            <button id="recommend-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-star"></span> 推荐</button>
-            <button id="top-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-thumbs-up"></span> 置顶</button>
-            <button id="hot-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-bomb"></span> 热门</button>
             <button id="examine-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
             <button id="del-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
           </div>
@@ -233,36 +230,6 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_1_saved_item;
   $('#examine-cate').on('click', function(){
     var data = getId();
     checkPost(data, 1);
-  })
-
-  $('#recommend-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 2);
-  })
-
-  $('#top-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 3);
-  })
-
-  $('#hot-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 4);
-  })
-
-  $('#del-cate').on('click', function(){
-    var data = getId();
-    del(data);
-  })
-
-  $('#recover-cate').on('click', function(){
-    var data = getId();
-    var url = "/admin/admin/notDelete?recover=1&id=" + data;
-    $.post(url,
-      '',
-      function(data,status){
-        result(data, status)
-      });
   })
 
   function getId()

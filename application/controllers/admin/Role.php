@@ -17,7 +17,7 @@
 *        Jimmy        2015-10-9下午4:12:48          1.0                     第一次建立该文件
 *
 */
-class Admin extends Admin_Controller 
+class Role extends Admin_Controller 
 {
     /**
      * 规则验证
@@ -67,20 +67,18 @@ class Admin extends Admin_Controller
     {
         parent::__construct ();
         $this->load->model('M_Admin', 'admin');
+        $this->load->model('M_Role', 'role');
     }
     
     public function index()
     {
         $param = $this->input->get();
-        $conditon['p'] = isset($param['p']) && $param['p'] > 0 ? $param['p'] : 0;
-        $conditon['ps'] = $this->ps;
-        $list = $this->admin->getList($conditon);
-        $list = $this->admin->amerge($list);
+        $list = $this->role->getAll();
+        // $list = $this->role->amerge($list);
      
-        $count = $this->admin->getCount(array());
         // 分页
         $this->load->library('pagination');
-        $config['base_url'] = '/admin/admin/index';
+        $config['base_url'] = '/admin/role/index';
         $config['total_rows'] = $count;
         $config['per_page'] = $this->ps;
         $config['page_query_string'] = true;

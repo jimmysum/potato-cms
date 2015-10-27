@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 20:18:32
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-27 20:40:00
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/left.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562b7718e2a7c1_44248211',
+  'unifunc' => 'content_562f70a0824115_84247797',
   'file_dependency' => 
   array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1445689110,
+      1 => 1445949598,
       2 => 'file',
     ),
   ),
@@ -18,9 +18,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_562b7718e2a7c1_44248211')) {
-function content_562b7718e2a7c1_44248211 ($_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '1261771341562b7718e08b75_90531801';
+if ($_valid && !is_callable('content_562f70a0824115_84247797')) {
+function content_562f70a0824115_84247797 ($_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '210157651562f70a0805b58_43722049';
 ?>
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
@@ -45,7 +45,7 @@ $_smarty_tpl->compiled->nocache_hash = '1261771341562b7718e08b75_90531801';
           <a class="am-cf" data-am-collapse="{target: '#nav-admin'}"><span class="am-icon-list"></span> 权限管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub" id="nav-admin">
             <li><a href="/admin/admin/index"><span class="am-icon-table"></span> 管理员管理 </a></li>
-            <li><a href="/admin/admin/position"><span class="am-icon-table"></span> 角色管理 </a></li>
+            <li><a href="/admin/role/index"><span class="am-icon-table"></span> 角色管理 </a></li>
             <li><a href="/admin/admin/position"><span class="am-icon-table"></span> 节点管理 </a></li>
           </ul>
         </li>
