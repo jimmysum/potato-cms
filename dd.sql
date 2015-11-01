@@ -1,4 +1,4 @@
-/*
+﻿/*
 SQLyog Ultimate v11.24 (32 bit)
 MySQL - 5.5.31-log : Database - lmb_test_forjimmy
 *********************************************************************
@@ -14,7 +14,7 @@ MySQL - 5.5.31-log : Database - lmb_test_forjimmy
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`lmb_test_forjimmy` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `lmb_test_forjimmy`;
+USE `ci_data`;
 
 /*Table structure for table `ci_access` */
 

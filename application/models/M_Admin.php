@@ -1,6 +1,6 @@
 <?php
 
-class M_Admin extends CI_Model 
+class M_admin extends CI_Model 
 {
 	
 	const TABLE = 'admin';

@@ -17,7 +17,7 @@
 *
 */
 
-class M_Cate extends CI_Model 
+class M_cate extends CI_Model 
 {
 	const TABLE = 'cate';
 	

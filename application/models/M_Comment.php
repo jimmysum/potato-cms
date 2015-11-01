@@ -17,7 +17,7 @@
 *
 */
 
-class M_Comment extends CI_Model 
+class M_comment extends CI_Model 
 {
     const TABLE = 'comments';
     

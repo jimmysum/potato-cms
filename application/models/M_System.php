@@ -17,7 +17,7 @@
 *
 */
 
-class M_System extends CI_Model 
+class M_system extends CI_Model 
 {
     const TABLE = 'system';
     

@@ -7,7 +7,7 @@
 * @Version  1.0
 * @Date:  2015-10-9下午4:47:49
 * @Description 
-* @Class List
+* @Class List 
 *      1.
 *  @Function List
 *   1.
@@ -17,7 +17,7 @@
 *
 */
 
-class M_Nav extends CI_Model 
+class M_nav extends CI_Model 
 {
     const TABLE = 'nav';
     

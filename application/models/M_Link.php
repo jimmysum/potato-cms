@@ -17,7 +17,7 @@
 *
 */
 
-class M_Link extends CI_Model 
+class M_link extends CI_Model 
 {
     const TABLE = 'links';
     

@@ -17,7 +17,7 @@
 *
 */
 
-class M_Article extends CI_Model 
+class M_article extends CI_Model 
 {
 	const TABLE = 'article';
 	

@@ -17,7 +17,7 @@
 *
 */
 
-class M_Role extends CI_Model 
+class M_role extends CI_Model 
 {
     const TABLE = 'role';
     
