@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-27 20:40:00
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-02 20:12:46
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/left.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562f70a0824115_84247797',
+  'unifunc' => 'content_5637533e3a34a5_77739939',
   'file_dependency' => 
   array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1445949598,
+      1 => 1446465839,
       2 => 'file',
     ),
   ),
@@ -18,9 +18,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_562f70a0824115_84247797')) {
-function content_562f70a0824115_84247797 ($_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '210157651562f70a0805b58_43722049';
+if ($_valid && !is_callable('content_5637533e3a34a5_77739939')) {
+function content_5637533e3a34a5_77739939 ($_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '11943054595637533e3816a7_99999435';
 ?>
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
@@ -53,7 +53,7 @@ $_smarty_tpl->compiled->nocache_hash = '210157651562f70a0805b58_43722049';
           <a class="am-cf" data-am-collapse="{target: '#nav-ad'}"><span class="am-icon-comments"></span> 广告管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub" id="nav-ad">
             <li><a href="/admin/ad/index"><span class="am-icon-table"></span> 广告管理</a></li>
-            <li><a href="/admin/ad/position"><span class="am-icon-table"></span> 广告位</a></li>
+            <li><a href="/admin/node/index"><span class="am-icon-table"></span> 广告位</a></li>
           </ul>
         </li>
         <li class="admin-parent">

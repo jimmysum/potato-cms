@@ -2,7 +2,7 @@
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562f701b9d4247_91582921',
+  'unifunc' => 'content_5637508f302361_00786976',
   'file_dependency' => 
   array (
     '720acd37de3237d8f281d26b441f89b52e1e7d78' => 
@@ -20,7 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1445689110,
+      1 => 1445949598,
       2 => 'file',
     ),
     'c80f31628ed07a54fe32cd6cb183997510fcb174' => 
@@ -32,8 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'cache_lifetime' => 3600,
 ),true);
-if ($_valid && !is_callable('content_562f701b9d4247_91582921')) {
-function content_562f701b9d4247_91582921 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5637508f302361_00786976')) {
+function content_5637508f302361_00786976 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js">
@@ -111,7 +111,7 @@ function content_562f701b9d4247_91582921 ($_smarty_tpl) {
           <a class="am-cf" data-am-collapse="{target: '#nav-admin'}"><span class="am-icon-list"></span> 权限管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub" id="nav-admin">
             <li><a href="/admin/admin/index"><span class="am-icon-table"></span> 管理员管理 </a></li>
-            <li><a href="/admin/admin/position"><span class="am-icon-table"></span> 角色管理 </a></li>
+            <li><a href="/admin/role/index"><span class="am-icon-table"></span> 角色管理 </a></li>
             <li><a href="/admin/admin/position"><span class="am-icon-table"></span> 节点管理 </a></li>
           </ul>
         </li>

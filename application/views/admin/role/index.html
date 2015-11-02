@@ -18,26 +18,7 @@
           <div class="am-btn-group am-btn-group-xs">
             <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
             <button id="examine-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
-            <button id="del-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
           </div>
-        </div>
-      </div>
-      <div class="am-u-sm-12 am-u-md-3">
-        <div class="am-form-group">
-          <select data-am-selected="{btnSize: 'sm'}">
-            <option value="0">所有类别</option>
-            <{foreach from=$cateList item="val"}>
-            <option value="<{$val.id}>" ><{$val.cate}></option>
-            <{/foreach}>
-          </select>
-        </div>
-      </div>
-      <div class="am-u-sm-12 am-u-md-3">
-        <div class="am-input-group am-input-group-sm">
-          <input type="text" name="title" class="am-form-field" placeholder="输入文章标题" >
-          <span class="am-input-group-btn">
-            <button class="am-btn am-btn-default" type="button">搜索</button>
-          </span>
         </div>
       </div>
     </div>
@@ -51,11 +32,8 @@
                 <th class="table-check"><input type="checkbox" id="allCheck" name="check" /></th>
                 <th class="table-id">ID</th>
                 <th class="table-title">名称</th>
-                <th class="table-title">用户名</th>
-                <th class="table-type">登陆ip</th>
-                <th class="table-type">登陆时间</th>
+                <th class="table-title">角色描述</th>
                 <th class="table-type">状态</th>
-                <th class="table-type">权限组</th>
                 <th class="table-type">排序</th>
                 <th class="table-date am-hide-sm-only">创建时间</th>
                 <th class="table-set">操作</th>
@@ -66,12 +44,9 @@
             <tr>
               <td><input type="checkbox" name="check" rid="<{$val.id}>" /></td>
               <td><{$val.id}></td>
-              <td><{$val.nickname}></td>
-              <td><{$val.username}></td>
-              <td><{$val.loginip}></td>
-              <td><{$val.logintime|date_format:'%Y-%m-%d %H:%M:%S'}></td>
-              <td><span class="am-btn <{if $val['lock']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['lock_str']}></span></td>
-              <td><span class="am-btn am-btn-success am-round am-btn-xs"><{$val['role_name']}></span></td>
+              <td><{$val.name}></td>
+              <td><{$val.remark}></td>
+              <td><span class="am-btn <{if $val['status']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['status_str']}></span></td>
               <td><{$val['sort']}></td>
               <td class="am-hide-sm-only"><{$val.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
               <td>
@@ -91,7 +66,6 @@
         <div class="am-cf">
           <div class="am-fr">
               <ul class="am-pagination">
-              <{$page}>
               </ul>
           </div>
         </div>
@@ -120,57 +94,12 @@
 <{include file='admin/public/footer.html'}>
 <script>
 	$('#add-cate').on('click', function() {
-		window.location.href='/admin/admin/add';
+		window.location.href='/admin/role/add';
   	});
 
   function edit(id)
   {
-    window.location.href='/admin/admin/add?id=' + id;
-  }
-
-  $('#allCheck').on('click', function(){
-    var check = $('input[name="check"]');
-    for (var i = 0; i < check.length; i++) {  
-        if(check[0].checked){  
-          check[i].checked = true;
-        }
-        else
-        {
-          check[i].checked = false;
-        }
-    } 
-  })
-
-  $('#examine-cate').on('click', function(){
-    var data = getId();
-    checkPost(data, 1);
-  })
-
-  function getId()
-  {
-    var check = $('input[name="check"]');
-    var data = '';
-    for (var i = 0; i < check.length; i++) {  
-        if(check[i].checked){
-          if (data) {
-            data += ',' + $(check[i]).attr('rid');
-          }
-          else
-          {
-            data = $(check[i]).attr('rid');
-          }
-        }
-    } 
-    return data;
-  }
-
-  function checkPost(data, type)
-  {
-    $.post("/admin/admin/check?type=" + type + "&id=" + data,
-      '',
-      function(data,status){
-        result(data,status);
-      });
+    window.location.href='/admin/role/add?id=' + id;
   }
 
   function result(data, status)
@@ -201,7 +130,7 @@
 
   function del(id)
   {
-    var url = "/admin/admin/del?id=" + id;
+    var url = "/admin/role/del?id=" + id;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {

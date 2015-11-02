@@ -1,7 +1,37 @@
-<{include file="admin/public/header.html"}>
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-02 19:56:01
+         compiled from "/data/src/test/codeIgniter/application/views/admin/role/add.html" */ ?>
+<?php
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'has_nocache_code' => false,
+  'version' => '3.1.28-dev/63',
+  'unifunc' => 'content_56374f51d55db9_03453254',
+  'file_dependency' => 
+  array (
+    '69155e1732230e7968f1e5482b5963d7b6085253' => 
+    array (
+      0 => '/data/src/test/codeIgniter/application/views/admin/role/add.html',
+      1 => 1446465360,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:admin/public/header.html' => 1,
+    'file:admin/public/left.html' => 1,
+    'file:admin/public/footer.html' => 1,
+  ),
+),false);
+if ($_valid && !is_callable('content_56374f51d55db9_03453254')) {
+function content_56374f51d55db9_03453254 ($_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '182785571556374f51d11ef6_73295511';
+$_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
 <div class="am-cf admin-main">
   <!-- sidebar start -->
-  <{include file='admin/public/left.html'}>
+  <?php $_smarty_tpl->setupSubTemplate('file:admin/public/left.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
   <!-- sidebar end -->
 
 <!-- content start -->
@@ -24,7 +54,9 @@
             角色名
           </div>
           <div class="am-u-sm-8 am-u-md-4 am-u-end">
-            <input type="text" class="am-input-sm"  name="name" data-validation-message="角色名必填" placeholder="请输入角色名" value="<{if $data}><{$data.name}><{/if}>" required>
+            <input type="text" class="am-input-sm"  name="name" data-validation-message="角色名必填" placeholder="请输入角色名" value="<?php if ($_smarty_tpl->tpl_vars['data']->value) {
+echo $_smarty_tpl->tpl_vars['data']->value['name'];
+}?>" required>
           </div>
         </div>
         <div class="am-g am-margin-top am-form-group">
@@ -32,17 +64,19 @@
             角色描述
           </div>
           <div class="am-u-sm-8 am-u-md-4 am-u-end">
-            <input type="text" class="am-input-sm"  name="remark" data-validation-message="角色描述必填" placeholder="请输入角色描述" value="<{if $data}><{$data.remark}><{/if}>" required>
+            <input type="text" class="am-input-sm"  name="remark" data-validation-message="角色描述必填" placeholder="请输入角色描述" value="<?php if ($_smarty_tpl->tpl_vars['data']->value) {
+echo $_smarty_tpl->tpl_vars['data']->value['remark'];
+}?>" required>
           </div>
         </div>
         <div class="am-g am-margin-top">
           <div class="am-u-sm-4 am-u-md-2 am-text-right">状态</div>
           <div class="am-u-sm-8 am-u-md-10">
             <div class="am-btn-group" data-am-button>
-              <label class="am-btn am-btn-default am-btn-xs <{if !$data}> am-active<{elseif $data && $data.status==1}> am-active<{/if}>">
+              <label class="am-btn am-btn-default am-btn-xs <?php if (!$_smarty_tpl->tpl_vars['data']->value) {?> am-active<?php } elseif ($_smarty_tpl->tpl_vars['data']->value && $_smarty_tpl->tpl_vars['data']->value['status'] == 1) {?> am-active<?php }?>">
                 <input type="radio" name="lock" id="option1" value="1"> 开启
               </label>
-              <label class="am-btn am-btn-default am-btn-xs <{if $data && $data.status==0}> am-active<{/if}>">
+              <label class="am-btn am-btn-default am-btn-xs <?php if ($_smarty_tpl->tpl_vars['data']->value && $_smarty_tpl->tpl_vars['data']->value['status'] == 0) {?> am-active<?php }?>">
                 <input type="radio" name="lock" id="option3" value="0"> 关闭
               </label>
             </div>
@@ -53,7 +87,9 @@
               排序
             </div>
             <div class="am-u-sm-8 am-u-md-2 am-u-end">
-              <input name="sort" type="text" class="am-input-sm" value="<{if $data}><{$data.sort}><{/if}>"  placeholder="默认50">
+              <input name="sort" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['data']->value) {
+echo $_smarty_tpl->tpl_vars['data']->value['sort'];
+}?>"  placeholder="默认50">
             </div>
         </div>
       </div>
@@ -61,9 +97,10 @@
 
     </div>
   </div>
-  <{if $data}>
-  <input name="id" type="hidden" class="am-input-sm" value="<{$data.id}>">
-  <{/if}>
+  <?php if ($_smarty_tpl->tpl_vars['data']->value) {?>
+  <input name="id" type="hidden" class="am-input-sm" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['id'];?>
+">
+  <?php }?>
   </form>
   <div class="am-margin">
     <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
@@ -73,9 +110,12 @@
 <!-- content end -->
 
 </div>
-<{include file='admin/public/footer.html'}>
+<?php $_smarty_tpl->setupSubTemplate('file:admin/public/footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
 
-<script>
+
+<?php echo '<script'; ?>
+>
 	$('#save-sure').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
     
@@ -134,6 +174,9 @@
 		  });
 			  
 		});
-</script>
+<?php echo '</script'; ?>
+>
 </body>
 </html>
+<?php }
+}

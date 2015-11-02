@@ -17,9 +17,9 @@
 *
 */
 
-class M_role extends CI_Model 
+class M_node extends CI_Model 
 {
-    const TABLE = 'role';
+    const TABLE = 'node';
     
     public function __construct() 
     {
