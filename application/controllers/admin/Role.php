@@ -140,6 +140,29 @@ class Role extends Admin_Controller
         }
 
     }
+
+    public function distribute()
+    {
+        $id = $this->input->get('id');
+        if (!$id) {
+            $this->outJson(-1);
+        }
+
+        $data = $this->role->getOne($id);
+        if (!$data) {
+            $this->outJson(101,'','参数错误');
+        }
+        $this->load->model('M_node', 'node');
+        $list = $this->node->getAll();
+        $list = node_merge($list);
+        
+     
+     // echo '<pre>';
+     // print_r($list);die;
+        $this->assign('list', $list);
+        $this->assign('data', $data);
+        $this->display();
+    }
 }
 
 ?>
