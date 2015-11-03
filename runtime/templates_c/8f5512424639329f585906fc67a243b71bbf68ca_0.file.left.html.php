@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 19:01:20
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 20:51:36
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/left.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562b65008fd689_22137609',
+  'unifunc' => 'content_5638add8e9b1b8_44533407',
   'file_dependency' => 
   array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1445684478,
+      1 => 1446536544,
       2 => 'file',
     ),
   ),
@@ -18,8 +18,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_562b65008fd689_22137609')) {
-function content_562b65008fd689_22137609 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5638add8e9b1b8_44533407')) {
+function content_5638add8e9b1b8_44533407 ($_smarty_tpl) {
 ?>
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
@@ -35,39 +35,47 @@ function content_562b65008fd689_22137609 ($_smarty_tpl) {
           </ul>
         </li>
         <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-comments"></span> 广告管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-            <li><a href="/admin/ad/index"><span class="am-icon-table"></span> 广告管理</a></li>
-            <li><a href="/admin/ad/position"><span class="am-icon-table"></span> 广告位</a></li>
+          <a class="am-cf" data-am-collapse="{target: '#nav-user'}"><span class="am-icon-user"></span> 用户管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-user">
+            <li><a href="/admin/ad/index"><span class="am-icon-table"></span> 用户管理</a></li>
           </ul>
         </li>
         <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-comments"></span> 导航管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+          <a class="am-cf" data-am-collapse="{target: '#nav-admin'}"><span class="am-icon-list"></span> 权限管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-admin">
+            <li><a href="/admin/admin/index"><span class="am-icon-table"></span> 管理员管理 </a></li>
+            <li><a href="/admin/role/index"><span class="am-icon-table"></span> 角色管理 </a></li>
+            <li><a href="/admin/node/index"><span class="am-icon-table"></span> 节点管理 </a></li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#nav-ad'}"><span class="am-icon-comments"></span> 广告管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-ad">
+            <li><a href="/admin/ad/index"><span class="am-icon-table"></span> 广告管理</a></li>
+            <li><a href="/admin/node/index"><span class="am-icon-table"></span> 广告位</a></li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#nav-nav'}"><span class="am-icon-group"></span> 导航管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-nav">
             <li><a href="/admin/nav/index"><span class="am-icon-table"></span> 导航管理</a></li>
           </ul>
         </li>
         <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-comments"></span> 基本设置 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+          <a class="am-cf" data-am-collapse="{target: '#nav-back'}"><span class="am-icon-comments-o"></span> 备份管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-back">
+            <li><a href="/admin/nav/index"><span class="am-icon-table"></span> 导航管理</a></li>
+          </ul>
+        </li>
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#nav-setting'}"><span class="am-icon-cogs"></span> 基本设置 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-setting">
             <li><a href="/admin/link/index"><span class="am-icon-table"></span> 友情链接 </a></li>
             <li><a href="/admin/system/index"><span class="am-icon-table"></span> 网站设置 </a></li>
             <li><a href="/admin/system/clean"><span class="am-icon-table"></span> 缓存清理 </a></li>
           </ul>
         </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-            <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-            <li><a href="admin-help.html"><span class="am-icon-puzzle-piece"></span> 帮助页</a></li>
-            <li><a href="admin-gallery.html"><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
-            <li><a href="admin-log.html"><span class="am-icon-calendar"></span> 系统日志</a></li>
-            <li><a href="admin-404.html"><span class="am-icon-bug"></span> 404</a></li>
-          </ul>
-        </li>
-        <li><a href="admin-table.html"><span class="am-icon-table"></span> 表格</a></li>
-        <li><a href="admin-form.html"><span class="am-icon-pencil-square-o"></span> 表单</a></li>
-        <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+        <li><a href="/admin/login/logout"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
 
       <div class="am-panel am-panel-default admin-sidebar-panel">

@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 15:42:25
-         compiled from "/data/src/test/codeIgniter/application/views/admin/role/index.html" */ ?>
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 20:26:42
+         compiled from "/data/src/test/codeIgniter/application/views/admin/node/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56386561e53824_52829956',
+  'unifunc' => 'content_5638a8021a0a46_18208230',
   'file_dependency' => 
   array (
-    '7a457f977245f827bfa467855148509801e518f8' => 
+    '7a9412f8414cdb24eac06ed4abffb96ec5dd381f' => 
     array (
-      0 => '/data/src/test/codeIgniter/application/views/admin/role/index.html',
-      1 => 1446536464,
+      0 => '/data/src/test/codeIgniter/application/views/admin/node/index.html',
+      1 => 1446553600,
       2 => 'file',
     ),
   ),
@@ -21,10 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56386561e53824_52829956')) {
-function content_56386561e53824_52829956 ($_smarty_tpl) {
-if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
-$_smarty_tpl->compiled->nocache_hash = '22404981656386561d12b53_99217010';
+if ($_valid && !is_callable('content_5638a8021a0a46_18208230')) {
+function content_5638a8021a0a46_18208230 ($_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '3902972495638a802149f29_00226561';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -56,19 +55,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
     <div class="am-g">
       <div class="am-u-sm-12">
         <form class="am-form">
-          <table class="am-table am-table-striped am-table-hover table-main">
-            <thead>
-              <tr>
-                <th class="table-check"><input type="checkbox" id="allCheck" name="check" /></th>
-                <th class="table-id">ID</th>
-                <th class="table-title">名称</th>
-                <th class="table-title">角色描述</th>
-                <th class="table-type">状态</th>
-                <th class="table-type">排序</th>
-                <th class="table-date am-hide-sm-only">创建时间</th>
-                <th class="table-set">操作</th>
-              </tr>
-          </thead>
+          <table class="am-table am-table-striped am-table-hover table-main box-shadow">
           <tbody>
             <?php
 $_from = $_smarty_tpl->tpl_vars['list']->value;
@@ -83,33 +70,79 @@ foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
 $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
 ?>
             <tr>
-              <td><input type="checkbox" name="check" rid="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-" /></td>
-              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-</td>
-              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['name'];?>
-</td>
-              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['remark'];?>
-</td>
-              <td><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['val']->value['status'] == 1) {?>am-btn-success<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php echo $_smarty_tpl->tpl_vars['val']->value['status_str'];?>
-</span></td>
-              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['sort'];?>
-</td>
-              <td class="am-hide-sm-only"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['val']->value['time'],'%Y-%m-%d %H:%M:%S');?>
-</td>
               <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+              <span><strong><?php echo $_smarty_tpl->tpl_vars['val']->value['title'];?>
+</strong></span>
+              <div class="am-btn-group am-btn-group-xs">
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 )"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                    <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-)"><span class="am-icon-copy"></span> 复制</button> -->
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 )"><span class="am-icon-trash-o"></span> 删除</button>
-                  </div>
-                </div>
+              </div>
               </td>
             </tr>
+            <?php
+$_from = $_smarty_tpl->tpl_vars['val']->value['child'];
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_va_1_saved_item = isset($_smarty_tpl->tpl_vars['va']) ? $_smarty_tpl->tpl_vars['va'] : false;
+$_smarty_tpl->tpl_vars['va'] = new Smarty_Variable();
+$__foreach_va_1_total = $_smarty_tpl->_count($_from);
+if ($__foreach_va_1_total) {
+foreach ($_from as $_smarty_tpl->tpl_vars['va']->value) {
+$__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
+?>
+            <tr>
+              <td>
+              &nbsp;&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['va']->value['title'];?>
+
+              <div class="am-btn-group am-btn-group-xs">
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+)"><span class="am-icon-trash-o"></span> 删除</button>
+              </div>
+              </td>
+              <?php
+$_from = $_smarty_tpl->tpl_vars['va']->value['child'];
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_v_2_saved_item = isset($_smarty_tpl->tpl_vars['v']) ? $_smarty_tpl->tpl_vars['v'] : false;
+$_smarty_tpl->tpl_vars['v'] = new Smarty_Variable();
+$__foreach_v_2_total = $_smarty_tpl->_count($_from);
+if ($__foreach_v_2_total) {
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
+$__foreach_v_2_saved_local_item = $_smarty_tpl->tpl_vars['v'];
+?>
+              <td>
+              <?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
+
+              <div class="am-btn-group am-btn-group-xs">
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+)"><span class="am-icon-trash-o"></span> 删除</button>
+              </div>
+              </td>
+              <?php
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_2_saved_local_item;
+}
+}
+if ($__foreach_v_2_saved_item) {
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_2_saved_item;
+}
+?>
+            </tr>
+            <?php
+$_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_local_item;
+}
+}
+if ($__foreach_va_1_saved_item) {
+$_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_item;
+}
+?>
             <?php
 $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_local_item;
 }
@@ -155,12 +188,12 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 <?php echo '<script'; ?>
 >
 	$('#add-cate').on('click', function() {
-		window.location.href='/admin/role/add';
+		window.location.href='/admin/node/add';
   	});
 
   function edit(id)
   {
-    window.location.href='/admin/role/add?id=' + id;
+    window.location.href='/admin/node/add?id=' + id;
   }
 
   function result(data, status)
@@ -191,7 +224,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 
   function del(id)
   {
-    var url = "/admin/role/del?id=" + id;
+    var url = "/admin/node/del?id=" + id;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {

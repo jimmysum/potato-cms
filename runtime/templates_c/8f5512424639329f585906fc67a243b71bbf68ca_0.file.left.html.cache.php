@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-02 20:12:46
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 15:42:25
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/left.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5637533e3a34a5_77739939',
+  'unifunc' => 'content_56386561e94524_46251945',
   'file_dependency' => 
   array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1446465839,
+      1 => 1446536544,
       2 => 'file',
     ),
   ),
@@ -18,9 +18,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_5637533e3a34a5_77739939')) {
-function content_5637533e3a34a5_77739939 ($_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '11943054595637533e3816a7_99999435';
+if ($_valid && !is_callable('content_56386561e94524_46251945')) {
+function content_56386561e94524_46251945 ($_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '49979230456386561e81366_36989801';
 ?>
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
@@ -46,7 +46,7 @@ $_smarty_tpl->compiled->nocache_hash = '11943054595637533e3816a7_99999435';
           <ul class="am-list am-collapse admin-sidebar-sub" id="nav-admin">
             <li><a href="/admin/admin/index"><span class="am-icon-table"></span> 管理员管理 </a></li>
             <li><a href="/admin/role/index"><span class="am-icon-table"></span> 角色管理 </a></li>
-            <li><a href="/admin/admin/position"><span class="am-icon-table"></span> 节点管理 </a></li>
+            <li><a href="/admin/node/index"><span class="am-icon-table"></span> 节点管理 </a></li>
           </ul>
         </li>
         <li class="admin-parent">

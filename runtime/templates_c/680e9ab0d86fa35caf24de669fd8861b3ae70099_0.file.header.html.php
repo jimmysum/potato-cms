@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-20 14:43:34
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 20:51:36
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/header.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5625e296b46405_65773232',
+  'unifunc' => 'content_5638add8e71e22_64293506',
   'file_dependency' => 
   array (
     '680e9ab0d86fa35caf24de669fd8861b3ae70099' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/header.html',
-      1 => 1445323173,
+      1 => 1445688625,
       2 => 'file',
     ),
   ),
@@ -18,8 +18,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_5625e296b46405_65773232')) {
-function content_5625e296b46405_65773232 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5638add8e71e22_64293506')) {
+function content_5638add8e71e22_64293506 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js">
@@ -68,9 +68,9 @@ kindeditor/themes/default/default.css">
           <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
         </a>
         <ul class="am-dropdown-content">
-          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <!-- <li><a href="#"><span class="am-icon-user"></span> 资料</a></li> -->
           <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+          <li><a href="/admin/login/logout"><span class="am-icon-power-off"></span> 退出</a></li>
         </ul>
       </li>
       <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>

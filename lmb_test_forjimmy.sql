@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50531
 File Encoding         : 65001
 
-Date: 2015-11-02 20:39:31
+Date: 2015-11-03 20:56:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -426,11 +426,11 @@ CREATE TABLE `ci_node` (
   `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT COMMENT '权限ID',
   `name` varchar(20) NOT NULL COMMENT '权限ActionName',
   `title` varchar(50) NOT NULL COMMENT '权限RealName',
-  `status` enum('关闭','开启') NOT NULL DEFAULT '开启' COMMENT '开启状态（0、关闭；1、开启）',
+  `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '开启状态（0、关闭；1、开启）',
   `sort` smallint(6) unsigned DEFAULT NULL COMMENT '排列顺序',
   `pid` smallint(6) unsigned NOT NULL COMMENT '上级ID',
   `level` tinyint(1) unsigned NOT NULL COMMENT '层级（1、控制器；2、方法）',
-  `type` enum('否','是') NOT NULL DEFAULT '是' COMMENT '是否设为菜单（0、不是菜单；1、设为菜单）',
+  `type` tinyint(2) NOT NULL DEFAULT '1' COMMENT '是否设为菜单（0、不是菜单；1、设为菜单）',
   `icon` varchar(255) DEFAULT NULL COMMENT '菜单图标',
   `time` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`),
@@ -438,89 +438,89 @@ CREATE TABLE `ci_node` (
   KEY `pid` (`pid`) USING BTREE,
   KEY `status` (`status`) USING BTREE,
   KEY `name` (`name`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ci_node
 -- ----------------------------
-INSERT INTO `ci_node` VALUES ('1', 'Default', '权限管理', '开启', '3', '0', '0', '是', 'list', '1439538993');
-INSERT INTO `ci_node` VALUES ('2', 'Admin', '管理员管理', '开启', '1', '1', '0', '是', '', '1439305985');
-INSERT INTO `ci_node` VALUES ('3', 'index', '列表', '开启', '1', '2', '0', '是', '', '1439391276');
-INSERT INTO `ci_node` VALUES ('4', 'add', '增加', '开启', '2', '2', '0', '是', '', '1439303862');
-INSERT INTO `ci_node` VALUES ('5', 'edit', '修改', '开启', '3', '2', '0', '是', '', '1439305927');
-INSERT INTO `ci_node` VALUES ('7', 'del', '删除', '开启', '4', '2', '0', '是', '', '1439305947');
-INSERT INTO `ci_node` VALUES ('8', 'Role', '角色管理', '开启', '2', '1', '0', '是', '', '1439305973');
-INSERT INTO `ci_node` VALUES ('9', 'index', '列表', '开启', '1', '8', '0', '是', '', '1439306007');
-INSERT INTO `ci_node` VALUES ('10', 'add', '增加', '开启', '2', '8', '0', '是', '', '1439306028');
-INSERT INTO `ci_node` VALUES ('11', 'edit', '修改', '开启', '3', '8', '0', '是', '', '1439306043');
-INSERT INTO `ci_node` VALUES ('12', 'del', '删除', '开启', '4', '8', '0', '是', '', '1439306061');
-INSERT INTO `ci_node` VALUES ('13', 'Node', '节点管理', '开启', '3', '1', '0', '是', '', '1439306091');
-INSERT INTO `ci_node` VALUES ('14', 'index', '列表', '开启', '1', '13', '0', '是', '', '1439306160');
-INSERT INTO `ci_node` VALUES ('15', 'add', '增加', '开启', '2', '13', '0', '是', '', '1439306128');
-INSERT INTO `ci_node` VALUES ('16', 'edit', '修改', '开启', '3', '13', '0', '是', '', '1439306150');
-INSERT INTO `ci_node` VALUES ('17', 'del', '删除', '开启', '4', '13', '0', '是', '', '1439306179');
-INSERT INTO `ci_node` VALUES ('18', 'rbac', '分配权限', '开启', '50', '8', '0', '是', '', '1439391534');
-INSERT INTO `ci_node` VALUES ('19', 'Default', '内容管理', '开启', '1', '0', '0', '是', 'tasks', '1439431735');
-INSERT INTO `ci_node` VALUES ('20', 'Default', '广告管理', '开启', '4', '0', '0', '是', 'comments', '1439539009');
-INSERT INTO `ci_node` VALUES ('21', 'Ad', '广告管理', '开启', '1', '20', '0', '是', '', '1439393125');
-INSERT INTO `ci_node` VALUES ('22', 'index', '列表', '开启', '1', '21', '0', '是', '', '1439393150');
-INSERT INTO `ci_node` VALUES ('23', 'add', '增加', '开启', '2', '21', '0', '是', '', '1439393166');
-INSERT INTO `ci_node` VALUES ('24', 'edit', '修改', '开启', '3', '21', '0', '是', '', '1439393184');
-INSERT INTO `ci_node` VALUES ('25', 'del', '删除', '开启', '4', '21', '0', '是', '', '1439393205');
-INSERT INTO `ci_node` VALUES ('26', 'AdPos', '广告位', '开启', '4', '20', '0', '是', 'comment-alt', '1439393264');
-INSERT INTO `ci_node` VALUES ('27', 'index', '列表', '开启', '1', '26', '0', '是', '', '1439393280');
-INSERT INTO `ci_node` VALUES ('28', 'add', '增加', '开启', '2', '26', '0', '是', '', '1439393295');
-INSERT INTO `ci_node` VALUES ('29', 'edit', '修改', '开启', '3', '26', '0', '是', '', '1439393430');
-INSERT INTO `ci_node` VALUES ('30', 'del', '删除', '开启', '4', '26', '0', '是', '', '1439393446');
-INSERT INTO `ci_node` VALUES ('31', 'Cate', '分类管理', '开启', '0', '19', '0', '是', '', '1439431054');
-INSERT INTO `ci_node` VALUES ('32', 'index', '列表', '开启', '1', '31', '0', '是', '', '1439393742');
-INSERT INTO `ci_node` VALUES ('33', 'add', '增加', '开启', '2', '31', '0', '是', '', '1439393757');
-INSERT INTO `ci_node` VALUES ('34', 'edit', '修改', '开启', '3', '31', '0', '是', '', '1439393778');
-INSERT INTO `ci_node` VALUES ('35', 'del', '删除', '开启', '4', '31', '0', '是', '', '1439393793');
-INSERT INTO `ci_node` VALUES ('36', 'Article', '文章管理', '开启', '1', '19', '0', '是', '', '1439431063');
-INSERT INTO `ci_node` VALUES ('37', 'index', '列表', '开启', '1', '36', '0', '是', '', '1439430168');
-INSERT INTO `ci_node` VALUES ('38', 'add', '增加', '开启', '2', '36', '0', '否', '', '1439430207');
-INSERT INTO `ci_node` VALUES ('39', 'edit', '修改', '开启', '3', '36', '0', '是', '', '1439430247');
-INSERT INTO `ci_node` VALUES ('40', 'del', '删除', '开启', '4', '36', '0', '是', '', '1439430321');
-INSERT INTO `ci_node` VALUES ('42', 'Recycle', '回收站', '开启', '50', '19', '0', '是', '', '1439430429');
-INSERT INTO `ci_node` VALUES ('43', 'index', '列表', '开启', '1', '42', '0', '是', '', '1439430449');
-INSERT INTO `ci_node` VALUES ('44', 'restore', '恢复', '开启', '2', '42', '0', '是', '', '1439430547');
-INSERT INTO `ci_node` VALUES ('45', 'del', '清空', '开启', '3', '42', '0', '是', '', '1439430581');
-INSERT INTO `ci_node` VALUES ('46', 'Comment', '评论管理', '开启', '2', '19', '0', '是', '', '1439431071');
-INSERT INTO `ci_node` VALUES ('47', 'index', '列表', '开启', '1', '46', '0', '是', '', '1439431110');
-INSERT INTO `ci_node` VALUES ('48', 'del', '删除', '开启', '2', '46', '0', '是', '', '1439431128');
-INSERT INTO `ci_node` VALUES ('49', 'Default', '用户管理', '开启', '2', '0', '0', '是', 'user', '1439431724');
-INSERT INTO `ci_node` VALUES ('50', 'User', '用户管理', '开启', '1', '49', '0', '是', '', '1439431474');
-INSERT INTO `ci_node` VALUES ('51', 'index', '列表', '开启', '1', '50', '0', '是', '', '1439431492');
-INSERT INTO `ci_node` VALUES ('52', 'shield', '拉黑', '开启', '2', '50', '0', '是', '', '1439431533');
-INSERT INTO `ci_node` VALUES ('53', 'enable', '启用', '开启', '3', '50', '0', '是', '', '1439431560');
-INSERT INTO `ci_node` VALUES ('54', 'Default', '基本设置', '开启', '10', '0', '0', '是', 'cogs', '1439431606');
-INSERT INTO `ci_node` VALUES ('55', 'Setting', '网站设置', '开启', '4', '54', '0', '是', '', '1439436673');
-INSERT INTO `ci_node` VALUES ('56', 'index', '显示', '开启', '1', '55', '0', '是', '', '1439436712');
-INSERT INTO `ci_node` VALUES ('57', 'UserInfo', '个人信息', '开启', '1', '54', '0', '是', '', '1439437111');
-INSERT INTO `ci_node` VALUES ('58', 'index', '修改昵称', '开启', '1', '57', '0', '是', '', '1439436858');
-INSERT INTO `ci_node` VALUES ('60', 'pass', '修改密码', '开启', '2', '57', '0', '是', '', '1439436887');
-INSERT INTO `ci_node` VALUES ('61', 'Link', '友情链接', '开启', '3', '54', '0', '是', '', '1439436922');
-INSERT INTO `ci_node` VALUES ('62', 'index', '列表', '开启', '1', '61', '0', '是', '', '1439436945');
-INSERT INTO `ci_node` VALUES ('63', 'add', '增加', '开启', '2', '61', '0', '是', '', '1439436971');
-INSERT INTO `ci_node` VALUES ('64', 'edit', '修改', '开启', '3', '61', '0', '是', '', '1439436996');
-INSERT INTO `ci_node` VALUES ('65', 'del', '删除', '开启', '4', '61', '0', '是', '', '1439437014');
-INSERT INTO `ci_node` VALUES ('66', 'Cahe', '缓存管理', '开启', '5', '54', '0', '是', '', '1439437059');
-INSERT INTO `ci_node` VALUES ('67', 'index', '更新缓存', '开启', '1', '66', '0', '是', '', '1439437092');
-INSERT INTO `ci_node` VALUES ('68', 'Default', '导航管理', '开启', '5', '0', '0', '是', 'group', '1439539027');
-INSERT INTO `ci_node` VALUES ('69', 'Nav', '导航栏管理', '开启', '1', '68', '0', '是', '', '1439441637');
-INSERT INTO `ci_node` VALUES ('70', 'index', '列表', '开启', '1', '69', '0', '是', '', '1439441658');
-INSERT INTO `ci_node` VALUES ('71', 'add', '添加', '开启', '2', '69', '0', '是', '', '1439442708');
-INSERT INTO `ci_node` VALUES ('72', 'edit', '修改', '开启', '3', '69', '0', '是', '', '1439442733');
-INSERT INTO `ci_node` VALUES ('73', 'del', '删除', '开启', '4', '69', '0', '是', '', '1439442758');
-INSERT INTO `ci_node` VALUES ('84', 'index', '备份', '开启', '1', '83', '0', '否', '', '1442465726');
-INSERT INTO `ci_node` VALUES ('83', 'BackUp', '数据备份', '开启', '1', '82', '0', '是', '', '1442465546');
-INSERT INTO `ci_node` VALUES ('82', 'Default', '备份管理', '开启', '6', '0', '0', '是', 'comments-alt', '1442465153');
-INSERT INTO `ci_node` VALUES ('85', 'Restore', '数据恢复', '开启', '2', '82', '0', '否', '', '1442480695');
-INSERT INTO `ci_node` VALUES ('86', 'index', '列表', '开启', '1', '85', '0', '否', '', '1442480800');
-INSERT INTO `ci_node` VALUES ('87', 'del', '删除', '开启', '4', '85', '0', '否', '', '1442480896');
-INSERT INTO `ci_node` VALUES ('88', 'import', '恢复', '开启', '3', '85', '0', '否', '', '1442480974');
-INSERT INTO `ci_node` VALUES ('89', 'download', '下载', '开启', '2', '85', '0', '否', '', '1442481069');
+INSERT INTO `ci_node` VALUES ('1', 'Default', '权限管理', '2', '3', '0', '0', '2', 'list', '1439538993');
+INSERT INTO `ci_node` VALUES ('2', 'Admin', '管理员管理', '2', '1', '1', '0', '2', '', '1439305985');
+INSERT INTO `ci_node` VALUES ('3', 'index', '列表', '2', '1', '2', '0', '2', '', '1439391276');
+INSERT INTO `ci_node` VALUES ('4', 'add', '增加', '2', '2', '2', '0', '2', '', '1439303862');
+INSERT INTO `ci_node` VALUES ('5', 'edit', '修改', '2', '3', '2', '0', '2', '', '1439305927');
+INSERT INTO `ci_node` VALUES ('7', 'del', '删除', '2', '4', '2', '0', '2', '', '1439305947');
+INSERT INTO `ci_node` VALUES ('8', 'Role', '角色管理', '2', '2', '1', '0', '2', '', '1439305973');
+INSERT INTO `ci_node` VALUES ('9', 'index', '列表', '2', '1', '8', '0', '2', '', '1439306007');
+INSERT INTO `ci_node` VALUES ('10', 'add', '增加', '2', '2', '8', '0', '2', '', '1439306028');
+INSERT INTO `ci_node` VALUES ('11', 'edit', '修改', '2', '3', '8', '0', '2', '', '1439306043');
+INSERT INTO `ci_node` VALUES ('12', 'del', '删除', '2', '4', '8', '0', '2', '', '1439306061');
+INSERT INTO `ci_node` VALUES ('13', 'Node', '节点管理', '2', '3', '1', '0', '2', '', '1439306091');
+INSERT INTO `ci_node` VALUES ('14', 'index', '列表', '2', '1', '13', '0', '2', '', '1439306160');
+INSERT INTO `ci_node` VALUES ('15', 'add', '增加', '2', '2', '13', '0', '2', '', '1439306128');
+INSERT INTO `ci_node` VALUES ('16', 'edit', '修改', '2', '3', '13', '0', '2', '', '1439306150');
+INSERT INTO `ci_node` VALUES ('17', 'del', '删除', '2', '4', '13', '0', '2', '', '1439306179');
+INSERT INTO `ci_node` VALUES ('18', 'rbac', '分配权限', '2', '50', '8', '0', '2', '', '1439391534');
+INSERT INTO `ci_node` VALUES ('19', 'Default', '内容管理', '2', '1', '0', '0', '2', 'tasks', '1439431735');
+INSERT INTO `ci_node` VALUES ('20', 'Default', '广告管理', '2', '4', '0', '0', '2', 'comments', '1439539009');
+INSERT INTO `ci_node` VALUES ('21', 'Ad', '广告管理', '2', '1', '20', '0', '2', '', '1439393125');
+INSERT INTO `ci_node` VALUES ('22', 'index', '列表', '2', '1', '21', '0', '2', '', '1439393150');
+INSERT INTO `ci_node` VALUES ('23', 'add', '增加', '2', '2', '21', '0', '2', '', '1439393166');
+INSERT INTO `ci_node` VALUES ('24', 'edit', '修改', '2', '3', '21', '0', '2', '', '1439393184');
+INSERT INTO `ci_node` VALUES ('25', 'del', '删除', '2', '4', '21', '0', '2', '', '1439393205');
+INSERT INTO `ci_node` VALUES ('26', 'AdPos', '广告位', '2', '4', '20', '0', '2', 'comment-alt', '1439393264');
+INSERT INTO `ci_node` VALUES ('27', 'index', '列表', '2', '1', '26', '0', '2', '', '1439393280');
+INSERT INTO `ci_node` VALUES ('28', 'add', '增加', '2', '2', '26', '0', '2', '', '1439393295');
+INSERT INTO `ci_node` VALUES ('29', 'edit', '修改', '2', '3', '26', '0', '2', '', '1439393430');
+INSERT INTO `ci_node` VALUES ('30', 'del', '删除', '2', '4', '26', '0', '2', '', '1439393446');
+INSERT INTO `ci_node` VALUES ('31', 'Cate', '分类管理', '2', '0', '19', '0', '2', '', '1439431054');
+INSERT INTO `ci_node` VALUES ('32', 'index', '列表', '2', '1', '31', '0', '2', '', '1439393742');
+INSERT INTO `ci_node` VALUES ('33', 'add', '增加', '2', '2', '31', '0', '2', '', '1439393757');
+INSERT INTO `ci_node` VALUES ('34', 'edit', '修改', '2', '3', '31', '0', '2', '', '1439393778');
+INSERT INTO `ci_node` VALUES ('35', 'del', '删除', '2', '4', '31', '0', '2', '', '1439393793');
+INSERT INTO `ci_node` VALUES ('36', 'Article', '文章管理', '2', '1', '19', '0', '2', '', '1439431063');
+INSERT INTO `ci_node` VALUES ('37', 'index', '列表', '2', '1', '36', '0', '2', '', '1439430168');
+INSERT INTO `ci_node` VALUES ('38', 'add', '增加', '2', '2', '36', '0', '1', '', '1439430207');
+INSERT INTO `ci_node` VALUES ('39', 'edit', '修改', '2', '3', '36', '0', '2', '', '1439430247');
+INSERT INTO `ci_node` VALUES ('40', 'del', '删除', '2', '4', '36', '0', '2', '', '1439430321');
+INSERT INTO `ci_node` VALUES ('42', 'Recycle', '回收站', '2', '50', '19', '0', '2', '', '1439430429');
+INSERT INTO `ci_node` VALUES ('43', 'index', '列表', '2', '1', '42', '0', '2', '', '1439430449');
+INSERT INTO `ci_node` VALUES ('44', 'restore', '恢复', '2', '2', '42', '0', '2', '', '1439430547');
+INSERT INTO `ci_node` VALUES ('45', 'del', '清空', '2', '3', '42', '0', '2', '', '1439430581');
+INSERT INTO `ci_node` VALUES ('46', 'Comment', '评论管理', '2', '2', '19', '0', '2', '', '1439431071');
+INSERT INTO `ci_node` VALUES ('47', 'index', '列表', '2', '1', '46', '0', '2', '', '1439431110');
+INSERT INTO `ci_node` VALUES ('48', 'del', '删除', '2', '2', '46', '0', '2', '', '1439431128');
+INSERT INTO `ci_node` VALUES ('49', 'Default', '用户管理', '2', '2', '0', '0', '2', 'user', '1439431724');
+INSERT INTO `ci_node` VALUES ('50', 'User', '用户管理', '2', '1', '49', '0', '2', '', '1439431474');
+INSERT INTO `ci_node` VALUES ('51', 'index', '列表', '2', '1', '50', '0', '2', '', '1439431492');
+INSERT INTO `ci_node` VALUES ('52', 'shield', '拉黑', '2', '2', '50', '0', '2', '', '1439431533');
+INSERT INTO `ci_node` VALUES ('53', 'enable', '启用', '2', '3', '50', '0', '2', '', '1439431560');
+INSERT INTO `ci_node` VALUES ('54', 'Default', '基本设置', '2', '10', '0', '0', '2', 'cogs', '1439431606');
+INSERT INTO `ci_node` VALUES ('55', 'Setting', '网站设置', '2', '4', '54', '0', '2', '', '1439436673');
+INSERT INTO `ci_node` VALUES ('56', 'index', '显示', '2', '1', '55', '0', '2', '', '1439436712');
+INSERT INTO `ci_node` VALUES ('57', 'UserInfo', '个人信息', '2', '1', '54', '0', '2', '', '1439437111');
+INSERT INTO `ci_node` VALUES ('58', 'index', '修改昵称', '2', '1', '57', '0', '2', '', '1439436858');
+INSERT INTO `ci_node` VALUES ('60', 'pass', '修改密码', '2', '2', '57', '0', '2', '', '1439436887');
+INSERT INTO `ci_node` VALUES ('61', 'Link', '友情链接', '2', '3', '54', '0', '2', '', '1439436922');
+INSERT INTO `ci_node` VALUES ('62', 'index', '列表', '2', '1', '61', '0', '2', '', '1439436945');
+INSERT INTO `ci_node` VALUES ('63', 'add', '增加', '2', '2', '61', '0', '2', '', '1439436971');
+INSERT INTO `ci_node` VALUES ('64', 'edit', '修改', '2', '3', '61', '0', '2', '', '1439436996');
+INSERT INTO `ci_node` VALUES ('65', 'del', '删除', '2', '4', '61', '0', '2', '', '1439437014');
+INSERT INTO `ci_node` VALUES ('66', 'Cahe', '缓存管理', '2', '5', '54', '0', '2', '', '1439437059');
+INSERT INTO `ci_node` VALUES ('67', 'index', '更新缓存', '2', '1', '66', '0', '2', '', '1439437092');
+INSERT INTO `ci_node` VALUES ('68', 'Default', '导航管理', '2', '5', '0', '0', '2', 'group', '1439539027');
+INSERT INTO `ci_node` VALUES ('69', 'Nav', '导航栏管理', '2', '1', '68', '0', '2', '', '1439441637');
+INSERT INTO `ci_node` VALUES ('70', 'index', '列表', '2', '1', '69', '0', '2', '', '1439441658');
+INSERT INTO `ci_node` VALUES ('71', 'add', '添加', '2', '2', '69', '0', '2', '', '1439442708');
+INSERT INTO `ci_node` VALUES ('72', 'edit', '修改', '2', '3', '69', '0', '2', '', '1439442733');
+INSERT INTO `ci_node` VALUES ('73', 'del', '删除', '2', '4', '69', '0', '2', '', '1439442758');
+INSERT INTO `ci_node` VALUES ('84', 'index', '备份', '2', '1', '83', '0', '1', '', '1442465726');
+INSERT INTO `ci_node` VALUES ('83', 'BackUp', '数据备份', '2', '1', '82', '0', '2', '', '1442465546');
+INSERT INTO `ci_node` VALUES ('82', 'Default', '备份管理', '2', '6', '0', '0', '2', 'comments-alt', '1442465153');
+INSERT INTO `ci_node` VALUES ('85', 'Restore', '数据恢复', '2', '2', '82', '0', '1', '', '1442480695');
+INSERT INTO `ci_node` VALUES ('86', 'index', '列表', '2', '1', '85', '0', '1', '', '1442480800');
+INSERT INTO `ci_node` VALUES ('87', 'del', '删除', '2', '4', '85', '0', '1', '', '1442480896');
+INSERT INTO `ci_node` VALUES ('88', 'import', '恢复', '2', '3', '85', '0', '1', '', '1442480974');
+INSERT INTO `ci_node` VALUES ('89', 'download', '下载', '2', '2', '85', '0', '1', '', '1442481069');
 
 -- ----------------------------
 -- Table structure for ci_role

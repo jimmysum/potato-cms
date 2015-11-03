@@ -27,16 +27,8 @@ class Node extends Admin_Controller
     public $rules = array(
             array(
                     'field' => 'name',
-                    'label' => '角色名',
+                    'label' => 'ActionName',
                     'rules' => 'required',
-                    'errors' => array(
-                            'required' => '请填写"%s."',
-                    ),
-            ),
-            array(
-                    'field' => 'remark',
-                    'label' => '角色描述',
-                    'rules' => 'trim|required',
                     'errors' => array(
                             'required' => '请填写"%s."',
                     ),
@@ -54,13 +46,12 @@ class Node extends Admin_Controller
     
     public function index()
     {
-        $param = $this->input->get();
-        $list = $this->role->getAll();
-        $list = $this->role->amerge($list);
+        $list = $this->node->getAll();
+        $list = node_merge($list);
         
      
      // echo '<pre>';
-     // print_r($list);
+     // print_r($list);die;
         $this->assign('list', $list);
         $this->display();
     }
@@ -77,11 +68,11 @@ class Node extends Admin_Controller
             {
                 $input['time'] = time();
                 if (isset($input['id'])) {
-                    $res = $this->role->update($input, 'id');
+                    $res = $this->node->update($input, 'id');
                 }
                 else
                 {
-                    $res = $this->role->add($input);
+                    $res = $this->node->add($input);
                 }
                 if ($res)
                 {
@@ -102,12 +93,16 @@ class Node extends Admin_Controller
             $id = $this->input->get('id');
             $data = array();
             if ($id) {
-                $data = $this->role->getOne($id);
+                $data = $this->node->getOne($id);
                 if (!$data) {
-                    $this->error('角色不存在');
+                    $this->error('节点不存在');
                 }
             }
-
+            // echo '<pre>';print_r($data);die;
+            $list = $this->node->getAll();
+            $list = node_merge($list);
+        
+            $this->assign('list', $list);
             $this->assign('data', $data);
             $this->display();
         }
@@ -120,17 +115,12 @@ class Node extends Admin_Controller
             $this->outJson(-1);
         }
 
-        $cate = $this->role->getOne($id);
+        $cate = $this->node->getOne($id);
         if (!$cate) {
             $this->outJson(101,'','参数错误');
         }
 
-        if ($cate['name'] == 'Super')
-        {
-            $this->outJson(101,'','超级角色不可删除');
-        }
-
-        $res = $this->role->del($id);
+        $res = $this->node->del($id);
         if ($res) {
             $this->outJson(0);
         }

@@ -25,39 +25,38 @@
     <div class="am-g">
       <div class="am-u-sm-12">
         <form class="am-form">
-          <table class="am-table am-table-striped am-table-hover table-main">
-            <thead>
-              <tr>
-                <th class="table-check"><input type="checkbox" id="allCheck" name="check" /></th>
-                <th class="table-id">ID</th>
-                <th class="table-title">名称</th>
-                <th class="table-title">角色描述</th>
-                <th class="table-type">状态</th>
-                <th class="table-type">排序</th>
-                <th class="table-date am-hide-sm-only">创建时间</th>
-                <th class="table-set">操作</th>
-              </tr>
-          </thead>
+          <table class="am-table am-table-striped am-table-hover table-main box-shadow">
           <tbody>
             <{foreach from=$list item="val"}>
             <tr>
-              <td><input type="checkbox" name="check" rid="<{$val.id}>" /></td>
-              <td><{$val.id}></td>
-              <td><{$val.name}></td>
-              <td><{$val.remark}></td>
-              <td><span class="am-btn <{if $val['status']==1}>am-btn-success<{else}>am-btn-warning<{/if}> am-round am-btn-xs"><{$val['status_str']}></span></td>
-              <td><{$val['sort']}></td>
-              <td class="am-hide-sm-only"><{$val.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
               <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<{$val.id}>)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                    <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<{$val.id}>)"><span class="am-icon-copy"></span> 复制</button> -->
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$val.id}>)"><span class="am-icon-trash-o"></span> 删除</button>
-                  </div>
-                </div>
+              <span><strong><{$val.title}></strong></span>
+              <div class="am-btn-group am-btn-group-xs">
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<{$val.id}>)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$val.id}>)"><span class="am-icon-trash-o"></span> 删除</button>
+              </div>
               </td>
             </tr>
+            <{foreach from=$val.child item="va"}>
+            <tr>
+              <td>
+              &nbsp;&nbsp;&nbsp;<{$va.title}>
+              <div class="am-btn-group am-btn-group-xs">
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<{$va.id}>)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$va.id}>)"><span class="am-icon-trash-o"></span> 删除</button>
+              </div>
+              </td>
+              <{foreach from=$va.child item="v"}>
+              <td>
+              <{$v.title}>
+              <div class="am-btn-group am-btn-group-xs">
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<{$v.id}>)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$v.id}>)"><span class="am-icon-trash-o"></span> 删除</button>
+              </div>
+              </td>
+              <{/foreach}>
+            </tr>
+            <{/foreach}>
             <{/foreach}>
             
           </tbody>
@@ -93,12 +92,12 @@
 <{include file='admin/public/footer.html'}>
 <script>
 	$('#add-cate').on('click', function() {
-		window.location.href='/admin/role/add';
+		window.location.href='/admin/node/add';
   	});
 
   function edit(id)
   {
-    window.location.href='/admin/role/add?id=' + id;
+    window.location.href='/admin/node/add?id=' + id;
   }
 
   function result(data, status)
@@ -129,7 +128,7 @@
 
   function del(id)
   {
-    var url = "/admin/role/del?id=" + id;
+    var url = "/admin/node/del?id=" + id;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {

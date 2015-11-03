@@ -15,24 +15,54 @@
   <form class="am-form" id="doc-vld-msg">
   <div class="am-tabs am-margin" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs">
-      <li class="am-active"><a href="#tab1">用户信息</a></li>
+      <li class="am-active"><a href="#tab1">节点信息</a></li>
     </ul>
     <div class="am-tabs-bd">
       <div class="am-tab-panel am-fade am-in am-active" id="tab1">
-        <div class="am-g am-margin-top am-form-group">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">
-            角色名
-          </div>
-          <div class="am-u-sm-8 am-u-md-4 am-u-end">
-            <input type="text" class="am-input-sm"  name="name" data-validation-message="角色名必填" placeholder="请输入角色名" value="<{if $data}><{$data.name}><{/if}>" required>
+        <div class="am-g am-margin-top">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">上一级</div>
+          <div class="am-u-sm-8 am-u-md-10">
+            <select data-am-selected="{btnSize: 'sm',maxHeight: 200}" name="pid">
+              <option value="0">请选择权限</option>
+              <{foreach from=$list item="val"}>
+              <option value="<{$val.id}>" <{if $data && $data.pid eq $val.id}> selected<{/if}>><{$val.title}></option>
+                  <{foreach from=$val.child item="va"}>
+                <option value="<{$va.id}>" <{if $data && $data.pid eq $va.id}> selected<{/if}>>&nbsp;&nbsp;└-<{$va.title}></option>
+                <{/foreach}>
+              <{/foreach}>
+            </select>
           </div>
         </div>
         <div class="am-g am-margin-top am-form-group">
           <div class="am-u-sm-4 am-u-md-2 am-text-right">
-            角色描述
+            ActionName
           </div>
           <div class="am-u-sm-8 am-u-md-4 am-u-end">
-            <input type="text" class="am-input-sm"  name="remark" data-validation-message="角色描述必填" placeholder="请输入角色描述" value="<{if $data}><{$data.remark}><{/if}>" required>
+            <input type="text" class="am-input-sm"  name="name" data-validation-message="请填写控制器/方法" placeholder="控制器/方法" value="<{if $data}><{$data.name}><{/if}>" required>
+          </div>
+        </div>
+        <div class="am-g am-margin-top am-form-group">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">
+            RealName
+          </div>
+          <div class="am-u-sm-8 am-u-md-4 am-u-end">
+            <input type="text" class="am-input-sm"  name="title" placeholder="控制器/方法别名" value="<{if $data}><{$data.title}><{/if}>" >
+          </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              排序
+            </div>
+            <div class="am-u-sm-8 am-u-md-2 am-u-end">
+              <input name="sort" type="text" class="am-input-sm" value="<{if $data}><{$data.sort}><{/if}>"  placeholder="默认50">
+            </div>
+        </div>
+        <div class="am-g am-margin-top am-form-group">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">
+            图标
+          </div>
+          <div class="am-u-sm-8 am-u-md-2 am-u-end">
+            <input type="text" class="am-input-sm"  name="icon" placeholder="图标" value="<{if $data}><{$data.icon}><{/if}>">
           </div>
         </div>
         <div class="am-g am-margin-top">
@@ -49,12 +79,17 @@
           </div>
         </div>
         <div class="am-g am-margin-top">
-            <div class="am-u-sm-4 am-u-md-2 am-text-right">
-              排序
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">设为菜单</div>
+          <div class="am-u-sm-8 am-u-md-10">
+            <div class="am-btn-group" data-am-button>
+              <label class="am-btn am-btn-default am-btn-xs <{if !$data}> am-active<{elseif $data && $data.type==1}> am-active<{/if}>">
+                <input type="radio" name="type" id="option1" value="1"> 开启
+              </label>
+              <label class="am-btn am-btn-default am-btn-xs <{if $data && $data.type==0}> am-active<{/if}>">
+                <input type="radio" name="type" id="option3" value="0"> 关闭
+              </label>
             </div>
-            <div class="am-u-sm-8 am-u-md-2 am-u-end">
-              <input name="sort" type="text" class="am-input-sm" value="<{if $data}><{$data.sort}><{/if}>"  placeholder="默认50">
-            </div>
+          </div>
         </div>
       </div>
 		
@@ -79,7 +114,7 @@
 	$('#save-sure').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
     
-		$.post("/admin/role/add",
+		$.post("/admin/node/add",
 			postData,
 		  function(data,status){
         var res =  jQuery.parseJSON(data);
@@ -91,7 +126,7 @@
             $('#success-msg').addClass('am-alert-success');
             $('#success-msg').html(res.msg);
             $('#success-msg').fadeIn(2000, function() {
-              window.location.href = '/admin/role/index';
+              window.location.href = '/admin/node/index';
             });
           }
           else 
@@ -109,7 +144,7 @@
 	});
 
 	$('#save-forgive').on('click', function() {
-		window.location.href='/admin/role/index';
+		window.location.href='/admin/node/index';
 	});
 	$(function() {
 		  $('#doc-vld-msg').validator({

@@ -2,13 +2,13 @@
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56375107c1cbb9_80010483',
+  'unifunc' => 'content_5638adb03605e8_27597099',
   'file_dependency' => 
   array (
-    'b38aadd173ec7d0316ebddaab0330d61cbbc6fff' => 
+    '21a9ead779767d95ccda0069fb0523e89f9e6700' => 
     array (
-      0 => '/data/src/test/codeIgniter/application/views/admin/admin/add.html',
-      1 => 1445855037,
+      0 => '/data/src/test/codeIgniter/application/views/admin/node/add.html',
+      1 => 1446554847,
       2 => 'file',
     ),
     '680e9ab0d86fa35caf24de669fd8861b3ae70099' => 
@@ -20,7 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1445949598,
+      1 => 1446536544,
       2 => 'file',
     ),
     'c80f31628ed07a54fe32cd6cb183997510fcb174' => 
@@ -32,8 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'cache_lifetime' => 3600,
 ),true);
-if ($_valid && !is_callable('content_56375107c1cbb9_80010483')) {
-function content_56375107c1cbb9_80010483 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5638adb03605e8_27597099')) {
+function content_5638adb03605e8_27597099 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js">
@@ -112,14 +112,14 @@ function content_56375107c1cbb9_80010483 ($_smarty_tpl) {
           <ul class="am-list am-collapse admin-sidebar-sub" id="nav-admin">
             <li><a href="/admin/admin/index"><span class="am-icon-table"></span> 管理员管理 </a></li>
             <li><a href="/admin/role/index"><span class="am-icon-table"></span> 角色管理 </a></li>
-            <li><a href="/admin/admin/position"><span class="am-icon-table"></span> 节点管理 </a></li>
+            <li><a href="/admin/node/index"><span class="am-icon-table"></span> 节点管理 </a></li>
           </ul>
         </li>
         <li class="admin-parent">
           <a class="am-cf" data-am-collapse="{target: '#nav-ad'}"><span class="am-icon-comments"></span> 广告管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub" id="nav-ad">
             <li><a href="/admin/ad/index"><span class="am-icon-table"></span> 广告管理</a></li>
-            <li><a href="/admin/ad/position"><span class="am-icon-table"></span> 广告位</a></li>
+            <li><a href="/admin/node/index"><span class="am-icon-table"></span> 广告位</a></li>
           </ul>
         </li>
         <li class="admin-parent">
@@ -173,70 +173,56 @@ function content_56375107c1cbb9_80010483 ($_smarty_tpl) {
   <form class="am-form" id="doc-vld-msg">
   <div class="am-tabs am-margin" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs">
-      <li class="am-active"><a href="#tab1">用户信息</a></li>
+      <li class="am-active"><a href="#tab1">节点信息</a></li>
     </ul>
     <div class="am-tabs-bd">
       <div class="am-tab-panel am-fade am-in am-active" id="tab1">
         <div class="am-g am-margin-top">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">权限组</div>
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">上一级</div>
           <div class="am-u-sm-8 am-u-md-10">
-            <select data-am-selected="{btnSize: 'sm',maxHeight: 180}" name="role_id" required>
-              <option value="">请选择权限组</option>
-                             
-              <option value="2"  selected>Manger</option>
-                            	  
-                             
-              <option value="1" >Super</option>
-                            	  
-                             
-              <option value="7" >demo</option>
-                            	  
-                          </select>
-          </div>
-        </div>
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">状态</div>
-          <div class="am-u-sm-8 am-u-md-10">
-            <div class="am-btn-group" data-am-button>
-              <label class="am-btn am-btn-default am-btn-xs  am-active">
-                <input type="radio" name="lock" id="option1" value="1"> 开启
-              </label>
-              <label class="am-btn am-btn-default am-btn-xs ">
-                <input type="radio" name="lock" id="option3" value="0"> 关闭
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="am-g am-margin-top am-form-group">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">
-            用户名
-          </div>
-          <div class="am-u-sm-8 am-u-md-4 am-u-end">
-            <input type="text" class="am-input-sm"  name="username" data-validation-message="用户名必填" placeholder="输入用户名" value="test" required>
+            <select data-am-selected="{btnSize: 'sm',maxHeight: 200}" name="pid">
+              <option value="0">请选择权限</option>
+                            <option value="1" >权限管理</option>
+                                  <option value="2"  selected>&nbsp;&nbsp;└-管理员管理</option>
+                                <option value="8" >&nbsp;&nbsp;└-角色管理</option>
+                                <option value="13" >&nbsp;&nbsp;└-节点管理</option>
+                                            <option value="19" >内容管理</option>
+                                  <option value="31" >&nbsp;&nbsp;└-分类管理</option>
+                                <option value="36" >&nbsp;&nbsp;└-文章管理</option>
+                                <option value="42" >&nbsp;&nbsp;└-回收站</option>
+                                <option value="46" >&nbsp;&nbsp;└-评论管理</option>
+                                            <option value="20" >广告管理</option>
+                                  <option value="21" >&nbsp;&nbsp;└-广告管理</option>
+                                <option value="26" >&nbsp;&nbsp;└-广告位</option>
+                                            <option value="49" >用户管理</option>
+                                  <option value="50" >&nbsp;&nbsp;└-用户管理</option>
+                                            <option value="54" >基本设置</option>
+                                  <option value="55" >&nbsp;&nbsp;└-网站设置</option>
+                                <option value="57" >&nbsp;&nbsp;└-个人信息</option>
+                                <option value="61" >&nbsp;&nbsp;└-友情链接</option>
+                                <option value="66" >&nbsp;&nbsp;└-缓存管理</option>
+                                            <option value="68" >导航管理</option>
+                                  <option value="69" >&nbsp;&nbsp;└-导航栏管理</option>
+                                            <option value="82" >备份管理</option>
+                                  <option value="83" >&nbsp;&nbsp;└-数据备份</option>
+                                <option value="85" >&nbsp;&nbsp;└-数据恢复</option>
+                                          </select>
           </div>
         </div>
         <div class="am-g am-margin-top am-form-group">
           <div class="am-u-sm-4 am-u-md-2 am-text-right">
-            密码
+            ActionName
           </div>
           <div class="am-u-sm-8 am-u-md-4 am-u-end">
-            <input type="text" class="am-input-sm"  name="password" data-validation-message="密码必填" placeholder="输入密码" value="" required>
+            <input type="text" class="am-input-sm"  name="name" data-validation-message="请填写控制器/方法" placeholder="控制器/方法" value="index" required>
           </div>
         </div>
         <div class="am-g am-margin-top am-form-group">
           <div class="am-u-sm-4 am-u-md-2 am-text-right">
-            重复密码
+            RealName
           </div>
           <div class="am-u-sm-8 am-u-md-4 am-u-end">
-            <input type="text" class="am-input-sm"  name="repassword" data-validation-message="确认密码必填" placeholder="输入确认密码" value="" required>
-          </div>
-        </div>
-        <div class="am-g am-margin-top am-form-group">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">
-            管理员名称
-          </div>
-          <div class="am-u-sm-8 am-u-md-4 am-u-end">
-            <input type="text" class="am-input-sm"  name="nickname"placeholder="输入管理员名称" value="test">
+            <input type="text" class="am-input-sm"  name="title" placeholder="控制器/方法别名" value="列表" >
           </div>
         </div>
         <div class="am-g am-margin-top">
@@ -244,8 +230,42 @@ function content_56375107c1cbb9_80010483 ($_smarty_tpl) {
               排序
             </div>
             <div class="am-u-sm-8 am-u-md-2 am-u-end">
-              <input name="sort" type="text" class="am-input-sm" value="0"  placeholder="默认50">
+              <input name="sort" type="text" class="am-input-sm" value="1"  placeholder="默认50">
             </div>
+        </div>
+        <div class="am-g am-margin-top am-form-group">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">
+            图标
+          </div>
+          <div class="am-u-sm-8 am-u-md-2 am-u-end">
+            <input type="text" class="am-input-sm"  name="icon" placeholder="图标" value="">
+          </div>
+        </div>
+        <div class="am-g am-margin-top">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">状态</div>
+          <div class="am-u-sm-8 am-u-md-10">
+            <div class="am-btn-group" data-am-button>
+              <label class="am-btn am-btn-default am-btn-xs ">
+                <input type="radio" name="status" id="option1" value="1"> 开启
+              </label>
+              <label class="am-btn am-btn-default am-btn-xs ">
+                <input type="radio" name="status" id="option3" value="0"> 关闭
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="am-g am-margin-top">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">设为菜单</div>
+          <div class="am-u-sm-8 am-u-md-10">
+            <div class="am-btn-group" data-am-button>
+              <label class="am-btn am-btn-default am-btn-xs ">
+                <input type="radio" name="type" id="option1" value="1"> 开启
+              </label>
+              <label class="am-btn am-btn-default am-btn-xs ">
+                <input type="radio" name="type" id="option3" value="0"> 关闭
+              </label>
+            </div>
+          </div>
         </div>
       </div>
 		
@@ -289,7 +309,7 @@ function content_56375107c1cbb9_80010483 ($_smarty_tpl) {
 	$('#save-sure').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
     
-		$.post("/admin/admin/add",
+		$.post("/admin/role/add",
 			postData,
 		  function(data,status){
         var res =  jQuery.parseJSON(data);
@@ -301,7 +321,7 @@ function content_56375107c1cbb9_80010483 ($_smarty_tpl) {
             $('#success-msg').addClass('am-alert-success');
             $('#success-msg').html(res.msg);
             $('#success-msg').fadeIn(2000, function() {
-              window.location.href = '/admin/admin/index';
+              window.location.href = '/admin/role/index';
             });
           }
           else 
@@ -319,7 +339,7 @@ function content_56375107c1cbb9_80010483 ($_smarty_tpl) {
 	});
 
 	$('#save-forgive').on('click', function() {
-		window.location.href='/admin/admin/index';
+		window.location.href='/admin/role/index';
 	});
 	$(function() {
 		  $('#doc-vld-msg').validator({
