@@ -152,13 +152,20 @@ class Role extends Admin_Controller
         if (!$data) {
             $this->outJson(101,'','参数错误');
         }
+
+        $this->load->model('M_Access', 'access');
+        $access = $this->access->getList(array('role_id' => $id));
+        $auth = array();
+        foreach($access as $k => $v)
+        {
+            $auth[] = $v['node_id'];
+        }
+
         $this->load->model('M_node', 'node');
         $list = $this->node->getAll();
         $list = node_merge($list);
         
-     
-     // echo '<pre>';
-     // print_r($list);die;
+        $this->assign('auth', $auth);
         $this->assign('list', $list);
         $this->assign('data', $data);
         $this->display();

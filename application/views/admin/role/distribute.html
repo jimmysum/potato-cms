@@ -29,7 +29,7 @@
             <{foreach from=$list item="val"}>
             <tr>
               <td>
-              <input type="checkbox" onclick="check(<{$val.id}>)" />
+              <input type="checkbox" name="parent<{$val.id}>" onclick="check(<{$val.id}>)"  <{if in_array($val.id,$auth)}>checked=checked<{/if}>/>
               <span><strong><{$val.title}></strong></span>
               </td>
             </tr>
@@ -37,12 +37,12 @@
             <tr>
               <td>
               &nbsp;&nbsp;&nbsp;
-              <input type="checkbox" name="check<{$val.id}>" onclick="check(<{$va.id}>)" />
+              <input type="checkbox" name="check<{$val.id}>" onclick="check(<{$va.id}>)" <{if in_array($va.id,$auth)}>checked<{/if}>/>
               <{$va.title}>
               </td>
               <{foreach from=$va.child item="v"}>
               <td>
-              <input type="checkbox" name="check<{$val.id}>" onclick="check(<{$v.id}>)" />
+              <input type="checkbox" name="check<{$val.id}>" onclick="check(<{$v.id}>)"  <{if in_array($v.id,$auth)}>checked<{/if}>/>
               <{$v.title}>
               </td>
               <{/foreach}>
@@ -67,80 +67,31 @@
   </div>
   <!-- content end -->
 </div>
-<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
-  <div class="am-modal-dialog">
-    <div class="am-modal-hd">温馨提示</div>
-    <div class="am-modal-bd">
-      你，确定要删除这条记录吗？
-    </div>
-    <div class="am-modal-footer">
-      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-      <span class="am-modal-btn" data-am-modal-confirm>确定</span>
-    </div>
-  </div>
-</div>
-
 <{include file='admin/public/footer.html'}>
 <script>
-	
-  function result(data, status)
-  {
-    var res =  jQuery.parseJSON(data);
-    if (status == 'success')
-    {
-      if (res.ret == 0) 
-      {
-        $('#success-msg').removeClass('am-alert-danger');
-        $('#success-msg').addClass('am-alert-success');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(2000, function() {
-          location.reload();
-        });
-      }
-      else 
-      {
-        $('#success-msg').removeClass('am-alert-success');
-        $('#success-msg').addClass('am-alert-danger');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(1000, function() {
-          $('#success-msg').fadeOut(1000);
-        });
-      }
-    }
-  }
-
-  function del(id)
-  {
-    var url = "/admin/node/del?id=" + id;
-    $('#my-confirm').modal({
-        relatedTarget: this,
-        onConfirm: function(options) {
-          $.post(url,
-            '',
-            function(data,status){
-              result(data, status)
-            });
-          
-        },
-        // closeOnConfirm: false,
-        onCancel: function() {
-          
-        }
-      });
-  }
-
   function check(id)
   {
+    var parent = $('input[name="parent' + id + '"]');
     var check = $('input[name="check' + id + '"]');
-    for (var i = 0; i < check.length; i++) {  
-        if(check[i].checked == false){  
-          check[i].checked = true;
-        }
-        else
-        {
-          check[i].checked = false;
-        }
-    } 
+    if (parent.attr('checked') == 'checked' || parent.attr('checked') == true) 
+    {
+      parent.attr('checked', false);
+      check.attr('checked', false); 
+    }
+    else
+    {
+      check.attr('checked', true); 
+      parent.attr('checked', true);
+    }
+    // for (var i = 0; i < check.length; i++) {  
+    //     if(check[i].checked == false){  
+    //       check[i].checked = true;
+    //     }
+    //     else
+    //     {
+    //       check[i].checked = false;
+    //     }
+    // } 
   }
 
 </script>
