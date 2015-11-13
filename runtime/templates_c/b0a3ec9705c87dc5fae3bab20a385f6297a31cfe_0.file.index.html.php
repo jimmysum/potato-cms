@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-21 18:40:44
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 15:30:06
          compiled from "/data/src/test/codeIgniter/application/views/admin/comment/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56276bac78b4a4_22936251',
+  'unifunc' => 'content_5645917e877d13_20507052',
   'file_dependency' => 
   array (
     'b0a3ec9705c87dc5fae3bab20a385f6297a31cfe' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/comment/index.html',
-      1 => 1445424043,
+      1 => 1447389482,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56276bac78b4a4_22936251')) {
-function content_56276bac78b4a4_22936251 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5645917e877d13_20507052')) {
+function content_5645917e877d13_20507052 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -185,31 +185,6 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
     return data;
   }
 
-  function result(data, status)
-  {
-    var res =  jQuery.parseJSON(data);
-    if (status == 'success')
-    {
-      if (res.ret == 0) 
-      {
-        $('#success-msg').removeClass('am-alert-danger');
-        $('#success-msg').addClass('am-alert-success');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(2000, function() {
-          location.reload();
-        });
-      }
-      else 
-      {
-        $('#success-msg').removeClass('am-alert-success');
-        $('#success-msg').addClass('am-alert-danger');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(1000, function() {
-          $('#success-msg').fadeOut(1000);
-        });
-      }
-    }
-  }
 
   function del(id)
   {
@@ -220,7 +195,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
           $.post(url,
             '',
             function(data,status){
-              result(data, status)
+              result(data, status, '');
             });
           
         },

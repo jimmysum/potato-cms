@@ -88,7 +88,7 @@
   </form>
   <div class="am-margin">
     <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
-    <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
+    <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs" onclick="jumpUrl('/admin/cate/index')">放弃保存</button>
   </div>
 </div>
 <!-- content end -->
@@ -123,35 +123,10 @@
 		$.post("/admin/link/add",
 			$('#doc-vld-msg').serializeArray(),
 		  function(data,status){
-        var res =  jQuery.parseJSON(data);
-        if (status == 'success')
-        {
-          if (res.ret == 0) 
-          {
-            $('#success-msg').removeClass('am-alert-danger');
-            $('#success-msg').addClass('am-alert-success');
-            $('#success-msg').html(res.msg);
-            $('#success-msg').fadeIn(2000, function() {
-              window.location.href = '/admin/link/index';
-            });
-          }
-          else 
-          {
-            $('#success-msg').removeClass('am-alert-success');
-            $('#success-msg').addClass('am-alert-danger');
-            $('#success-msg').html(res.msg);
-            $('#success-msg').fadeIn(1000, function() {
-              $('#success-msg').fadeOut(1000);
-            });
-          }
-        }
-        
+        result(data, status, '/admin/link/index');
 		  });
 	});
 
-	$('#save-forgive').on('click', function() {
-		window.location.href='/admin/link/index';
-	});
 	$(function() {
 		  $('#doc-vld-msg').validator({
 		    onValid: function(validity) {

@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 21:32:56
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 15:31:54
          compiled from "/data/src/test/codeIgniter/application/views/admin/role/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5638b788da28e1_11140325',
+  'unifunc' => 'content_564591ea35d2f3_94256727',
   'file_dependency' => 
   array (
     '7a457f977245f827bfa467855148509801e518f8' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/role/index.html',
-      1 => 1446557321,
+      1 => 1447396844,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5638b788da28e1_11140325')) {
-function content_5638b788da28e1_11140325 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564591ea35d2f3_94256727')) {
+function content_564591ea35d2f3_94256727 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -46,7 +46,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+            <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus" onclick="jumpUrl('/admin/role/add')"></span> 新增</button>
           </div>
         </div>
       </div>
@@ -99,10 +99,10 @@ $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
               <td>
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="authority(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-)"><span class="am-icon-copy"></span> 权限</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/role/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="jumpUrl('/admin/role/distribute?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+')"><span class="am-icon-copy"></span> 权限</button>
                     <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 )"><span class="am-icon-trash-o"></span> 删除</button>
                   </div>
@@ -153,46 +153,6 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 
 <?php echo '<script'; ?>
 >
-	$('#add-cate').on('click', function() {
-		window.location.href='/admin/role/add';
-  	});
-
-  function edit(id)
-  {
-    window.location.href='/admin/role/add?id=' + id;
-  }
-
-  function authority(id)
-  {
-    window.location.href='/admin/role/distribute?id=' + id;
-  }
-
-  function result(data, status)
-  {
-    var res =  jQuery.parseJSON(data);
-    if (status == 'success')
-    {
-      if (res.ret == 0) 
-      {
-        $('#success-msg').removeClass('am-alert-danger');
-        $('#success-msg').addClass('am-alert-success');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(2000, function() {
-          location.reload();
-        });
-      }
-      else 
-      {
-        $('#success-msg').removeClass('am-alert-success');
-        $('#success-msg').addClass('am-alert-danger');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(1000, function() {
-          $('#success-msg').fadeOut(1000);
-        });
-      }
-    }
-  }
-
   function del(id)
   {
     var url = "/admin/role/del?id=" + id;
@@ -202,7 +162,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
           $.post(url,
             '',
             function(data,status){
-              result(data, status)
+              result(data, status, '');
             });
           
         },

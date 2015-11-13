@@ -29,24 +29,40 @@ class M_node extends CI_Model
 
     public function conditon($conditon)
     {
-        if (isset($conditon['id_in']) && $conditon['id_in']) 
+        foreach ($conditon as $k => $v)
         {
-            $this->db->where_in('id', $conditon['id_in']);
-        }
-
-        if (isset($conditon['id']) && $conditon['id'] > 0) 
-        {
-            $this->db->where(array('id' => $conditon['id']));
-        }
-
-        if (isset($conditon['status'])) 
-        {
-            $this->db->where(array('status' => $conditon['status']));
-        }
-
-        if (isset($conditon['p'])) {
-            $ps = $conditon['ps'] ? $conditon['ps'] : 25;
-            $this->db->limit($ps, $conditon['p']);
+            switch ($k) {
+                case 'id_in':
+                    if (is_array($v)) {
+                        $this->db->where_in('id', $v);
+                    }
+                    break;
+                case 'id':
+                    if ($v > 0) {
+                        $this->db->where(array('id' => $v));
+                    }
+                    break;
+                case 'status':
+                    $this->db->where(array('status' => $v));
+                    break;
+                case 'p':
+                    $ps = $conditon['ps'] ? $conditon['ps'] : 25;
+                    $this->db->limit($ps, $v);
+                    break;
+                case 'DESC':
+                    $this->db->order_by($v, 'DESC');
+                    break;
+                case 'desc':
+                    $this->db->order_by($v, 'DESC');
+                    break;
+                case 'ASC':
+                    $this->db->order_by($v, 'ASC');
+                    break;
+                case 'asc':
+                    $this->db->order_by($v, 'ASC');
+                    break;
+                
+            }
         }
 
     }

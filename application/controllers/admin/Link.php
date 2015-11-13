@@ -129,19 +129,11 @@ class Link extends Admin_Controller
             $this->outJson(-1);
         }
 
-        $cate = $this->link->getOne($id);
-        if (!$cate) {
+        $data = $this->link->getOne($id);
+        if (!$data) {
             $this->outJson(101,'','分类不存在');
         }
 
-        $this->load->model('M_Article', 'article');
-        $conditon = array('cate_id' => $id);
-        $articles = $this->article->getList($conditon);
-        if($articles)
-        {
-            $this->outJson(101,'','此分类下存在文章，不可删除');
-        }
-        
         $res = $this->link->del($id);
         if ($res) {
             $this->outJson(0);

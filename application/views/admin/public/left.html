@@ -2,56 +2,16 @@
     <div class="am-offcanvas-bar admin-offcanvas-bar">
       <ul class="am-list admin-sidebar-list">
         <li><a href="/admin/main/index"><span class="am-icon-home"></span> 首页</a></li>
+        <{foreach from=$leftnav item="val"}>
         <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-tasks"></span> 内容管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-            <li><a href="/admin/cate/index"><span class="am-icon-table"></span> 分类管理</a></li>
-            <li><a href="/admin/article/index"><span class="am-icon-table"></span> 文章管理</a></li>
-            <li><a href="/admin/comment/index"><span class="am-icon-table"></span> 评论管理</a></li>
-            <li><a href="/admin/article/index?recycle=1"><span class="am-icon-table"></span> 回收站</a></li>
+          <a class="am-cf" data-am-collapse="{target: '#collapse-<{$val.id}>'}"><span class="am-icon-<{$val.icon}>"></span> <{$val.title}> <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub <{if $val.id==$open}>am-in<{/if}>" id="collapse-<{$val.id}>">
+            <{foreach from=$val.child item="va"}>
+            <li><a href="/admin/<{$va.name}>"><span class="am-icon-table"></span> <{$va.title}></a></li>
+            <{/foreach}>
           </ul>
         </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-user'}"><span class="am-icon-user"></span> 用户管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-user">
-            <li><a href="/admin/ad/index"><span class="am-icon-table"></span> 用户管理</a></li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-admin'}"><span class="am-icon-list"></span> 权限管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-admin">
-            <li><a href="/admin/admin/index"><span class="am-icon-table"></span> 管理员管理 </a></li>
-            <li><a href="/admin/role/index"><span class="am-icon-table"></span> 角色管理 </a></li>
-            <li><a href="/admin/node/index"><span class="am-icon-table"></span> 节点管理 </a></li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-ad'}"><span class="am-icon-comments"></span> 广告管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-ad">
-            <li><a href="/admin/ad/index"><span class="am-icon-table"></span> 广告管理</a></li>
-            <li><a href="/admin/node/index"><span class="am-icon-table"></span> 广告位</a></li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-nav'}"><span class="am-icon-group"></span> 导航管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-nav">
-            <li><a href="/admin/nav/index"><span class="am-icon-table"></span> 导航管理</a></li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-back'}"><span class="am-icon-comments-o"></span> 备份管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-back">
-            <li><a href="/admin/nav/index"><span class="am-icon-table"></span> 导航管理</a></li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-setting'}"><span class="am-icon-cogs"></span> 基本设置 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-setting">
-            <li><a href="/admin/link/index"><span class="am-icon-table"></span> 友情链接 </a></li>
-            <li><a href="/admin/system/index"><span class="am-icon-table"></span> 网站设置 </a></li>
-            <li><a href="/admin/system/clean"><span class="am-icon-table"></span> 缓存清理 </a></li>
-          </ul>
-        </li>
+        <{/foreach}>
         <li><a href="/admin/login/logout"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
 

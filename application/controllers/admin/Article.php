@@ -95,7 +95,10 @@ class Article extends Admin_Controller
 		$userList = $this->admin->getList(array('id_in' => $uid));
 
 		foreach ($list as $k => $v) {
-			$list[$k]['cate'] = $cateList[$v['cate_id']]['cate'];
+			$list[$k]['cate'] = '';
+			if (isset($cateList[$v['cate_id']])) {
+				$list[$k]['cate'] = $cateList[$v['cate_id']]['cate'];
+			}
 			$list[$k]['username'] = $userList[$v['userid']]['username'];
 		}
 		$list = $this->article->amerge($list);

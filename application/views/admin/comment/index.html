@@ -125,31 +125,6 @@
     return data;
   }
 
-  function result(data, status)
-  {
-    var res =  jQuery.parseJSON(data);
-    if (status == 'success')
-    {
-      if (res.ret == 0) 
-      {
-        $('#success-msg').removeClass('am-alert-danger');
-        $('#success-msg').addClass('am-alert-success');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(2000, function() {
-          location.reload();
-        });
-      }
-      else 
-      {
-        $('#success-msg').removeClass('am-alert-success');
-        $('#success-msg').addClass('am-alert-danger');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(1000, function() {
-          $('#success-msg').fadeOut(1000);
-        });
-      }
-    }
-  }
 
   function del(id)
   {
@@ -160,7 +135,7 @@
           $.post(url,
             '',
             function(data,status){
-              result(data, status)
+              result(data, status, '');
             });
           
         },

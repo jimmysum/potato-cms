@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-21 18:24:32
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 12:28:03
          compiled from "/data/src/test/codeIgniter/application/views/admin/article/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562767e0845763_62912398',
+  'unifunc' => 'content_564566d3aefdc0_63715003',
   'file_dependency' => 
   array (
     'd385ba7c2a2afa083e9dba15ad0c351dee12cfaf' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/article/index.html',
-      1 => 1445423065,
+      1 => 1447388648,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_562767e0845763_62912398')) {
-function content_562767e0845763_62912398 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564566d3aefdc0_63715003')) {
+function content_564566d3aefdc0_63715003 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -46,7 +46,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+            <button id="add-cate" type="button" class="am-btn am-btn-default"  onclick="jumpUrl('/admin/article/add')"><span class="am-icon-plus"></span> 新增</button>
             <?php if ($_smarty_tpl->tpl_vars['del']->value) {?>
             <button id="recover-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-heart"></span> 恢复</button>
             <?php } else { ?>
@@ -181,8 +181,8 @@ $__foreach_val_2_saved_local_item = $_smarty_tpl->tpl_vars['val'];
               <td>
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/article/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
                     <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 )"><span class="am-icon-copy"></span> 复制</button> -->
                     <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
@@ -237,15 +237,6 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_2_saved_item;
 
 <?php echo '<script'; ?>
 >
-	$('#add-cate').on('click', function() {
-		window.location.href='/admin/article/add';
-  	});
-
-  function edit(id)
-  {
-    window.location.href='/admin/article/add?id=' + id;
-  }
-
   $('#allCheck').on('click', function(){
     var check = $('input[name="check"]');
     for (var i = 0; i < check.length; i++) {  
@@ -321,32 +312,6 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_2_saved_item;
       });
   }
 
-  function result(data, status)
-  {
-    var res =  jQuery.parseJSON(data);
-    if (status == 'success')
-    {
-      if (res.ret == 0) 
-      {
-        $('#success-msg').removeClass('am-alert-danger');
-        $('#success-msg').addClass('am-alert-success');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(2000, function() {
-          location.reload();
-        });
-      }
-      else 
-      {
-        $('#success-msg').removeClass('am-alert-success');
-        $('#success-msg').addClass('am-alert-danger');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(1000, function() {
-          $('#success-msg').fadeOut(1000);
-        });
-      }
-    }
-  }
-
   function del(id)
   {
     <?php if ($_smarty_tpl->tpl_vars['del']->value) {?>var url = "/admin/article/del?id=" + id;<?php } else { ?>var url = "/admin/article/notDelete?id=" + id;<?php }?>
@@ -356,9 +321,8 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_2_saved_item;
           $.post(url,
             '',
             function(data,status){
-              result(data, status)
+              result(data, status, '');
             });
-          
         },
         // closeOnConfirm: false,
         onCancel: function() {

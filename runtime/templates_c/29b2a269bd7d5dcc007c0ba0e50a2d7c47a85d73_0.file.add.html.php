@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 11:50:28
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 15:58:52
          compiled from "/data/src/test/codeIgniter/application/views/admin/nav/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562b0004494b78_68000644',
+  'unifunc' => 'content_5645983ce12784_88651497',
   'file_dependency' => 
   array (
     '29b2a269bd7d5dcc007c0ba0e50a2d7c47a85d73' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/nav/add.html',
-      1 => 1445658625,
+      1 => 1447396269,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_562b0004494b78_68000644')) {
-function content_562b0004494b78_68000644 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5645983ce12784_88651497')) {
+function content_5645983ce12784_88651497 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -185,7 +185,7 @@ echo $_smarty_tpl->tpl_vars['cate']->value['seo_desc'];
   </form>
   <div class="am-margin">
     <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
-    <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
+    <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs" onclick="jumpUrl('/admin/cate/index')">放弃保存</button>
   </div>
 </div>
 <!-- content end -->
@@ -200,35 +200,10 @@ echo $_smarty_tpl->tpl_vars['cate']->value['seo_desc'];
 		$.post("/admin/nav/add",
 			$('#doc-vld-msg').serializeArray(),
 		  function(data,status){
-        var res =  jQuery.parseJSON(data);
-        if (status == 'success')
-        {
-          if (res.ret == 0) 
-          {
-            $('#success-msg').removeClass('am-alert-danger');
-            $('#success-msg').addClass('am-alert-success');
-            $('#success-msg').html(res.msg);
-            $('#success-msg').fadeIn(2000, function() {
-              window.location.href = '/admin/nav/index';
-            });
-          }
-          else 
-          {
-            $('#success-msg').removeClass('am-alert-success');
-            $('#success-msg').addClass('am-alert-danger');
-            $('#success-msg').html(res.msg);
-            $('#success-msg').fadeIn(1000, function() {
-              $('#success-msg').fadeOut(1000);
-            });
-          }
-        }
-        
+        result(data, status, '/admin/nav/index');
 		  });
 	});
 
-	$('#save-forgive').on('click', function() {
-		window.location.href='/admin/nav/index';
-	});
 	$(function() {
 		  $('#doc-vld-msg').validator({
 		    onValid: function(validity) {

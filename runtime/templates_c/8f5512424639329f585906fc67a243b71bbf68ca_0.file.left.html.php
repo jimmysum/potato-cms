@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 20:51:36
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 18:22:33
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/left.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5638add8e9b1b8_44533407',
+  'unifunc' => 'content_5645b9e9e819b8_22963063',
   'file_dependency' => 
   array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1446536544,
+      1 => 1447410152,
       2 => 'file',
     ),
   ),
@@ -18,63 +18,65 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_5638add8e9b1b8_44533407')) {
-function content_5638add8e9b1b8_44533407 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5645b9e9e819b8_22963063')) {
+function content_5645b9e9e819b8_22963063 ($_smarty_tpl) {
 ?>
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
       <ul class="am-list admin-sidebar-list">
         <li><a href="/admin/main/index"><span class="am-icon-home"></span> 首页</a></li>
+        <?php
+$_from = $_smarty_tpl->tpl_vars['leftnav']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_val_0_saved_item = isset($_smarty_tpl->tpl_vars['val']) ? $_smarty_tpl->tpl_vars['val'] : false;
+$_smarty_tpl->tpl_vars['val'] = new Smarty_Variable();
+$__foreach_val_0_total = $_smarty_tpl->_count($_from);
+if ($__foreach_val_0_total) {
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
+$__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
+?>
         <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-tasks"></span> 内容管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-            <li><a href="/admin/cate/index"><span class="am-icon-table"></span> 分类管理</a></li>
-            <li><a href="/admin/article/index"><span class="am-icon-table"></span> 文章管理</a></li>
-            <li><a href="/admin/comment/index"><span class="am-icon-table"></span> 评论管理</a></li>
-            <li><a href="/admin/article/index?recycle=1"><span class="am-icon-table"></span> 回收站</a></li>
+          <a class="am-cf" data-am-collapse="{target: '#collapse-<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+'}"><span class="am-icon-<?php echo $_smarty_tpl->tpl_vars['val']->value['icon'];?>
+"></span> <?php echo $_smarty_tpl->tpl_vars['val']->value['title'];?>
+ <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub <?php if ($_smarty_tpl->tpl_vars['val']->value['id'] == $_smarty_tpl->tpl_vars['open']->value) {?>am-in<?php }?>" id="collapse-<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+">
+            <?php
+$_from = $_smarty_tpl->tpl_vars['val']->value['child'];
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_va_1_saved_item = isset($_smarty_tpl->tpl_vars['va']) ? $_smarty_tpl->tpl_vars['va'] : false;
+$_smarty_tpl->tpl_vars['va'] = new Smarty_Variable();
+$__foreach_va_1_total = $_smarty_tpl->_count($_from);
+if ($__foreach_va_1_total) {
+foreach ($_from as $_smarty_tpl->tpl_vars['va']->value) {
+$__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
+?>
+            <li><a href="/admin/<?php echo $_smarty_tpl->tpl_vars['va']->value['name'];?>
+"><span class="am-icon-table"></span> <?php echo $_smarty_tpl->tpl_vars['va']->value['title'];?>
+</a></li>
+            <?php
+$_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_local_item;
+}
+}
+if ($__foreach_va_1_saved_item) {
+$_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_item;
+}
+?>
           </ul>
         </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-user'}"><span class="am-icon-user"></span> 用户管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-user">
-            <li><a href="/admin/ad/index"><span class="am-icon-table"></span> 用户管理</a></li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-admin'}"><span class="am-icon-list"></span> 权限管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-admin">
-            <li><a href="/admin/admin/index"><span class="am-icon-table"></span> 管理员管理 </a></li>
-            <li><a href="/admin/role/index"><span class="am-icon-table"></span> 角色管理 </a></li>
-            <li><a href="/admin/node/index"><span class="am-icon-table"></span> 节点管理 </a></li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-ad'}"><span class="am-icon-comments"></span> 广告管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-ad">
-            <li><a href="/admin/ad/index"><span class="am-icon-table"></span> 广告管理</a></li>
-            <li><a href="/admin/node/index"><span class="am-icon-table"></span> 广告位</a></li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-nav'}"><span class="am-icon-group"></span> 导航管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-nav">
-            <li><a href="/admin/nav/index"><span class="am-icon-table"></span> 导航管理</a></li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-back'}"><span class="am-icon-comments-o"></span> 备份管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-back">
-            <li><a href="/admin/nav/index"><span class="am-icon-table"></span> 导航管理</a></li>
-          </ul>
-        </li>
-        <li class="admin-parent">
-          <a class="am-cf" data-am-collapse="{target: '#nav-setting'}"><span class="am-icon-cogs"></span> 基本设置 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-          <ul class="am-list am-collapse admin-sidebar-sub" id="nav-setting">
-            <li><a href="/admin/link/index"><span class="am-icon-table"></span> 友情链接 </a></li>
-            <li><a href="/admin/system/index"><span class="am-icon-table"></span> 网站设置 </a></li>
-            <li><a href="/admin/system/clean"><span class="am-icon-table"></span> 缓存清理 </a></li>
-          </ul>
-        </li>
+        <?php
+$_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_local_item;
+}
+}
+if ($__foreach_val_0_saved_item) {
+$_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
+}
+?>
         <li><a href="/admin/login/logout"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
 

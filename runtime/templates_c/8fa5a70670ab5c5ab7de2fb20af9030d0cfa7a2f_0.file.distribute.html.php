@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 22:09:56
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 15:32:12
          compiled from "/data/src/test/codeIgniter/application/views/admin/role/distribute.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5638c0346b59a7_94919069',
+  'unifunc' => 'content_564591fc5f8b03_90348834',
   'file_dependency' => 
   array (
     '8fa5a70670ab5c5ab7de2fb20af9030d0cfa7a2f' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/role/distribute.html',
-      1 => 1446559789,
+      1 => 1446559990,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5638c0346b59a7_94919069')) {
-function content_5638c0346b59a7_94919069 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564591fc5f8b03_90348834')) {
+function content_564591fc5f8b03_90348834 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -91,7 +91,8 @@ $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
               <td>
               &nbsp;&nbsp;&nbsp;
               <input type="checkbox" name="check<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-" />
+" onclick="check(<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+)" />
               <?php echo $_smarty_tpl->tpl_vars['va']->value['title'];?>
 
               </td>
@@ -109,7 +110,8 @@ $__foreach_v_2_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 ?>
               <td>
               <input type="checkbox" name="check<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-" />
+" onclick="check(<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+)" />
               <?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
 
               </td>

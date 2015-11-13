@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 20:53:13
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 15:56:56
          compiled from "/data/src/test/codeIgniter/application/views/admin/node/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5638ae390eab00_32245830',
+  'unifunc' => 'content_564597c84fa5e8_22732375',
   'file_dependency' => 
   array (
     '21a9ead779767d95ccda0069fb0523e89f9e6700' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/node/add.html',
-      1 => 1446555139,
+      1 => 1447396507,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5638ae390eab00_32245830')) {
-function content_5638ae390eab00_32245830 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564597c84fa5e8_22732375')) {
+function content_564597c84fa5e8_22732375 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -180,7 +180,7 @@ echo $_smarty_tpl->tpl_vars['data']->value['icon'];
   </form>
   <div class="am-margin">
     <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
-    <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
+    <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs" onclick="jumpUrl('/admin/node/index')">放弃保存</button>
   </div>
 </div>
 <!-- content end -->
@@ -198,35 +198,10 @@ echo $_smarty_tpl->tpl_vars['data']->value['icon'];
 		$.post("/admin/node/add",
 			postData,
 		  function(data,status){
-        var res =  jQuery.parseJSON(data);
-        if (status == 'success')
-        {
-          if (res.ret == 0) 
-          {
-            $('#success-msg').removeClass('am-alert-danger');
-            $('#success-msg').addClass('am-alert-success');
-            $('#success-msg').html(res.msg);
-            $('#success-msg').fadeIn(2000, function() {
-              window.location.href = '/admin/node/index';
-            });
-          }
-          else 
-          {
-            $('#success-msg').removeClass('am-alert-success');
-            $('#success-msg').addClass('am-alert-danger');
-            $('#success-msg').html(res.msg);
-            $('#success-msg').fadeIn(1000, function() {
-              $('#success-msg').fadeOut(1000);
-            });
-          }
-        }
-        
+        result(data, status, '/admin/node/index');
 		  });
 	});
 
-	$('#save-forgive').on('click', function() {
-		window.location.href='/admin/node/index';
-	});
 	$(function() {
 		  $('#doc-vld-msg').validator({
 		    onValid: function(validity) {

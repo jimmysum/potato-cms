@@ -105,6 +105,7 @@ class MY_Controller extends CI_Controller
 				'timestamp'	=> time(),
 		);
 		
+		header('Content-Type: application/json; charset=utf8'); 
 		echo json_encode($data);die;
 	}
 
@@ -176,6 +177,25 @@ class Admin_Controller extends MY_Controller
 		else if (!$user && $action != 'login')
 		{
 			redirect('/admin/login/login');
+		}
+
+		$controller = $this->uri->segment(2);
+		if ($controller != 'login') {
+			$this->load->model('M_node', 'node');
+			$list = $this->node->getList(array('ASC' => 'sort', 'id_in' => $user['node']));
+			$open = 0;
+			foreach($list as $k => $v)
+			{
+				$con = explode('/', $v['name']);
+				if ($con[0] == $controller) {
+					$open = $v['pid'];
+					break;
+				}
+			}
+
+	        $list = node_merge($list);
+	        $this->assign('leftnav', $list);
+	        $this->assign('open', $open);
 		}
 		
 		$this->assign('admin_style_url', base_url() . 'style/admin/');

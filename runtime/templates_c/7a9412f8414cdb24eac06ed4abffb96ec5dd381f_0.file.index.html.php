@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 20:51:38
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 15:58:09
          compiled from "/data/src/test/codeIgniter/application/views/admin/node/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5638adda9ed503_80853649',
+  'unifunc' => 'content_56459811c9a846_47147644',
   'file_dependency' => 
   array (
     '7a9412f8414cdb24eac06ed4abffb96ec5dd381f' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/node/index.html',
-      1 => 1446553600,
+      1 => 1447401487,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5638adda9ed503_80853649')) {
-function content_5638adda9ed503_80853649 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56459811c9a846_47147644')) {
+function content_56459811c9a846_47147644 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -45,7 +45,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+            <button id="add-cate" type="button" class="am-btn am-btn-default" onclick="jumpUrl('/admin/node/add')"><span class="am-icon-plus"></span> 新增</button>
           </div>
         </div>
       </div>
@@ -73,8 +73,8 @@ $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
               <span><strong><?php echo $_smarty_tpl->tpl_vars['val']->value['title'];?>
 </strong></span>
               <div class="am-btn-group am-btn-group-xs">
-                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/node/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
                 <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 )"><span class="am-icon-trash-o"></span> 删除</button>
               </div>
@@ -97,8 +97,8 @@ $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
               &nbsp;&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['va']->value['title'];?>
 
               <div class="am-btn-group am-btn-group-xs">
-                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
-)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/node/add?id=<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
                 <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
 )"><span class="am-icon-trash-o"></span> 删除</button>
               </div>
@@ -119,8 +119,8 @@ $__foreach_v_2_saved_local_item = $_smarty_tpl->tpl_vars['v'];
               <?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
 
               <div class="am-btn-group am-btn-group-xs">
-                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
-)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/node/add?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
                 <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
 )"><span class="am-icon-trash-o"></span> 删除</button>
               </div>
@@ -186,41 +186,6 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 
 <?php echo '<script'; ?>
 >
-	$('#add-cate').on('click', function() {
-		window.location.href='/admin/node/add';
-  	});
-
-  function edit(id)
-  {
-    window.location.href='/admin/node/add?id=' + id;
-  }
-
-  function result(data, status)
-  {
-    var res =  jQuery.parseJSON(data);
-    if (status == 'success')
-    {
-      if (res.ret == 0) 
-      {
-        $('#success-msg').removeClass('am-alert-danger');
-        $('#success-msg').addClass('am-alert-success');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(2000, function() {
-          location.reload();
-        });
-      }
-      else 
-      {
-        $('#success-msg').removeClass('am-alert-success');
-        $('#success-msg').addClass('am-alert-danger');
-        $('#success-msg').html(res.msg);
-        $('#success-msg').fadeIn(1000, function() {
-          $('#success-msg').fadeOut(1000);
-        });
-      }
-    }
-  }
-
   function del(id)
   {
     var url = "/admin/node/del?id=" + id;
@@ -230,7 +195,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
           $.post(url,
             '',
             function(data,status){
-              result(data, status)
+              result(data, status, '');
             });
           
         },

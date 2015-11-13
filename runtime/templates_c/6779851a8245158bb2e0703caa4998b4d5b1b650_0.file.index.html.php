@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-24 14:04:44
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 16:06:21
          compiled from "/data/src/test/codeIgniter/application/views/admin/link/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_562b1f7c529ff6_97671480',
+  'unifunc' => 'content_564599fd557c98_88412034',
   'file_dependency' => 
   array (
     '6779851a8245158bb2e0703caa4998b4d5b1b650' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/link/index.html',
-      1 => 1445666681,
+      1 => 1447396199,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_562b1f7c529ff6_97671480')) {
-function content_562b1f7c529ff6_97671480 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564599fd557c98_88412034')) {
+function content_564599fd557c98_88412034 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -46,7 +46,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+            <button id="add-cate" type="button" class="am-btn am-btn-default" onclick="jumpUrl('/admin/link/add')"><span class="am-icon-plus"></span> 新增</button>
           </div>
         </div>
       </div>
@@ -101,8 +101,8 @@ $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
               <td>
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="edit(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-)"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/link/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
                     <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 )"><span class="am-icon-copy"></span> 复制</button> -->
                     <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
@@ -157,15 +157,6 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 
 <?php echo '<script'; ?>
 >
-	$('#add-cate').on('click', function() {
-		window.location.href='/admin/link/add';
-  	});
-
-  function edit(id)
-  {
-    window.location.href='/admin/link/add?id=' + id;
-  }
-
   function copy(id)
   {
 
@@ -179,29 +170,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
           $.post("/admin/link/del?id=" + id,
             '',
             function(data,status){
-              var res =  jQuery.parseJSON(data);
-              if (status == 'success')
-              {
-                if (res.ret == 0) 
-                {
-                  $('#success-msg').removeClass('am-alert-danger');
-                  $('#success-msg').addClass('am-alert-success');
-                  $('#success-msg').html(res.msg);
-                  $('#success-msg').fadeIn(2000, function() {
-                    window.location.href = '/admin/link/index';
-                  });
-                }
-                else 
-                {
-                  $('#success-msg').removeClass('am-alert-success');
-                  $('#success-msg').addClass('am-alert-danger');
-                  $('#success-msg').html(res.msg);
-                  $('#success-msg').fadeIn(1000, function() {
-                    $('#success-msg').fadeOut(1000);
-                  });
-                }
-              }
-              
+              result(data, status, '');
             });
           
         },

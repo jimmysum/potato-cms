@@ -74,7 +74,20 @@ class Login extends Admin_Controller
 				if ($info)
 				{
 					unset($info['password']);
-					$this->session->set_userdata('user', $info);
+					$this->load->model('M_Role', 'role');
+					$role = $this->role->getOne($info['role_id']);
+					$this->load->model('M_Access', 'access');
+					$node = $this->access->getList(array('role_id' => $role['role_id']));
+					$authMenu = array();
+					foreach($node as $k => $v)
+					{
+						$authMenu[] = $v['node_id'];
+					}
+
+					$data['info'] = $info;
+					$data['node'] = $authMenu;
+					$data['role'] = $role;
+					$this->session->set_userdata('user', $data);
 					redirect('/admin/main/index');
 				}
 				else 
