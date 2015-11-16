@@ -23,13 +23,13 @@
 
     <div class="am-g">
       <div class="am-u-sm-12">
-        <form class="am-form">
+        <form class="am-form" id="doc-vld-msg">
           <table class="am-table am-table-striped ">
           <tbody>
             <{foreach from=$list item="val"}>
             <tr>
               <td>
-              <input type="checkbox" name="parent<{$val.id}>" onclick="check(<{$val.id}>)"  <{if in_array($val.id,$auth)}>checked=checked<{/if}>/>
+              <input type="checkbox" name="check[]" id="check<{$val.id}>" value="<{$val.id}>" onclick="check(<{$val.id}>, 0)"  <{if in_array($val.id,$auth)}>checked=checked<{/if}>/>
               <span><strong><{$val.title}></strong></span>
               </td>
             </tr>
@@ -37,12 +37,12 @@
             <tr>
               <td>
               &nbsp;&nbsp;&nbsp;
-              <input type="checkbox" name="check<{$val.id}>" onclick="check(<{$va.id}>)" <{if in_array($va.id,$auth)}>checked<{/if}>/>
+              <input type="checkbox" name="check[]" id="check<{$va.id}>" value="<{$va.id}>" parent="<{$val.id}>" onclick="check(<{$va.id}>, 1)" <{if in_array($va.id,$auth)}>checked<{/if}>/>
               <{$va.title}>
               </td>
               <{foreach from=$va.child item="v"}>
               <td>
-              <input type="checkbox" name="check<{$val.id}>" onclick="check(<{$v.id}>)"  <{if in_array($v.id,$auth)}>checked<{/if}>/>
+              <input type="checkbox" name="check[]" id="check<{$v.id}>" value="<{$v.id}>" parent="<{$va.id}>" onclick="check(<{$v.id}>, 2)"  <{if in_array($v.id,$auth)}>checked<{/if}>/>
               <{$v.title}>
               </td>
               <{/foreach}>
@@ -52,15 +52,14 @@
             
           </tbody>
         </table>
-        <div class="am-cf">
-          <div class="am-fr">
-              <ul class="am-pagination">
-              </ul>
-          </div>
-        </div>
-          <hr />
-          <p>注：.....</p>
+        <{if $data}>
+        <input name="id" type="hidden" class="am-input-sm" value="<{$data.id}>">
+        <{/if}>
         </form>
+        <div class="am-margin">
+          <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+          <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs" onclick="jumpUrl('/admin/role/index')">放弃保存</button>
+        </div>
       </div>
 
     </div>
@@ -69,29 +68,75 @@
 </div>
 <{include file='admin/public/footer.html'}>
 <script>
-  function check(id)
+  $('#save-sure').on('click', function() {
+    var postData = $('#doc-vld-msg').serializeArray();
+    
+    $.post("/admin/role/distribute",
+      postData,
+      function(data,status){
+        result(data, status, '/admin/role/index');
+      });
+  });
+
+  function check(id, step)
   {
-    var parent = $('input[name="parent' + id + '"]');
-    var check = $('input[name="check' + id + '"]');
-    if (parent.attr('checked') == 'checked' || parent.attr('checked') == true) 
+    if (step == 0) 
     {
-      parent.attr('checked', false);
-      check.attr('checked', false); 
+      var check = $('input[parent="' + id + '"]');
+      checkChild(id);
+      check.each(function(){
+        checkChild($(this).attr('value'));
+      });
+    }
+    else if (step == 1)
+    {
+      checkChild(id);
+      checkParent(id);
+    }
+    else if (step == 2)
+    {
+      var parentId = $('#check' + id).attr('parent');
+      checkParent(id);
+      checkParent(parentId);
+      
+    }
+  }
+
+  function checkParent(id)
+  {
+    var parentId = $('#check' + id).attr('parent');
+    var sameCheck = $('input[parent="' + parentId + '"]');
+    if ($('#check' + id).is(':checked') == false) 
+    {
+      var res = false;
+      sameCheck.each(function(){
+        if ($('#check' + $(this).attr('value')).is(':checked') == true) 
+        {
+          res = true;
+        }
+      });
+      if (res == false) 
+      {
+          $('#check' + parentId).prop('checked',false);
+      };
     }
     else
     {
-      check.attr('checked', true); 
-      parent.attr('checked', true);
+      $('#check' + parentId).prop('checked',true);
     }
-    // for (var i = 0; i < check.length; i++) {  
-    //     if(check[i].checked == false){  
-    //       check[i].checked = true;
-    //     }
-    //     else
-    //     {
-    //       check[i].checked = false;
-    //     }
-    // } 
+  }
+
+  function checkChild(id)
+  {
+    var check = $('input[parent="' + id + '"]');
+    if ($('#check' + id).is(':checked') == false) 
+    {
+      check.prop('checked',false);
+    }
+    else
+    {
+      check.prop('checked',true);
+    }
   }
 
 </script>

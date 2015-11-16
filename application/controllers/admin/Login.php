@@ -77,7 +77,7 @@ class Login extends Admin_Controller
 					$this->load->model('M_Role', 'role');
 					$role = $this->role->getOne($info['role_id']);
 					$this->load->model('M_Access', 'access');
-					$node = $this->access->getList(array('role_id' => $role['role_id']));
+					$node = $this->access->getList(array('role_id' => $role['id']));
 					$authMenu = array();
 					foreach($node as $k => $v)
 					{

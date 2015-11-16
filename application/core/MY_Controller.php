@@ -179,23 +179,36 @@ class Admin_Controller extends MY_Controller
 			redirect('/admin/login/login');
 		}
 
-		$controller = $this->uri->segment(2);
-		if ($controller != 'login') {
-			$this->load->model('M_node', 'node');
-			$list = $this->node->getList(array('ASC' => 'sort', 'id_in' => $user['node']));
-			$open = 0;
-			foreach($list as $k => $v)
-			{
-				$con = explode('/', $v['name']);
-				if ($con[0] == $controller) {
-					$open = $v['pid'];
-					break;
+		$noauth = $this->config->item('noauth_controller');
+		$controller = strtolower($this->uri->segment(2));
+		$action = strtolower($this->uri->segment(3));
+		$this->load->model('M_node', 'node');
+		$list = $this->node->getList(array('ASC' => 'sort', 'id_in' => $user['node']));
+		$open = 0;
+		$actId = 0;
+		foreach($list as $k => $v)
+		{
+			$con = explode('/', $v['name']);
+			if (strtolower($con[0]) == $controller) {
+				$open = $v['pid'];
+				foreach($list as $val)
+				{
+					if ($val['id'] == $open && $action == strtolower($val['name'])) {
+						$actId = $val['id']; 
+						break;
+					}
 				}
+				break;
 			}
-
-	        $list = node_merge($list);
-	        $this->assign('leftnav', $list);
-	        $this->assign('open', $open);
+		}
+		echo $action;
+	    $list = node_merge($list);
+        $this->assign('leftnav', $list);
+        $this->assign('open', $open);
+		if (!in_array(ucwords($controller), $noauth)) {
+			if ($open <= 0 || $actId <= 0) {
+				$this->outJson(-1, '', '您没有权限操作此项！');
+			}
 		}
 		
 		$this->assign('admin_style_url', base_url() . 'style/admin/');

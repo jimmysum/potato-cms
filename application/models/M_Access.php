@@ -80,6 +80,11 @@ class M_access extends CI_Model
         return $this->db->insert(self::TABLE, $cate);
     }
 
+    public function addMuti($data)
+    {
+        return $this->db->insert_batch(self::TABLE, $data);
+    }
+
     public function update($cate, $key)
     {
         $val = $cate[$key];
@@ -93,7 +98,7 @@ class M_access extends CI_Model
 
     public function del($id)
     {
-        return $this->db->delete(self::TABLE, array('id' => $id));
+        return $this->db->delete(self::TABLE, array('role_id' => $id));
     }
 }
 

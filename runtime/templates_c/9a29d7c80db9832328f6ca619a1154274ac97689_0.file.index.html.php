@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 17:35:46
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-16 16:58:58
          compiled from "/data/src/test/codeIgniter/application/views/admin/Role/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5645aef2cfa1c2_59335981',
+  'unifunc' => 'content_56499ad2bbf9f4_00076656',
   'file_dependency' => 
   array (
     '9a29d7c80db9832328f6ca619a1154274ac97689' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/Role/index.html',
-      1 => 1447396844,
+      1 => 1447664334,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5645aef2cfa1c2_59335981')) {
-function content_5645aef2cfa1c2_59335981 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56499ad2bbf9f4_00076656')) {
+function content_56499ad2bbf9f4_00076656 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -46,7 +46,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="add-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-plus" onclick="jumpUrl('/admin/role/add')"></span> 新增</button>
+            <button id="add-cate" type="button" class="am-btn am-btn-default" onclick="jumpUrl('/admin/role/add')"><span class="am-icon-plus"></span> 新增</button>
           </div>
         </div>
       </div>

@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 20:21:54
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-16 15:09:55
          compiled from "/data/src/test/codeIgniter/application/views/admin/role/distribute.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5645d5e2942157_04021518',
+  'unifunc' => 'content_5649814368a5b7_33262378',
   'file_dependency' => 
   array (
     '8fa5a70670ab5c5ab7de2fb20af9030d0cfa7a2f' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/role/distribute.html',
-      1 => 1447417312,
+      1 => 1447657792,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5645d5e2942157_04021518')) {
-function content_5645d5e2942157_04021518 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5649814368a5b7_33262378')) {
+function content_5649814368a5b7_33262378 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -52,7 +52,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
 
     <div class="am-g">
       <div class="am-u-sm-12">
-        <form class="am-form">
+        <form class="am-form" id="doc-vld-msg">
           <table class="am-table am-table-striped ">
           <tbody>
             <?php
@@ -69,9 +69,10 @@ $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
 ?>
             <tr>
               <td>
-              <input type="checkbox" name="parent<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+              <input type="checkbox" name="check[]" id="check<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+" value="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 " onclick="check(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-)"  <?php if (in_array($_smarty_tpl->tpl_vars['val']->value['id'],$_smarty_tpl->tpl_vars['auth']->value)) {?>checked=checked<?php }?>/>
+, 0)"  <?php if (in_array($_smarty_tpl->tpl_vars['val']->value['id'],$_smarty_tpl->tpl_vars['auth']->value)) {?>checked=checked<?php }?>/>
               <span><strong><?php echo $_smarty_tpl->tpl_vars['val']->value['title'];?>
 </strong></span>
               </td>
@@ -91,9 +92,11 @@ $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
             <tr>
               <td>
               &nbsp;&nbsp;&nbsp;
-              <input type="checkbox" name="check<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+              <input type="checkbox" name="check[]" id="check<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+" value="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+" parent="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 " onclick="check(<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
-)" <?php if (in_array($_smarty_tpl->tpl_vars['va']->value['id'],$_smarty_tpl->tpl_vars['auth']->value)) {?>checked<?php }?>/>
+, 1)" <?php if (in_array($_smarty_tpl->tpl_vars['va']->value['id'],$_smarty_tpl->tpl_vars['auth']->value)) {?>checked<?php }?>/>
               <?php echo $_smarty_tpl->tpl_vars['va']->value['title'];?>
 
               </td>
@@ -110,9 +113,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
 $__foreach_v_2_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 ?>
               <td>
-              <input type="checkbox" name="check<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+              <input type="checkbox" name="check[]" id="check<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+" value="<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+" parent="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
 " onclick="check(<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
-)"  <?php if (in_array($_smarty_tpl->tpl_vars['v']->value['id'],$_smarty_tpl->tpl_vars['auth']->value)) {?>checked<?php }?>/>
+, 2)"  <?php if (in_array($_smarty_tpl->tpl_vars['v']->value['id'],$_smarty_tpl->tpl_vars['auth']->value)) {?>checked<?php }?>/>
               <?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
 
               </td>
@@ -144,15 +149,15 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
             
           </tbody>
         </table>
-        <div class="am-cf">
-          <div class="am-fr">
-              <ul class="am-pagination">
-              </ul>
-          </div>
-        </div>
-          <hr />
-          <p>注：.....</p>
+        <?php if ($_smarty_tpl->tpl_vars['data']->value) {?>
+        <input name="id" type="hidden" class="am-input-sm" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['id'];?>
+">
+        <?php }?>
         </form>
+        <div class="am-margin">
+          <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+          <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs" onclick="jumpUrl('/admin/role/index')">放弃保存</button>
+        </div>
       </div>
 
     </div>
@@ -164,29 +169,75 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 
 <?php echo '<script'; ?>
 >
-  function check(id)
+  $('#save-sure').on('click', function() {
+    var postData = $('#doc-vld-msg').serializeArray();
+    
+    $.post("/admin/role/distribute",
+      postData,
+      function(data,status){
+        result(data, status, '/admin/role/index');
+      });
+  });
+
+  function check(id, step)
   {
-    var parent = $('input[name="parent' + id + '"]');
-    var check = $('input[name="check' + id + '"]');
-    if (parent.attr('checked') == 'checked' || parent.attr('checked') == true) 
+    if (step == 0) 
     {
-      parent.attr('checked', false);
-      check.attr('checked', false); 
+      var check = $('input[parent="' + id + '"]');
+      checkChild(id);
+      check.each(function(){
+        checkChild($(this).attr('value'));
+      });
+    }
+    else if (step == 1)
+    {
+      checkChild(id);
+      checkParent(id);
+    }
+    else if (step == 2)
+    {
+      var parentId = $('#check' + id).attr('parent');
+      checkParent(id);
+      checkParent(parentId);
+      
+    }
+  }
+
+  function checkParent(id)
+  {
+    var parentId = $('#check' + id).attr('parent');
+    var sameCheck = $('input[parent="' + parentId + '"]');
+    if ($('#check' + id).is(':checked') == false) 
+    {
+      var res = false;
+      sameCheck.each(function(){
+        if ($('#check' + $(this).attr('value')).is(':checked') == true) 
+        {
+          res = true;
+        }
+      });
+      if (res == false) 
+      {
+          $('#check' + parentId).prop('checked',false);
+      };
     }
     else
     {
-      check.attr('checked', true); 
-      parent.attr('checked', true);
+      $('#check' + parentId).prop('checked',true);
     }
-    // for (var i = 0; i < check.length; i++) {  
-    //     if(check[i].checked == false){  
-    //       check[i].checked = true;
-    //     }
-    //     else
-    //     {
-    //       check[i].checked = false;
-    //     }
-    // } 
+  }
+
+  function checkChild(id)
+  {
+    var check = $('input[parent="' + id + '"]');
+    if ($('#check' + id).is(':checked') == false) 
+    {
+      check.prop('checked',false);
+    }
+    else
+    {
+      check.prop('checked',true);
+    }
   }
 
 <?php echo '</script'; ?>

@@ -125,10 +125,13 @@ class Role extends Admin_Controller
             $this->outJson(101,'','参数错误');
         }
 
-        if ($cate['name'] == 'Super')
+        if ($id == 1)
         {
             $this->outJson(101,'','超级角色不可删除');
         }
+
+        $this->load->model('M_Access', 'access');
+        $this->access->del($id);
 
         $res = $this->role->del($id);
         if ($res) {
@@ -143,32 +146,71 @@ class Role extends Admin_Controller
 
     public function distribute()
     {
-        $id = $this->input->get('id');
-        if (!$id) {
-            $this->outJson(-1);
-        }
-
-        $data = $this->role->getOne($id);
-        if (!$data) {
-            $this->outJson(101,'','参数错误');
-        }
-
+        $input = $this->input->post();
         $this->load->model('M_Access', 'access');
-        $access = $this->access->getList(array('role_id' => $id));
-        $auth = array();
-        foreach($access as $k => $v)
+        if ($input)
         {
-            $auth[] = $v['node_id'];
-        }
+            if (isset($input['id'])) {
+                if ($input['id'] == 1) {
+                    $this->outJson(101,'','不可以修改超级管理员权限！');
+                }
+                $data = $this->role->getOne($input['id']);
+                if (!$data) {
+                    $this->outJson(101,'','参数错误');
+                }
 
-        $this->load->model('M_node', 'node');
-        $list = $this->node->getAll();
-        $list = node_merge($list);
-        
-        $this->assign('auth', $auth);
-        $this->assign('list', $list);
-        $this->assign('data', $data);
-        $this->display();
+                $this->access->del($input['id']);
+                $data = array();
+                foreach($input['check'] as $v)
+                {
+                    $data[] = array(
+                            'role_id' => $input['id'],
+                            'node_id' => $v,
+                        );
+                }
+                $res = $this->access->addMuti($data);
+                if ($res)
+                {
+                    $this->outJson(0);
+                }
+                else
+                {
+                    $this->outJson(1);
+                }
+            }
+            else
+            {
+                $this->outJson(101,'','参数错误');
+            }
+        }
+        else 
+        {
+            $id = $this->input->get('id');
+            if (!$id) {
+                $this->outJson(-1);
+            }
+
+            $data = $this->role->getOne($id);
+            if (!$data) {
+                $this->outJson(101,'','参数错误');
+            }
+
+            $access = $this->access->getList(array('role_id' => $id));
+            $auth = array();
+            foreach($access as $k => $v)
+            {
+                $auth[] = $v['node_id'];
+            }
+
+            $this->load->model('M_node', 'node');
+            $list = $this->node->getAll();
+            $list = node_merge($list);
+            
+            $this->assign('auth', $auth);
+            $this->assign('list', $list);
+            $this->assign('data', $data);
+            $this->display();
+        }
     }
 }
 
