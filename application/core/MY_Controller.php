@@ -193,7 +193,7 @@ class Admin_Controller extends MY_Controller
 				$open = $v['pid'];
 				foreach($list as $val)
 				{
-					if ($val['id'] == $open && $action == strtolower($val['name'])) {
+					if ($val['pid'] == $v['id'] && $action == strtolower($val['name'])) {
 						$actId = $val['id']; 
 						break;
 					}
@@ -201,7 +201,7 @@ class Admin_Controller extends MY_Controller
 				break;
 			}
 		}
-		echo $action;
+		
 	    $list = node_merge($list);
         $this->assign('leftnav', $list);
         $this->assign('open', $open);
@@ -213,7 +213,6 @@ class Admin_Controller extends MY_Controller
 		
 		$this->assign('admin_style_url', base_url() . 'style/admin/');
 		$this->assign('site_url', site_url());
-// 		$this->load->view('admin/public/header.html', $data);
 	}
 }
 

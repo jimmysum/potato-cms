@@ -17,7 +17,7 @@
 *        Jimmy        2015-10-9下午4:12:48          1.0                     第一次建立该文件
 *
 */
-class Ad extends Admin_Controller 
+class User extends Admin_Controller 
 {
     /**
      * 规则验证
@@ -26,62 +26,70 @@ class Ad extends Admin_Controller
      */
     public $rules = array(
             array(
-                    'field' => 'ad_name',
-                    'label' => '广告名称',
+                    'field' => 'role_id',
+                    'label' => '权限组',
+                    'rules' => 'required',
+                    'errors' => array(
+                            'required' => '请选择"%s."',
+                    ),
+            ),
+            array(
+                    'field' => 'username',
+                    'label' => '用户名',
                     'rules' => 'required',
                     'errors' => array(
                             'required' => '请填写"%s."',
                     ),
             ),
             array(
-                    'field' => 'pos_id',
-                    'label' => '广告位',
-                    'rules' => 'required|greater_than_equal_to[1]',
+                    'field' => 'password',
+                    'label' => '密码',
+                    'rules' => 'trim|required|min_length[6]',
                     'errors' => array(
-                            'required' => '请选择"%s."',
-                            'greater_than_equal_to' => '请选择"%s."',
+                            'required' => '请填写"%s."',
+                            'min_length' => '"%s."必须6位以上',
                     ),
             ),
             array(
-                    'field' => 'ad_content',
-                    'label' => '广告正文',
-                    'rules' => 'required',
+                    'field' => 'repassword',
+                    'label' => '重复密码',
+                    'rules' => 'trim|required|matches[password]',
                     'errors' => array(
-                            'required' => '请选择"%s."',
+                            'required' => '请填写"%s."',
+                            'matches'   => '两次密码不相同',
                     ),
             ),
     );
-    
-    public $ps = 25;
+
+    public $ps = 20;
     
     public function __construct() 
     {
         parent::__construct ();
-        $this->load->model('M_Ad', 'ad');
-        $this->load->model('M_Adpos', 'adpos');
+        $this->load->model('M_Admin', 'admin');
     }
     
     public function index()
     {
+        echo '未开发';die;
         $param = $this->input->get();
-        $conditon = array();
-        $count = $this->ad->getCount($conditon);
         $conditon['p'] = isset($param['p']) && $param['p'] > 0 ? $param['p'] : 0;
         $conditon['ps'] = $this->ps;
-        $list = $this->ad->getList($conditon);
-        $poslist = $this->adpos->getAll();
-        foreach ($list as $key => $value) {
-            $list[$key]['pos_name'] = $poslist[$value['pos_id']] ? $poslist[$value['pos_id']]['name'] : '不存在';
-        }
+        $list = $this->admin->getList($conditon);
+        $list = $this->admin->amerge($list);
+     
+        $count = $this->admin->getCount(array());
         // 分页
         $this->load->library('pagination');
-        $config['base_url'] = '/admin/article/index';
+        $config['base_url'] = '/admin/admin/index';
         $config['total_rows'] = $count;
         $config['per_page'] = $this->ps;
         $config['page_query_string'] = true;
         $this->pagination->initialize($config);
 
         $this->assign('page', $this->pagination->create_links());
+//      echo '<pre>';
+//      print_r($list);
         $this->assign('list', $list);
         $this->display();
     }
@@ -96,13 +104,15 @@ class Ad extends Admin_Controller
             $this->form_validation->set_rules($this->rules);
             if ($this->form_validation->run() == TRUE)
             {
+                unset($input['repassword']);
+                $input['password'] = md5($input['password']);
                 $input['time'] = time();
-                if (isset($input['ad_id'])) {
-                    $res = $this->ad->update($input, 'ad_id');
+                if (isset($input['id'])) {
+                    $res = $this->admin->update($input, 'id');
                 }
                 else
                 {
-                    $res = $this->ad->add($input);
+                    $res = $this->admin->add($input);
                 }
                 if ($res)
                 {
@@ -123,12 +133,14 @@ class Ad extends Admin_Controller
             $id = $this->input->get('id');
             $data = array();
             if ($id) {
-                $data = $this->ad->getOne($id);
+                $data = $this->admin->getUserById($id);
                 if (!$data) {
-                    $this->error('广告不存在');
+                    $this->error('用户不存在');
                 }
             }
-            $list = $this->adpos->getAll();
+
+            $this->load->model('M_Role', 'role');
+            $list = $this->role->getAll();
             $this->assign('list', $list);
             $this->assign('data', $data);
             $this->display();
@@ -142,12 +154,17 @@ class Ad extends Admin_Controller
             $this->outJson(-1);
         }
 
-        $cate = $this->ad->getOne($id);
+        $cate = $this->admin->getUserById($id);
         if (!$cate) {
-            $this->outJson(101,'','广告不存在');
+            $this->outJson(101,'','参数错误');
         }
 
-        $res = $this->ad->del($id);
+        if ($cate['username'] == 'admin')
+        {
+            $this->outJson(101,'','超级用户不可删除');
+        }
+
+        $res = $this->admin->del($id);
         if ($res) {
             $this->outJson(0);
         }

@@ -1,0 +1,138 @@
+<{include file="admin/public/header.html"}>
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <{include file='admin/public/left.html'}>
+  <!-- sidebar end -->
+
+<!-- content start -->
+<div class="admin-content">
+
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表单</strong> / <small>form</small></div>
+    <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
+  </div>
+
+  <form class="am-form" id="doc-vld-msg">
+  <div class="am-tabs am-margin" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+      <li class="am-active"><a href="#tab1">广告内容</a></li>
+    </ul>
+    <div class="am-tabs-bd">
+      <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+        <div class="am-g am-margin-top">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">广告位</div>
+          <div class="am-u-sm-8 am-u-md-10">
+            <select data-am-selected="{btnSize: 'sm',maxHeight: 200}" name="pos_id">
+              <option value="0">请选择分类</option>
+              <{foreach from=$list item="val"}>
+              <option value="<{$val.id}>" <{if $data && $data.pos_id eq $val.id}> selected<{/if}>><{$val.name}></option>
+              <{/foreach}>
+            </select>
+          </div>
+        </div>
+		    <div class="am-g am-margin-top am-form-group">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              广告名称
+            </div>
+            <div class="am-u-sm-8 am-u-md-3 am-u-end">
+              <input name="ad_name" type="text" class="am-input-sm" data-validation-message="分类名称必填" placeholder="输入分类名称" value="<{if $data}><{$data.ad_name}><{/if}>" required>
+            </div>
+        </div>
+        
+        <div class="am-g am-margin-top">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">显示状态</div>
+          <div class="am-u-sm-8 am-u-md-10">
+            <div class="am-btn-group" data-am-button>
+              <label class="am-btn am-btn-default am-btn-xs <{if !$data}> am-active<{elseif $data && $data.status==1}> am-active<{/if}>">
+                <input type="radio" name="status" id="option1" value="1"> 正常
+              </label>
+              <label class="am-btn am-btn-default am-btn-xs<{if $data && $data.status==0}> am-active<{/if}>">
+                <input type="radio" name="status" id="option3" value="0"> 不显示
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="am-g am-margin-top-sm">
+          <div class="am-u-sm-12 am-u-md-2 am-text-right admin-form-text">
+            广告内容
+          </div>
+          <div class="am-u-sm-16 am-u-md-6 am-u-end">
+            <textarea rows="16" name="ad_content"><{if $data}><{$data.ad_content}><{/if}></textarea>
+          </div>
+        </div>
+
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              排序
+            </div>
+            <div class="am-u-sm-8 am-u-md-2 am-u-end">
+              <input name="sort" type="text" class="am-input-sm" value="<{if $data}><{$data.sort}><{/if}>"  placeholder="默认50">
+            </div>
+        </div>
+
+      </div>
+		
+    </div>
+  </div>
+  <{if $data}>
+  <input name="ad_id" type="hidden" class="am-input-sm" value="<{$data.ad_id}>">
+  <{/if}>
+  </form>
+  <div class="am-margin">
+    <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+    <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs" onclick="jumpUrl('/admin/ad/index')">放弃保存</button>
+  </div>
+</div>
+<!-- content end -->
+
+</div>
+<{include file='admin/public/footer.html'}>
+<script src="<{$picker_style_url}>kindeditor/kindeditor-min.js"></script>
+<script src="<{$picker_style_url}>kindeditor/lang/zh_CN.js"></script>
+<script>
+  var editor;
+  KindEditor.ready(function(K) {
+    editor = K.create('textarea[name="ad_content"]', {
+      allowFileManager : true
+    });
+  });
+	$('#save-sure').on('click', function() {
+    var postData = $('#doc-vld-msg').serializeArray();
+    postData.push({
+      "name": "ad_content",
+      "value": editor.html()
+    });
+		$.post("/admin/ad/add",
+			postData,
+		  function(data,status){
+        result(data, status, '/admin/ad/index');
+		  });
+	});
+
+	$(function() {
+		  $('#doc-vld-msg').validator({
+		    onValid: function(validity) {
+		      $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+		    },
+
+		    onInValid: function(validity) {
+		      var $field = $(validity.field);
+		      var $group = $field.closest('.am-form-group');
+		      var $alert = $group.find('.am-alert');
+		      // 使用自定义的提示信息 或 插件内置的提示信息
+		      var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+		      if (!$alert.length) {
+		        $alert = $('<div class="am-alert am-alert-danger am-u-md-2 am-u-end" id="danger-msg"></div>').hide().
+		          appendTo($group);
+		      }
+
+		      $alert.html(msg).show();
+		    }
+		  });
+			  
+		});
+</script>
+</body>
+</html>

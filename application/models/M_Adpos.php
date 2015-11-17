@@ -17,9 +17,9 @@
 *
 */
 
-class M_ad extends CI_Model 
+class M_adpos extends CI_Model 
 {
-    const TABLE = 'ad';
+    const TABLE = 'adpos';
     
     public function __construct() 
     {
@@ -31,7 +31,7 @@ class M_ad extends CI_Model
     {
         if (isset($conditon['id_in']) && $conditon['id_in']) 
         {
-            $this->db->where_in('ad_id', $conditon['id_in']);
+            $this->db->where_in('id', $conditon['id_in']);
         }
 
         if (isset($conditon['id']) && $conditon['id'] > 0) 
@@ -57,7 +57,7 @@ class M_ad extends CI_Model
         if ($list) {
             $temp = array();
             foreach ($list as $k => $v) {
-                $temp[$v['ad_id']] = $v;
+                $temp[$v['id']] = $v;
             }
             return $temp;
         }
@@ -71,7 +71,7 @@ class M_ad extends CI_Model
         if ($list) {
             $temp = array();
             foreach ($list as $k => $v) {
-                $temp[$v['ad_id']] = $v;
+                $temp[$v['id']] = $v;
             }
             return $temp;
         }
@@ -87,7 +87,7 @@ class M_ad extends CI_Model
 
     public function getOne($id)
     {
-        return $this->db->from(self::TABLE)->where(array('ad_id' => $id))->select()->get()->row_array();
+        return $this->db->from(self::TABLE)->where(array('id' => $id))->select()->get()->row_array();
     }
 
     public function add($cate)
@@ -108,7 +108,7 @@ class M_ad extends CI_Model
 
     public function del($id)
     {
-        return $this->db->delete(self::TABLE, array('ad_id' => $id));
+        return $this->db->delete(self::TABLE, array('id' => $id));
     }
 }
 
