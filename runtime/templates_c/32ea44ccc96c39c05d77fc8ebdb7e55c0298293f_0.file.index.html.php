@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-18 18:09:06
-         compiled from "/data/src/test/codeIgniter/application/views/admin/Back/index.html" */ ?>
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-18 18:51:15
+         compiled from "/data/src/test/codeIgniter/application/views/admin/Restore/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564c4e429fd2c3_69349805',
+  'unifunc' => 'content_564c58239747a7_46220072',
   'file_dependency' => 
   array (
-    'f95ebfb8c6f590933768de7f2f7d5c3185ec9cd8' => 
+    '32ea44ccc96c39c05d77fc8ebdb7e55c0298293f' => 
     array (
-      0 => '/data/src/test/codeIgniter/application/views/admin/Back/index.html',
-      1 => 1447841345,
+      0 => '/data/src/test/codeIgniter/application/views/admin/Restore/index.html',
+      1 => 1447843874,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564c4e429fd2c3_69349805')) {
-function content_564c4e429fd2c3_69349805 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564c58239747a7_46220072')) {
+function content_564c58239747a7_46220072 ($_smarty_tpl) {
+if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -45,10 +46,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="database-optimalize" type="button" class="am-btn am-btn-default" onclick="selectMethod(1)"><span class="am-icon-plus"></span> 优化数据库</button>
-            <button id="tables-optimalize" type="button" class="am-btn am-btn-default" onclick="selectMethod(2)"><span class="am-icon-star"></span> 优化表</button>
-            <button id="tables-repair" type="button" class="am-btn am-btn-default" onclick="selectMethod(3)"><span class="am-icon-thumbs-up"></span> 修复表</button>
-            <button id="tables-back" type="button" class="am-btn am-btn-default" onclick="selectMethod(4)"><span class="am-icon-bomb"></span> 备份表</button>
+            <button id="database-optimalize" type="button" class="am-btn am-btn-default" onclick="selectMethod(1)"><span class="am-icon-trash-o"></span> 删除</button>
           </div>
         </div>
       </div>
@@ -61,13 +59,11 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
           <thead>
               <tr>
                 <th class="table-check"><input type="checkbox" id="check" onclick="checkAll();"/></th>
-                <th class="table-id">表名</th>
-                <th class="table-title">引擎</th>
-                <th class="table-title">总数据</th>
-                <th class="table-type">数据总大小</th>
-                <th class="table-author am-hide-sm-only">索引大小</th>
-                <th class="table-date am-hide-sm-only">自增最大值</th>
-                <th class="table-set">编码</th>
+                <th class="table-title">文件名</th>
+                <th class="table-title">数据大小</th>
+                <th class="table-type">相对路径</th>
+                <th class="table-date am-hide-sm-only">修改日期</th>
+                <th class="table-set">操作</th>
               </tr>
           </thead>
           <tbody>
@@ -84,22 +80,26 @@ foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
 $__foreach_v_0_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 ?>
             <tr>
-              <td><input type="checkbox" name="tables[]" data="checkbox" value="<?php echo $_smarty_tpl->tpl_vars['v']->value['Name'];?>
+              <td><input type="checkbox" name="tables[]" data="checkbox" value="<?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
 "/></td>
-              <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['Name'];?>
+              <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
 </span></td>
-              <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['Engine'];?>
-</span></td>
-              <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['Rows'];?>
-条</span></td>
-              <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['Data_length'];?>
+              <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['size'];?>
 K</span></td>
-              <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['Index_length'];?>
-K</span></td>
-              <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['Auto_increment'];?>
+              <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['relative_path'];?>
 </span></td>
-              <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['Collation'];?>
-</span></td>
+              <td class="am-hide-sm-only"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['v']->value['date'],'%Y-%m-%d %H:%M:%S');?>
+</td>
+              <td>
+                <div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                    <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/ad/add?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['ad_id'];?>
+')"><span class="am-icon-pencil-square-o"></span> 编辑</button> -->
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
+)"><span class="am-icon-trash-o"></span> 删除</button>
+                  </div>
+                </div>
+              </td>
             </tr>
             <?php
 $_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_local_item;

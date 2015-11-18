@@ -189,7 +189,8 @@ class Admin_Controller extends MY_Controller
 		foreach($list as $k => $v)
 		{
 			$con = explode('/', $v['name']);
-			if (strtolower($con[0]) == $controller) {
+			$num = count($con);
+			if (strtolower($con[0]) == $controller && $num > 1) {
 				$open = $v['pid'];
 				foreach($list as $val)
 				{
@@ -202,6 +203,7 @@ class Admin_Controller extends MY_Controller
 			}
 		}
 		
+						
 	    $list = node_merge($list);
         $this->assign('leftnav', $list);
         $this->assign('open', $open);

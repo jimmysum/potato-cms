@@ -151,7 +151,8 @@ class Role extends Admin_Controller
         if ($input)
         {
             if (isset($input['id'])) {
-                if ($input['id'] == 1) {
+                $user = $this->session->userdata('user');
+                if ($input['id'] == 1 && $user['info']['role_id'] != 1) {
                     $this->outJson(101,'','不可以修改超级管理员权限！');
                 }
                 $data = $this->role->getOne($input['id']);

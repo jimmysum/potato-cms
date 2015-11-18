@@ -16,10 +16,7 @@
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="database-optimalize" type="button" class="am-btn am-btn-default" onclick="selectMethod(1)"><span class="am-icon-plus"></span> 优化数据库</button>
-            <button id="tables-optimalize" type="button" class="am-btn am-btn-default" onclick="selectMethod(2)"><span class="am-icon-star"></span> 优化表</button>
-            <button id="tables-repair" type="button" class="am-btn am-btn-default" onclick="selectMethod(3)"><span class="am-icon-thumbs-up"></span> 修复表</button>
-            <button id="tables-back" type="button" class="am-btn am-btn-default" onclick="selectMethod(4)"><span class="am-icon-bomb"></span> 备份表</button>
+            <button id="option-delete" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
           </div>
         </div>
       </div>
@@ -32,26 +29,29 @@
           <thead>
               <tr>
                 <th class="table-check"><input type="checkbox" id="check" onclick="checkAll();"/></th>
-                <th class="table-id">表名</th>
-                <th class="table-title">引擎</th>
-                <th class="table-title">总数据</th>
-                <th class="table-type">数据总大小</th>
-                <th class="table-author am-hide-sm-only">索引大小</th>
-                <th class="table-date am-hide-sm-only">自增最大值</th>
-                <th class="table-set">编码</th>
+                <th class="table-title">文件名</th>
+                <th class="table-title">数据大小</th>
+                <th class="table-type">相对路径</th>
+                <th class="table-date am-hide-sm-only">修改日期</th>
+                <th class="table-set">操作</th>
               </tr>
           </thead>
           <tbody>
             <{foreach from=$list item="v"}>
             <tr>
-              <td><input type="checkbox" name="tables[]" data="checkbox" value="<{$v.Name}>"/></td>
-              <td><span><{$v.Name}></span></td>
-              <td><span><{$v.Engine}></span></td>
-              <td><span><{$v.Rows}>条</span></td>
-              <td><span><{$v.Data_length}>K</span></td>
-              <td><span><{$v.Index_length}>K</span></td>
-              <td><span><{$v.Auto_increment}></span></td>
-              <td><span><{$v.Collation}></span></td>
+              <td><input type="checkbox" name="tables[]" data="checkbox" value="<{$v.name}>"/></td>
+              <td><span><{$v.name}></span></td>
+              <td><span><{$v.size}>K</span></td>
+              <td><span><{$v.relative_path}></span></td>
+              <td class="am-hide-sm-only"><{$v.date|date_format:'%Y-%m-%d %H:%M:%S'}></td>
+              <td>
+                <div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                    <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/ad/add?id=<{$v.ad_id}>')"><span class="am-icon-pencil-square-o"></span> 编辑</button> -->
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$v.name}>)"><span class="am-icon-trash-o"></span> 删除</button>
+                  </div>
+                </div>
+              </td>
             </tr>
             <{/foreach}>
             
@@ -94,41 +94,8 @@
     }
   }
 
-  function selectMethod(id)
-  {
-    var url = '';
-    var msg = '确定要备份这些表吗？';
-    if (id == 1) 
-    {
-      url = "/admin/back/optimize_database";
-      msg = "确定要优化数据库吗？";
-    }
-    else if (id == 2)
-    {
-      url = "/admin/back/optimize_tables";
-      msg = "确定要优化这些表吗？";
-    }
-    else if (id == 3)
-    {
-      url = "/admin/back/repair_tables";
-      msg = "确定要修复这些表吗？";
-    }
-    else if (id == 4)
-    {
-      url = "/admin/back/backup";
-      msg = "确定要备份这些表吗？";
-    }
-    else 
-    {
-      $('#success-msg').removeClass('am-alert-success');
-      $('#success-msg').addClass('am-alert-danger');
-      $('#success-msg').html('无效选择！');
-      $('#success-msg').fadeIn(1000, function() {
-        $('#success-msg').fadeOut(1000);
-      });
-      return false;
-    }
-
+  $('#examine-cate').on('click', function(){
+    var data = getId();
     $('#alert-msg').html(msg);
     $('#my-confirm').modal({
       relatedTarget: this,
@@ -145,7 +112,8 @@
         
       }
     });
-  }
+  })
+
 
 </script>
 </body>

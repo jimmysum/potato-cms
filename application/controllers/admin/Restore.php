@@ -17,7 +17,7 @@
 *        Jimmy        2015-10-9下午4:12:48          1.0                     第一次建立该文件
 *
 */
-class Back extends Admin_Controller 
+class Restore extends Admin_Controller 
 {
     
 
@@ -26,13 +26,13 @@ class Back extends Admin_Controller
     public function __construct() 
     {
         parent::__construct ();
-        $this->load->dbutil();
+        $this->load->helper('file');
     }
     
     public function index()
     {
-        $list = $this->db->query('SHOW TABLE STATUS ');
-        $list = $list->result_array();
+        $path = './public/backdata/';
+        $list = get_dir_file_info($path);
         // echo '<pre>';print_r($list);die;
         // $dbs = $this->dbutil->list_databases();
         // $tables = $this->db->list_tables();

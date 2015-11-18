@@ -241,7 +241,7 @@ ini_set('date.timezone','Asia/Shanghai');
 
 	// Name of the "system folder"
 	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
-
+	
 	// The path to the "application" folder
 	if (is_dir($application_folder))
 	{
