@@ -8,7 +8,7 @@
   <div class="admin-content">
 
     <div class="am-cf am-padding">
-      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表格</strong> / <small>Table</small></div>
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><{$nav[0]}></strong> / <small><{$nav[1]}></small></div>
       <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
     </div>
 
@@ -39,7 +39,7 @@
           <tbody>
             <{foreach from=$list item="v"}>
             <tr>
-              <td><input type="checkbox" name="tables[]" data="checkbox" value="<{$v.name}>"/></td>
+              <td><input type="checkbox" name="filename[]" data="checkbox" value="<{$v.name}>"/></td>
               <td><span><{$v.name}></span></td>
               <td><span><{$v.size}>K</span></td>
               <td><span><{$v.relative_path}></span></td>
@@ -48,7 +48,7 @@
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
                     <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/ad/add?id=<{$v.ad_id}>')"><span class="am-icon-pencil-square-o"></span> 编辑</button> -->
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<{$v.name}>)"><span class="am-icon-trash-o"></span> 删除</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del('<{$v.name}>')"><span class="am-icon-trash-o"></span> 删除</button>
                   </div>
                 </div>
               </td>
@@ -94,13 +94,12 @@
     }
   }
 
-  $('#examine-cate').on('click', function(){
-    var data = getId();
-    $('#alert-msg').html(msg);
+  $('#option-delete').on('click', function(){
+    $('#alert-msg').html('确定要删除选中的备份吗？');
     $('#my-confirm').modal({
       relatedTarget: this,
       onConfirm: function(options) {
-        $.post(url,
+        $.post("/admin/restore/del",
           $('#doc-vld-msg').serializeArray(),
           function(data,status){
             result(data, status, '');
@@ -113,7 +112,25 @@
       }
     });
   })
-
+  function del(name)
+  {
+    $('#alert-msg').html('确定要删除这个备份吗？');
+    $('#my-confirm').modal({
+        relatedTarget: this,
+        onConfirm: function(options) {
+          $.post("/admin/restore/del?filename=" + name,
+            '',
+            function(data,status){
+              result(data, status, '');
+            });
+          
+        },
+        // closeOnConfirm: false,
+        onCancel: function() {
+          
+        }
+      });
+  }
 
 </script>
 </body>

@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-19 18:52:59
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-19 18:02:07
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/footer.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5624cb8b408066_05007880',
+  'unifunc' => 'content_564d9e1fa1cdc0_65120449',
   'file_dependency' => 
   array (
     'c80f31628ed07a54fe32cd6cb183997510fcb174' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/footer.html',
-      1 => 1445251977,
+      1 => 1447927306,
       2 => 'file',
     ),
   ),
@@ -18,8 +18,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_5624cb8b408066_05007880')) {
-function content_5624cb8b408066_05007880 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564d9e1fa1cdc0_65120449')) {
+function content_564d9e1fa1cdc0_65120449 ($_smarty_tpl) {
 ?>
 
 <a href="#" class="am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}">
@@ -28,7 +28,7 @@ function content_5624cb8b408066_05007880 ($_smarty_tpl) {
 
 <footer>
   <hr>
-  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+  <p class="am-padding-left">Copyright © 2015 www.520sports.cn Powered By Potato后台管理 Version 1.0.0</p>
 </footer>
 
 <!--[if lt IE 9]>

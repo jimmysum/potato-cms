@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-18 18:09:06
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-19 18:17:38
          compiled from "/data/src/test/codeIgniter/application/views/admin/Back/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564c4e429fd2c3_69349805',
+  'unifunc' => 'content_564da1c209d603_78320343',
   'file_dependency' => 
   array (
     'f95ebfb8c6f590933768de7f2f7d5c3185ec9cd8' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/Back/index.html',
-      1 => 1447841345,
+      1 => 1447928177,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564c4e429fd2c3_69349805')) {
-function content_564c4e429fd2c3_69349805 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564da1c209d603_78320343')) {
+function content_564da1c209d603_78320343 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -37,7 +37,9 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
   <div class="admin-content">
 
     <div class="am-cf am-padding">
-      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表格</strong> / <small>Table</small></div>
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
+</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
+</small></div>
       <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
     </div>
 

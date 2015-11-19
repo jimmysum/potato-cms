@@ -173,6 +173,103 @@ class Admin extends Admin_Controller
         }
 
     }
+
+    public function myinfo()
+    {
+        $info = $this->session->userdata('user');
+        $info = $this->admin->getOne($info['info']['id']);
+        // echo "<pre>";print_r($info);
+        $this->assign('data', $info);
+        $this->display();
+    }
+
+    public function changeName()
+    {
+        $nickname = $this->input->post('nickname');
+        if (!$nickname) {
+            $this->outJson(-1);
+        }
+
+        $info = $this->session->userdata('user');
+        $data = array('nickname' => $nickname, 'id' => $info['info']['id']);
+        $res = $this->admin->update($data, 'id');
+        if ($res) {
+            $this->outJson(0);
+        }
+        else
+        {
+            $this->outJson(1);
+        }
+    }
+
+
+    public function changePwd()
+    {
+        $post = $this->input->post();
+        if ($post) {
+            $rules = array(
+                    array(
+                            'field' => 'password',
+                            'label' => '原始密码',
+                            'rules' => 'required',
+                            'errors' => array(
+                                    'required' => '请填写"%s."',
+                            ),
+                    ),
+                    array(
+                            'field' => 'newpassword',
+                            'label' => '新密码',
+                            'rules' => 'trim|required|min_length[6]',
+                            'errors' => array(
+                                    'required' => '请填写"%s."',
+                                    'min_length' => '"%s."必须6位以上',
+                            ),
+                    ),
+                    array(
+                            'field' => 'repassword',
+                            'label' => '重复新密码',
+                            'rules' => 'trim|required|matches[newpassword]',
+                            'errors' => array(
+                                    'required' => '请填写"%s."',
+                                    'matches'   => '两次密码不相同',
+                            ),
+                    ),
+            );
+            
+            $this->load->library('form_validation');
+            $this->form_validation->set_data($post);
+            $this->form_validation->set_rules($rules);
+            if ($this->form_validation->run() == TRUE)
+            {
+                $info = $this->session->userdata('user');
+                $info = $this->admin->getOne($info['info']['id']);
+                if ($info['password'] !== md5($post['password'])) {
+                    $this->outJson(1, '', '原始密码错误！');
+                }
+
+                $input['password'] = md5($post['newpassword']);
+                $input['time'] = time();
+                $input['id'] = $info['id'];
+                $res = $this->admin->update($input, 'id');
+                
+                if ($res)
+                {
+                    $this->outJson(0);
+                }
+                else
+                {
+                    $this->outJson(1);
+                }
+            }
+            else
+            {
+                $this->outJson(101, '', current($this->form_validation->error_array()));
+            }
+        }
+
+        $this->outJson(-1);
+    }
+
 }
 
 ?>

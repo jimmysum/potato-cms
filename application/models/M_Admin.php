@@ -106,6 +106,11 @@ class M_admin extends CI_Model
 		return $this->db->where(array('id' => $id))->from(self::TABLE)->get()->row_array();
 	}
 	
+	public function getOne($id)
+	{
+		return $this->db->where(array('id' => $id))->from(self::TABLE)->get()->row_array();
+	}
+	
 	public function getUserByName($username)
 	{
 		return $this->db->where(array('username' => $username))->from(self::TABLE)->get()->row_array();

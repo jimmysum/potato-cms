@@ -23,8 +23,14 @@ class Main extends Admin_Controller
 	*/
 	public function index()
 	{
-		
-		
+		$data['ip'] = $this->input->ip_address();
+		$data['serverEn'] = $this->input->server('SERVER_SOFTWARE');
+		$data['serverVer'] = PHP_VERSION;
+		$data['serverIp'] = $this->input->server('SERVER_ADDR');
+		$this->load->model('M_Admin', 'admin');
+		$data['serverMysql'] = $this->admin->getVersion();
+
+		$this->assign('data', $data);
 		$this->display('admin/index.html');
 	}
 	

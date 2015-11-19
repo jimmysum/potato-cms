@@ -186,12 +186,14 @@ class Admin_Controller extends MY_Controller
 		$list = $this->node->getList(array('ASC' => 'sort', 'id_in' => $user['node']));
 		$open = 0;
 		$actId = 0;
+		$nav = array('首页', '网站信息');
 		foreach($list as $k => $v)
 		{
 			$con = explode('/', $v['name']);
 			$num = count($con);
 			if (strtolower($con[0]) == $controller && $num > 1) {
 				$open = $v['pid'];
+				$nav = array($list[$v['pid']]['title'], $v['title']);
 				foreach($list as $val)
 				{
 					if ($val['pid'] == $v['id'] && $action == strtolower($val['name'])) {
@@ -202,7 +204,6 @@ class Admin_Controller extends MY_Controller
 				break;
 			}
 		}
-		
 						
 	    $list = node_merge($list);
         $this->assign('leftnav', $list);
@@ -213,6 +214,7 @@ class Admin_Controller extends MY_Controller
 			}
 		}
 		
+		$this->assign('nav', $nav);
 		$this->assign('admin_style_url', base_url() . 'style/admin/');
 		$this->assign('site_url', site_url());
 	}

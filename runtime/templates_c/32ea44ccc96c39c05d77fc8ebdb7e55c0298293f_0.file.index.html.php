@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-18 18:51:15
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-19 18:17:39
          compiled from "/data/src/test/codeIgniter/application/views/admin/Restore/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564c58239747a7_46220072',
+  'unifunc' => 'content_564da1c368bba3_53064332',
   'file_dependency' => 
   array (
     '32ea44ccc96c39c05d77fc8ebdb7e55c0298293f' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/Restore/index.html',
-      1 => 1447843874,
+      1 => 1447928199,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564c58239747a7_46220072')) {
-function content_564c58239747a7_46220072 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564da1c368bba3_53064332')) {
+function content_564da1c368bba3_53064332 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -38,7 +38,9 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
   <div class="admin-content">
 
     <div class="am-cf am-padding">
-      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表格</strong> / <small>Table</small></div>
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
+</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
+</small></div>
       <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
     </div>
 
@@ -46,7 +48,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="database-optimalize" type="button" class="am-btn am-btn-default" onclick="selectMethod(1)"><span class="am-icon-trash-o"></span> 删除</button>
+            <button id="option-delete" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
           </div>
         </div>
       </div>
@@ -80,7 +82,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
 $__foreach_v_0_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 ?>
             <tr>
-              <td><input type="checkbox" name="tables[]" data="checkbox" value="<?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
+              <td><input type="checkbox" name="filename[]" data="checkbox" value="<?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
 "/></td>
               <td><span><?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
 </span></td>
@@ -95,8 +97,8 @@ K</span></td>
                   <div class="am-btn-group am-btn-group-xs">
                     <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/ad/add?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['ad_id'];?>
 ')"><span class="am-icon-pencil-square-o"></span> 编辑</button> -->
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
-)"><span class="am-icon-trash-o"></span> 删除</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del('<?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
+')"><span class="am-icon-trash-o"></span> 删除</button>
                   </div>
                 </div>
               </td>
@@ -152,46 +154,12 @@ $_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_item;
     }
   }
 
-  function selectMethod(id)
-  {
-    var url = '';
-    var msg = '确定要备份这些表吗？';
-    if (id == 1) 
-    {
-      url = "/admin/back/optimize_database";
-      msg = "确定要优化数据库吗？";
-    }
-    else if (id == 2)
-    {
-      url = "/admin/back/optimize_tables";
-      msg = "确定要优化这些表吗？";
-    }
-    else if (id == 3)
-    {
-      url = "/admin/back/repair_tables";
-      msg = "确定要修复这些表吗？";
-    }
-    else if (id == 4)
-    {
-      url = "/admin/back/backup";
-      msg = "确定要备份这些表吗？";
-    }
-    else 
-    {
-      $('#success-msg').removeClass('am-alert-success');
-      $('#success-msg').addClass('am-alert-danger');
-      $('#success-msg').html('无效选择！');
-      $('#success-msg').fadeIn(1000, function() {
-        $('#success-msg').fadeOut(1000);
-      });
-      return false;
-    }
-
-    $('#alert-msg').html(msg);
+  $('#option-delete').on('click', function(){
+    $('#alert-msg').html('确定要删除选中的备份吗？');
     $('#my-confirm').modal({
       relatedTarget: this,
       onConfirm: function(options) {
-        $.post(url,
+        $.post("/admin/restore/del",
           $('#doc-vld-msg').serializeArray(),
           function(data,status){
             result(data, status, '');
@@ -203,6 +171,25 @@ $_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_item;
         
       }
     });
+  })
+  function del(name)
+  {
+    $('#alert-msg').html('确定要删除这个备份吗？');
+    $('#my-confirm').modal({
+        relatedTarget: this,
+        onConfirm: function(options) {
+          $.post("/admin/restore/del?filename=" + name,
+            '',
+            function(data,status){
+              result(data, status, '');
+            });
+          
+        },
+        // closeOnConfirm: false,
+        onCancel: function() {
+          
+        }
+      });
   }
 
 <?php echo '</script'; ?>

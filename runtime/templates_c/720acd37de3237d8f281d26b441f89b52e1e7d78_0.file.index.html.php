@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-10-14 16:35:20
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-19 21:22:32
          compiled from "/data/src/test/codeIgniter/application/views/admin/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_561e13c8170de4_62228714',
+  'unifunc' => 'content_564dcd18513634_29864968',
   'file_dependency' => 
   array (
     '720acd37de3237d8f281d26b441f89b52e1e7d78' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/index.html',
-      1 => 1444619219,
+      1 => 1447939351,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_561e13c8170de4_62228714')) {
-function content_561e13c8170de4_62228714 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564dcd18513634_29864968')) {
+function content_564dcd18513634_29864968 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -37,120 +37,78 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
   <div class="admin-content">
 
     <div class="am-cf am-padding">
-      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>一些常用模块</small></div>
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
+</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
+</small></div>
     </div>
 
     <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
-      <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br/>新增页面<br/>2300</a></li>
-      <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br/>成交订单<br/>308</a></li>
+      <li><a href="/Admin/Article/add" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br/>新增文章<br/>2300</a></li>
+      <li><a href="/admin/Comment/index" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br/>评论管理<br/>308</a></li>
       <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>昨日访问<br/>80082</a></li>
       <li><a href="#" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>在线用户<br/>3000</a></li>
     </ul>
 
-    <div class="am-g">
-      <div class="am-u-sm-12">
-        <table class="am-table am-table-bd am-table-striped admin-content-table">
-          <thead>
-          <tr>
-            <th>ID</th><th>用户名</th><th>最后成交任务</th><th>成交订单</th><th>管理</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr><td>1</td><td>John Clark</td><td><a href="#">Business management</a></td> <td><span class="am-badge am-badge-success">+20</span></td>
-            <td>
-              <div class="am-dropdown" data-am-dropdown>
-                <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                <ul class="am-dropdown-content">
-                  <li><a href="#">1. 编辑</a></li>
-                  <li><a href="#">2. 下载</a></li>
-                  <li><a href="#">3. 删除</a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          <tr><td>2</td><td>风清扬</td><td><a href="#">公司LOGO设计</a> </td><td><span class="am-badge am-badge-danger">+2</span></td>
-            <td>
-              <div class="am-dropdown" data-am-dropdown>
-                <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                <ul class="am-dropdown-content">
-                  <li><a href="#">1. 编辑</a></li>
-                  <li><a href="#">2. 下载</a></li>
-                  <li><a href="#">3. 删除</a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          <tr><td>3</td><td>詹姆斯</td><td><a href="#">开发一款业务数据软件</a></td><td><span class="am-badge am-badge-warning">+10</span></td>
-            <td>
-              <div class="am-dropdown" data-am-dropdown>
-                <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                <ul class="am-dropdown-content">
-                  <li><a href="#">1. 编辑</a></li>
-                  <li><a href="#">2. 下载</a></li>
-                  <li><a href="#">3. 删除</a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          <tr><td>4</td><td>云适配</td><td><a href="#">适配所有网站</a></td><td><span class="am-badge am-badge-secondary">+50</span></td>
-            <td>
-              <div class="am-dropdown" data-am-dropdown>
-                <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                <ul class="am-dropdown-content">
-                  <li><a href="#">1. 编辑</a></li>
-                  <li><a href="#">2. 下载</a></li>
-                  <li><a href="#">3. 删除</a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>5</td><td>呵呵呵</td>
-            <td><a href="#">基兰会获得BUFF</a></td>
-            <td><span class="am-badge">+22</span></td>
-            <td>
-              <div class="am-dropdown" data-am-dropdown>
-                <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                <ul class="am-dropdown-content">
-                  <li><a href="#">1. 编辑</a></li>
-                  <li><a href="#">2. 下载</a></li>
-                  <li><a href="#">3. 删除</a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
 
     <div class="am-g">
       <div class="am-u-md-6">
         <div class="am-panel am-panel-default">
-          <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">文件上传<span class="am-icon-chevron-down am-fr" ></span></div>
-          <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
-            <ul class="am-list admin-content-file">
-              <li>
-                <strong><span class="am-icon-upload"></span> Kong-cetian.Mp3</strong>
-                <p>3.3 of 5MB - 5 mins - 1MB/Sec</p>
-                <div class="am-progress am-progress-striped am-progress-sm am-active">
-                  <div class="am-progress-bar am-progress-bar-success" style="width: 82%">82%</div>
-                </div>
-              </li>
-              <li>
-                <strong><span class="am-icon-check"></span> 好人-cetian.Mp3</strong>
-                <p>3.3 of 5MB - 5 mins - 3MB/Sec</p>
-              </li>
-              <li>
-                <strong><span class="am-icon-check"></span> 其实都没有.Mp3</strong>
-                <p>3.3 of 5MB - 5 mins - 3MB/Sec</p>
-              </li>
-            </ul>
+          <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">欢迎登录Potato后台管理系统<span class="am-icon-chevron-down am-fr" ></span></div>
+          <div id="collapse-panel-1" class="am-in">
+            <table class="am-table am-table-bd am-table-bdrs am-table-striped am-table-hover">
+              <tbody>
+              <tr>
+                <th class="am-text-left">用户名</th>
+                <th><?php echo $_SESSION['user']['info']['nickname'];?>
+</th>
+              </tr>
+              <tr>
+                <td class="am-text-left">登陆IP</td>
+                <td><?php echo $_smarty_tpl->tpl_vars['data']->value['ip'];?>
+</td>
+              </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="am-panel am-panel-default">
-          <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-2'}">浏览器统计<span class="am-icon-chevron-down am-fr" ></span></div>
+          <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-2'}">欢迎登录Potato后台管理系统<span class="am-icon-chevron-down am-fr" ></span></div>
+          <div id="collapse-panel-2" class="am-in">
+            <table class="am-table am-table-bd am-table-bdrs am-table-striped am-table-hover">
+              <tbody>
+              <tr>
+                <th>浏览器</th>
+                <th>访问量</th>
+              </tr>
+              <tr>
+                <td>Google Chrome</td>
+                <td>3,005</td>
+              </tr>
+              <tr>
+                <td>Mozilla Firefox</td>
+                <td>2,505</td>
+              </tr>
+              <tr>
+                <td>Internet Explorer</td>
+                <td>1,405</td>
+              </tr>
+              <tr>
+                <td>Opera</td>
+                <td>4,005</td>
+              </tr>
+              <tr>
+                <td>Safari</td>
+                <td>505</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="am-u-md-6">
+        <div class="am-panel am-panel-default">
+          <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-2'}">欢迎登录Potato后台管理系统<span class="am-icon-chevron-down am-fr" ></span></div>
           <div id="collapse-panel-2" class="am-in">
             <table class="am-table am-table-bd am-table-bdrs am-table-striped am-table-hover">
               <tbody>
@@ -193,53 +151,6 @@ i/examples/admin-safari.png" alt=""></td>
             </table>
           </div>
         </div>
-      </div>
-
-      <div class="am-u-md-6">
-        <div class="am-panel am-panel-default">
-          <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-4'}">任务 task<span class="am-icon-chevron-down am-fr" ></span></div>
-          <div id="collapse-panel-4" class="am-panel-bd am-collapse am-in">
-            <ul class="am-list admin-content-task">
-              <li>
-                <div class="admin-task-meta"> Posted on 25/1/2120 by John Clark</div>
-                <div class="admin-task-bd">
-                  The starting place for exploring business management; helping new managers get started and experienced managers get better.
-                </div>
-                <div class="am-cf">
-                  <div class="am-btn-toolbar am-fl">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button type="button" class="am-btn am-btn-default"><span class="am-icon-check"></span></button>
-                      <button type="button" class="am-btn am-btn-default"><span class="am-icon-pencil"></span></button>
-                      <button type="button" class="am-btn am-btn-default"><span class="am-icon-times"></span></button>
-                    </div>
-                  </div>
-                  <div class="am-fr">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs">删除</button>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="admin-task-meta"> Posted on 25/1/2120 by 呵呵呵</div>
-                <div class="admin-task-bd">
-                  基兰和狗熊出现在不同阵营时。基兰会获得BUFF，“装甲熊憎恨者”。狗熊会获得BUFF，“时光老人憎恨者”。
-                </div>
-                <div class="am-cf">
-                  <div class="am-btn-toolbar am-fl">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button type="button" class="am-btn am-btn-default"><span class="am-icon-check"></span></button>
-                      <button type="button" class="am-btn am-btn-default"><span class="am-icon-pencil"></span></button>
-                      <button type="button" class="am-btn am-btn-default"><span class="am-icon-times"></span></button>
-                    </div>
-                  </div>
-                  <div class="am-fr">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs">删除</button>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <div class="am-panel am-panel-default">
           <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-3'}">最近留言<span class="am-icon-chevron-down am-fr" ></span></div>
           <div class="am-panel-bd am-collapse am-in am-cf" id="collapse-panel-3">

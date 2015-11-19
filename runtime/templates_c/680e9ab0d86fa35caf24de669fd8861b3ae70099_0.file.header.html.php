@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-03 20:51:36
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-19 18:04:01
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/header.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5638add8e71e22_64293506',
+  'unifunc' => 'content_564d9e9111d649_03709931',
   'file_dependency' => 
   array (
     '680e9ab0d86fa35caf24de669fd8861b3ae70099' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/header.html',
-      1 => 1445688625,
+      1 => 1447927396,
       2 => 'file',
     ),
   ),
@@ -18,17 +18,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_5638add8e71e22_64293506')) {
-function content_5638add8e71e22_64293506 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564d9e9111d649_03709931')) {
+function content_564d9e9111d649_03709931 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze UI Admin index Examples</title>
-  <meta name="description" content="这是一个 index 页面">
-  <meta name="keywords" content="index">
+  <title>Potato后台管理</title>
+  <meta name="description" content="Potato后台管理">
+  <meta name="keywords" content="Potato后台管理">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -54,7 +54,7 @@ kindeditor/themes/default/default.css">
 
 <header class="am-topbar admin-header">
   <div class="am-topbar-brand">
-    <strong>Amaze UI</strong> <small>后台管理模板</small>
+    <strong>Potato</strong> <small>后台管理</small>
   </div>
 
   <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
@@ -69,7 +69,7 @@ kindeditor/themes/default/default.css">
         </a>
         <ul class="am-dropdown-content">
           <!-- <li><a href="#"><span class="am-icon-user"></span> 资料</a></li> -->
-          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="/admin/admin/myinfo"><span class="am-icon-cog"></span> 设置</a></li>
           <li><a href="/admin/login/logout"><span class="am-icon-power-off"></span> 退出</a></li>
         </ul>
       </li>

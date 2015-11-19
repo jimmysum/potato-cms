@@ -21,7 +21,7 @@ class Restore extends Admin_Controller
 {
     
 
-    public $ps = 20;
+    public $path = './public/backdata/';
     
     public function __construct() 
     {
@@ -31,8 +31,7 @@ class Restore extends Admin_Controller
     
     public function index()
     {
-        $path = './public/backdata/';
-        $list = get_dir_file_info($path);
+        $list = get_dir_file_info($this->path);
         // echo '<pre>';print_r($list);die;
         // $dbs = $this->dbutil->list_databases();
         // $tables = $this->db->list_tables();
@@ -79,159 +78,49 @@ class Restore extends Admin_Controller
         }
     }
 
-    /**
-     * 优化数据库
-     * @return [type] [description]
-     */
-    public function optimize_database()
-    {
-        $result = $this->dbutil->optimize_database();
-        
-        if ($result !== false) {
-            return $this->outJson(0);
-        }
-        else 
-        {
-            return $this->outJson(1);
-        }
-    }
-    
-    /**
-     * 
-     * @return [type] [description]
-     */
-    public function optimize_tables()
-    {
-        $post = $this->input->post();
-        if (!$post) {
-            return $this->outJson(101, '', '请选择需要优化的表！');
-        }
-
-        $resArr = array();
-        foreach ($post['tables'] as $key => $value) {
-            $result = $this->dbutil->optimize_table($value);
-            if ($result == false) {
-                $resArr[$value] = $value;
-            }
-        }
-        
-        if (!$resArr) {
-            return $this->outJson(0);
-        }
-        else 
-        {
-            $out = implode(',', $resArr);
-            return $this->outJson(1, '', $out . '-未优化成功！');
-        }
-    }
-    
-    /**
-     * 
-     * @return [type] [description]
-     */
-    public function repair_tables()
-    {
-        $post = $this->input->post();
-        if (!$post) {
-            return $this->outJson(101, '', '请选择需要修复的表！');
-        }
-
-        $resArr = array();
-        foreach ($post['tables'] as $key => $value) {
-            $result = $this->dbutil->repair_table($value);
-            if ($result == false) {
-                $resArr[$value] = $value;
-            }
-        }
-        
-        if (!$resArr) {
-            return $this->outJson(0);
-        }
-        else 
-        {
-            $out = implode(',', $resArr);
-            return $this->outJson(1, '', $out . '-未修复成功！');
-        }
-    }
-    
-    
-    public function add()
-    {
-        $input = $this->input->post();
-        if ($input)
-        {
-            $this->load->library('form_validation');
-            $this->form_validation->set_data($input);
-            $this->form_validation->set_rules($this->rules);
-            if ($this->form_validation->run() == TRUE)
-            {
-                unset($input['repassword']);
-                $input['password'] = md5($input['password']);
-                $input['time'] = time();
-                if (isset($input['id'])) {
-                    $res = $this->admin->update($input, 'id');
-                }
-                else
-                {
-                    $res = $this->admin->add($input);
-                }
-                if ($res)
-                {
-                    $this->outJson(0);
-                }
-                else
-                {
-                    $this->outJson(1);
-                }
-            }
-            else
-            {
-                $this->outJson(101, '', current($this->form_validation->error_array()));
-            }
-        }
-        else 
-        {
-            $id = $this->input->get('id');
-            $data = array();
-            if ($id) {
-                $data = $this->admin->getUserById($id);
-                if (!$data) {
-                    $this->error('用户不存在');
-                }
-            }
-
-            $this->load->model('M_Role', 'role');
-            $list = $this->role->getAll();
-            $this->assign('list', $list);
-            $this->assign('data', $data);
-            $this->display();
-        }
-    }
-
     public function del()
     {
-        $id = $this->input->get('id');
-        if (!$id) {
-            $this->outJson(-1);
+        $filename = $this->input->get('filename');
+        if (!$filename) {
+            $filename = $this->input->post('filename');
+            if (!$filename)
+            {
+                $this->outJson(-1);
+            }
         }
 
-        $cate = $this->admin->getUserById($id);
-        if (!$cate) {
-            $this->outJson(101,'','参数错误');
-        }
-
-        if ($cate['username'] == 'admin')
+        if (is_string($filename))
         {
-            $this->outJson(101,'','超级用户不可删除');
+            $filename = array($filename);
         }
 
-        $res = $this->admin->del($id);
-        if ($res) {
+        $noauth = array();
+        foreach ($filename as $k => $v) {
+            $file = get_file_info($this->path . $v);
+            if ($file) {
+                $auth = octal_permissions(fileperms($this->path . $v));
+                $number = substr($auth, -1);
+                if ($number != 7) {
+                    $noauth[] = $v;
+                }
+                else
+                {
+                    if (is_file($file['server_path'])) {
+                        unlink($file['server_path']);
+                    }
+                    if (is_dir($file['server_path'])) {
+                        rmdir($file['server_path']);
+                    }
+                }
+            }
+        }
+
+        if (!$noauth) {
             $this->outJson(0);
         }
         else
         {
-            $this->outJson(1);
+            $this->outJson(1, '', implode(',', $noauth) . '没有权限删除！');
         }
 
     }
