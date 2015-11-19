@@ -1,14 +1,45 @@
-<{include file="admin/public/header.html"}>
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-19 23:32:48
+         compiled from "/var/www/html/codeIgniter/application/views/admin/index.html" */ ?>
+<?php
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'has_nocache_code' => false,
+  'version' => '3.1.28-dev/63',
+  'unifunc' => 'content_564deba0a9d8f3_50933972',
+  'file_dependency' => 
+  array (
+    'a561f108165286ba0d60472ad6d63369fb1348c0' => 
+    array (
+      0 => '/var/www/html/codeIgniter/application/views/admin/index.html',
+      1 => 1447947167,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:admin/public/header.html' => 1,
+    'file:admin/public/left.html' => 1,
+    'file:admin/public/footer.html' => 1,
+  ),
+),false);
+if ($_valid && !is_callable('content_564deba0a9d8f3_50933972')) {
+function content_564deba0a9d8f3_50933972 ($_smarty_tpl) {
+$_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
 <div class="am-cf admin-main">
   <!-- sidebar start -->
-  <{include file='admin/public/left.html'}>
+  <?php $_smarty_tpl->setupSubTemplate('file:admin/public/left.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
   <!-- sidebar end -->
 
   <!-- content start -->
   <div class="admin-content">
 
     <div class="am-cf am-padding">
-      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><{$nav[0]}></strong> / <small><{$nav[1]}></small></div>
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
+</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
+</small></div>
     </div>
 
     <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
@@ -28,11 +59,13 @@
               <tbody>
               <tr>
                 <td class="am-text-left" width="15%">用户名</td>
-                <td><{$smarty.session.user.info.nickname}></td>
+                <td><?php echo $_SESSION['user']['info']['nickname'];?>
+</td>
               </tr>
               <tr>
                 <td class="am-text-left" width="15%">登陆IP</td>
-                <td><{$data.ip}></td>
+                <td><?php echo $_smarty_tpl->tpl_vars['data']->value['ip'];?>
+</td>
               </tr>
               </tbody>
             </table>
@@ -45,27 +78,33 @@
               <tbody>
               <tr>
                 <td class="am-text-left" width="15%">服务器信息</td>
-                <td><{$data.serverInfo}></th>
+                <td><?php echo $_smarty_tpl->tpl_vars['data']->value['serverInfo'];?>
+</th>
               </tr>
               <tr>
                 <td class="am-text-left" width="15%">服务器环境</td>
-                <td><{$data.serverEn}></td>
+                <td><?php echo $_smarty_tpl->tpl_vars['data']->value['serverEn'];?>
+</td>
               </tr>
               <tr>
                 <td class="am-text-left" width="15%">服务器语言</td>
-                <td><{$data.serverLan}></td>
+                <td><?php echo $_smarty_tpl->tpl_vars['data']->value['serverLan'];?>
+</td>
               </tr>
               <tr>
                 <td class="am-text-left" width="15%">PHP版本</td>
-                <td><{$data.serverVer}></td>
+                <td><?php echo $_smarty_tpl->tpl_vars['data']->value['serverVer'];?>
+</td>
               </tr>
               <tr>
                 <td class="am-text-left" width="15%">服务器IP</td>
-                <td><{$data.serverIp}></td>
+                <td><?php echo $_smarty_tpl->tpl_vars['data']->value['serverIp'];?>
+</td>
               </tr>
               <tr>
                 <td class="am-text-left" width="15%">MYSQL版本</td>
-                <td>MySQL<{$data.serverMysql}></td>
+                <td>MySQL<?php echo $_smarty_tpl->tpl_vars['data']->value['serverMysql'];?>
+</td>
               </tr>
               </tbody>
             </table>
@@ -100,7 +139,11 @@
 
 </div>
 
-<{include file='admin/public/footer.html'}>
+<?php $_smarty_tpl->setupSubTemplate('file:admin/public/footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
 
 </body>
 </html>
+<?php }
+}

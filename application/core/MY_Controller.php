@@ -27,7 +27,7 @@ class MY_Controller extends CI_Controller
 		if (!$template)
 		{
 			$uri = $this->uri->segment_array();
-			$template = $uri[1] . '/' . $uri[2] . '/' . $uri[3] . '.html';
+			$template = $uri[1] . '/' . strtolower($uri[2]) . '/' . strtolower($uri[3]) . '.html';
 		}
 		$this->ci_smarty->display($template, $cache_id, $compile_id, $parent);
 	}

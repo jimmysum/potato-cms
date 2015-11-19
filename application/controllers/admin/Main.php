@@ -26,6 +26,8 @@ class Main extends Admin_Controller
 		$data['ip'] = $this->input->ip_address();
 		$data['serverEn'] = $this->input->server('SERVER_SOFTWARE');
 		$data['serverVer'] = PHP_VERSION;
+		$data['serverInfo'] = php_uname();
+		$data['serverLan'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 		$data['serverIp'] = $this->input->server('SERVER_ADDR');
 		$this->load->model('M_Admin', 'admin');
 		$data['serverMysql'] = $this->admin->getVersion();
