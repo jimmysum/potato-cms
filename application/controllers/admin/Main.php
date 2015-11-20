@@ -23,6 +23,11 @@ class Main extends Admin_Controller
 	*/
 	public function index()
 	{
+		$this->load->model('M_article', 'article');
+		$data['artCount'] = $this->article->getCount(array());
+
+
+
 		$data['ip'] = $this->input->ip_address();
 		$data['serverEn'] = $this->input->server('SERVER_SOFTWARE');
 		$data['serverVer'] = PHP_VERSION;

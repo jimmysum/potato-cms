@@ -1,0 +1,148 @@
+<{include file="admin/public/header.html"}>
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <{include file='admin/public/left.html'}>
+  <!-- sidebar end -->
+
+<!-- content start -->
+<div class="admin-content">
+
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><{$nav[0]}></strong> / <small><{$nav[1]}></small></div>
+    <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
+  </div>
+
+  <form class="am-form" id="doc-vld-msg">
+  <div class="am-tabs am-margin" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+      <li class="am-active"><a href="#tab1">用户信息</a></li>
+    </ul>
+    <div class="am-tabs-bd">
+      <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+        <div class="am-g am-margin-top">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">权限组</div>
+          <div class="am-u-sm-8 am-u-md-10">
+            <select data-am-selected="{btnSize: 'sm',maxHeight: 180}" name="role_id" required>
+              <option value="">请选择权限组</option>
+              <{foreach from=$list item="val"}>
+              <{if $val.status==1}> 
+              <option value="<{$val.id}>" <{if $data && $data.role_id eq $val.id}> selected<{/if}>><{$val.name}></option>
+              <{else}>
+              <{if $data && $data.role_id eq $val.id}>
+              <option value="<{$val.id}>" selected><{$val.name}></option>
+              <{/if}>
+              <{/if}>
+              	  
+              <{/foreach}>
+            </select>
+          </div>
+        </div>
+        <div class="am-g am-margin-top">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">状态</div>
+          <div class="am-u-sm-8 am-u-md-10">
+            <div class="am-btn-group" data-am-button>
+              <label class="am-btn am-btn-default am-btn-xs <{if !$data}> am-active<{elseif $data && $data.lock==1}> am-active<{/if}>">
+                <input type="radio" name="lock" id="option1" value="1"> 开启
+              </label>
+              <label class="am-btn am-btn-default am-btn-xs <{if $data && $data.lock==0}> am-active<{/if}>">
+                <input type="radio" name="lock" id="option3" value="0"> 关闭
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="am-g am-margin-top am-form-group">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">
+            用户名
+          </div>
+          <div class="am-u-sm-8 am-u-md-4 am-u-end">
+            <input type="text" class="am-input-sm"  name="username" data-validation-message="用户名必填" placeholder="输入用户名" value="<{if $data}><{$data.username}><{/if}>" required>
+          </div>
+        </div>
+        <div class="am-g am-margin-top am-form-group">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">
+            密码
+          </div>
+          <div class="am-u-sm-8 am-u-md-4 am-u-end">
+            <input type="text" class="am-input-sm"  name="password" data-validation-message="密码必填" placeholder="输入密码" value="" required>
+          </div>
+        </div>
+        <div class="am-g am-margin-top am-form-group">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">
+            重复密码
+          </div>
+          <div class="am-u-sm-8 am-u-md-4 am-u-end">
+            <input type="text" class="am-input-sm"  name="repassword" data-validation-message="确认密码必填" placeholder="输入确认密码" value="" required>
+          </div>
+        </div>
+        <div class="am-g am-margin-top am-form-group">
+          <div class="am-u-sm-4 am-u-md-2 am-text-right">
+            管理员名称
+          </div>
+          <div class="am-u-sm-8 am-u-md-4 am-u-end">
+            <input type="text" class="am-input-sm"  name="nickname"placeholder="输入管理员名称" value="<{if $data}><{$data.nickname}><{/if}>">
+          </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              排序
+            </div>
+            <div class="am-u-sm-8 am-u-md-2 am-u-end">
+              <input name="sort" type="text" class="am-input-sm" value="<{if $data}><{$data.sort}><{/if}>"  placeholder="默认50">
+            </div>
+        </div>
+      </div>
+		
+
+    </div>
+  </div>
+  <{if $data}>
+  <input name="id" type="hidden" class="am-input-sm" value="<{$data.id}>">
+  <{/if}>
+  </form>
+  <div class="am-margin">
+    <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+    <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs" onclick="jumpUrl('/admin/admin/index')">放弃保存</button>
+  </div>
+</div>
+<!-- content end -->
+
+</div>
+<{include file='admin/public/footer.html'}>
+
+<script>
+	$('#save-sure').on('click', function() {
+    var postData = $('#doc-vld-msg').serializeArray();
+    
+		$.post("/admin/admin/add",
+			postData,
+		  function(data,status){
+        result(data, status, '/admin/admin/index');
+		  });
+	});
+
+	$(function() {
+		  $('#doc-vld-msg').validator({
+		    onValid: function(validity) {
+		      $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+		    },
+
+		    onInValid: function(validity) {
+		      var $field = $(validity.field);
+		      var $group = $field.closest('.am-form-group');
+		      var $alert = $group.find('.am-alert');
+		      // 使用自定义的提示信息 或 插件内置的提示信息
+		      var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+		      if (!$alert.length) {
+		        $alert = $('<div class="am-alert am-alert-danger am-u-md-2 am-u-end" id="danger-msg"></div>').hide().
+		          appendTo($group);
+		      }
+
+		      $alert.html(msg).show();
+		    }
+		  });
+			  
+		});
+</script>
+</body>
+</html>

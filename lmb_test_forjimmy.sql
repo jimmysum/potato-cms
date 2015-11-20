@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50531
 File Encoding         : 65001
 
-Date: 2015-11-16 19:21:54
+Date: 2015-11-20 18:27:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,19 +29,15 @@ CREATE TABLE `ci_access` (
 -- ----------------------------
 -- Records of ci_access
 -- ----------------------------
-INSERT INTO `ci_access` VALUES ('1', '64');
-INSERT INTO `ci_access` VALUES ('1', '63');
-INSERT INTO `ci_access` VALUES ('1', '62');
-INSERT INTO `ci_access` VALUES ('1', '61');
-INSERT INTO `ci_access` VALUES ('1', '60');
-INSERT INTO `ci_access` VALUES ('1', '58');
-INSERT INTO `ci_access` VALUES ('1', '57');
-INSERT INTO `ci_access` VALUES ('1', '54');
-INSERT INTO `ci_access` VALUES ('1', '87');
 INSERT INTO `ci_access` VALUES ('1', '88');
-INSERT INTO `ci_access` VALUES ('1', '89');
+INSERT INTO `ci_access` VALUES ('1', '87');
 INSERT INTO `ci_access` VALUES ('1', '86');
 INSERT INTO `ci_access` VALUES ('1', '85');
+INSERT INTO `ci_access` VALUES ('1', '96');
+INSERT INTO `ci_access` VALUES ('1', '95');
+INSERT INTO `ci_access` VALUES ('1', '94');
+INSERT INTO `ci_access` VALUES ('1', '93');
+INSERT INTO `ci_access` VALUES ('1', '92');
 INSERT INTO `ci_access` VALUES ('1', '84');
 INSERT INTO `ci_access` VALUES ('1', '83');
 INSERT INTO `ci_access` VALUES ('1', '82');
@@ -51,6 +47,25 @@ INSERT INTO `ci_access` VALUES ('1', '71');
 INSERT INTO `ci_access` VALUES ('1', '70');
 INSERT INTO `ci_access` VALUES ('1', '69');
 INSERT INTO `ci_access` VALUES ('1', '68');
+INSERT INTO `ci_access` VALUES ('1', '67');
+INSERT INTO `ci_access` VALUES ('1', '66');
+INSERT INTO `ci_access` VALUES ('1', '65');
+INSERT INTO `ci_access` VALUES ('1', '64');
+INSERT INTO `ci_access` VALUES ('1', '63');
+INSERT INTO `ci_access` VALUES ('1', '62');
+INSERT INTO `ci_access` VALUES ('1', '61');
+INSERT INTO `ci_access` VALUES ('1', '60');
+INSERT INTO `ci_access` VALUES ('1', '58');
+INSERT INTO `ci_access` VALUES ('1', '57');
+INSERT INTO `ci_access` VALUES ('1', '100');
+INSERT INTO `ci_access` VALUES ('1', '56');
+INSERT INTO `ci_access` VALUES ('1', '55');
+INSERT INTO `ci_access` VALUES ('1', '54');
+INSERT INTO `ci_access` VALUES ('1', '53');
+INSERT INTO `ci_access` VALUES ('1', '52');
+INSERT INTO `ci_access` VALUES ('1', '51');
+INSERT INTO `ci_access` VALUES ('1', '50');
+INSERT INTO `ci_access` VALUES ('1', '49');
 INSERT INTO `ci_access` VALUES ('1', '30');
 INSERT INTO `ci_access` VALUES ('1', '29');
 INSERT INTO `ci_access` VALUES ('1', '28');
@@ -61,21 +76,6 @@ INSERT INTO `ci_access` VALUES ('1', '24');
 INSERT INTO `ci_access` VALUES ('1', '23');
 INSERT INTO `ci_access` VALUES ('1', '22');
 INSERT INTO `ci_access` VALUES ('1', '21');
-INSERT INTO `ci_access` VALUES ('1', '20');
-INSERT INTO `ci_access` VALUES ('1', '17');
-INSERT INTO `ci_access` VALUES ('1', '16');
-INSERT INTO `ci_access` VALUES ('1', '15');
-INSERT INTO `ci_access` VALUES ('1', '14');
-INSERT INTO `ci_access` VALUES ('1', '13');
-INSERT INTO `ci_access` VALUES ('1', '18');
-INSERT INTO `ci_access` VALUES ('1', '12');
-INSERT INTO `ci_access` VALUES ('1', '11');
-INSERT INTO `ci_access` VALUES ('1', '10');
-INSERT INTO `ci_access` VALUES ('1', '9');
-INSERT INTO `ci_access` VALUES ('1', '8');
-INSERT INTO `ci_access` VALUES ('1', '7');
-INSERT INTO `ci_access` VALUES ('1', '5');
-INSERT INTO `ci_access` VALUES ('1', '4');
 INSERT INTO `ci_access` VALUES ('2', '67');
 INSERT INTO `ci_access` VALUES ('2', '66');
 INSERT INTO `ci_access` VALUES ('2', '65');
@@ -106,21 +106,14 @@ INSERT INTO `ci_access` VALUES ('2', '21');
 INSERT INTO `ci_access` VALUES ('2', '20');
 INSERT INTO `ci_access` VALUES ('2', '53');
 INSERT INTO `ci_access` VALUES ('2', '52');
-INSERT INTO `ci_access` VALUES ('1', '3');
-INSERT INTO `ci_access` VALUES ('1', '2');
-INSERT INTO `ci_access` VALUES ('1', '1');
-INSERT INTO `ci_access` VALUES ('1', '53');
-INSERT INTO `ci_access` VALUES ('1', '52');
-INSERT INTO `ci_access` VALUES ('1', '51');
-INSERT INTO `ci_access` VALUES ('1', '50');
-INSERT INTO `ci_access` VALUES ('1', '49');
+INSERT INTO `ci_access` VALUES ('1', '20');
+INSERT INTO `ci_access` VALUES ('1', '48');
+INSERT INTO `ci_access` VALUES ('1', '47');
+INSERT INTO `ci_access` VALUES ('1', '46');
 INSERT INTO `ci_access` VALUES ('1', '45');
 INSERT INTO `ci_access` VALUES ('1', '44');
 INSERT INTO `ci_access` VALUES ('1', '43');
 INSERT INTO `ci_access` VALUES ('1', '42');
-INSERT INTO `ci_access` VALUES ('1', '48');
-INSERT INTO `ci_access` VALUES ('1', '47');
-INSERT INTO `ci_access` VALUES ('1', '46');
 INSERT INTO `ci_access` VALUES ('1', '40');
 INSERT INTO `ci_access` VALUES ('1', '39');
 INSERT INTO `ci_access` VALUES ('1', '38');
@@ -129,6 +122,13 @@ INSERT INTO `ci_access` VALUES ('1', '36');
 INSERT INTO `ci_access` VALUES ('1', '35');
 INSERT INTO `ci_access` VALUES ('1', '34');
 INSERT INTO `ci_access` VALUES ('1', '33');
+INSERT INTO `ci_access` VALUES ('1', '32');
+INSERT INTO `ci_access` VALUES ('1', '31');
+INSERT INTO `ci_access` VALUES ('1', '19');
+INSERT INTO `ci_access` VALUES ('1', '17');
+INSERT INTO `ci_access` VALUES ('1', '16');
+INSERT INTO `ci_access` VALUES ('1', '15');
+INSERT INTO `ci_access` VALUES ('1', '14');
 INSERT INTO `ci_access` VALUES ('2', '51');
 INSERT INTO `ci_access` VALUES ('2', '50');
 INSERT INTO `ci_access` VALUES ('2', '49');
@@ -150,25 +150,13 @@ INSERT INTO `ci_access` VALUES ('2', '33');
 INSERT INTO `ci_access` VALUES ('2', '32');
 INSERT INTO `ci_access` VALUES ('2', '31');
 INSERT INTO `ci_access` VALUES ('2', '19');
-INSERT INTO `ci_access` VALUES ('7', '73');
-INSERT INTO `ci_access` VALUES ('7', '72');
-INSERT INTO `ci_access` VALUES ('7', '71');
-INSERT INTO `ci_access` VALUES ('7', '70');
+INSERT INTO `ci_access` VALUES ('1', '13');
+INSERT INTO `ci_access` VALUES ('1', '18');
+INSERT INTO `ci_access` VALUES ('1', '12');
+INSERT INTO `ci_access` VALUES ('1', '11');
+INSERT INTO `ci_access` VALUES ('1', '10');
 INSERT INTO `ci_access` VALUES ('7', '69');
 INSERT INTO `ci_access` VALUES ('7', '68');
-INSERT INTO `ci_access` VALUES ('7', '67');
-INSERT INTO `ci_access` VALUES ('7', '66');
-INSERT INTO `ci_access` VALUES ('7', '65');
-INSERT INTO `ci_access` VALUES ('7', '64');
-INSERT INTO `ci_access` VALUES ('7', '63');
-INSERT INTO `ci_access` VALUES ('7', '62');
-INSERT INTO `ci_access` VALUES ('7', '61');
-INSERT INTO `ci_access` VALUES ('7', '54');
-INSERT INTO `ci_access` VALUES ('7', '53');
-INSERT INTO `ci_access` VALUES ('7', '52');
-INSERT INTO `ci_access` VALUES ('7', '51');
-INSERT INTO `ci_access` VALUES ('7', '50');
-INSERT INTO `ci_access` VALUES ('7', '49');
 INSERT INTO `ci_access` VALUES ('7', '30');
 INSERT INTO `ci_access` VALUES ('7', '29');
 INSERT INTO `ci_access` VALUES ('7', '28');
@@ -198,14 +186,31 @@ INSERT INTO `ci_access` VALUES ('7', '33');
 INSERT INTO `ci_access` VALUES ('7', '32');
 INSERT INTO `ci_access` VALUES ('7', '31');
 INSERT INTO `ci_access` VALUES ('7', '19');
-INSERT INTO `ci_access` VALUES ('1', '32');
-INSERT INTO `ci_access` VALUES ('1', '31');
-INSERT INTO `ci_access` VALUES ('1', '19');
-INSERT INTO `ci_access` VALUES ('1', '65');
-INSERT INTO `ci_access` VALUES ('1', '55');
-INSERT INTO `ci_access` VALUES ('1', '56');
-INSERT INTO `ci_access` VALUES ('1', '66');
-INSERT INTO `ci_access` VALUES ('1', '67');
+INSERT INTO `ci_access` VALUES ('7', '17');
+INSERT INTO `ci_access` VALUES ('7', '16');
+INSERT INTO `ci_access` VALUES ('7', '15');
+INSERT INTO `ci_access` VALUES ('7', '14');
+INSERT INTO `ci_access` VALUES ('7', '13');
+INSERT INTO `ci_access` VALUES ('7', '18');
+INSERT INTO `ci_access` VALUES ('7', '12');
+INSERT INTO `ci_access` VALUES ('7', '11');
+INSERT INTO `ci_access` VALUES ('7', '10');
+INSERT INTO `ci_access` VALUES ('7', '9');
+INSERT INTO `ci_access` VALUES ('7', '8');
+INSERT INTO `ci_access` VALUES ('7', '7');
+INSERT INTO `ci_access` VALUES ('7', '5');
+INSERT INTO `ci_access` VALUES ('7', '4');
+INSERT INTO `ci_access` VALUES ('7', '3');
+INSERT INTO `ci_access` VALUES ('7', '2');
+INSERT INTO `ci_access` VALUES ('7', '1');
+INSERT INTO `ci_access` VALUES ('1', '9');
+INSERT INTO `ci_access` VALUES ('1', '8');
+INSERT INTO `ci_access` VALUES ('1', '99');
+INSERT INTO `ci_access` VALUES ('1', '98');
+INSERT INTO `ci_access` VALUES ('1', '97');
+INSERT INTO `ci_access` VALUES ('1', '7');
+INSERT INTO `ci_access` VALUES ('1', '5');
+INSERT INTO `ci_access` VALUES ('1', '4');
 INSERT INTO `ci_access` VALUES ('2', '19');
 INSERT INTO `ci_access` VALUES ('2', '31');
 INSERT INTO `ci_access` VALUES ('2', '32');
@@ -275,6 +280,14 @@ INSERT INTO `ci_access` VALUES ('9', '45');
 INSERT INTO `ci_access` VALUES ('9', '46');
 INSERT INTO `ci_access` VALUES ('9', '47');
 INSERT INTO `ci_access` VALUES ('9', '48');
+INSERT INTO `ci_access` VALUES ('7', '70');
+INSERT INTO `ci_access` VALUES ('7', '71');
+INSERT INTO `ci_access` VALUES ('7', '72');
+INSERT INTO `ci_access` VALUES ('7', '73');
+INSERT INTO `ci_access` VALUES ('1', '3');
+INSERT INTO `ci_access` VALUES ('1', '2');
+INSERT INTO `ci_access` VALUES ('1', '1');
+INSERT INTO `ci_access` VALUES ('1', '89');
 
 -- ----------------------------
 -- Table structure for ci_ad
@@ -285,17 +298,18 @@ CREATE TABLE `ci_ad` (
   `ad_name` varchar(255) NOT NULL,
   `ad_content` text,
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1显示，0不显示',
-  `cate_id` int(11) DEFAULT NULL COMMENT '广告位id',
+  `pos_id` int(11) DEFAULT NULL COMMENT '广告位id',
   `sort` int(11) DEFAULT '50' COMMENT '排序',
   `time` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`ad_id`),
   KEY `ad_name` (`ad_name`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ci_ad
 -- ----------------------------
 INSERT INTO `ci_ad` VALUES ('1', 'banner', 'banner', '0', '1', '50', '1446780393');
+INSERT INTO `ci_ad` VALUES ('2', 'test', '发送发送', '1', '1', '50', '1447762476');
 
 -- ----------------------------
 -- Table structure for ci_admin
@@ -318,7 +332,7 @@ CREATE TABLE `ci_admin` (
 -- ----------------------------
 -- Records of ci_admin
 -- ----------------------------
-INSERT INTO `ci_admin` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', null, '1444376761', '10.0.2.2', '0', '1', '1437654152', '1');
+INSERT INTO `ci_admin` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1111333', '1444376761', '10.0.2.2', '0', '1', '1447926718', '1');
 INSERT INTO `ci_admin` VALUES ('4', 'test', 'e10adc3949ba59abbe56e057f20f883e', 'test', null, null, '0', '1', '1447664814', '7');
 
 -- ----------------------------
@@ -331,12 +345,13 @@ CREATE TABLE `ci_adpos` (
   `sort` int(11) DEFAULT '50' COMMENT '排序',
   `time` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ci_adpos
 -- ----------------------------
 INSERT INTO `ci_adpos` VALUES ('1', 'banner', '50', '1445655569');
+INSERT INTO `ci_adpos` VALUES ('2', '底部', '50', '1447761241');
 
 -- ----------------------------
 -- Table structure for ci_article
@@ -524,7 +539,7 @@ CREATE TABLE `ci_node` (
   KEY `pid` (`pid`) USING BTREE,
   KEY `status` (`status`) USING BTREE,
   KEY `name` (`name`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ci_node
@@ -545,7 +560,7 @@ INSERT INTO `ci_node` VALUES ('14', 'index', '列表', '1', '1', '13', '0', '1',
 INSERT INTO `ci_node` VALUES ('15', 'add', '增加', '1', '2', '13', '0', '1', '', '1439306128');
 INSERT INTO `ci_node` VALUES ('16', 'edit', '修改', '1', '3', '13', '0', '1', '', '1439306150');
 INSERT INTO `ci_node` VALUES ('17', 'del', '删除', '1', '4', '13', '0', '1', '', '1439306179');
-INSERT INTO `ci_node` VALUES ('18', 'rbac', '分配权限', '1', '50', '8', '0', '1', '', '1439391534');
+INSERT INTO `ci_node` VALUES ('18', 'distribute', '分配权限', '1', '50', '8', '0', '1', '', '1447828837');
 INSERT INTO `ci_node` VALUES ('19', 'Default', '内容管理', '1', '1', '0', '0', '1', 'tasks', '1439431735');
 INSERT INTO `ci_node` VALUES ('20', 'Default', '广告管理', '1', '4', '0', '0', '1', 'comments', '1439539009');
 INSERT INTO `ci_node` VALUES ('21', 'Ad/index', '广告管理', '1', '1', '20', '0', '1', '', '1447406904');
@@ -583,7 +598,7 @@ INSERT INTO `ci_node` VALUES ('53', 'enable', '启用', '1', '3', '50', '0', '1'
 INSERT INTO `ci_node` VALUES ('54', 'Default', '基本设置', '1', '10', '0', '0', '1', 'cogs', '1439431606');
 INSERT INTO `ci_node` VALUES ('55', 'System/index', '网站设置', '1', '4', '54', '0', '1', '', '1447407413');
 INSERT INTO `ci_node` VALUES ('56', 'index', '显示', '1', '1', '55', '0', '1', '', '1439436712');
-INSERT INTO `ci_node` VALUES ('57', 'UserInfo/index', '个人信息', '1', '1', '54', '0', '1', '', '1447406950');
+INSERT INTO `ci_node` VALUES ('57', 'Admin/myinfo', '个人信息', '1', '1', '54', '0', '1', '', '1447920923');
 INSERT INTO `ci_node` VALUES ('58', 'index', '修改昵称', '1', '1', '57', '0', '1', '', '1439436858');
 INSERT INTO `ci_node` VALUES ('60', 'pass', '修改密码', '1', '2', '57', '0', '1', '', '1439436887');
 INSERT INTO `ci_node` VALUES ('61', 'Link/index', '友情链接', '1', '3', '54', '0', '1', '', '1447406960');
@@ -599,14 +614,23 @@ INSERT INTO `ci_node` VALUES ('70', 'index', '列表', '1', '1', '69', '0', '1',
 INSERT INTO `ci_node` VALUES ('71', 'add', '添加', '1', '2', '69', '0', '1', '', '1439442708');
 INSERT INTO `ci_node` VALUES ('72', 'edit', '修改', '1', '3', '69', '0', '1', '', '1439442733');
 INSERT INTO `ci_node` VALUES ('73', 'del', '删除', '1', '4', '69', '0', '1', '', '1439442758');
-INSERT INTO `ci_node` VALUES ('84', 'index', '备份', '1', '1', '83', '0', '1', '', '1442465726');
-INSERT INTO `ci_node` VALUES ('83', 'BackUp/index', '数据备份', '1', '1', '82', '0', '1', '', '1447407322');
+INSERT INTO `ci_node` VALUES ('84', 'backup', '备份', '1', '1', '83', '0', '1', '', '1447828790');
+INSERT INTO `ci_node` VALUES ('83', 'Back/index', '数据备份', '1', '1', '82', '0', '1', '', '1447765598');
 INSERT INTO `ci_node` VALUES ('82', 'Default', '备份管理', '1', '6', '0', '0', '1', 'comments-o', '1447402620');
 INSERT INTO `ci_node` VALUES ('85', 'Restore/index', '数据恢复', '1', '2', '82', '0', '1', '', '1447407331');
-INSERT INTO `ci_node` VALUES ('86', 'index', '列表', '1', '1', '85', '0', '1', '', '1442480800');
+INSERT INTO `ci_node` VALUES ('86', 'index', '列表', '1', '1', '85', '0', '1', '', '1447842661');
 INSERT INTO `ci_node` VALUES ('87', 'del', '删除', '1', '4', '85', '0', '1', '', '1442480896');
 INSERT INTO `ci_node` VALUES ('88', 'import', '恢复', '1', '3', '85', '0', '1', '', '1442480974');
 INSERT INTO `ci_node` VALUES ('89', 'download', '下载', '1', '2', '85', '0', '1', '', '1442481069');
+INSERT INTO `ci_node` VALUES ('92', 'index', '列表', '1', '0', '83', '0', '1', '', '1447828776');
+INSERT INTO `ci_node` VALUES ('93', 'optimize_database', '优化数据库', '1', '2', '83', '0', '1', '', '1447836340');
+INSERT INTO `ci_node` VALUES ('94', 'optimize_tables', '优化表', '1', '3', '83', '0', '1', '', '1447836365');
+INSERT INTO `ci_node` VALUES ('95', 'repair_tables', '修复表', '1', '4', '83', '0', '1', '', '1447836385');
+INSERT INTO `ci_node` VALUES ('96', 'get_csv', '导出表', '1', '5', '83', '0', '1', '', '1447836412');
+INSERT INTO `ci_node` VALUES ('97', 'myinfo', '个人中心', '1', '5', '2', '0', '1', '', '1447921893');
+INSERT INTO `ci_node` VALUES ('98', 'changeName', '修改管理员名称', '1', '6', '2', '0', '1', '', '1447925430');
+INSERT INTO `ci_node` VALUES ('99', 'changePwd', '修改密码', '1', '7', '2', '0', '1', '', '1447925457');
+INSERT INTO `ci_node` VALUES ('100', 'clean', '清除缓存', '1', '5', '55', '0', '1', '', '1448014836');
 
 -- ----------------------------
 -- Table structure for ci_role
@@ -678,8 +702,10 @@ CREATE TABLE `ci_users` (
   PRIMARY KEY (`id`),
   KEY `user_login_key` (`user_login`) USING BTREE,
   KEY `user_nicename` (`user_nicename`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ci_users
 -- ----------------------------
+INSERT INTO `ci_users` VALUES ('1', 'one', 'one', 'one', 'one', 'one', null, '1', null, null, '', '', '0', '1', null, null);
+INSERT INTO `ci_users` VALUES ('2', 'twi', 'twi', 'twi', 'twi', 'twi', null, '1', null, null, '', '', '0', '1', null, null);

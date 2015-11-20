@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 15:58:09
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 18:04:57
          compiled from "/data/src/test/codeIgniter/application/views/admin/node/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56459811c9a846_47147644',
+  'unifunc' => 'content_564ef0499cb854_58375992',
   'file_dependency' => 
   array (
     '7a9412f8414cdb24eac06ed4abffb96ec5dd381f' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/node/index.html',
-      1 => 1447401487,
+      1 => 1448013895,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56459811c9a846_47147644')) {
-function content_56459811c9a846_47147644 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564ef0499cb854_58375992')) {
+function content_564ef0499cb854_58375992 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -37,7 +37,9 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
   <div class="admin-content">
 
     <div class="am-cf am-padding">
-      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表格</strong> / <small>Table</small></div>
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
+</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
+</small></div>
       <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
     </div>
 
@@ -172,7 +174,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
   <div class="am-modal-dialog">
     <div class="am-modal-hd">温馨提示</div>
     <div class="am-modal-bd">
-      你，确定要删除这条记录吗？
+      你，确定要删除这个节点以及此子节点吗？
     </div>
     <div class="am-modal-footer">
       <span class="am-modal-btn" data-am-modal-cancel>取消</span>

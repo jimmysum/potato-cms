@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 15:30:06
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 11:00:20
          compiled from "/data/src/test/codeIgniter/application/views/admin/comment/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5645917e877d13_20507052',
+  'unifunc' => 'content_564e8cc4ab3241_62982358',
   'file_dependency' => 
   array (
     'b0a3ec9705c87dc5fae3bab20a385f6297a31cfe' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/comment/index.html',
-      1 => 1447389482,
+      1 => 1447928848,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5645917e877d13_20507052')) {
-function content_5645917e877d13_20507052 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564e8cc4ab3241_62982358')) {
+function content_564e8cc4ab3241_62982358 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -38,7 +38,9 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
   <div class="admin-content">
 
     <div class="am-cf am-padding">
-      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表格</strong> / <small>Table</small></div>
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
+</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
+</small></div>
       <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
     </div>
 
@@ -50,6 +52,8 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
           </div>
         </div>
       </div>
+    </div>
+
     <div class="am-g">
       <div class="am-u-sm-12">
         <form class="am-form">
@@ -65,9 +69,9 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
                 <th class="table-date am-hide-sm-only">创建时间</th>
                 <th class="table-set">操作</th>
               </tr>
-          </thead>
-          <tbody>
-            <?php
+            </thead>
+            <tbody>
+              <?php
 $_from = $_smarty_tpl->tpl_vars['list']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
@@ -79,31 +83,31 @@ if ($__foreach_val_0_total) {
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
 $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
 ?>
-            <tr>
-              <td><input type="checkbox" name="check" rid="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+              <tr>
+                <td><input type="checkbox" name="check" rid="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 " /></td>
-              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+                <td><?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 </td>
-              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['full_name'];?>
+                <td><?php echo $_smarty_tpl->tpl_vars['val']->value['full_name'];?>
 </td>
-              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['email'];?>
+                <td><?php echo $_smarty_tpl->tpl_vars['val']->value['email'];?>
 </td>
-              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['aid'];?>
+                <td><?php echo $_smarty_tpl->tpl_vars['val']->value['aid'];?>
 </td>
-              <td><?php echo $_smarty_tpl->tpl_vars['val']->value['content'];?>
+                <td><?php echo $_smarty_tpl->tpl_vars['val']->value['content'];?>
 </td>
-              <td class="am-hide-sm-only"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['val']->value['createtime'],'%Y-%m-%d %H:%M:%S');?>
+                <td class="am-hide-sm-only"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['val']->value['createtime'],'%Y-%m-%d %H:%M:%S');?>
 </td>
-              <td>
-                <div class="am-btn-toolbar">
-                  <div class="am-btn-group am-btn-group-xs">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+                <td>
+                  <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 )"><span class="am-icon-trash-o"></span> 删除</button>
+                    </div>
                   </div>
-                </div>
-              </td>
-            </tr>
-            <?php
+                </td>
+              </tr>
+              <?php
 $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_local_item;
 }
 }
@@ -111,17 +115,17 @@ if ($__foreach_val_0_saved_item) {
 $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 }
 ?>
-            
-          </tbody>
-        </table>
-        <div class="am-cf">
+              
+            </tbody>
+          </table>
+          <div class="am-cf">
           <div class="am-fr">
               <ul class="am-pagination">
               <?php echo $_smarty_tpl->tpl_vars['page']->value;?>
 
               </ul>
+            </div>
           </div>
-        </div>
           <hr />
           <p>注：.....</p>
         </form>

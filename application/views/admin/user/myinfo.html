@@ -1,45 +1,14 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 17:57:57
-         compiled from "/data/src/test/codeIgniter/application/views/admin/admin/myinfo.html" */ ?>
-<?php
-$_valid = $_smarty_tpl->decodeProperties(array (
-  'has_nocache_code' => false,
-  'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564eeea5f1fa07_98569694',
-  'file_dependency' => 
-  array (
-    '539c7007d5e68abe1e6a3be1d1c3f628d03394b6' => 
-    array (
-      0 => '/data/src/test/codeIgniter/application/views/admin/admin/myinfo.html',
-      1 => 1447928054,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-    'file:admin/public/header.html' => 1,
-    'file:admin/public/left.html' => 1,
-    'file:admin/public/footer.html' => 1,
-  ),
-),false);
-if ($_valid && !is_callable('content_564eeea5f1fa07_98569694')) {
-function content_564eeea5f1fa07_98569694 ($_smarty_tpl) {
-$_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
-?>
-
+<{include file="admin/public/header.html"}>
 <div class="am-cf admin-main">
   <!-- sidebar start -->
-  <?php $_smarty_tpl->setupSubTemplate('file:admin/public/left.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
-?>
-
+  <{include file='admin/public/left.html'}>
   <!-- sidebar end -->
 
 <!-- content start -->
 <div class="admin-content">
 
   <div class="am-cf am-padding">
-    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
-</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
-</small></div>
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><{$nav[0]}></strong> / <small><{$nav[1]}></small></div>
     <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
   </div>
 
@@ -56,9 +25,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
             管理员名称
           </div>
           <div class="am-u-sm-8 am-u-md-4 am-u-end">
-            <input type="text" class="am-input-sm"  name="nickname"placeholder="输入管理员名称" value="<?php if ($_smarty_tpl->tpl_vars['data']->value) {
-echo $_smarty_tpl->tpl_vars['data']->value['nickname'];
-}?>">
+            <input type="text" class="am-input-sm"  name="nickname"placeholder="输入管理员名称" value="<{if $data}><{$data.nickname}><{/if}>">
           </div>
         </div>
         </form>
@@ -108,12 +75,9 @@ echo $_smarty_tpl->tpl_vars['data']->value['nickname'];
 <!-- content end -->
 
 </div>
-<?php $_smarty_tpl->setupSubTemplate('file:admin/public/footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
-?>
+<{include file='admin/public/footer.html'}>
 
-
-<?php echo '<script'; ?>
->
+<script>
 	$('#save-nickname').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
     
@@ -157,9 +121,6 @@ echo $_smarty_tpl->tpl_vars['data']->value['nickname'];
 		  });
 			  
 		});
-<?php echo '</script'; ?>
->
+</script>
 </body>
 </html>
-<?php }
-}

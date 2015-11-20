@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 16:02:50
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 18:21:37
          compiled from "/data/src/test/codeIgniter/application/views/admin/nav/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5645992a358c36_68985294',
+  'unifunc' => 'content_564ef431d491f6_23646435',
   'file_dependency' => 
   array (
     'c4d873f1acf7aada5b22209c6770b23c03fac025' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/nav/index.html',
-      1 => 1447401768,
+      1 => 1448013766,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5645992a358c36_68985294')) {
-function content_5645992a358c36_68985294 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_564ef431d491f6_23646435')) {
+function content_564ef431d491f6_23646435 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -38,7 +38,9 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
   <div class="admin-content">
 
     <div class="am-cf am-padding">
-      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表格</strong> / <small>Table</small></div>
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
+</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
+</small></div>
       <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
     </div>
 
@@ -219,7 +221,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
   <div class="am-modal-dialog">
     <div class="am-modal-hd">温馨提示</div>
     <div class="am-modal-bd">
-      你，确定要删除这条记录吗？
+      你，确定要删除这条菜单吗？
     </div>
     <div class="am-modal-footer">
       <span class="am-modal-btn" data-am-modal-cancel>取消</span>

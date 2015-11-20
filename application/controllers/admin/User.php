@@ -66,22 +66,21 @@ class User extends Admin_Controller
     public function __construct() 
     {
         parent::__construct ();
-        $this->load->model('M_Admin', 'admin');
+        $this->load->model('M_user', 'user');
     }
     
     public function index()
     {
-        echo '未开发';die;
         $param = $this->input->get();
         $conditon['p'] = isset($param['p']) && $param['p'] > 0 ? $param['p'] : 0;
         $conditon['ps'] = $this->ps;
-        $list = $this->admin->getList($conditon);
-        $list = $this->admin->amerge($list);
+        $list = $this->user->getList($conditon);
+        $list = $this->user->amerge($list);
      
-        $count = $this->admin->getCount(array());
+        $count = $this->user->getCount(array());
         // 分页
         $this->load->library('pagination');
-        $config['base_url'] = '/admin/admin/index';
+        $config['base_url'] = '/admin/user/index';
         $config['total_rows'] = $count;
         $config['per_page'] = $this->ps;
         $config['page_query_string'] = true;
@@ -108,11 +107,11 @@ class User extends Admin_Controller
                 $input['password'] = md5($input['password']);
                 $input['time'] = time();
                 if (isset($input['id'])) {
-                    $res = $this->admin->update($input, 'id');
+                    $res = $this->user->update($input, 'id');
                 }
                 else
                 {
-                    $res = $this->admin->add($input);
+                    $res = $this->user->add($input);
                 }
                 if ($res)
                 {
@@ -133,7 +132,7 @@ class User extends Admin_Controller
             $id = $this->input->get('id');
             $data = array();
             if ($id) {
-                $data = $this->admin->getUserById($id);
+                $data = $this->user->getUserById($id);
                 if (!$data) {
                     $this->error('用户不存在');
                 }
@@ -154,17 +153,51 @@ class User extends Admin_Controller
             $this->outJson(-1);
         }
 
-        $cate = $this->admin->getUserById($id);
+        $cate = $this->user->getUserById($id);
         if (!$cate) {
             $this->outJson(101,'','参数错误');
         }
 
-        if ($cate['username'] == 'admin')
+        $res = $this->user->del($id);
+        if ($res) {
+            $this->outJson(0);
+        }
+        else
         {
-            $this->outJson(101,'','超级用户不可删除');
+            $this->outJson(1);
         }
 
-        $res = $this->admin->del($id);
+    }
+
+    public function enable()
+    {
+        $id = $this->input->get('id');
+        if (!$id) {
+            $this->outJson(-1);
+        }
+
+        // echo '<pre>';print_r($id);die;
+        $ids = explode(',', $id);
+
+
+        $status = (int)$this->input->get('status');
+        $status = $status >= 1 ? 1 : 0;
+
+        $user = $this->user->getList(array('id_in' => $ids));
+        if (!$user) {
+            $this->outJson(101,'','参数错误');
+        }
+
+        $res = 0;
+        foreach ($user as $v) {
+            $data = array(
+                    'user_status' => $status,
+                    'id'            => $v['id'],
+                );
+            
+            $res = $this->user->update($data, 'id');
+        }
+        
         if ($res) {
             $this->outJson(0);
         }
