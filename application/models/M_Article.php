@@ -49,6 +49,11 @@ class M_article extends CI_Model
 			$this->db->where(array('cate_id' => $conditon['cate_id']));
 		}
 
+		if (isset($conditon['title']) && $conditon['title'] != '') 
+		{
+			$this->db->like('title', $conditon['title']);
+		}
+
 		if (isset($conditon['p'])) {
 			$ps = $conditon['ps'] ? $conditon['ps'] : 25;
 			$this->db->limit($ps, $conditon['p']);

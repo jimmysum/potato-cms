@@ -26,6 +26,12 @@ class Main extends Admin_Controller
 		$this->load->model('M_article', 'article');
 		$data['artCount'] = $this->article->getCount(array());
 
+		$this->load->model('M_comment', 'comment');
+		$data['comCount'] = $this->comment->getCount(array());
+
+		$this->load->model('M_user', 'user');
+		$data['userCount'] = $this->user->getCount(array());
+
 
 
 		$data['ip'] = $this->input->ip_address();

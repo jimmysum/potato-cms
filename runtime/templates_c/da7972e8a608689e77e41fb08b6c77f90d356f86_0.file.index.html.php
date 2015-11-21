@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 16:44:20
-         compiled from "/var/www/html/codeIgniter/application/views/admin/cate/index.html" */ ?>
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 16:48:21
+         compiled from "/var/www/html/codeIgniter/application/views/admin/nav/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56502ee4aa1fd7_47777523',
+  'unifunc' => 'content_56502fd5df0235_58809134',
   'file_dependency' => 
   array (
-    '691697f4f27776d3b33b610d637751cc6562a71a' => 
+    'da7972e8a608689e77e41fb08b6c77f90d356f86' => 
     array (
-      0 => '/var/www/html/codeIgniter/application/views/admin/cate/index.html',
-      1 => 1448095459,
+      0 => '/var/www/html/codeIgniter/application/views/admin/nav/index.html',
+      1 => 1448095041,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56502ee4aa1fd7_47777523')) {
-function content_56502ee4aa1fd7_47777523 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56502fd5df0235_58809134')) {
+function content_56502fd5df0235_58809134 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/var/www/html/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -48,7 +48,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="add-cate" type="button" class="am-btn am-btn-default" onclick="jumpUrl('/admin/cate/add')"><span class="am-icon-plus"></span> 新增</button>
+            <button id="add-cate" type="button" class="am-btn am-btn-default" onclick="jumpUrl('/admin/nav/add')"><span class="am-icon-plus"></span> 新增</button>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
             <thead>
               <tr>
                 <th class="table-check"><input type="checkbox" /></th>
-                <th class="table-id">ID</th><th class="table-title">分类名称</th>
+                <th class="table-id">ID</th><th class="table-title">名称</th>
                 <th class="table-type">排序</th>
                 <th class="table-author am-hide-sm-only">状态</th>
                 <th class="table-date am-hide-sm-only">修改日期</th>
@@ -85,20 +85,21 @@ $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
               <td><input type="checkbox" /></td>
               <td><span class="am-btn am-btn-xs am-btn-danger"><?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 </span></td>
-              <td><a href="/admin/cate/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
+              <td><a href="/admin/nav/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['val']->value['name'];?>
 </a></td>
               <td><?php echo $_smarty_tpl->tpl_vars['val']->value['sort'];?>
 </td>
-              <td class="am-hide-sm-only"><?php echo $_smarty_tpl->tpl_vars['val']->value['status'];?>
-</td>
+              <td class="am-hide-sm-only"><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['val']->value['status'] == 1) {?>am-btn-success<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php if ($_smarty_tpl->tpl_vars['val']->value['status'] == 1) {?>可用<?php } else { ?>不可用<?php }?></span></td>
               <td class="am-hide-sm-only"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['val']->value['time'],'%Y-%m-%d %H:%M:%S');?>
 </td>
               <td>
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
-                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/cate/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/nav/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 ')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                    <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+)"><span class="am-icon-copy"></span> 复制</button> -->
                     <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 )"><span class="am-icon-trash-o"></span> 删除</button>
                   </div>
@@ -122,19 +123,20 @@ $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
 	              <td><span class="am-btn am-btn-xs am-btn-success am-radius"><?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
 </span></td>
 	              <td>└──<a href="/admin/cate/add?id=<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
+"><?php echo $_smarty_tpl->tpl_vars['va']->value['name'];?>
 </a></td>
 	              <td><?php echo $_smarty_tpl->tpl_vars['va']->value['sort'];?>
 </td>
-	              <td class="am-hide-sm-only"><?php echo $_smarty_tpl->tpl_vars['val']->value['status'];?>
-</td>
+	              <td class="am-hide-sm-only"><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['va']->value['status'] == 1) {?>am-btn-success<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php if ($_smarty_tpl->tpl_vars['va']->value['status'] == 1) {?>可用<?php } else { ?>不可用<?php }?></span></td>
 	              <td class="am-hide-sm-only"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['va']->value['time'],'%Y-%m-%d %H:%M:%S');?>
 </td>
 	              <td>
 	                <div class="am-btn-toolbar">
 	                  <div class="am-btn-group am-btn-group-xs">
-	                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/cate/add?id=<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+	                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/nav/add?id=<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
 ')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                      <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+)"><span class="am-icon-copy"></span> 复制</button> -->
                       <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
 )"><span class="am-icon-trash-o"></span> 删除</button>
 	                  </div>
@@ -158,19 +160,20 @@ $__foreach_v_2_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 		              <td><span class="am-btn am-btn-primary am-btn-xs am-round"><?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
 </span></td>
 		              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──<a href="/admin/cate/add?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['v']->value['cate'];?>
+"><?php echo $_smarty_tpl->tpl_vars['v']->value['name'];?>
 </a></td>
 		              <td><?php echo $_smarty_tpl->tpl_vars['va']->value['sort'];?>
 </td>
-		              <td class="am-hide-sm-only"><?php echo $_smarty_tpl->tpl_vars['v']->value['status'];?>
-</td>
+		              <td class="am-hide-sm-only"><span class="am-btn <?php if ($_smarty_tpl->tpl_vars['v']->value['status'] == 1) {?>am-btn-success<?php } else { ?>am-btn-warning<?php }?> am-round am-btn-xs"><?php if ($_smarty_tpl->tpl_vars['v']->value['status'] == 1) {?>可用<?php } else { ?>不可用<?php }?></span></td>
 		              <td class="am-hide-sm-only"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['v']->value['time'],'%Y-%m-%d %H:%M:%S');?>
 </td>
 		              <td>
 		                <div class="am-btn-toolbar">
 		                  <div class="am-btn-group am-btn-group-xs">
-		                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/cate/add?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+		                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/nav/add?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
 ')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                        <!-- <button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="copy(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+)"><span class="am-icon-copy"></span> 复制</button> -->
                         <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
 )"><span class="am-icon-trash-o"></span> 删除</button>
 		                  </div>
@@ -218,7 +221,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
   <div class="am-modal-dialog">
     <div class="am-modal-hd">温馨提示</div>
     <div class="am-modal-bd">
-      你，确定要删除这个分类吗？
+      你，确定要删除这条菜单吗？
     </div>
     <div class="am-modal-footer">
       <span class="am-modal-btn" data-am-modal-cancel>取消</span>
@@ -232,17 +235,21 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 
 <?php echo '<script'; ?>
 >
+  function copy(id)
+  {
+
+  }
+
   function del(id)
   {
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/cate/del?id=" + id,
+          $.post("/admin/nav/del?id=" + id,
             '',
             function(data,status){
               result(data, status, '');
             });
-          
         },
         // closeOnConfirm: false,
         onCancel: function() {

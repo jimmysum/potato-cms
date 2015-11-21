@@ -54,7 +54,7 @@ class Article extends Admin_Controller
 			
 	);
 
-	public $ps = 25;
+	public $ps = 11;
 	
 	public function __construct() 
 	{
@@ -75,6 +75,12 @@ class Article extends Admin_Controller
 		{
 			$conditon['del'] = 0;
 			$this->assign('del', 0);
+		}
+		if (isset($param['title']) && $param['title'] != '') {
+			$conditon['title'] = $param['title'];
+		}
+		if (isset($param['cate_id']) && $param['cate_id'] > 0) {
+			$conditon['cate_id'] = $param['cate_id'];
 		}
 		
 		$count = $this->article->getCount($conditon);
@@ -107,7 +113,9 @@ class Article extends Admin_Controller
 
 		// 分页
 		$this->load->library('pagination');
-		$config['base_url'] = '/admin/article/index';
+		unset($param['p'], $param['ps']);
+		// print_r($count);
+		$config['base_url'] = '/admin/article/index?' . http_build_query($param);
 		$config['total_rows'] = $count;
 		$config['per_page'] = $this->ps;
 		$config['page_query_string'] = true;

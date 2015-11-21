@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 16:38:37
-         compiled from "/var/www/html/codeIgniter/application/views/admin/node/index.html" */ ?>
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 16:39:01
+         compiled from "/var/www/html/codeIgniter/application/views/admin/role/distribute.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56502d8de05566_44369811',
+  'unifunc' => 'content_56502da56ef596_09634841',
   'file_dependency' => 
   array (
-    'ded28fe1bdb4a79b9c872e8177e433f1374d5bae' => 
+    '7177d2f4a24980fde03cf8c0c70180841ac4b4ea' => 
     array (
-      0 => '/var/www/html/codeIgniter/application/views/admin/node/index.html',
-      1 => 1448095041,
+      0 => '/var/www/html/codeIgniter/application/views/admin/role/distribute.html',
+      1 => 1447943490,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56502d8de05566_44369811')) {
-function content_56502d8de05566_44369811 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56502da56ef596_09634841')) {
+function content_56502da56ef596_09634841 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -47,7 +47,6 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button id="add-cate" type="button" class="am-btn am-btn-default" onclick="jumpUrl('/admin/node/add')"><span class="am-icon-plus"></span> 新增</button>
           </div>
         </div>
       </div>
@@ -55,8 +54,8 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
 
     <div class="am-g">
       <div class="am-u-sm-12">
-        <form class="am-form">
-          <table class="am-table am-table-striped am-table-hover table-main box-shadow">
+        <form class="am-form" id="doc-vld-msg">
+          <table class="am-table am-table-striped ">
           <tbody>
             <?php
 $_from = $_smarty_tpl->tpl_vars['list']->value;
@@ -72,14 +71,12 @@ $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
 ?>
             <tr>
               <td>
+              <input type="checkbox" name="check[]" id="check<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+" value="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+" onclick="check(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+, 0)"  <?php if (in_array($_smarty_tpl->tpl_vars['val']->value['id'],$_smarty_tpl->tpl_vars['auth']->value)) {?>checked=checked<?php }?>/>
               <span><strong><?php echo $_smarty_tpl->tpl_vars['val']->value['title'];?>
 </strong></span>
-              <div class="am-btn-group am-btn-group-xs">
-                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/node/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-)"><span class="am-icon-trash-o"></span> 删除</button>
-              </div>
               </td>
             </tr>
             <?php
@@ -96,14 +93,14 @@ $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
 ?>
             <tr>
               <td>
-              &nbsp;&nbsp;&nbsp;<?php echo $_smarty_tpl->tpl_vars['va']->value['title'];?>
+              &nbsp;&nbsp;&nbsp;
+              <input type="checkbox" name="check[]" id="check<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+" value="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+" parent="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+" onclick="check(<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+, 1)" <?php if (in_array($_smarty_tpl->tpl_vars['va']->value['id'],$_smarty_tpl->tpl_vars['auth']->value)) {?>checked<?php }?>/>
+              <?php echo $_smarty_tpl->tpl_vars['va']->value['title'];?>
 
-              <div class="am-btn-group am-btn-group-xs">
-                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/node/add?id=<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
-')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
-)"><span class="am-icon-trash-o"></span> 删除</button>
-              </div>
               </td>
               <?php
 $_from = $_smarty_tpl->tpl_vars['va']->value['child'];
@@ -118,14 +115,13 @@ foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
 $__foreach_v_2_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 ?>
               <td>
+              <input type="checkbox" name="check[]" id="check<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+" value="<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+" parent="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+" onclick="check(<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+, 2)"  <?php if (in_array($_smarty_tpl->tpl_vars['v']->value['id'],$_smarty_tpl->tpl_vars['auth']->value)) {?>checked<?php }?>/>
               <?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
 
-              <div class="am-btn-group am-btn-group-xs">
-                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="jumpUrl('/admin/node/add?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
-')"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del(<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
-)"><span class="am-icon-trash-o"></span> 删除</button>
-              </div>
               </td>
               <?php
 $_smarty_tpl->tpl_vars['v'] = $__foreach_v_2_saved_local_item;
@@ -155,57 +151,95 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
             
           </tbody>
         </table>
-        <div class="am-cf">
-          <div class="am-fr">
-              <ul class="am-pagination">
-              </ul>
-          </div>
-        </div>
-          <hr />
-          <p>注：.....</p>
+        <?php if ($_smarty_tpl->tpl_vars['data']->value) {?>
+        <input name="id" type="hidden" class="am-input-sm" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['id'];?>
+">
+        <?php }?>
         </form>
+        <div class="am-margin">
+          <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+          <button id="save-forgive" type="button" class="am-btn am-btn-primary am-btn-xs" onclick="jumpUrl('/admin/role/index')">放弃保存</button>
+        </div>
       </div>
 
     </div>
   </div>
   <!-- content end -->
 </div>
-<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
-  <div class="am-modal-dialog">
-    <div class="am-modal-hd">温馨提示</div>
-    <div class="am-modal-bd">
-      你，确定要删除这个节点以及此子节点吗？
-    </div>
-    <div class="am-modal-footer">
-      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-      <span class="am-modal-btn" data-am-modal-confirm>确定</span>
-    </div>
-  </div>
-</div>
-
 <?php $_smarty_tpl->setupSubTemplate('file:admin/public/footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
 <?php echo '<script'; ?>
 >
-  function del(id)
+  $('#save-sure').on('click', function() {
+    var postData = $('#doc-vld-msg').serializeArray();
+    
+    $.post("/admin/role/distribute",
+      postData,
+      function(data,status){
+        result(data, status, '/admin/role/index');
+      });
+  });
+
+  function check(id, step)
   {
-    var url = "/admin/node/del?id=" + id;
-    $('#my-confirm').modal({
-        relatedTarget: this,
-        onConfirm: function(options) {
-          $.post(url,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
-          
-        },
-        // closeOnConfirm: false,
-        onCancel: function() {
-          
+    if (step == 0) 
+    {
+      var check = $('input[parent="' + id + '"]');
+      checkChild(id);
+      check.each(function(){
+        checkChild($(this).attr('value'));
+      });
+    }
+    else if (step == 1)
+    {
+      checkChild(id);
+      checkParent(id);
+    }
+    else if (step == 2)
+    {
+      var parentId = $('#check' + id).attr('parent');
+      checkParent(id);
+      checkParent(parentId);
+      
+    }
+  }
+
+  function checkParent(id)
+  {
+    var parentId = $('#check' + id).attr('parent');
+    var sameCheck = $('input[parent="' + parentId + '"]');
+    if ($('#check' + id).is(':checked') == false) 
+    {
+      var res = false;
+      sameCheck.each(function(){
+        if ($('#check' + $(this).attr('value')).is(':checked') == true) 
+        {
+          res = true;
         }
       });
+      if (res == false) 
+      {
+          $('#check' + parentId).prop('checked',false);
+      };
+    }
+    else
+    {
+      $('#check' + parentId).prop('checked',true);
+    }
+  }
+
+  function checkChild(id)
+  {
+    var check = $('input[parent="' + id + '"]');
+    if ($('#check' + id).is(':checked') == false) 
+    {
+      check.prop('checked',false);
+    }
+    else
+    {
+      check.prop('checked',true);
+    }
   }
 
 <?php echo '</script'; ?>
