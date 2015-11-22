@@ -103,11 +103,9 @@
       "name": "ad_content",
       "value": editor.html()
     });
-		$.post("/admin/ad/add",
-			postData,
-		  function(data,status){
-        result(data, status, '/admin/ad/index');
-		  });
+    var jumpUrl = '/admin/ad/index';
+    var url = "/admin/ad/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

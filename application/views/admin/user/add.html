@@ -113,11 +113,9 @@
 	$('#save-sure').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
     
-		$.post("/admin/admin/add",
-			postData,
-		  function(data,status){
-        result(data, status, '/admin/admin/index');
-		  });
+    var url = "/admin/admin/add";
+    var jumpUrl = '/admin/admin/index';
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

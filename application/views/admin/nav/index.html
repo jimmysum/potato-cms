@@ -132,11 +132,8 @@
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/nav/del?id=" + id,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
+          var url = "/admin/nav/del?id=" + id;
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

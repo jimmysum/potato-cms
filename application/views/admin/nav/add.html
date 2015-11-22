@@ -114,11 +114,10 @@
 <{include file='admin/public/footer.html'}>
 <script>
 	$('#save-sure').on('click', function() {
-		$.post("/admin/nav/add",
-			$('#doc-vld-msg').serializeArray(),
-		  function(data,status){
-        result(data, status, '/admin/nav/index');
-		  });
+    var postData = $('#doc-vld-msg').serializeArray();
+    var jumpUrl = '/admin/nav/index';
+    var url = "/admin/nav/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

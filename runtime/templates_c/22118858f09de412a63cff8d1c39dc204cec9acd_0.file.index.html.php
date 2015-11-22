@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 16:45:21
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 00:16:31
          compiled from "/var/www/html/codeIgniter/application/views/admin/admin/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56502f21c2b016_33900060',
+  'unifunc' => 'content_5651ea5fa54233_97771559',
   'file_dependency' => 
   array (
     '22118858f09de412a63cff8d1c39dc204cec9acd' => 
     array (
       0 => '/var/www/html/codeIgniter/application/views/admin/admin/index.html',
-      1 => 1448095520,
+      1 => 1448208802,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56502f21c2b016_33900060')) {
-function content_56502f21c2b016_33900060 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5651ea5fa54233_97771559')) {
+function content_5651ea5fa54233_97771559 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/var/www/html/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -206,11 +206,8 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 
   function checkPost(data, type)
   {
-    $.post("/admin/admin/check?type=" + type + "&id=" + data,
-      '',
-      function(data,status){
-        result(data,status, '');
-      });
+    var url = "/admin/admin/check?type=" + type + "&id=" + data;
+    post(url);
   }
 
   function del(id)
@@ -219,12 +216,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post(url,
-            '',
-            function(data,status){
-              result(data, status, '')
-            });
-          
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

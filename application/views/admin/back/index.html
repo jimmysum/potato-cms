@@ -133,12 +133,8 @@
     $('#my-confirm').modal({
       relatedTarget: this,
       onConfirm: function(options) {
-        $.post(url,
-          $('#doc-vld-msg').serializeArray(),
-          function(data,status){
-            result(data, status, '');
-          });
-        
+        var postdata = $('#doc-vld-msg').serializeArray();
+        post(url, postdata);
       },
       // closeOnConfirm: false,
       onCancel: function() {

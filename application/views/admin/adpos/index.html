@@ -85,12 +85,8 @@
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/adpos/del?id=" + id,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
-          
+          var url = "/admin/adpos/del?id=" + id;
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

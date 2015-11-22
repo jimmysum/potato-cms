@@ -173,16 +173,12 @@
       msg = '确定要禁用这个用户吗？';
     }
     $('#alert-msg').html(msg);
+
     var url = "/admin/user/enable?id=" + id + '&status=' + status;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post(url,
-            '',
-            function(data,status){
-              result(data, status, '')
-            });
-          
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

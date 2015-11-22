@@ -99,12 +99,11 @@
     $('#my-confirm').modal({
       relatedTarget: this,
       onConfirm: function(options) {
-        $.post("/admin/restore/del",
-          $('#doc-vld-msg').serializeArray(),
-          function(data,status){
-            result(data, status, '');
-          });
-        
+        var postData = $('#doc-vld-msg').serializeArray();
+    
+        var jumpUrl = '';
+        var url = "/admin/restore/del";
+        post(url, postData, jumpUrl);
       },
       // closeOnConfirm: false,
       onCancel: function() {
@@ -118,11 +117,9 @@
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/restore/del?filename=" + name,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
+
+          var url = "/admin/restore/del?filename=" + name;
+          post(url);
           
         },
         // closeOnConfirm: false,

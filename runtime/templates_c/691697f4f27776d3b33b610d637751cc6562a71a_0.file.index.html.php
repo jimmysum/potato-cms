@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-22 19:38:45
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 00:14:08
          compiled from "/var/www/html/codeIgniter/application/views/admin/cate/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5651a94527b139_86146031',
+  'unifunc' => 'content_5651e9d04e2ab6_66195675',
   'file_dependency' => 
   array (
     '691697f4f27776d3b33b610d637751cc6562a71a' => 
     array (
       0 => '/var/www/html/codeIgniter/application/views/admin/cate/index.html',
-      1 => 1448192323,
+      1 => 1448208612,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5651a94527b139_86146031')) {
-function content_5651a94527b139_86146031 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5651e9d04e2ab6_66195675')) {
+function content_5651e9d04e2ab6_66195675 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/var/www/html/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -237,12 +237,8 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/cate/del?id=" + id,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
-          
+          var url = "/admin/cate/del?id=" + id;
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

@@ -134,11 +134,7 @@
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post(url,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
+          post(url);
           
         },
         // closeOnConfirm: false,

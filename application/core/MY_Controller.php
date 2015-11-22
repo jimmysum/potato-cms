@@ -215,7 +215,11 @@ class Admin_Controller extends MY_Controller
         $this->assign('open', $open);
 		if (!in_array(ucwords($controller), $noauth)) {
 			if ($open <= 0 || $actId <= 0) {
-				$this->error('您没有权限操作此项！', 2);
+				$json = $this->input->get('json');
+				if (isset($json) && $json == 1) {
+					$this->outJson(101, '', '对不起，您没有权限操作此项！');
+				}
+				$this->error('对不起，您没有权限操作此项！', 2);
 			}
 		}
 		

@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-22 19:57:06
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 00:04:39
          compiled from "/var/www/html/codeIgniter/application/views/admin/link/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5651ad923d18c1_71078762',
+  'unifunc' => 'content_5651e798031d02_27764748',
   'file_dependency' => 
   array (
     'b9289ba02e6839015e534d6890d1ef7ef6623284' => 
     array (
       0 => '/var/www/html/codeIgniter/application/views/admin/link/add.html',
-      1 => 1448193425,
+      1 => 1448208271,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5651ad923d18c1_71078762')) {
-function content_5651ad923d18c1_71078762 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5651e798031d02_27764748')) {
+function content_5651e798031d02_27764748 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -175,11 +175,11 @@ kindeditor/lang/zh_CN.js"><?php echo '</script'; ?>
 
   });
 	$('#save-sure').on('click', function() {
-		$.post("/admin/link/add",
-			$('#doc-vld-msg').serializeArray(),
-		  function(data,status){
-        result(data, status, '/admin/link/index');
-		  });
+
+    var postData = $('#doc-vld-msg').serializeArray();
+    var jumpUrl = '/admin/link/index';
+    var url = "/admin/link/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

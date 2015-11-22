@@ -140,11 +140,10 @@
       "name": "content",
       "value": editor.html()
     });
-    $.post("/admin/system/index",
-      postData,
-      function(data,status){
-        result(data, status, '');
-      });
+
+    var url = "/admin/system/index";
+    var jumpUrl = '';
+    post(url, postData, jumpUrl);
   });
 
   $(function() {

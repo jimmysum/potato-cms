@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 16:48:25
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 00:18:17
          compiled from "/var/www/html/codeIgniter/application/views/admin/back/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56502fd98aacf7_76451012',
+  'unifunc' => 'content_5651eac9d327b1_57539032',
   'file_dependency' => 
   array (
     '0af6ece705f40be438abebe29fe7af57cdc732dc' => 
     array (
       0 => '/var/www/html/codeIgniter/application/views/admin/back/index.html',
-      1 => 1447943490,
+      1 => 1448208675,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56502fd98aacf7_76451012')) {
-function content_56502fd98aacf7_76451012 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5651eac9d327b1_57539032')) {
+function content_5651eac9d327b1_57539032 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -193,12 +193,8 @@ $_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_item;
     $('#my-confirm').modal({
       relatedTarget: this,
       onConfirm: function(options) {
-        $.post(url,
-          $('#doc-vld-msg').serializeArray(),
-          function(data,status){
-            result(data, status, '');
-          });
-        
+        var postdata = $('#doc-vld-msg').serializeArray();
+        post(url, postdata);
       },
       // closeOnConfirm: false,
       onCancel: function() {

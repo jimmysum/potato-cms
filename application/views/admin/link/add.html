@@ -122,11 +122,11 @@
 
   });
 	$('#save-sure').on('click', function() {
-		$.post("/admin/link/add",
-			$('#doc-vld-msg').serializeArray(),
-		  function(data,status){
-        result(data, status, '/admin/link/index');
-		  });
+
+    var postData = $('#doc-vld-msg').serializeArray();
+    var jumpUrl = '/admin/link/index';
+    var url = "/admin/link/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

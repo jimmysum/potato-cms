@@ -97,12 +97,8 @@
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/ad/del?id=" + id,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
-          
+          var url = "/admin/ad/del?id=" + id;
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

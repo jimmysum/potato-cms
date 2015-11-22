@@ -19,6 +19,21 @@
 
 })(jQuery);
 
+function post (url, data, jumpUrl) {
+  if (url.indexOf('?') > 0)
+  {
+    url += '&json=1';
+  }
+  else
+  {
+    url += '?json=1';
+  }
+  $.post(url,data,
+        function(data,status){
+          result(data, status, jumpUrl);
+        });
+}
+
 function result(data, status, url){
   var res =  data;//jQuery.parseJSON(data);
   if (status == 'success')

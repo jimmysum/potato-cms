@@ -57,11 +57,10 @@
 <{include file='admin/public/footer.html'}>
 <script>
 	$('#save-sure').on('click', function() {
-		$.post("/admin/adpos/add",
-			$('#doc-vld-msg').serializeArray(),
-		  function(data,status){
-        result(data, status, '/admin/adpos/index');
-		  });
+    var postData = $('#doc-vld-msg').serializeArray();
+    var jumpUrl = '/admin/adpos/index';
+    var url = "/admin/adpos/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

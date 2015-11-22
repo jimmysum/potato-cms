@@ -71,11 +71,9 @@
   $('#save-sure').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
     
-    $.post("/admin/role/distribute",
-      postData,
-      function(data,status){
-        result(data, status, '/admin/role/index');
-      });
+    var url = "/admin/role/distribute";
+    var jumpUrl = '/admin/role/index';
+    post(url, postData, jumpUrl);
   });
 
   function check(id, step)

@@ -95,22 +95,13 @@
 
 <{include file='admin/public/footer.html'}>
 <script>
-  function copy(id)
-  {
-
-  }
-
   function del(id)
   {
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/link/del?id=" + id,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
-          
+          var url = "/admin/link/del?id=" + id;
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

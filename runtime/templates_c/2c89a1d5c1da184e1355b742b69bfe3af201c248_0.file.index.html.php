@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-22 19:20:20
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 00:14:52
          compiled from "/var/www/html/codeIgniter/application/views/admin/article/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5651a4f4714ba9_88772034',
+  'unifunc' => 'content_5651e9fcbc8cb0_76898647',
   'file_dependency' => 
   array (
     '2c89a1d5c1da184e1355b742b69bfe3af201c248' => 
     array (
       0 => '/var/www/html/codeIgniter/application/views/admin/article/index.html',
-      1 => 1448191218,
+      1 => 1448208738,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5651a4f4714ba9_88772034')) {
-function content_5651a4f4714ba9_88772034 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5651e9fcbc8cb0_76898647')) {
+function content_5651e9fcbc8cb0_76898647 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/var/www/html/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -327,11 +327,7 @@ $('#search').on('click', function() {
   $('#recover-cate').on('click', function(){
     var data = getId();
     var url = "/admin/article/notDelete?recover=1&id=" + data;
-    $.post(url,
-      '',
-      function(data,status){
-        result(data, status)
-      });
+    post(url);
   })
 
   function getId()
@@ -354,11 +350,8 @@ $('#search').on('click', function() {
 
   function checkPost(data, type)
   {
-    $.post("/admin/article/check?type=" + type + "&id=" + data,
-      '',
-      function(data,status){
-        result(data,status);
-      });
+    var url = "/admin/article/check?type=" + type + "&id=" + data;
+    post(url);
   }
 
   function del(id)
@@ -367,11 +360,7 @@ $('#search').on('click', function() {
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post(url,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

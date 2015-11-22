@@ -196,11 +196,7 @@ $('#search').on('click', function() {
   $('#recover-cate').on('click', function(){
     var data = getId();
     var url = "/admin/article/notDelete?recover=1&id=" + data;
-    $.post(url,
-      '',
-      function(data,status){
-        result(data, status)
-      });
+    post(url);
   })
 
   function getId()
@@ -223,11 +219,8 @@ $('#search').on('click', function() {
 
   function checkPost(data, type)
   {
-    $.post("/admin/article/check?type=" + type + "&id=" + data,
-      '',
-      function(data,status){
-        result(data,status);
-      });
+    var url = "/admin/article/check?type=" + type + "&id=" + data;
+    post(url);
   }
 
   function del(id)
@@ -236,11 +229,7 @@ $('#search').on('click', function() {
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post(url,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

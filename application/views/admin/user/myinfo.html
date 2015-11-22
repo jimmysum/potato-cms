@@ -81,21 +81,17 @@
 	$('#save-nickname').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
     
-		$.post("/admin/admin/changeName",
-			postData,
-		  function(data,status){
-        result(data, status, '/admin/admin/myinfo');
-		  });
+    var url = "/admin/admin/changeName";
+    var jumpUrl = '/admin/admin/myinfo';
+    post(url, postData, jumpUrl);
 	});
 
   $('#save-pwd').on('click', function() {
     var postData = $('#changePwd').serializeArray();
     
-    $.post("/admin/admin/changePwd",
-      postData,
-      function(data,status){
-        result(data, status, '/admin/admin/myinfo');
-      });
+    var url = "/admin/admin/changePwd";
+    var jumpUrl = '/admin/admin/myinfo';
+    post(url, postData, jumpUrl);
   });
 
 	$(function() {

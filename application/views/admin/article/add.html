@@ -238,11 +238,9 @@
       "name": "content",
       "value": editor.html()
     });
-		$.post("/admin/article/add",
-			postData,
-		  function(data,status){
-        result(data, status, '/admin/article/index');
-		  });
+    var jumpUrl = '/admin/article/index';
+    var url = "/admin/article/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {
