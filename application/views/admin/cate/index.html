@@ -41,7 +41,7 @@
             <tr>
               <td><input type="checkbox" /></td>
               <td><span class="am-btn am-btn-xs am-btn-danger"><{$val.id}></span></td>
-              <td><a href="/admin/cate/add?id=<{$val.id}>"><{$val.cate}></a></td>
+              <td><a href="/admin/article/index?cate_id=<{$val.id}>"><{$val.cate}></a></td>
               <td><{$val['sort']}></td>
               <td class="am-hide-sm-only"><{$val['status']}></td>
               <td class="am-hide-sm-only"><{$val.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
@@ -58,7 +58,7 @@
 	            <tr>
 	              <td><input type="checkbox" /></td>
 	              <td><span class="am-btn am-btn-xs am-btn-success am-radius"><{$va.id}></span></td>
-	              <td>└──<a href="/admin/cate/add?id=<{$va.id}>"><{$va.cate}></a></td>
+	              <td>└──<a href="/admin/article/index?cate_id=<{$va.id}>"><{$va.cate}></a></td>
 	              <td><{$va['sort']}></td>
 	              <td class="am-hide-sm-only"><{$val['status']}></td>
 	              <td class="am-hide-sm-only"><{$va.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
@@ -75,7 +75,7 @@
 		            <tr>
 		              <td><input type="checkbox" /></td>
 		              <td><span class="am-btn am-btn-primary am-btn-xs am-round"><{$v.id}></span></td>
-		              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──<a href="/admin/cate/add?id=<{$v.id}>"><{$v.cate}></a></td>
+		              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──<a href="/admin/article/index?cate_id=<{$v.id}>"><{$v.cate}></a></td>
 		              <td><{$va['sort']}></td>
 		              <td class="am-hide-sm-only"><{$v['status']}></td>
 		              <td class="am-hide-sm-only"><{$v.time|date_format:'%Y-%m-%d %H:%M:%S'}></td>

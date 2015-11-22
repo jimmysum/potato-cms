@@ -109,18 +109,7 @@ class MY_Controller extends CI_Controller
 		echo json_encode($data);die;
 	}
 
-	/**
-	* @desc 错误输出
-	* @access 
-	* @author  Jimmy
-	* @date	 2015-9-28下午8:40:52 
-	* @param
-	* @return
-	*/
-	public function error($msg)
-	{
-		echo $msg;die;
-	}
+	
 	
 }
 
@@ -142,6 +131,19 @@ class Home_Controller extends MY_Controller
 		$this->assign('home_style_url', base_url() . 'style/home/');
 		$this->load->view('home/public/header.html');
 	} 
+
+	/**
+	* @desc 错误输出
+	* @access 
+	* @author  Jimmy
+	* @date	 2015-9-28下午8:40:52 
+	* @param
+	* @return
+	*/
+	public function error($msg)
+	{
+		echo $msg;die;
+	}
 }
 
 /**
@@ -204,19 +206,48 @@ class Admin_Controller extends MY_Controller
 				break;
 			}
 		}
-						
+		
+		$this->assign('admin_style_url', base_url() . 'style/admin/');
+		$this->assign('site_url', site_url());
+
 	    $list = node_merge($list);
         $this->assign('leftnav', $list);
         $this->assign('open', $open);
 		if (!in_array(ucwords($controller), $noauth)) {
 			if ($open <= 0 || $actId <= 0) {
-				$this->outJson(-1, '', '您没有权限操作此项！');
+				$this->error('您没有权限操作此项！', 2);
 			}
 		}
 		
 		$this->assign('nav', $nav);
-		$this->assign('admin_style_url', base_url() . 'style/admin/');
-		$this->assign('site_url', site_url());
+	}
+
+	public function error($msg, $type = 1, $href = '')
+	{
+		switch ($type) {
+			case '1':
+				$msgtype = '404错误';
+				break;
+			
+			case '2':
+				$msgtype = '权限错误';
+				break;
+			
+			default:
+				$msgtype = '404错误';
+				break;
+		}
+
+		if(!$href)
+		{
+			$href = '/admin/main/index';
+		}
+
+		$this->assign('href', $href);
+		$this->assign('msgtype', $msgtype);
+		$this->assign('msg', $msg);
+		$this->display('admin/public/404.html');
+		die;
 	}
 }
 

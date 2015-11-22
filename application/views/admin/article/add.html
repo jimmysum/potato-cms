@@ -108,7 +108,7 @@
           <div class="am-u-sm-4 am-u-md-2 am-text-right">
             发布时间
           </div>
-          <div class="am-u-sm-8 am-u-md-2 am-u-end">
+          <div class="am-u-sm-8 am-u-md-3 am-u-end">
               <div class="am-form-group am-form-icon">
                 <i class="am-icon-calendar"></i>
                 <input name="time" type="text" id="datetimepicker" class="am-form-field am-input-sm form-datetime" placeholder="时间">
@@ -134,7 +134,7 @@
               文章作者
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
-              <input type="text" class="am-input-sm" value="<{if $article}><{$article.username}><{else}><{$smarty.session.user.username}><{/if}>" readonly>
+              <input type="text" class="am-input-sm" value="<{if $article}><{$article.username}><{else}><{$smarty.session.user.info.username}><{/if}>" readonly>
             </div>
           </div>
 

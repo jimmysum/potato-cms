@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 16:38:33
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-22 19:48:40
          compiled from "/var/www/html/codeIgniter/application/views/admin/ad/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56502d89854cd1_77550371',
+  'unifunc' => 'content_5651ab989c3154_24495756',
   'file_dependency' => 
   array (
     'ec19a297879cee1b10a7843fdf175e1a7df3ef9f' => 
     array (
       0 => '/var/www/html/codeIgniter/application/views/admin/ad/index.html',
-      1 => 1448095040,
+      1 => 1448095638,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56502d89854cd1_77550371')) {
-function content_56502d89854cd1_77550371 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5651ab989c3154_24495756')) {
+function content_5651ab989c3154_24495756 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/var/www/html/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -50,14 +50,6 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
           <div class="am-btn-group am-btn-group-xs">
             <button id="add-cate" type="button" class="am-btn am-btn-default" onclick="jumpUrl('/admin/ad/add')"><span class="am-icon-plus"></span> 新增</button>
           </div>
-        </div>
-      </div>
-      <div class="am-u-sm-12 am-u-md-3">
-        <div class="am-input-group am-input-group-sm">
-          <input type="text" class="am-form-field">
-          <span class="am-input-group-btn">
-            <button class="am-btn am-btn-default" type="button">搜索</button>
-          </span>
         </div>
       </div>
     </div>

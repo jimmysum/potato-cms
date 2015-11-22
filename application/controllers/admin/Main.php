@@ -47,18 +47,10 @@ class Main extends Admin_Controller
 		$this->display('admin/index.html');
 	}
 	
-	public function copy()
+
+	public function err()
 	{
-		$data['ip'] = $this->input->ip_address();
-		$data['serverEn'] = $this->input->server('SERVER_SOFTWARE');
-		$data['serverVer'] = PHP_VERSION;
-		$data['serverIp'] = $this->input->server('SERVER_ADDR');
-		$this->load->model('user');
-		$data['serverMysql'] = $this->user->getVersion();
-// 		echo '<pre>';print_r($data['serverMysql']);
-		
-// 		$this->assign($data);
-		$this->display('admin/copy.html');
+		$this->error();
 	}
 }
 

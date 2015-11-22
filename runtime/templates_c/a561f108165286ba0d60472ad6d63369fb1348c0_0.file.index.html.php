@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 16:43:03
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-22 19:27:24
          compiled from "/var/www/html/codeIgniter/application/views/admin/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56502e97a4c6e0_95902526',
+  'unifunc' => 'content_5651a69cbe2118_16102851',
   'file_dependency' => 
   array (
     'a561f108165286ba0d60472ad6d63369fb1348c0' => 
     array (
       0 => '/var/www/html/codeIgniter/application/views/admin/index.html',
-      1 => 1448095382,
+      1 => 1448191642,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56502e97a4c6e0_95902526')) {
-function content_56502e97a4c6e0_95902526 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5651a69cbe2118_16102851')) {
+function content_5651a69cbe2118_16102851 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -43,11 +43,11 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
     </div>
 
     <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
-      <li><a href="/Admin/Article/add" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br/>新增文章<br/><?php echo $_smarty_tpl->tpl_vars['data']->value['artCount'];?>
+      <li><a href="/admin/article/add" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br/>新增文章<br/><?php echo $_smarty_tpl->tpl_vars['data']->value['artCount'];?>
 </a></li>
       <li><a href="/admin/Comment/index" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br/>评论管理<br/><?php echo $_smarty_tpl->tpl_vars['data']->value['comCount'];?>
 </a></li>
-      <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>昨日访问<br/>80082</a></li>
+      <li><a href="/admin/Back/index" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>数据备份<br/></a></li>
       <li><a href="/admin/User/index" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>在线用户<br/><?php echo $_smarty_tpl->tpl_vars['data']->value['userCount'];?>
 </a></li>
     </ul>

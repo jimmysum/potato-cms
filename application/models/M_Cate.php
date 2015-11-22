@@ -39,6 +39,11 @@ class M_cate extends CI_Model
 			$this->db->where(array('id' => $conditon['id']));
 		}
 
+		if (isset($conditon['pid']) && $conditon['pid'] > 0) 
+		{
+			$this->db->where(array('pid' => $conditon['pid']));
+		}
+
 		if (isset($conditon['status'])) 
 		{
 			$this->db->where(array('status' => $conditon['status']));

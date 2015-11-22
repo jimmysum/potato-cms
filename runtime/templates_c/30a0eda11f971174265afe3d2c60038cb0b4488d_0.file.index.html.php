@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 16:42:32
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-22 19:16:53
          compiled from "/var/www/html/codeIgniter/application/views/admin/user/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56502e78c68975_40804037',
+  'unifunc' => 'content_5651a42520b0b4_11998713',
   'file_dependency' => 
   array (
     '30a0eda11f971174265afe3d2c60038cb0b4488d' => 
     array (
       0 => '/var/www/html/codeIgniter/application/views/admin/user/index.html',
-      1 => 1448095041,
+      1 => 1448191012,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56502e78c68975_40804037')) {
-function content_56502e78c68975_40804037 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5651a42520b0b4_11998713')) {
+function content_5651a42520b0b4_11998713 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/var/www/html/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -56,7 +56,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       </div>
       <div class="am-u-sm-12 am-u-md-3">
         <div class="am-input-group am-input-group-sm">
-          <input type="text" name="title" class="am-form-field" placeholder="输入文章标题" >
+          <input type="text" name="title" class="am-form-field" placeholder="输入用户名" >
           <span class="am-input-group-btn">
             <button class="am-btn am-btn-default" type="button">搜索</button>
           </span>

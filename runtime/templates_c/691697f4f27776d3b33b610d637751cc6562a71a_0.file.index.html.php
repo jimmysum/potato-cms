@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 16:44:20
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-22 19:38:45
          compiled from "/var/www/html/codeIgniter/application/views/admin/cate/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56502ee4aa1fd7_47777523',
+  'unifunc' => 'content_5651a94527b139_86146031',
   'file_dependency' => 
   array (
     '691697f4f27776d3b33b610d637751cc6562a71a' => 
     array (
       0 => '/var/www/html/codeIgniter/application/views/admin/cate/index.html',
-      1 => 1448095459,
+      1 => 1448192323,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56502ee4aa1fd7_47777523')) {
-function content_56502ee4aa1fd7_47777523 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5651a94527b139_86146031')) {
+function content_5651a94527b139_86146031 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/var/www/html/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -85,7 +85,7 @@ $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
               <td><input type="checkbox" /></td>
               <td><span class="am-btn am-btn-xs am-btn-danger"><?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 </span></td>
-              <td><a href="/admin/cate/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+              <td><a href="/admin/article/index?cate_id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
 </a></td>
               <td><?php echo $_smarty_tpl->tpl_vars['val']->value['sort'];?>
@@ -121,7 +121,7 @@ $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
 	              <td><input type="checkbox" /></td>
 	              <td><span class="am-btn am-btn-xs am-btn-success am-radius"><?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
 </span></td>
-	              <td>└──<a href="/admin/cate/add?id=<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
+	              <td>└──<a href="/admin/article/index?cate_id=<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
 </a></td>
 	              <td><?php echo $_smarty_tpl->tpl_vars['va']->value['sort'];?>
@@ -157,7 +157,7 @@ $__foreach_v_2_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 		              <td><input type="checkbox" /></td>
 		              <td><span class="am-btn am-btn-primary am-btn-xs am-round"><?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
 </span></td>
-		              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──<a href="/admin/cate/add?id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+		              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──<a href="/admin/article/index?cate_id=<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['v']->value['cate'];?>
 </a></td>
 		              <td><?php echo $_smarty_tpl->tpl_vars['va']->value['sort'];?>

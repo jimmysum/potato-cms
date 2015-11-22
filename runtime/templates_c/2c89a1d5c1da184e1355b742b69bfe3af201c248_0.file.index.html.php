@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-21 17:30:26
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-22 19:20:20
          compiled from "/var/www/html/codeIgniter/application/views/admin/article/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_565039b3099026_09828798',
+  'unifunc' => 'content_5651a4f4714ba9_88772034',
   'file_dependency' => 
   array (
     '2c89a1d5c1da184e1355b742b69bfe3af201c248' => 
     array (
       0 => '/var/www/html/codeIgniter/application/views/admin/article/index.html',
-      1 => 1448098225,
+      1 => 1448191218,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_565039b3099026_09828798')) {
-function content_565039b3099026_09828798 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5651a4f4714ba9_88772034')) {
+function content_5651a4f4714ba9_88772034 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/var/www/html/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -65,7 +65,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       <form class="am-form" id="search-content">
       <div class="am-u-sm-12 am-u-md-3">
         <div class="am-form-group">
-          <select data-am-selected="{btnSize: 'sm'}" name="cate_id" id="cate_id">
+          <select data-am-selected="{btnSize: 'sm',maxHeight: 400}" name="cate_id" id="cate_id">
             <option value="0">所有类别</option>
             <?php
 $_from = $_smarty_tpl->tpl_vars['cateList']->value;
@@ -80,9 +80,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
 $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
 ?>
             <option value="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
-" ><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
+" <?php if (isset($_smarty_tpl->tpl_vars['cate_id']->value) && $_smarty_tpl->tpl_vars['cate_id']->value == $_smarty_tpl->tpl_vars['val']->value['id']) {?> selected<?php }?>><?php echo $_smarty_tpl->tpl_vars['val']->value['cate'];?>
 </option>
-                <?php
+              <?php
 $_from = $_smarty_tpl->tpl_vars['val']->value['child'];
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
@@ -95,8 +95,31 @@ foreach ($_from as $_smarty_tpl->tpl_vars['va']->value) {
 $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
 ?>
               <option value="<?php echo $_smarty_tpl->tpl_vars['va']->value['id'];?>
-">&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
+" <?php if (isset($_smarty_tpl->tpl_vars['cate_id']->value) && $_smarty_tpl->tpl_vars['cate_id']->value == $_smarty_tpl->tpl_vars['va']->value['id']) {?> selected<?php }?>>&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['va']->value['cate'];?>
 </option>
+                <?php
+$_from = $_smarty_tpl->tpl_vars['va']->value['child'];
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_v_2_saved_item = isset($_smarty_tpl->tpl_vars['v']) ? $_smarty_tpl->tpl_vars['v'] : false;
+$_smarty_tpl->tpl_vars['v'] = new Smarty_Variable();
+$__foreach_v_2_total = $_smarty_tpl->_count($_from);
+if ($__foreach_v_2_total) {
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
+$__foreach_v_2_saved_local_item = $_smarty_tpl->tpl_vars['v'];
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+" <?php if (isset($_smarty_tpl->tpl_vars['cate_id']->value) && $_smarty_tpl->tpl_vars['cate_id']->value == $_smarty_tpl->tpl_vars['v']->value['id']) {?> selected<?php }?>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└-<?php echo $_smarty_tpl->tpl_vars['v']->value['cate'];?>
+</option>
+                <?php
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_2_saved_local_item;
+}
+}
+if ($__foreach_v_2_saved_item) {
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_2_saved_item;
+}
+?>
               <?php
 $_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_local_item;
 }
@@ -118,7 +141,9 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
       </div>
       <div class="am-u-sm-12 am-u-md-3">
         <div class="am-input-group am-input-group-sm">
-          <input type="text" name="title" class="am-form-field" placeholder="输入文章标题" >
+          <input type="text" name="title" class="am-form-field" placeholder="输入文章标题" value="<?php if (isset($_smarty_tpl->tpl_vars['title']->value)) {
+echo $_smarty_tpl->tpl_vars['title']->value;
+}?>">
           <span class="am-input-group-btn">
             <button class="am-btn am-btn-default" type="button" id="search">搜索</button>
           </span>
@@ -152,12 +177,12 @@ $_from = $_smarty_tpl->tpl_vars['list']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
 }
-$__foreach_val_2_saved_item = isset($_smarty_tpl->tpl_vars['val']) ? $_smarty_tpl->tpl_vars['val'] : false;
+$__foreach_val_3_saved_item = isset($_smarty_tpl->tpl_vars['val']) ? $_smarty_tpl->tpl_vars['val'] : false;
 $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable();
-$__foreach_val_2_total = $_smarty_tpl->_count($_from);
-if ($__foreach_val_2_total) {
+$__foreach_val_3_total = $_smarty_tpl->_count($_from);
+if ($__foreach_val_3_total) {
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
-$__foreach_val_2_saved_local_item = $_smarty_tpl->tpl_vars['val'];
+$__foreach_val_3_saved_local_item = $_smarty_tpl->tpl_vars['val'];
 ?>
             <tr>
               <td><input type="checkbox" name="check" rid="<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
@@ -197,11 +222,11 @@ $__foreach_val_2_saved_local_item = $_smarty_tpl->tpl_vars['val'];
               </td>
             </tr>
             <?php
-$_smarty_tpl->tpl_vars['val'] = $__foreach_val_2_saved_local_item;
+$_smarty_tpl->tpl_vars['val'] = $__foreach_val_3_saved_local_item;
 }
 }
-if ($__foreach_val_2_saved_item) {
-$_smarty_tpl->tpl_vars['val'] = $__foreach_val_2_saved_item;
+if ($__foreach_val_3_saved_item) {
+$_smarty_tpl->tpl_vars['val'] = $__foreach_val_3_saved_item;
 }
 ?>
             
@@ -249,6 +274,7 @@ $('#search').on('click', function() {
     if (title == '' && cate_id == 0) 
     {
       alert('分类和标题至少选择一项！');
+      return false;
     }
     var recycle = $.getUrlParam('recycle');
     var url = '/admin/article/index?title=' + title + '&cate_id=' + cate_id;

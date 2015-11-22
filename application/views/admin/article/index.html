@@ -33,12 +33,15 @@
       <form class="am-form" id="search-content">
       <div class="am-u-sm-12 am-u-md-3">
         <div class="am-form-group">
-          <select data-am-selected="{btnSize: 'sm'}" name="cate_id" id="cate_id">
+          <select data-am-selected="{btnSize: 'sm',maxHeight: 400}" name="cate_id" id="cate_id">
             <option value="0">所有类别</option>
             <{foreach from=$cateList item="val"}>
-            <option value="<{$val.id}>" ><{$val.cate}></option>
-                <{foreach from=$val.child item="va"}>
-              <option value="<{$va.id}>">&nbsp;&nbsp;└-<{$va.cate}></option>
+            <option value="<{$val.id}>" <{if isset($cate_id) && $cate_id eq $val.id}> selected<{/if}>><{$val.cate}></option>
+              <{foreach from=$val.child item="va"}>
+              <option value="<{$va.id}>" <{if isset($cate_id) && $cate_id eq $va.id}> selected<{/if}>>&nbsp;&nbsp;└-<{$va.cate}></option>
+                <{foreach from=$va.child item="v"}>
+                <option value="<{$v.id}>" <{if isset($cate_id) && $cate_id eq $v.id}> selected<{/if}>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└-<{$v.cate}></option>
+                <{/foreach}>
               <{/foreach}>
             <{/foreach}>
           </select>
@@ -46,7 +49,7 @@
       </div>
       <div class="am-u-sm-12 am-u-md-3">
         <div class="am-input-group am-input-group-sm">
-          <input type="text" name="title" class="am-form-field" placeholder="输入文章标题" >
+          <input type="text" name="title" class="am-form-field" placeholder="输入文章标题" value="<{if isset($title)}><{$title}><{/if}>">
           <span class="am-input-group-btn">
             <button class="am-btn am-btn-default" type="button" id="search">搜索</button>
           </span>
@@ -140,6 +143,7 @@ $('#search').on('click', function() {
     if (title == '' && cate_id == 0) 
     {
       alert('分类和标题至少选择一项！');
+      return false;
     }
     var recycle = $.getUrlParam('recycle');
     var url = '/admin/article/index?title=' + title + '&cate_id=' + cate_id;

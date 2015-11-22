@@ -32,6 +32,12 @@ class Restore extends Admin_Controller
     public function index()
     {
         $list = get_dir_file_info($this->path);
+        $temp = array();
+        foreach ($list as $k => $v) {
+            $temp[] = $v['date'];
+        }
+
+        array_multisort($temp, SORT_DESC, $list);
         // echo '<pre>';print_r($list);die;
         // $dbs = $this->dbutil->list_databases();
         // $tables = $this->db->list_tables();

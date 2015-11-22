@@ -1,14 +1,45 @@
-<{include file="admin/public/header.html"}>
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-22 19:57:06
+         compiled from "/var/www/html/codeIgniter/application/views/admin/link/add.html" */ ?>
+<?php
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'has_nocache_code' => false,
+  'version' => '3.1.28-dev/63',
+  'unifunc' => 'content_5651ad923d18c1_71078762',
+  'file_dependency' => 
+  array (
+    'b9289ba02e6839015e534d6890d1ef7ef6623284' => 
+    array (
+      0 => '/var/www/html/codeIgniter/application/views/admin/link/add.html',
+      1 => 1448193425,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:admin/public/header.html' => 1,
+    'file:admin/public/left.html' => 1,
+    'file:admin/public/footer.html' => 1,
+  ),
+),false);
+if ($_valid && !is_callable('content_5651ad923d18c1_71078762')) {
+function content_5651ad923d18c1_71078762 ($_smarty_tpl) {
+$_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
 <div class="am-cf admin-main">
   <!-- sidebar start -->
-  <{include file='admin/public/left.html'}>
+  <?php $_smarty_tpl->setupSubTemplate('file:admin/public/left.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
   <!-- sidebar end -->
 
 <!-- content start -->
 <div class="admin-content">
 
   <div class="am-cf am-padding">
-    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><{$nav[0]}></strong> / <small><{$nav[1]}></small></div>
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
+</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
+</small></div>
     <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
   </div>
 
@@ -25,7 +56,9 @@
               公司名称
             </div>
             <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <input name="name" type="text" class="am-input-sm" data-validation-message="公司名称必填" placeholder="输入公司名称" value="<{if $cate}><{$cate.name}><{/if}>" required>
+              <input name="name" type="text" class="am-input-sm" data-validation-message="公司名称必填" placeholder="输入公司名称" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['name'];
+}?>" required>
             </div>
         </div>
         <div class="am-g am-margin-top-sm">
@@ -33,7 +66,9 @@
             公司描述
           </div>
           <div class="am-u-sm-8 am-u-md-3 am-u-end">
-            <textarea name="desc" rows="4"><{if $cate}><{$cate.desc}><{/if}></textarea>
+            <textarea name="desc" rows="4"><?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['desc'];
+}?></textarea>
           </div>
         </div>
         <div class="am-g am-margin-top am-form-group">
@@ -41,17 +76,19 @@
               公司链接
             </div>
             <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <input name="url" type="text" class="am-input-sm" data-validation-message="公司链接必填" placeholder="输入公司网站链接" value="<{if $cate}><{$cate.url}><{/if}>" required>
+              <input name="url" type="text" class="am-input-sm" data-validation-message="公司链接必填" placeholder="输入公司网站链接" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['url'];
+}?>" required>
             </div>
         </div>
         <div class="am-g am-margin-top">
           <div class="am-u-sm-4 am-u-md-2 am-text-right">显示状态</div>
           <div class="am-u-sm-8 am-u-md-10">
             <div class="am-btn-group" data-am-button>
-              <label class="am-btn am-btn-default am-btn-xs <{if !$cate}> am-active<{elseif $cate && $cate.status==1}> am-active<{/if}>">
+              <label class="am-btn am-btn-default am-btn-xs <?php if (!$_smarty_tpl->tpl_vars['cate']->value) {?> am-active<?php } elseif ($_smarty_tpl->tpl_vars['cate']->value && $_smarty_tpl->tpl_vars['cate']->value['status'] == 1) {?> am-active<?php }?>">
                 <input type="radio" name="status" id="option1" value="1"> 正常
               </label>
-              <label class="am-btn am-btn-default am-btn-xs<{if $cate && $cate.status==0}> am-active<{/if}>">
+              <label class="am-btn am-btn-default am-btn-xs<?php if ($_smarty_tpl->tpl_vars['cate']->value && $_smarty_tpl->tpl_vars['cate']->value['status'] == 0) {?> am-active<?php }?>">
                 <input type="radio" name="status" id="option3" value="0"> 不显示
               </label>
             </div>
@@ -63,7 +100,9 @@
               排序
             </div>
             <div class="am-u-sm-8 am-u-md-2 am-u-end">
-              <input name="sort" type="text" class="am-input-sm" value="<{if $cate}><{$cate.sort}><{/if}>"  placeholder="默认50">
+              <input name="sort" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['sort'];
+}?>"  placeholder="默认50">
             </div>
         </div>
         <div class="am-g am-margin-top">
@@ -71,9 +110,13 @@
               logo
             </div>
             <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <input name="image" id="image" type="text" class="am-input-sm" value="<{if $cate}><{$cate.image}><{/if}>"  placeholder="200*70px图片">
+              <input name="image" id="image" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['image'];
+}?>"  placeholder="200*70px图片">
               <span style="color:red;"></span>
-              <img id="imagesrc" src="<{if $cate}><{$cate.image}><{/if}>" width="200px" height="70px">
+              <img id="imagesrc" src="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['image'];
+}?>" width="200px" height="70px">
             </div>
             <div class="am-u-sm-12 am-u-md-6">
               <input name="upload" id="upload" type="button" class="am-input-sm" value="上传图片">
@@ -83,9 +126,10 @@
 		
     </div>
   </div>
-  <{if $cate}>
-  <input name="id" type="hidden" class="am-input-sm" value="<{$cate.id}>">
-  <{/if}>
+  <?php if ($_smarty_tpl->tpl_vars['cate']->value) {?>
+  <input name="id" type="hidden" class="am-input-sm" value="<?php echo $_smarty_tpl->tpl_vars['cate']->value['id'];?>
+">
+  <?php }?>
   </form>
   <div class="am-margin">
     <button id="save-sure" type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
@@ -95,10 +139,19 @@
 <!-- content end -->
 
 </div>
-<{include file='admin/public/footer.html'}>
-<script src="<{$picker_style_url}>kindeditor/kindeditor-min.js"></script>
-<script src="<{$picker_style_url}>kindeditor/lang/zh_CN.js"></script>
-<script>
+<?php $_smarty_tpl->setupSubTemplate('file:admin/public/footer.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
+?>
+
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['picker_style_url']->value;?>
+kindeditor/kindeditor-min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['picker_style_url']->value;?>
+kindeditor/lang/zh_CN.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
   var editor;
   KindEditor.ready(function(K) {
     var editor = K.editor({
@@ -152,6 +205,9 @@
 		  });
 			  
 		});
-</script>
+<?php echo '</script'; ?>
+>
 </body>
 </html>
+<?php }
+}

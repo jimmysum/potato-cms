@@ -7,7 +7,7 @@
           <a class="am-cf" data-am-collapse="{target: '#collapse-<{$val.id}>'}"><span class="am-icon-<{$val.icon}>"></span> <{$val.title}> <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub <{if $val.id==$open}>am-in<{/if}>" id="collapse-<{$val.id}>">
             <{foreach from=$val.child item="va"}>
-            <li><a href="/admin/<{$va.name}>"><span class="am-icon-table"></span> <{$va.title}></a></li>
+            <li><a href="/admin/<{$va.name}>"><span class="am-icon-<{if $va.icon}><{$va.icon}><{else}>table<{/if}>"></span> <{$va.title}></a></li>
             <{/foreach}>
           </ul>
         </li>
@@ -18,15 +18,15 @@
       <div class="am-panel am-panel-default admin-sidebar-panel">
         <div class="am-panel-bd">
           <p><span class="am-icon-bookmark"></span> 公告</p>
-          <p>时光静好，与君语；细水流年，与君同。—— Amaze UI</p>
+          <p>今天公告，不要乱搞基啦！--Admin</p>
         </div>
       </div>
 
-      <div class="am-panel am-panel-default admin-sidebar-panel">
+      <!-- <div class="am-panel am-panel-default admin-sidebar-panel">
         <div class="am-panel-bd">
           <p><span class="am-icon-tag"></span> wiki</p>
           <p>Welcome to the Amaze UI wiki!</p>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>

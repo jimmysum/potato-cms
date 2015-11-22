@@ -1,0 +1,51 @@
+<{include file="admin/public/header.html"}>
+<div class="am-cf admin-main">
+  <!-- sidebar end -->
+  <!-- content start -->
+  <div class="admin-content">
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">系统错误</strong> / <small>错误页</small></div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <h2 class="am-text-center am-text-xxxl am-margin-top-lg"><{$msgtype}></h2>
+        <p class="am-text-center"><{$msg}><a id="href" href="<{$href}>">跳转</a> 等待时间：<b id="wait" >3</b></p>
+
+        <pre class="page-404">
+          .----.
+       _.'__    `.
+   .--($)($$)---/#\
+ .' @          /###\
+ :         ,   #####
+  `-..__.-' _.-\###/
+        `;_:    `"'
+      .'"""""`.
+     /,  ya ,\\
+    //        \\
+    `-._______.-'
+    ___`. | .'___
+   (______|______)
+        </pre>
+      </div>
+    </div>
+  </div>
+  <!-- content end -->
+
+</div>
+<{include file='admin/public/footer.html'}>
+<script type="text/javascript">
+  (function(){
+  var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+  var interval = setInterval(function(){
+    var time = --wait.innerHTML;
+    if(time == 0) {
+      location.href = href;
+      clearInterval(interval);
+    };
+  }, 1000);
+  })();
+</script>
+</body>
+</html>

@@ -54,7 +54,7 @@ class Article extends Admin_Controller
 			
 	);
 
-	public $ps = 11;
+	public $ps = 25;
 	
 	public function __construct() 
 	{
@@ -78,9 +78,11 @@ class Article extends Admin_Controller
 		}
 		if (isset($param['title']) && $param['title'] != '') {
 			$conditon['title'] = $param['title'];
+			$this->assign('title', $param['title']);
 		}
 		if (isset($param['cate_id']) && $param['cate_id'] > 0) {
 			$conditon['cate_id'] = $param['cate_id'];
+			$this->assign('cate_id', $param['cate_id']);
 		}
 		
 		$count = $this->article->getCount($conditon);
@@ -105,7 +107,7 @@ class Article extends Admin_Controller
 			if (isset($cateList[$v['cate_id']])) {
 				$list[$k]['cate'] = $cateList[$v['cate_id']]['cate'];
 			}
-			$list[$k]['username'] = $userList[$v['userid']]['username'];
+			$list[$k]['username'] = isset($userList[$v['userid']]) ? $userList[$v['userid']]['username'] : '佚名';
 		}
 		$list = $this->article->amerge($list);
 
@@ -123,7 +125,7 @@ class Article extends Admin_Controller
 
 		$this->assign('page', $this->pagination->create_links());
 		// echo '<pre>';
-		// print_r($userList);
+		// print_r($count);
 		$this->assign('list', $list);
 		$this->assign('cateList', $cateList);
 		$this->display();
@@ -143,7 +145,7 @@ class Article extends Admin_Controller
 			{
 				$input['time'] = time();
 				$user = $this->session->userdata('user');
-				$input['userid'] = $user['id'];
+				$input['userid'] = $user['info']['id'];
 				if (isset($input['id'])) {
 					$res = $this->article->update($input, 'id');
 				}
