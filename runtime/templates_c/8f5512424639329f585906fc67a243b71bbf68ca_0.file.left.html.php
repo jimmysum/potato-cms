@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 18:22:33
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 10:13:19
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/left.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5645b9e9e819b8_22963063',
+  'unifunc' => 'content_5652763f1636a7_30463982',
   'file_dependency' => 
   array (
     '8f5512424639329f585906fc67a243b71bbf68ca' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/left.html',
-      1 => 1447410152,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -18,8 +18,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_5645b9e9e819b8_22963063')) {
-function content_5645b9e9e819b8_22963063 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5652763f1636a7_30463982')) {
+function content_5652763f1636a7_30463982 ($_smarty_tpl) {
 ?>
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
@@ -57,7 +57,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['va']->value) {
 $__foreach_va_1_saved_local_item = $_smarty_tpl->tpl_vars['va'];
 ?>
             <li><a href="/admin/<?php echo $_smarty_tpl->tpl_vars['va']->value['name'];?>
-"><span class="am-icon-table"></span> <?php echo $_smarty_tpl->tpl_vars['va']->value['title'];?>
+"><span class="am-icon-<?php if ($_smarty_tpl->tpl_vars['va']->value['icon']) {
+echo $_smarty_tpl->tpl_vars['va']->value['icon'];
+} else { ?>table<?php }?>"></span> <?php echo $_smarty_tpl->tpl_vars['va']->value['title'];?>
 </a></li>
             <?php
 $_smarty_tpl->tpl_vars['va'] = $__foreach_va_1_saved_local_item;
@@ -83,16 +85,16 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
       <div class="am-panel am-panel-default admin-sidebar-panel">
         <div class="am-panel-bd">
           <p><span class="am-icon-bookmark"></span> 公告</p>
-          <p>时光静好，与君语；细水流年，与君同。—— Amaze UI</p>
+          <p>今天公告，不要乱搞基啦！--Admin</p>
         </div>
       </div>
 
-      <div class="am-panel am-panel-default admin-sidebar-panel">
+      <!-- <div class="am-panel am-panel-default admin-sidebar-panel">
         <div class="am-panel-bd">
           <p><span class="am-icon-tag"></span> wiki</p>
           <p>Welcome to the Amaze UI wiki!</p>
         </div>
-      </div>
+      </div> -->
     </div>
   </div><?php }
 }

@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 11:00:20
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 15:18:45
          compiled from "/data/src/test/codeIgniter/application/views/admin/comment/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564e8cc4ab3241_62982358',
+  'unifunc' => 'content_5652bdd5b6adb8_21463363',
   'file_dependency' => 
   array (
     'b0a3ec9705c87dc5fae3bab20a385f6297a31cfe' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/comment/index.html',
-      1 => 1447928848,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564e8cc4ab3241_62982358')) {
-function content_564e8cc4ab3241_62982358 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5652bdd5b6adb8_21463363')) {
+function content_5652bdd5b6adb8_21463363 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -139,7 +139,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
   <div class="am-modal-dialog">
     <div class="am-modal-hd">温馨提示</div>
     <div class="am-modal-bd">
-      你，确定要删除这条记录吗？
+      你，确定要删除这条评论吗？
     </div>
     <div class="am-modal-footer">
       <span class="am-modal-btn" data-am-modal-cancel>取消</span>
@@ -196,11 +196,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post(url,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
+          post(url);
           
         },
         // closeOnConfirm: false,

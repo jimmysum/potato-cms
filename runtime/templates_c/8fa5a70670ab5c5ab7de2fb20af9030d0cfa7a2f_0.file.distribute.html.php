@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 18:20:41
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 16:22:06
          compiled from "/data/src/test/codeIgniter/application/views/admin/role/distribute.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564ef3f99e7ab2_78829298',
+  'unifunc' => 'content_5652ccae0c9bf7_10619422',
   'file_dependency' => 
   array (
     '8fa5a70670ab5c5ab7de2fb20af9030d0cfa7a2f' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/role/distribute.html',
-      1 => 1447928203,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564ef3f99e7ab2_78829298')) {
-function content_564ef3f99e7ab2_78829298 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5652ccae0c9bf7_10619422')) {
+function content_5652ccae0c9bf7_10619422 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -174,11 +174,9 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
   $('#save-sure').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
     
-    $.post("/admin/role/distribute",
-      postData,
-      function(data,status){
-        result(data, status, '/admin/role/index');
-      });
+    var url = "/admin/role/distribute";
+    var jumpUrl = '/admin/role/index';
+    post(url, postData, jumpUrl);
   });
 
   function check(id, step)

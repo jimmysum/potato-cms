@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-19 18:04:01
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 10:13:19
          compiled from "/data/src/test/codeIgniter/application/views/admin/public/header.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564d9e9111d649_03709931',
+  'unifunc' => 'content_5652763f119d05_45786125',
   'file_dependency' => 
   array (
     '680e9ab0d86fa35caf24de669fd8861b3ae70099' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/public/header.html',
-      1 => 1447927396,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -18,8 +18,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_564d9e9111d649_03709931')) {
-function content_564d9e9111d649_03709931 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5652763f119d05_45786125')) {
+function content_5652763f119d05_45786125 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js">
@@ -36,7 +36,7 @@ function content_564d9e9111d649_03709931 ($_smarty_tpl) {
 i/favicon.png">
   <link rel="apple-touch-icon-precomposed" href="<?php echo $_smarty_tpl->tpl_vars['admin_style_url']->value;?>
 i/app-icon72x72@2x.png">
-  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <meta name="apple-mobile-web-app-title" content="Potato后台管理" />
   <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['admin_style_url']->value;?>
 css/amazeui.min.css"/>
   <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['admin_style_url']->value;?>
@@ -62,7 +62,7 @@ kindeditor/themes/default/default.css">
   <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
     <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
+      <!-- <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li> -->
       <li class="am-dropdown" data-am-dropdown>
         <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
           <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>

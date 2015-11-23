@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 17:57:54
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 18:04:40
          compiled from "/data/src/test/codeIgniter/application/views/admin/restore/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564eeea2ab4f48_63336681',
+  'unifunc' => 'content_5652e4b86ae422_86397087',
   'file_dependency' => 
   array (
     'cc1c11a528d4d1033a0f1c60c3de4414adebe4e9' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/restore/index.html',
-      1 => 1447928199,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564eeea2ab4f48_63336681')) {
-function content_564eeea2ab4f48_63336681 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5652e4b86ae422_86397087')) {
+function content_5652e4b86ae422_86397087 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -159,12 +159,11 @@ $_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_item;
     $('#my-confirm').modal({
       relatedTarget: this,
       onConfirm: function(options) {
-        $.post("/admin/restore/del",
-          $('#doc-vld-msg').serializeArray(),
-          function(data,status){
-            result(data, status, '');
-          });
-        
+        var postData = $('#doc-vld-msg').serializeArray();
+    
+        var jumpUrl = '';
+        var url = "/admin/restore/del";
+        post(url, postData, jumpUrl);
       },
       // closeOnConfirm: false,
       onCancel: function() {
@@ -178,11 +177,9 @@ $_smarty_tpl->tpl_vars['v'] = $__foreach_v_0_saved_item;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/restore/del?filename=" + name,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
+
+          var url = "/admin/restore/del?filename=" + name;
+          post(url);
           
         },
         // closeOnConfirm: false,

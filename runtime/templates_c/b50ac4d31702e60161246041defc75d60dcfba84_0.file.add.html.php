@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-19 18:18:10
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 16:21:28
          compiled from "/data/src/test/codeIgniter/application/views/admin/cate/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564da1e224a403_28803127',
+  'unifunc' => 'content_5652cc88307c86_84455685',
   'file_dependency' => 
   array (
     'b50ac4d31702e60161246041defc75d60dcfba84' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/cate/add.html',
-      1 => 1447928087,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564da1e224a403_28803127')) {
-function content_564da1e224a403_28803127 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5652cc88307c86_84455685')) {
+function content_5652cc88307c86_84455685 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -141,19 +141,6 @@ echo $_smarty_tpl->tpl_vars['cate']->value['sort'];
 }?>"  placeholder="默认50">
             </div>
         </div>
-
-        <div class="am-g am-margin-top">
-          <div class="am-u-sm-4 am-u-md-2 am-text-right">
-            发布时间
-          </div>
-          <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <div class="am-form-group am-form-icon">
-                <i class="am-icon-calendar"></i>
-                <input name="time" type="text" class="am-form-field am-input-sm" placeholder="时间">
-              </div>
-          </div>
-        </div>
-
       </div>
 		
       <div class="am-tab-panel am-fade" id="tab3">
@@ -212,11 +199,11 @@ echo $_smarty_tpl->tpl_vars['cate']->value['seo_desc'];
 <?php echo '<script'; ?>
 >
 	$('#save-sure').on('click', function() {
-		$.post("/admin/cate/add",
-			$('#doc-vld-msg').serializeArray(),
-		  function(data,status){
-        result(data, status, '/admin/cate/index');
-		  });
+
+    var postData = $('#doc-vld-msg').serializeArray();
+    var jumpUrl = '/admin/cate/index';
+    var url = "/admin/cate/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

@@ -167,63 +167,8 @@ class Admin_Controller extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		
-		// 判断已登录
-		$user = $this->session->userdata('user');
-		// 登录方法做是否已登录判断
-		$action = $this->uri->segment(3);
-		if ($user && $action == 'login')
-		{
-			redirect('/admin/main/index');
-		}
-		else if (!$user && $action != 'login')
-		{
-			redirect('/admin/login/login');
-		}
-
-		$noauth = $this->config->item('noauth_controller');
-		$controller = strtolower($this->uri->segment(2));
-		$action = strtolower($this->uri->segment(3));
-		$this->load->model('M_node', 'node');
-		$list = $this->node->getList(array('ASC' => 'sort', 'id_in' => $user['node']));
-		$open = 0;
-		$actId = 0;
-		$nav = array('首页', '网站信息');
-		foreach($list as $k => $v)
-		{
-			$con = explode('/', $v['name']);
-			$num = count($con);
-			if (strtolower($con[0]) == $controller && $num > 1) {
-				$open = $v['pid'];
-				$nav = array($list[$v['pid']]['title'], $v['title']);
-				foreach($list as $val)
-				{
-					if ($val['pid'] == $v['id'] && $action == strtolower($val['name'])) {
-						$actId = $val['id']; 
-						break;
-					}
-				}
-				break;
-			}
-		}
-		
 		$this->assign('admin_style_url', base_url() . 'style/admin/');
 		$this->assign('site_url', site_url());
-
-	    $list = node_merge($list);
-        $this->assign('leftnav', $list);
-        $this->assign('open', $open);
-		if (!in_array(ucwords($controller), $noauth)) {
-			if ($open <= 0 || $actId <= 0) {
-				$json = $this->input->get('json');
-				if (isset($json) && $json == 1) {
-					$this->outJson(101, '', '对不起，您没有权限操作此项！');
-				}
-				$this->error('对不起，您没有权限操作此项！', 2);
-			}
-		}
-		
-		$this->assign('nav', $nav);
 	}
 
 	public function error($msg, $type = 1, $href = '')

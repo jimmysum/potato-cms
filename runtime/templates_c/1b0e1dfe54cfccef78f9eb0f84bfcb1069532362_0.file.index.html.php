@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 17:49:42
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 10:14:48
          compiled from "/data/src/test/codeIgniter/application/views/admin/user/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564eecb6f01b85_92298492',
+  'unifunc' => 'content_56527698c62230_29910654',
   'file_dependency' => 
   array (
     '1b0e1dfe54cfccef78f9eb0f84bfcb1069532362' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/user/index.html',
-      1 => 1448012978,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564eecb6f01b85_92298492')) {
-function content_564eecb6f01b85_92298492 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56527698c62230_29910654')) {
+function content_56527698c62230_29910654 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -56,7 +56,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
       </div>
       <div class="am-u-sm-12 am-u-md-3">
         <div class="am-input-group am-input-group-sm">
-          <input type="text" name="title" class="am-form-field" placeholder="输入文章标题" >
+          <input type="text" name="title" class="am-form-field" placeholder="输入用户名" >
           <span class="am-input-group-btn">
             <button class="am-btn am-btn-default" type="button">搜索</button>
           </span>
@@ -241,16 +241,12 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
       msg = '确定要禁用这个用户吗？';
     }
     $('#alert-msg').html(msg);
+
     var url = "/admin/user/enable?id=" + id + '&status=' + status;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post(url,
-            '',
-            function(data,status){
-              result(data, status, '')
-            });
-          
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {
