@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 17:58:05
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-24 13:40:41
          compiled from "/data/src/test/codeIgniter/application/views/admin/system/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564eeead6b3af2_94744570',
+  'unifunc' => 'content_5653f8592c19d9_45583695',
   'file_dependency' => 
   array (
     'd2d1a3a3bc309062434d2f4c47490265da6ebc86' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/system/index.html',
-      1 => 1447928239,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564eeead6b3af2_94744570')) {
-function content_564eeead6b3af2_94744570 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5653f8592c19d9_45583695')) {
+function content_5653f8592c19d9_45583695 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -202,11 +202,10 @@ kindeditor/lang/zh_CN.js"><?php echo '</script'; ?>
       "name": "content",
       "value": editor.html()
     });
-    $.post("/admin/system/index",
-      postData,
-      function(data,status){
-        result(data, status, '');
-      });
+
+    var url = "/admin/system/index";
+    var jumpUrl = '';
+    post(url, postData, jumpUrl);
   });
 
   $(function() {

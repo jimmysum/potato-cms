@@ -88,6 +88,12 @@ class Login extends Admin_Controller
 					$data['node'] = $authMenu;
 					$data['role'] = $role;
 					$this->session->set_userdata('user', $data);
+					$data = array();
+					$data['loginip'] = $this->input->ip_address();
+					$data['logintime'] = time();
+					$data['id'] = $info['id'];
+					$this->admin->update($data, 'id');
+
 					redirect('/admin/main/index');
 				}
 				else 
@@ -102,7 +108,8 @@ class Login extends Admin_Controller
 		}
 		else 
 		{
-// 			$this->getVeriryInfo();
+			$this->getVeriryInfo();
+			// echo '<pre>';print_r($this->data);
 			$this->assign($this->data);
 			$this->display('admin/login.html');
 		}

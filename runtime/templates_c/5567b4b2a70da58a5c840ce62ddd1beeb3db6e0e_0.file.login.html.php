@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 10:15:21
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-25 19:53:50
          compiled from "/data/src/test/codeIgniter/application/views/admin/login.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_565276b997a061_16658881',
+  'unifunc' => 'content_5655a14e6a1725_17529967',
   'file_dependency' => 
   array (
     '5567b4b2a70da58a5c840ce62ddd1beeb3db6e0e' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/login.html',
-      1 => 1448244920,
+      1 => 1448452429,
       2 => 'file',
     ),
   ),
@@ -18,8 +18,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
   ),
 ),false);
-if ($_valid && !is_callable('content_565276b997a061_16658881')) {
-function content_565276b997a061_16658881 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5655a14e6a1725_17529967')) {
+function content_5655a14e6a1725_17529967 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,10 +74,6 @@ css/amazeui.min.css"/>
   </div>
   
 </div>
-<footer>
-  <hr>
-  <p class="am-padding-left">Copyright © 2015 www.520sports.cn Powered By Potato后台管理 Version 1.0.0</p>
-</footer>
 
 </body>
 </html><?php }

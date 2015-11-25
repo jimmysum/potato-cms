@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 15:30:18
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-24 13:22:03
          compiled from "/data/src/test/codeIgniter/application/views/admin/admin/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5645918adf7501_90348299',
+  'unifunc' => 'content_5653f3fba99d14_34850000',
   'file_dependency' => 
   array (
     'b38aadd173ec7d0316ebddaab0330d61cbbc6fff' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/admin/add.html',
-      1 => 1447388993,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5645918adf7501_90348299')) {
-function content_5645918adf7501_90348299 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5653f3fba99d14_34850000')) {
+function content_5653f3fba99d14_34850000 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -37,7 +37,9 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
 <div class="admin-content">
 
   <div class="am-cf am-padding">
-    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表单</strong> / <small>form</small></div>
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
+</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
+</small></div>
     <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
   </div>
 
@@ -173,12 +175,9 @@ echo $_smarty_tpl->tpl_vars['data']->value['sort'];
 >
 	$('#save-sure').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
-    
-		$.post("/admin/admin/add",
-			postData,
-		  function(data,status){
-        result(data, status, '/admin/admin/index');
-		  });
+    var jumpUrl = '/admin/admin/index';
+    var url = "/admin/admin/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

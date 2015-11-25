@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-19 18:18:13
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-24 11:51:34
          compiled from "/data/src/test/codeIgniter/application/views/admin/article/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564da1e58d80b1_43978198',
+  'unifunc' => 'content_5653dec6bbb6a2_73290644',
   'file_dependency' => 
   array (
     '71f0479145e591ae3d96279d37c15a384aca9a27' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/article/add.html',
-      1 => 1447928080,
+      1 => 1448337092,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564da1e58d80b1_43978198')) {
-function content_564da1e58d80b1_43978198 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5653dec6bbb6a2_73290644')) {
+function content_5653dec6bbb6a2_73290644 ($_smarty_tpl) {
+if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -207,10 +208,12 @@ echo $_smarty_tpl->tpl_vars['article']->value['sort'];
           <div class="am-u-sm-4 am-u-md-2 am-text-right">
             发布时间
           </div>
-          <div class="am-u-sm-8 am-u-md-2 am-u-end">
+          <div class="am-u-sm-8 am-u-md-3 am-u-end">
               <div class="am-form-group am-form-icon">
                 <i class="am-icon-calendar"></i>
-                <input name="time" type="text" id="datetimepicker" class="am-form-field am-input-sm form-datetime" placeholder="时间">
+                <input name="publish_time" type="text" value="<?php if ($_smarty_tpl->tpl_vars['article']->value) {
+echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['article']->value['publish_time'],'%Y-%m-%d %H:%M:%S');
+}?>" id="datetimepicker" class="am-form-field am-input-sm form-datetime" placeholder="时间">
               </div>
           </div>
         </div>
@@ -238,7 +241,7 @@ echo $_smarty_tpl->tpl_vars['article']->value['title'];
               <input type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['article']->value) {
 echo $_smarty_tpl->tpl_vars['article']->value['username'];
 } else {
-echo $_SESSION['user']['username'];
+echo $_SESSION['user']['info']['username'];
 }?>" readonly>
             </div>
           </div>
@@ -363,11 +366,9 @@ kindeditor/lang/zh_CN.js"><?php echo '</script'; ?>
       "name": "content",
       "value": editor.html()
     });
-		$.post("/admin/article/add",
-			postData,
-		  function(data,status){
-        result(data, status, '/admin/article/index');
-		  });
+    var jumpUrl = '/admin/article/index';
+    var url = "/admin/article/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

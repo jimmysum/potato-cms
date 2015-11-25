@@ -18,7 +18,7 @@
           <div class="am-btn-group am-btn-group-xs">
             <button id="add-cate" type="button" class="am-btn am-btn-default" onclick="jumpUrl('/admin/admin/add')"><span class="am-icon-plus"></span> 新增</button>
             <button id="examine-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
-            <button id="del-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+            <!-- <button id="del-cate" type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button> -->
           </div>
         </div>
       </div>
@@ -116,7 +116,8 @@
 
   $('#examine-cate').on('click', function(){
     var data = getId();
-    checkPost(data, 1);
+    var url = "/admin/admin/check?id=" + data;
+    post(url);
   })
 
   function getId()
@@ -135,12 +136,6 @@
         }
     } 
     return data;
-  }
-
-  function checkPost(data, type)
-  {
-    var url = "/admin/admin/check?type=" + type + "&id=" + data;
-    post(url);
   }
 
   function del(id)

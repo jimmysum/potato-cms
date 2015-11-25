@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 17:04:58
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-24 11:58:33
          compiled from "/data/src/test/codeIgniter/application/views/admin/node/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564ee23a886b94_96510687',
+  'unifunc' => 'content_5653e069758390_54086179',
   'file_dependency' => 
   array (
     '21a9ead779767d95ccda0069fb0523e89f9e6700' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/node/add.html',
-      1 => 1447928101,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564ee23a886b94_96510687')) {
-function content_564ee23a886b94_96510687 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5653e069758390_54086179')) {
+function content_5653e069758390_54086179 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -196,12 +196,9 @@ echo $_smarty_tpl->tpl_vars['data']->value['icon'];
 >
 	$('#save-sure').on('click', function() {
     var postData = $('#doc-vld-msg').serializeArray();
-    
-		$.post("/admin/node/add",
-			postData,
-		  function(data,status){
-        result(data, status, '/admin/node/index');
-		  });
+    var jumpUrl = '/admin/node/index';
+    var url = "/admin/node/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

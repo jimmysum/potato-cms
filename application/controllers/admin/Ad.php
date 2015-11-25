@@ -71,7 +71,7 @@ class Ad extends Admin_Controller
         $list = $this->ad->getList($conditon);
         $poslist = $this->adpos->getAll();
         foreach ($list as $key => $value) {
-            $list[$key]['pos_name'] = $poslist[$value['pos_id']] ? $poslist[$value['pos_id']]['name'] : '不存在';
+            $list[$key]['pos_name'] = isset($poslist[$value['pos_id']]) ? $poslist[$value['pos_id']]['name'] : '不存在';
         }
         // 分页
         $this->load->library('pagination');

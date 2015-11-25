@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-13 16:06:32
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-24 13:40:21
          compiled from "/data/src/test/codeIgniter/application/views/admin/link/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_56459a08d86718_08049176',
+  'unifunc' => 'content_5653f845a85fb9_62611313',
   'file_dependency' => 
   array (
     '40e28e303cef1ac4cc020fea968e8127616116eb' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/link/add.html',
-      1 => 1447389545,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_56459a08d86718_08049176')) {
-function content_56459a08d86718_08049176 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5653f845a85fb9_62611313')) {
+function content_5653f845a85fb9_62611313 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -37,7 +37,9 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
 <div class="admin-content">
 
   <div class="am-cf am-padding">
-    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表单</strong> / <small>form</small></div>
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><?php echo $_smarty_tpl->tpl_vars['nav']->value[0];?>
+</strong> / <small><?php echo $_smarty_tpl->tpl_vars['nav']->value[1];?>
+</small></div>
     <div class="am-alert am-alert-success am-u-end success-msg" id="success-msg">添加成功！</div>
   </div>
 
@@ -54,7 +56,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
               公司名称
             </div>
             <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <input name="name" type="text" class="am-input-sm" data-validation-message="公司名称必填" placeholder="输入分类名称" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+              <input name="name" type="text" class="am-input-sm" data-validation-message="公司名称必填" placeholder="输入公司名称" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
 echo $_smarty_tpl->tpl_vars['cate']->value['name'];
 }?>" required>
             </div>
@@ -74,7 +76,7 @@ echo $_smarty_tpl->tpl_vars['cate']->value['desc'];
               公司链接
             </div>
             <div class="am-u-sm-8 am-u-md-3 am-u-end">
-              <input name="url" type="text" class="am-input-sm" data-validation-message="公司链接必填" placeholder="输入分类名称" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+              <input name="url" type="text" class="am-input-sm" data-validation-message="公司链接必填" placeholder="输入公司网站链接" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
 echo $_smarty_tpl->tpl_vars['cate']->value['url'];
 }?>" required>
             </div>
@@ -110,8 +112,11 @@ echo $_smarty_tpl->tpl_vars['cate']->value['sort'];
             <div class="am-u-sm-8 am-u-md-3 am-u-end">
               <input name="image" id="image" type="text" class="am-input-sm" value="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
 echo $_smarty_tpl->tpl_vars['cate']->value['image'];
-}?>"  placeholder="默认50">
-              <span style="color:red;">200 * 70图片</span>
+}?>"  placeholder="200*70px图片">
+              <span style="color:red;"></span>
+              <img id="imagesrc" src="<?php if ($_smarty_tpl->tpl_vars['cate']->value) {
+echo $_smarty_tpl->tpl_vars['cate']->value['image'];
+}?>" width="200px" height="70px">
             </div>
             <div class="am-u-sm-12 am-u-md-6">
               <input name="upload" id="upload" type="button" class="am-input-sm" value="上传图片">
@@ -162,6 +167,7 @@ kindeditor/lang/zh_CN.js"><?php echo '</script'; ?>
           clickFn : function(url, title, width, height, border, align) {
             K('#image').val(url);//获取图片地址
             editor.hideDialog(); //隐藏弹窗
+            $('#imagesrc').attr('src', $('#image').val());
           }
         });
       });
@@ -169,11 +175,11 @@ kindeditor/lang/zh_CN.js"><?php echo '</script'; ?>
 
   });
 	$('#save-sure').on('click', function() {
-		$.post("/admin/link/add",
-			$('#doc-vld-msg').serializeArray(),
-		  function(data,status){
-        result(data, status, '/admin/link/index');
-		  });
+
+    var postData = $('#doc-vld-msg').serializeArray();
+    var jumpUrl = '/admin/link/index';
+    var url = "/admin/link/add";
+    post(url, postData, jumpUrl);
 	});
 
 	$(function() {

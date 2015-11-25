@@ -143,14 +143,16 @@ class Article extends Admin_Controller
 			$this->form_validation->set_rules($this->rules);
 			if ($this->form_validation->run() == TRUE)
 			{
-				$input['time'] = time();
 				$user = $this->session->userdata('user');
 				$input['userid'] = $user['info']['id'];
+				$input['publish_time'] = strtotime($input['publish_time']);
 				if (isset($input['id'])) {
+					$input['update_time'] = time();
 					$res = $this->article->update($input, 'id');
 				}
 				else
 				{
+					$input['time'] = time();
 					$res = $this->article->add($input);
 				}
 				if ($res)

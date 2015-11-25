@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 18:21:41
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-24 13:34:16
          compiled from "/data/src/test/codeIgniter/application/views/admin/ad/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564ef435990776_63219251',
+  'unifunc' => 'content_5653f6d862f171_24246290',
   'file_dependency' => 
   array (
     '63c7eb4d23f5cd51765292d86f6d85612b67cee0' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/ad/index.html',
-      1 => 1448013635,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564ef435990776_63219251')) {
-function content_564ef435990776_63219251 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5653f6d862f171_24246290')) {
+function content_5653f6d862f171_24246290 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -50,14 +50,6 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
           <div class="am-btn-group am-btn-group-xs">
             <button id="add-cate" type="button" class="am-btn am-btn-default" onclick="jumpUrl('/admin/ad/add')"><span class="am-icon-plus"></span> 新增</button>
           </div>
-        </div>
-      </div>
-      <div class="am-u-sm-12 am-u-md-3">
-        <div class="am-input-group am-input-group-sm">
-          <input type="text" class="am-form-field">
-          <span class="am-input-group-btn">
-            <button class="am-btn am-btn-default" type="button">搜索</button>
-          </span>
         </div>
       </div>
     </div>
@@ -168,12 +160,8 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/ad/del?id=" + id,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
-          
+          var url = "/admin/ad/del?id=" + id;
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

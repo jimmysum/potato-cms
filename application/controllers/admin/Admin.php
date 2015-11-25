@@ -106,11 +106,18 @@ class Admin extends Admin_Controller
                 unset($input['repassword']);
                 $input['password'] = md5($input['password']);
                 $input['time'] = time();
+                $user = $this->admin->getUserByName($input['username']);
                 if (isset($input['id'])) {
+                    if ($user && $user['id'] != $input['id']) {
+                        $this->outJson(101, '', '此用户名已存在');
+                    }
                     $res = $this->admin->update($input, 'id');
                 }
                 else
                 {
+                    if ($user) {
+                        $this->outJson(101, '', '此用户名已存在');
+                    }
                     $res = $this->admin->add($input);
                 }
                 if ($res)
@@ -172,6 +179,30 @@ class Admin extends Admin_Controller
             $this->outJson(1);
         }
 
+    }
+
+    public function check()
+    {
+        $id = $this->input->get('id');
+        if (!$id) {
+            $this->outJson(-1);
+        }
+
+        $idArr = explode(',', $id);
+        $conditon = array('id_in' => $idArr);
+        $list = $this->admin->getList($conditon);
+        if (!$list) {
+            $this->outJson(101,'','分类不存在');
+        }
+
+        foreach ($list as $key => $v) {
+            $input = array();
+            $input['id'] = $v['id'];
+            $input['lock'] = 1;
+            $res = $this->admin->update($input, 'id');
+        }
+        
+        $this->outJson(0);
     }
 
     public function myinfo()

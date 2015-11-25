@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-20 18:21:25
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-24 13:40:18
          compiled from "/data/src/test/codeIgniter/application/views/admin/link/index.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_564ef425b4cf11_43460223',
+  'unifunc' => 'content_5653f84208f209_96665120',
   'file_dependency' => 
   array (
     '6779851a8245158bb2e0703caa4998b4d5b1b650' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/link/index.html',
-      1 => 1448013757,
+      1 => 1448244790,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_564ef425b4cf11_43460223')) {
-function content_564ef425b4cf11_43460223 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5653f84208f209_96665120')) {
+function content_5653f84208f209_96665120 ($_smarty_tpl) {
 if (!is_callable('smarty_modifier_date_format')) require_once '/data/src/test/codeIgniter/system/libs/smarty/libs/plugins/modifier.date_format.php';
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
@@ -88,7 +88,7 @@ $__foreach_val_0_saved_local_item = $_smarty_tpl->tpl_vars['val'];
               <td><input type="checkbox" /></td>
               <td><span class="am-btn am-btn-xs am-btn-danger"><?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 </span></td>
-              <td><a href="/admin/nav/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+              <td><a href="/admin/link/add?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['val']->value['name'];?>
 </a></td>
               <td><img src="<?php echo $_smarty_tpl->tpl_vars['val']->value['image'];?>
@@ -159,22 +159,13 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
 
 <?php echo '<script'; ?>
 >
-  function copy(id)
-  {
-
-  }
-
   function del(id)
   {
     $('#my-confirm').modal({
         relatedTarget: this,
         onConfirm: function(options) {
-          $.post("/admin/link/del?id=" + id,
-            '',
-            function(data,status){
-              result(data, status, '');
-            });
-          
+          var url = "/admin/link/del?id=" + id;
+          post(url);
         },
         // closeOnConfirm: false,
         onCancel: function() {

@@ -1,16 +1,16 @@
-<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-23 16:21:28
+<?php /* Smarty version 3.1.28-dev/63, created on 2015-11-24 14:31:48
          compiled from "/data/src/test/codeIgniter/application/views/admin/cate/add.html" */ ?>
 <?php
 $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
   'version' => '3.1.28-dev/63',
-  'unifunc' => 'content_5652cc88307c86_84455685',
+  'unifunc' => 'content_56540454dc5ec8_84775766',
   'file_dependency' => 
   array (
     'b50ac4d31702e60161246041defc75d60dcfba84' => 
     array (
       0 => '/data/src/test/codeIgniter/application/views/admin/cate/add.html',
-      1 => 1448244790,
+      1 => 1448346707,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'file:admin/public/footer.html' => 1,
   ),
 ),false);
-if ($_valid && !is_callable('content_5652cc88307c86_84455685')) {
-function content_5652cc88307c86_84455685 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56540454dc5ec8_84775766')) {
+function content_56540454dc5ec8_84775766 ($_smarty_tpl) {
 $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false)->render();
 ?>
 
@@ -54,7 +54,7 @@ $_smarty_tpl->setupSubTemplate('file:admin/public/header.html', $_smarty_tpl->ca
         <div class="am-g am-margin-top">
           <div class="am-u-sm-4 am-u-md-2 am-text-right">上级分类</div>
           <div class="am-u-sm-8 am-u-md-10">
-            <select data-am-selected="{btnSize: 'sm',maxHeight: 200}" name="pid">
+            <select data-am-selected="{btnSize: 'sm',maxHeight: 140}" name="pid" class="">
               <option value="0">请选择分类</option>
               <?php
 $_from = $_smarty_tpl->tpl_vars['list']->value;
@@ -120,7 +120,7 @@ $_smarty_tpl->tpl_vars['val'] = $__foreach_val_0_saved_item;
           </div>
         </div>
         
-		<div class="am-g am-margin-top am-form-group">
+		    <div class="am-g am-margin-top am-form-group">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">
               分类名称
             </div>
