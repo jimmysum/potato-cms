@@ -2,8 +2,9 @@
 Potato 后台管理
 是一项开源项目，是一个简单的cms后台管理。是用codeIgniter框架amazeui后台模板，模板引擎使用的是Smarty，富文本编辑器使用kindeditor，时间选择器使用的是amazeui的datetimepicker插件。
 
-目录说明：
-Potato  |--application  |                       此目录为项目目录
+目录说明：Potato  
+
+        |--application  |                       此目录为项目目录
                         |--cache                ci缓存目录
                         |--config               ci配置目录，里面包含所有的配置
                         |--controllers          项目控制器目录，里面包含后台管理目录admin
@@ -20,13 +21,16 @@ Potato  |--application  |                       此目录为项目目录
         |--public       |                       此目录为公共目录，开发读写权限
                         |--captcha              验证码图片目录
                         |--upload               文件上传目录，里面包含图片文件
+
         |--runtime      |                       项目缓存目录
                         |--session              用户session目录
                         |--templates_c            smarty缓存目录
+
         |--style        |                       项目样式公共目录
                         |--admin                后台样式目录
                         |--home                 前台样式目录
                         |--picker               插件目录
+
         |--system  此目录为ci框架系统目录
         |--ci_potato.sql                        项目数据数据
         
