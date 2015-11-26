@@ -38,3 +38,4 @@ Potato  |--application  |                       此目录为项目目录
         1、首先在自己的数据库中创建自己的数据库。
         2、把ci_potato.sql导入到数据库
         3、配置application/database.php 修改数据库配置文件
+        4、后台url是，http://www.domain.com/index.php/admin/login/login      默认账户是：admin密码123456
