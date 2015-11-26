@@ -39,6 +39,7 @@ Potato 后台管理
 
 
 安装说明：
+
         1、首先在自己的数据库中创建自己的数据库。
         2、把ci_potato.sql导入到数据库
         3、配置application/database.php 修改数据库配置文件
