@@ -1,6 +1,6 @@
 
 Potato 后台管理
-是一项开源项目，是一个简单的cms后台管理。是用codeIgniter框架amazeui后台模板，模板引擎使用的是Smarty，富文本编辑器使用kindeditor，时间选择器使用的是amazeui的datetimepicker插件。
+是一项开源项目，是一个简单的cms后台管理。是用codeIgniter框架amazeui后台模板，模板引擎使用的是Smarty，富文本编辑器使用kindeditor，时间选择器使用的是amazeui的datetimepicker插件。 
 
 目录说明：Potato  
 
